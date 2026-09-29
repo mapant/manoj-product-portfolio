@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   BarChart3,
@@ -33,6 +33,7 @@ import {
   Zap,
 } from "lucide-react";
 import "./App.css";
+import profilePhoto from "./assets/profile.jpg";
 
 const navItems = [
   ["overview", "Overview"],
@@ -55,7 +56,9 @@ function Header({ active }) {
   return (
     <header className="site-header">
       <div className="brand">
-        <div className="avatar">MP</div>
+        <div className="avatar">
+        <img src={profilePhoto} alt="Manoj Pant" />
+      </div>
         <div>
           <div className="brand-name">Manoj Pant</div>
           <div className="brand-role">SENIOR PRODUCT MANAGER</div>
@@ -163,9 +166,43 @@ function ProcessCard({ number, title, eyebrow, text, bullets, icon: Icon, color 
 function App() {
   const [active, setActive] = useState("overview");
 
-  const sections = navItems.map((x) => x[0]);
+  const sections = navItems.filter(([id]) => id !== "overview").map(([id]) => id);
 
-  useState(() => {
+  useEffect(() => {
+    const root = document.documentElement;
+    const baseWidth = 1440;
+    const baseHeight = 900;
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+    const applyLayout = () => {
+      const dpr = window.devicePixelRatio || 1;
+      const physicalWidth = window.innerWidth * dpr;
+      const physicalHeight = window.innerHeight * dpr;
+      const desktop = finePointer.matches && Math.max(physicalWidth, physicalHeight) >= 1000;
+
+      if (desktop) {
+        const scale = Math.min(window.innerWidth / baseWidth, window.innerHeight / baseHeight);
+        root.dataset.layout = "desktop";
+        root.style.setProperty("--ds", String(Math.max(0.25, Math.min(scale, 4.5))));
+      } else {
+        root.dataset.layout = "responsive";
+        root.style.removeProperty("--ds");
+      }
+    };
+
+    applyLayout();
+    window.addEventListener("resize", applyLayout);
+    window.visualViewport?.addEventListener("resize", applyLayout);
+    finePointer.addEventListener?.("change", applyLayout);
+
+    return () => {
+      window.removeEventListener("resize", applyLayout);
+      window.visualViewport?.removeEventListener("resize", applyLayout);
+      finePointer.removeEventListener?.("change", applyLayout);
+    };
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -174,7 +211,7 @@ function App() {
 
         if (visible) setActive(visible.target.id);
       },
-      { threshold: [0.35, 0.6, 0.8] }
+      { threshold: [0.25, 0.5, 0.75] }
     );
 
     sections.forEach((id) => {
@@ -182,116 +219,29 @@ function App() {
       if (el) observer.observe(el);
     });
 
-    return () => observer.disconnect();
+    const onScroll = () => {
+      if (window.scrollY < 120) setActive("overview");
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (
-    <div className="portfolio-app">
-      <Header active={active} />
+    <div className="scale-stage">
+      <div className="portfolio-app">
+        <Header active={active} />
 
-      <main>
-        {/* =========================================================
-            01 OVERVIEW
-        ========================================================= */}
-        <section id="overview" className="page-section overview-section">
-          <div className="overview-left">
-            <SectionTag>
-              PRODUCT STRATEGY · AI & GENAI · ENTERPRISE PLATFORMS
-            </SectionTag>
-
-            <h1>
-              Building products
-              <br />
-              from <span>complex problems</span>
-              <br />
-              to measurable <em>impact.</em>
-            </h1>
-
-            <p className="lead">
-              Senior Product Manager with <b>10+ years of experience</b> across
-              FinTech, Healthcare, Telecom and Enterprise IT — combining product
-              strategy, business analysis, technology, data and execution to
-              build scalable enterprise products.
-            </p>
-
-            <div className="metrics-grid four">
-              <MetricCard icon={ShieldCheck} value="10+" label="YEARS EXPERIENCE" />
-              <MetricCard icon={Building2} value="12+" label="ENTERPRISE APPLICATIONS" color="green" />
-              <MetricCard icon={Users} value="4" label="INDUSTRY ECOSYSTEMS" color="orange" />
-              <MetricCard icon={Rocket} value="0→1" label="PRODUCT DEVELOPMENT" color="purple" />
-            </div>
-
-            <h3 className="sub-heading">CORE EXPERTISE</h3>
-
-            <div className="expertise-grid">
-              <MiniCard icon={BarChart3} title="Analytics" text="SQL · Power BI · Tableau · KPI Reporting" />
-              <MiniCard icon={FileText} title="Business Analysis" text="Requirements · Process Design · Stakeholder Discovery" color="green" />
-              <MiniCard icon={Settings2} title="Technical Product" text="APIs · Workflows · Data Flows · Solution Collaboration" color="purple" />
-              <MiniCard icon={Target} title="Product Management" text="Strategy · Roadmap · Delivery · Adoption · Outcomes" color="purple" />
-              <MiniCard icon={Brain} title="AI & GenAI" text="AI Strategy · Copilot · LLMs · Intelligent Workflows" color="purple" />
-              <MiniCard icon={Network} title="Automation & Integration" text="API-First · Microservices · Cloud · Enterprise Platforms" color="blue" />
-            </div>
-          </div>
-
-          <div className="operating-model">
-            <div className="model-header">
-              <div>
-                <span className="cube-icon">
-                  <Layers3 size={19} />
-                </span>
-                <b>PRODUCT OPERATING MODEL</b>
-              </div>
-              <span>PROBLEM → PRODUCT → OUTCOME</span>
-            </div>
-
-            <div className="model-grid">
-              <div className="model-box business">
-                <Building2 />
-                <h3>Business</h3>
-                <p>FinTech | Health Tech | Telecom</p>
-                <div className="bar-chart"><i /><i /><i /></div>
-              </div>
-
-              <div className="model-box ai">
-                <Brain />
-                <h3>AI & GenAI</h3>
-                <p>AI Strategy | Copilot | LLMs</p>
-                <Sparkles />
-              </div>
-
-              <div className="model-center">
-                <Layers3 />
-                <b>Product</b>
-                <span>Manoj Pant – Technical Product Manager</span>
-              </div>
-
-              <div className="model-box automation">
-                <Settings2 />
-                <h3>Automation</h3>
-                <p>API-First | Microservices | Cloud</p>
-                <Cloud />
-              </div>
-
-              <div className="model-box data">
-                <Database />
-                <h3>Data</h3>
-                <p>SQL | Power BI | KPI Frameworks</p>
-                <BarChart3 />
-              </div>
-            </div>
-
-            <div className="model-footer">
-              <span><Target /> STRATEGY<br /><small>Vision · Priorities · Roadmap</small></span>
-              <span><Settings2 /> DELIVERY<br /><small>Build · Integrate · Deploy</small></span>
-              <span><TrendingUp /> ADOPTION & OUTCOMES<br /><small>Scale · Measure · Impact</small></span>
-            </div>
-          </div>
-        </section>
+        <main>
+        <div id="overview" className="overview-anchor" aria-hidden="true" />
 
         {/* =========================================================
-            02 ECOSYSTEM
+            01 ECOSYSTEM
         ========================================================= */}
-        <section id="ecosystem" className="page-section dark-section">
+        <section id="ecosystem" className="page-section ecosystem-section dark-section">
           <div className="dark-copy">
             <SectionTag>PRODUCT ECOSYSTEM</SectionTag>
             <h2>
@@ -339,6 +289,12 @@ function App() {
             <MiniCard icon={GitBranch} title="Operations" text="Controls, rollout, training and support." color="pink" />
             <MiniCard icon={ShieldCheck} title="Compliance" text="AML/KYC, audit, regulatory and risk controls." color="orange" />
 
+            <div className="ecosystem-hub">
+              <Layers3 />
+              <b>Product<br />Ecosystem</b>
+              <small>Business · Customer · Product · Technology</small>
+            </div>
+
             <div className="ecosystem-bottom">
               <span><Users /> 100%<small>CROSS-FUNCTIONAL COLLABORATION</small></span>
               <span><Database /> MULTI-SYSTEM<small>INTEGRATIONS & DATA FLOWS</small></span>
@@ -349,7 +305,7 @@ function App() {
         </section>
 
         {/* =========================================================
-            03 CHALLENGE
+            02 CHALLENGE
         ========================================================= */}
         <section id="challenge" className="page-section dark-section challenge-section">
           <div className="dark-copy">
@@ -470,7 +426,7 @@ function App() {
         </section>
 
         {/* =========================================================
-            04 STRATEGY
+            03 STRATEGY
         ========================================================= */}
         <section id="strategy" className="page-section strategy-section">
           <div className="strategy-copy">
@@ -616,7 +572,7 @@ function App() {
         </section>
 
         {/* =========================================================
-            05 PM SCOPE
+            04 PM SCOPE
         ========================================================= */}
         <section id="scope" className="page-section scope-section">
           <div className="scope-copy">
@@ -635,10 +591,14 @@ function App() {
             </p>
 
             <div className="scope-wheel">
-              <span className="wheel-node top">Strategy</span>
-              <span className="wheel-node right">Discovery</span>
-              <span className="wheel-node bottom">Delivery</span>
-              <span className="wheel-node left">Adoption</span>
+              <span className="wheel-node p1">01<br />Discover</span>
+              <span className="wheel-node p2">02<br />Define</span>
+              <span className="wheel-node p3">03<br />Design</span>
+              <span className="wheel-node p4">04<br />Architect</span>
+              <span className="wheel-node p5">05<br />Automate</span>
+              <span className="wheel-node p6">06<br />AI / GenAI</span>
+              <span className="wheel-node p7">07<br />Deliver</span>
+              <span className="wheel-node p8">08<br />Scale & Adopt</span>
               <div className="wheel-center">
                 <Layers3 />
                 <b>Product<br />Management</b>
@@ -674,7 +634,7 @@ function App() {
         </section>
 
         {/* =========================================================
-            06 PRODUCT METRICS
+            05 PRODUCT METRICS
         ========================================================= */}
         <section id="metrics" className="page-section metrics-section">
           <div className="metrics-copy">
@@ -735,23 +695,39 @@ function App() {
               <span><b>Automation rate</b><small>Automated cases ÷ Total eligible cases</small></span>
               <span><b>Exception rate</b><small>Exception cases ÷ Total processed cases</small></span>
             </div>
+            <div className="metric-categories">
+              <span><Users /> <b>Adoption & Usage</b><small>Users, activation, journey</small></span>
+              <span><Settings2 /> <b>Operational Efficiency</b><small>Time, effort, automation</small></span>
+              <span><ShieldCheck /> <b>Quality & Risk</b><small>Control, performance, SLA</small></span>
+              <span><BarChart3 /> <b>Business Impact</b><small>Cost, productivity, revenue</small></span>
+              <span><Brain /> <b>AI & Automation</b><small>Intelligence, STP, accuracy</small></span>
+            </div>
           </div>
         </section>
 
         {/* =========================================================
-            07 PORTFOLIO
+            06 PORTFOLIO
         ========================================================= */}
         <section id="portfolio" className="page-section portfolio-section">
           <div className="portfolio-heading">
-            <SectionTag>SELECTED PRODUCT PORTFOLIO</SectionTag>
-            <h2>
-              Real products. Real impact.
-              <span>Across domains and platforms.</span>
-            </h2>
-            <p>
-              Five representative case studies from my product journey. Each project
-              highlights the problem, my ownership, solution, key metrics and the impact created.
-            </p>
+            <div>
+              <SectionTag>SELECTED PRODUCT PORTFOLIO</SectionTag>
+              <h2>
+                Real products. Real impact.
+                <span>Across domains and platforms.</span>
+              </h2>
+              <p>
+                Five representative case studies from my product journey. Each project
+                highlights the problem, my ownership, solution, key metrics and the impact created.
+              </p>
+            </div>
+            <div className="portfolio-lens">
+              <div className="mini-icon"><Target size={18} /></div>
+              <div>
+                <b>Portfolio lens</b>
+                <p>Problem → Ownership → Solution → Execution → Outcome. Click to explore detailed case study for each product.</p>
+              </div>
+            </div>
           </div>
 
           <div className="portfolio-cards">
@@ -824,7 +800,7 @@ function App() {
         </section>
 
         {/* =========================================================
-            08 TECH & DATA
+            07 TECH & DATA
         ========================================================= */}
         <section id="tech" className="page-section tech-section">
           <div className="tech-heading">
@@ -915,20 +891,26 @@ function App() {
         </section>
 
         {/* =========================================================
-            09 OUTCOMES
+            08 OUTCOMES
         ========================================================= */}
         <section id="outcomes" className="page-section outcomes-section">
           <div className="outcomes-heading">
-            <SectionTag>PRODUCT OUTCOMES</SectionTag>
-            <h2>
-              Outcomes that connect product work
-              <br />
-              <span>to real business performance.</span>
-            </h2>
-            <p>
-              Measurable impact across adoption, efficiency, automation, compliance
-              and cost optimization from my product work in fintech, healthcare and telecom.
-            </p>
+            <div>
+              <SectionTag>PRODUCT OUTCOMES</SectionTag>
+              <h2>
+                Outcomes that connect product work
+                <br />
+                <span>to real business performance.</span>
+              </h2>
+              <p>
+                Measurable impact across adoption, efficiency, automation, compliance
+                and cost optimization from my product work in fintech, healthcare and telecom.
+              </p>
+            </div>
+            <div className="outcome-lens">
+              <b>Outcome lens</b>
+              <p>Each outcome maps to a business goal and is measured through clear metrics across adoption, efficiency, automation, cost and impact.</p>
+            </div>
           </div>
 
           <div className="outcome-top-cards">
@@ -975,7 +957,7 @@ function App() {
         </section>
 
         {/* =========================================================
-            10 CONNECT
+            09 CONNECT
         ========================================================= */}
         <section id="connect" className="page-section connect-section">
           <div className="connect-left">
@@ -1016,8 +998,8 @@ function App() {
                 <h4>Connect on professional platforms</h4>
                 <p>Let's connect and stay in touch on professional networks.</p>
                 <div className="socials">
-                  <a href="#" onClick={(e) => e.preventDefault()}><span>in</span> LinkedIn</a>
-                  <a href="#" onClick={(e) => e.preventDefault()}><GitBranch /> GitHub</a>
+                  <a href="https://www.linkedin.com/in/manoj-pant-35129495/" target="_blank" rel="noreferrer"><span>in</span> LinkedIn</a>
+                  <a href="https://github.com/mapant" target="_blank" rel="noreferrer"><GitBranch /> GitHub</a>
                   <a href="#" onClick={(e) => e.preventDefault()}><span>𝕏</span> X (Twitter)</a>
                 </div>
               </div>
@@ -1062,7 +1044,7 @@ function App() {
                 const body = encodeURIComponent(
                   `${data.get("message") || ""}\n\nCompany: ${data.get("company") || ""}\nEmail: ${data.get("email") || ""}`
                 );
-                window.location.href = `mailto:?subject=${subject}&body=${body}`;
+                window.location.href = `mailto:manoj-pant@outlook.com?subject=${subject}&body=${body}`;
               }}
             >
               <div className="form-row">
@@ -1097,6 +1079,7 @@ function App() {
         <span>© {new Date().getFullYear()} Manoj Pant</span>
         <span>Senior Product Manager · Product Portfolio</span>
       </footer>
+      </div>
     </div>
   );
 }
@@ -1151,9 +1134,17 @@ function PortfolioCard({
         {tags.map((tag) => <span key={tag}>{tag}</span>)}
       </div>
 
-      <button className="case-study-btn">
+      <a className="case-study-btn" href={
+        {
+          "Integrated Channels Suite": "/projects/integrated-channels",
+          "AML & Compliance Automation": "/projects/aml-compliance",
+          "Ayu DocConnect": "/projects/ayu-docconnect",
+          "Provider Payout Automation": "/projects/provider-payout",
+          "Telecom Analytics & Cost Optimization": "/projects/telecom-cost-optimization",
+        }[title] || "/portfolio"
+      }>
         View Case Study <ArrowRight size={15} />
-      </button>
+      </a>
     </article>
   );
 }
