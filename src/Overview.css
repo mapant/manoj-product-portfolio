@@ -1,4 +1,4 @@
-/* Overview — first presentation section. Geometry is intentionally fixed to the existing 1440 × 796 desktop canvas so browser zoom does not reflow it. */
+/* Overview — first presentation section. Geometry is intentionally fixed to the desktop presentation canvas so browser zoom does not reflow it. */
 .overview-section {
   display: grid !important;
   grid-template-columns: 1.05fr .95fr !important;
@@ -370,19 +370,3 @@
 .overview-model-footer svg { grid-row: 1 / span 2; width: 16px; }
 .overview-model-footer b { line-height: 1.1; }
 .overview-model-footer small { display:block; margin-top:3px; font-size:6.5px; line-height:1.15; font-weight:600; opacity:.92; }
-
-@media (max-width: 900px) {
-  .overview-section {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 100vh !important;
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-    padding: 118px 24px 30px !important;
-    overflow: visible !important;
-  }
-  .overview-left h1 { font-size: 48px; letter-spacing:-2.5px; }
-  .overview-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .overview-expertise-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .overview-operating-model { min-height: 620px; }
-}
