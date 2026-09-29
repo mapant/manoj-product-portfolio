@@ -1,6 +1,7 @@
 import { StrictMode, useLayoutEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import './Styles/DesktopLayout.css'
 import App from './App.jsx'
 import OverviewSection from './OverviewSection.jsx'
 
