@@ -1,30 +1,39 @@
-const mainScroll = document.querySelector('main');
-    const sections = Array.from(document.querySelectorAll('.slide'));
-    const navLinks = Array.from(document.querySelectorAll('#nav a'));
+/**
+ * Portfolio navigation
+ * Native document scrolling only.
+ * No canvas measurements, no transforms, no JS scaling.
+ */
+const links = Array.from(document.querySelectorAll('#nav a'));
+const sections = Array.from(document.querySelectorAll('main > .slide'));
 
-    const setActive = () => {
-      if (!mainScroll || !sections.length) return;
-      const marker = mainScroll.scrollTop + (mainScroll.clientHeight * 0.34);
-      let current = sections[0].id;
+const setActive = (id) => {
+  links.forEach((link) => {
+    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+  });
+};
 
-      for (const section of sections) {
-        if (marker >= section.offsetTop) current = section.id;
-      }
+const observer = new IntersectionObserver(
+  (entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-      navLinks.forEach((link) => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-      });
-    };
+    if (visible) setActive(visible.target.id);
+  },
+  {
+    root: null,
+    rootMargin: '-20% 0px -65% 0px',
+    threshold: [0.1, 0.25, 0.5, 0.75]
+  }
+);
 
-    navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        const target = document.querySelector(link.getAttribute('href'));
-        target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
+sections.forEach((section) => observer.observe(section));
 
-    mainScroll?.addEventListener('scroll', setActive, { passive: true });
-    window.addEventListener('resize', setActive, { passive: true });
-    window.addEventListener('load', setActive);
-    setActive();
-  
+links.forEach((link) => {
+  link.addEventListener('click', () => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) setActive(target.id);
+  });
+});
+
+setActive(sections[0]?.id || 'overview');
