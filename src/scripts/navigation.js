@@ -1,26 +1,30 @@
-/* Layout-mode + uniform desktop scaling.
-       innerWidth * devicePixelRatio equals the physical window width and does NOT change with
-       browser zoom (zoom divides innerWidth and multiplies devicePixelRatio), so a desktop at any
-       zoom stays "desktop". Touch-first devices (tablets/phones) report a coarse pointer and keep
-       the responsive layout. */
-    (function () {
-      var W = 1440, H = 900, root = document.documentElement;
-      var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
-      function apply() {
-        var phys = window.innerWidth * (window.devicePixelRatio || 1);
-        var desktop = fine.matches && phys >= 1000;
-        if (desktop) {
-          var s = Math.min(window.innerWidth / W, window.innerHeight / H);
-          root.style.setProperty('--ds', s);
-          root.style.setProperty('--ds-x', ((window.innerWidth - W * s) / 2) + 'px');
-          root.style.setProperty('--ds-y', ((window.innerHeight - H * s) / 2) + 'px');
-          root.setAttribute('data-layout', 'desktop');
-        } else {
-          root.setAttribute('data-layout', 'responsive');
-          ['--ds', '--ds-x', '--ds-y'].forEach(function (p) { root.style.removeProperty(p); });
-        }
+const mainScroll = document.querySelector('main');
+    const sections = Array.from(document.querySelectorAll('.slide'));
+    const navLinks = Array.from(document.querySelectorAll('#nav a'));
+
+    const setActive = () => {
+      if (!mainScroll || !sections.length) return;
+      const marker = mainScroll.scrollTop + (mainScroll.clientHeight * 0.34);
+      let current = sections[0].id;
+
+      for (const section of sections) {
+        if (marker >= section.offsetTop) current = section.id;
       }
-      apply();
-      window.addEventListener('resize', apply);
-      if (fine.addEventListener) fine.addEventListener('change', apply);
-    })();
+
+      navLinks.forEach((link) => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+      });
+    };
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const target = document.querySelector(link.getAttribute('href'));
+        target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    mainScroll?.addEventListener('scroll', setActive, { passive: true });
+    window.addEventListener('resize', setActive, { passive: true });
+    window.addEventListener('load', setActive);
+    setActive();
+  
