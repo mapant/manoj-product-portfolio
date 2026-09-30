@@ -1,19 +1,90 @@
----
-import "../../styles/case-study.scss";
-title: Telecom Analytics & Cost Optimization
-company: Nokia Networks
----
-<div class="case-study">
-  <a class="back-link" href="/#portfolio">← Back to portfolio</a>
-  <span class="case-kicker">05 · NOKIA NETWORKS</span>
-  <h1>Telecom Analytics & Cost Optimization</h1>
-  <p class="case-lead">Analytics-led product and reporting work connecting large operational datasets to financial visibility, KPI tracking and cost-control decisions.</p>
-  <div class="case-grid">
-    <article><span>Problem</span><h2>Operational data without decision clarity</h2><p>Large datasets needed consistent KPI definitions, financial visibility and a practical path from reporting to action.</p></article>
-    <article><span>Product ownership</span><h2>Data → insight → action</h2><p>SQL analysis, Power BI / Tableau reporting, KPI frameworks, financial tracking and workflow automation.</p></article>
-    <article><span>Analytics foundation</span><h2>Reusable decision signals</h2><p>Structured reporting around operational performance, cost drivers and management visibility.</p></article>
-    <article><span>Outcome</span><h2>25% cost reduction</h2><p>The represented initiative delivered a 25% telecom operating-cost reduction.</p></article>
-  </div>
-  <div class="case-section"><h2>Capability areas</h2><div class="tags"><span>Telecom</span><span>SQL</span><span>Power BI</span><span>Tableau</span><span>KPI Frameworks</span><span>Cost Optimization</span></div></div>
-  <div class="case-section"><h2>Product artefacts</h2><p>SQL analysis · KPI definitions · dashboards · management reporting · financial tracking · automation opportunities · stakeholder reporting</p></div>
-</div>
+import CaseStudyPage from '../../components/CaseStudyPage.astro';
+
+const data = {
+  index: '05 · NOKIA NETWORKS',
+  title: 'Telecom Analytics & Cost Optimization',
+  company: 'Nokia Networks',
+  brand: 'NOKIA',
+  eyebrow: 'Telecom analytics · financial visibility · decision support',
+  theme: 'telecom',
+  lead: 'Analytics-led product and reporting work connecting large operational datasets to financial visibility, KPI tracking and cost-control decisions across network rollout and supply-chain contexts.',
+  metrics: [
+    { value: '25%', label: 'represented telecom operating-cost reduction', tone: 'mint' },
+    { value: '6 yrs+', label: 'analytics and BI foundation across telecom work', tone: 'lav' },
+    { value: 'SQL', label: 'advanced analysis and reusable data logic', tone: 'blue' },
+    { value: 'BI', label: 'Power BI / Tableau decision surfaces', tone: 'rose' }
+  ],
+  friction: [
+    'Large operational datasets made it difficult to see cost drivers and financial impact consistently.',
+    'Different teams needed shared KPI definitions rather than competing reports.',
+    'Management needed a faster path from network and SCM data to action.',
+    'Repeated reporting activity created opportunities for automation and standardisation.'
+  ],
+  personas: [
+    { role: 'Network / Rollout', need: 'Track rollout activity, cost and operational status.', control: 'KPI visibility' },
+    { role: 'Finance', need: 'Understand cost drivers and variance.', control: 'Financial tracking' },
+    { role: 'Supply Chain', need: 'Monitor operational and procurement signals.', control: 'Performance metrics' },
+    { role: 'Business Leadership', need: 'See trends and make cost decisions.', control: 'Executive dashboard' },
+    { role: 'Analytics Team', need: 'Maintain reusable data logic and reports.', control: 'Data quality' },
+    { role: 'Project Management', need: 'Track delivery against plan and spend.', control: 'Variance management' }
+  ],
+  strategy: [
+    { title: 'Define the decision first', text: 'Start with the management question and work backwards to the KPI, data and visual needed.', bullets: ['Decision', 'KPI', 'Data'] },
+    { title: 'Create one KPI language', text: 'Standardise metric definitions so operational and financial teams interpret performance consistently.', bullets: ['Definitions', 'Dimensions', 'Targets'] },
+    { title: 'Automate repeat reporting', text: 'Replace manual consolidation with reusable SQL logic, data preparation and dashboard refresh patterns.', bullets: ['SQL', 'Automation', 'Refresh'] },
+    { title: 'Move from reporting to action', text: 'Design dashboards around variance, drivers, exceptions and next decisions rather than charts alone.', bullets: ['Variance', 'Drivers', 'Action'] }
+  ],
+  architecture: [
+    { title: 'Decision experience', items: ['Executive dashboard', 'Cost views', 'Rollout KPIs', 'Management reports'] },
+    { title: 'Analytics layer', items: ['KPI logic', 'Variance analysis', 'Segmentation', 'Trend analysis'] },
+    { title: 'Data preparation', items: ['SQL transformations', 'Data validation', 'Aggregation', 'Automation'] },
+    { title: 'Source systems', items: ['Network data', 'SCM data', 'Financial data', 'Project data'] },
+    { title: 'Consumers', items: ['Finance', 'Operations', 'Leadership', 'Project teams'] }
+  ],
+  integrations: ['Network / rollout data', 'Supply-chain data', 'Financial data', 'Project systems', 'Power BI', 'Tableau'],
+  dataFlow: ['Extract', 'Validate', 'Transform', 'Calculate KPIs', 'Segment', 'Visualise', 'Decision'],
+  workflow: [
+    { title: 'Question', text: 'Define the management decision' },
+    { title: 'Source', text: 'Identify operational and financial data' },
+    { title: 'Transform', text: 'Clean, join and standardise data' },
+    { title: 'Measure', text: 'Calculate agreed KPI definitions' },
+    { title: 'Explain', text: 'Surface drivers and variance' },
+    { title: 'Act', text: 'Use insight for cost / delivery decisions' }
+  ],
+  exceptions: [
+    { title: 'Data quality gap', text: 'Flag missing or inconsistent source values before they influence management reporting.' },
+    { title: 'KPI definition mismatch', text: 'Use a controlled KPI dictionary to prevent teams from comparing different calculations.' },
+    { title: 'Unexpected variance', text: 'Drill from aggregate KPI to the operational dimension responsible for the change.' },
+    { title: 'Manual refresh dependency', text: 'Identify repeatable preparation work as an automation candidate instead of embedding it in analyst routines.' }
+  ],
+  artifacts: [
+    { type: 'Dashboard reconstruction', title: 'Cost & performance cockpit', text: 'A portfolio-safe BI concept showing KPI cards, trend lines, variance drivers and drill-down paths.' },
+    { type: 'Data artifact', title: 'KPI definition layer', text: 'A reusable metric specification connecting business definition, SQL logic, source fields and reporting dimensions.', code: 'KPI = actual cost / approved baseline\nDimensions → region · project · period\nOutput → variance + driver' },
+    { type: 'Decision artifact', title: 'Management action view', text: 'A structured view that moves from signal to driver to accountable action rather than stopping at visual reporting.' }
+  ],
+  rollout: [
+    { title: 'Data & stakeholder discovery', text: 'Map source systems, reporting pain points, KPI definitions and management decisions.', bullets: ['Stakeholders', 'Source map', 'KPI dictionary'] },
+    { title: 'Prototype & validate', text: 'Build dashboard concepts and validate the decision story with operational and finance users.', bullets: ['Prototype', 'SQL checks', 'Feedback'] },
+    { title: 'Automate & publish', text: 'Replace repeated manual preparation with reusable data logic and scheduled reporting patterns.', bullets: ['Automation', 'Refresh', 'Controls'] },
+    { title: 'Adoption & optimisation', text: 'Use dashboard usage and stakeholder feedback to refine metrics and prioritise new analysis.', bullets: ['Training', 'Usage', 'Backlog'] }
+  ],
+  outcomes: [
+    { value: '25%', label: 'represented telecom operating-cost reduction' },
+    { value: 'SQL + BI', label: 'analytics foundation connecting data preparation to decision surfaces' },
+    { value: 'KPI', label: 'shared performance language for operational and financial stakeholders' },
+    { value: 'Action', label: 'reporting evolved toward drivers, variance and decision support' }
+  ],
+  lessons: [
+    'The most useful dashboard is not the one with the most charts; it is the one that makes the next management decision obvious.',
+    'Data quality and metric definitions are product concerns because a polished visual built on inconsistent logic can still create poor decisions.'
+  ],
+  roadmap: [
+    { title: 'Driver-based forecasting', text: 'Move from descriptive cost reporting toward scenario-based forecasting and early warning signals.' },
+    { title: 'Self-service analytics', text: 'Create governed dimensions and reusable semantic models for business users.' },
+    { title: 'Anomaly detection', text: 'Surface unusual cost and operational patterns automatically for analyst review.' },
+    { title: 'AI decision assistant', text: 'Summarise KPI movement, explain likely drivers and prepare management questions for human review.' }
+  ],
+  capabilities: ['Telecom', 'SQL', 'Power BI', 'Tableau', 'KPI Frameworks', 'Cost Optimisation', 'Automation', 'Stakeholder Analytics']
+};
+
+<CaseStudyPage data={data} />
