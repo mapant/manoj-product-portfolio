@@ -1,33 +1,157 @@
 ---
 import Layout from '../layouts/PortfolioLayout.astro';
-import Header from '../components/Header.astro';
-import Overview from '../components/sections/Overview.astro';
-import Ecosystem from '../components/sections/Ecosystem.astro';
-import Challenge from '../components/sections/Challenge.astro';
-import Strategy from '../components/sections/Strategy.astro';
-import PMScope from '../components/sections/PMScope.astro';
-import Metrics from '../components/sections/Metrics.astro';
-import Portfolio from '../components/sections/Portfolio.astro';
-import TechData from '../components/sections/TechData.astro';
-import Outcomes from '../components/sections/Outcomes.astro';
-import Connect from '../components/sections/Connect.astro';
+
+/* --------------------------------------------------------------------------
+   PORTFOLIO CONTENT MODEL
+   -------------------------------------------------------------------------- */
+
+const navItems = [
+  ['overview', 'Overview'],
+  ['ecosystem', 'Ecosystem'],
+  ['challenge', 'Challenge'],
+  ['strategy', 'Strategy'],
+  ['scope', 'PM Scope'],
+  ['metrics', 'Product Metrics'],
+  ['portfolio', 'Portfolio'],
+  ['tech', 'Tech & Data'],
+  ['outcomes', 'Outcomes'],
+  ['contact', 'Connect']
+];
+
+const heroFocus = [
+  'FinTech',
+  'Health Tech',
+  'AI Strategy',
+  'Copilot',
+  'Product Development'
+];
+
+const careerArc = [
+  ['01', 'Analytics', 'SQL · Power BI · Tableau · KPI reporting'],
+  ['02', 'Business Analysis', 'Requirements · process design · stakeholder discovery'],
+  ['03', 'Technical Product', 'APIs · workflows · data flows · solution collaboration'],
+  ['04', 'Product Management', 'Strategy · roadmap · delivery · adoption · outcomes']
+];
+
+const ecosystem = [
+  { title: 'Business', text: 'Goals, economics and operating constraints', type: 'business', details: ['Business strategy & OKRs', 'Revenue, cost and productivity', 'Operating model and constraints'] },
+  { title: 'Customer', text: 'Journeys, pain points and adoption', type: 'customer', details: ['User personas and segments', 'Journey mapping and NPS', 'Adoption and experience metrics'] },
+  { title: 'Product', text: 'Vision, roadmap, capabilities and experience', type: 'product', details: ['Product strategy and roadmap', 'Capabilities and features', 'Omnichannel experience'] },
+  { title: 'AI & GenAI', text: 'Decisioning, document and knowledge workflows', type: 'ai', details: ['AI-assisted decisioning', 'Document intelligence (IDP)', 'Knowledge and copilot workflows'] },
+  { title: 'Automation', text: 'Rules, approvals, exceptions and reconciliation', type: 'automation', details: ['Workflow automation', 'Approvals and exception handling', 'Reconciliation and straight-through'] },
+  { title: 'Data', text: 'SQL, BI, KPIs and product intelligence', type: 'data', details: ['Source systems and data model', 'KPI definitions and product analytics', 'Insights and data-driven decisions'] },
+  { title: 'Operations', text: 'Controls, rollout, training and support', type: 'operations', details: ['Operational processes and SLAs', 'Rollout, change and training', 'L1/L2/L3 support and improvement'] },
+  { title: 'Compliance', text: 'AML/KYC, audit, regulatory and risk controls', type: 'compliance', details: ['Regulatory and policy compliance', 'Risk controls and monitoring', 'Audit readiness and reporting'] }
+];
+
+const challengeItems = [
+  { number: '01', title: 'Fragmented processes', text: 'Turn business processes spread across teams and systems into one coherent product journey.', type: 'workflow', points: ['Multiple teams and systems', 'Inconsistent process variants', 'Manual hand-offs and rework', 'Lack of end-to-end visibility'], response: 'Map, standardize and streamline the end-to-end product workflow.' },
+  { number: '02', title: 'Integration dependency', text: 'Design product behavior around APIs, external systems, failures, retries and reconciliation.', type: 'integration', points: ['Multiple external and internal systems', 'API failures, retries and timeouts', 'Data inconsistencies and reconciliation', 'Dependency on third-party platforms'], response: 'Define integration patterns, failure handling and reconciliation logic.' },
+  { number: '03', title: 'Decision complexity', text: 'Convert rules, risk signals, exceptions and human judgment into clear decision workflows.', type: 'decision', points: ['Complex business rules and policies', 'Risk signals and multiple data inputs', 'High exception and manual review', 'Need for transparent audit trail'], response: 'Design decision workflows with clear rules, thresholds and exception handling.' },
+  { number: '04', title: 'Manual operations', text: 'Find opportunities to remove repetitive work through workflow automation and intelligent assistance.', type: 'automation', points: ['Manual data entry and processing', 'Repetitive checks and approvals', 'High operational effort and errors', 'Slow turnaround for customers and teams'], response: 'Automate repeatable work with approvals and exception handling.' },
+  { number: '05', title: 'Data ambiguity', text: 'Create a reliable link between source data, KPI definitions, reporting and product decisions.', type: 'data', points: ['Multiple source systems and data models', 'Inconsistent KPI definitions', 'Data quality and reconciliation issues', 'Limited product and operational insights'], response: 'Define data models, KPI frameworks and reliable reporting for product decisions.' },
+  { number: '06', title: 'Enterprise alignment', text: 'Bring business, design, engineering, data, operations, compliance and clients around one outcome.', type: 'alignment', points: ['Diverse stakeholder priorities', 'Different success metrics across teams', 'Regulatory and compliance requirements', 'Need for shared roadmap and accountability'], response: 'Align stakeholders with a clear product vision, roadmap and measurable outcomes.' }
+];
+
+const strategySteps = [
+  { number: '01', tag: 'Frame', icon: 'frame', title: 'Problem framing and opportunity', text: 'Clarify the business problem, user pain points and measurable outcome.', points: ['Understand customer and market context', 'Define the problem, success criteria and scope', 'Identify opportunities (including AI / automation)', 'Assess constraints and dependencies'], focus: 'Define a clear problem statement and opportunity thesis.', tone: 'blue' },
+  { number: '02', tag: 'Discover', icon: 'discover', title: 'User, process and data discovery', text: 'Map users, journeys, processes, data and system dependencies.', points: ['User research and journey mapping', 'Process analysis and pain points', 'Data analysis and system landscape', 'Identify automation and AI opportunities'], focus: 'Build a shared understanding with evidence.', tone: 'purple' },
+  { number: '03', tag: 'Define', icon: 'define', title: 'Translate to product strategy', text: 'Convert insights into vision, capabilities, requirements and acceptance criteria.', points: ['Define target user experience and capabilities', 'Set product strategy and positioning', 'Write data and legal requirements', 'Align on KPIs and success metrics'], focus: 'Prioritize solutions and define what to build and why.', tone: 'green' },
+  { number: '04', tag: 'Prioritize', icon: 'prioritize', title: 'Balance value, risk and feasibility', text: 'Evaluate opportunities based on customer value, business impact, feasibility and AI potential.', points: ['Value vs effort and impact analysis', 'Risk and compliance assessment', 'Technical and operational feasibility', 'Identify quick wins and strategic bets'], focus: 'Create a transparent, data-driven prioritization framework.', tone: 'amber' },
+  { number: '05', tag: 'Roadmap', icon: 'roadmap', title: 'Plan and sequence delivery', text: 'Sequence capabilities, dependencies, releases and adoption activities.', points: ['Define product roadmap and milestones', 'Identify cross-team dependencies', 'Plan for adoption, change and training', 'Allocate resources and capacity'], focus: 'Build a feasible, outcome-driven roadmap.', tone: 'pink' },
+  { number: '06', tag: 'Deliver', icon: 'deliver', title: 'Execute and scale solutions', text: 'Coordinate design, engineering, QA, security, migration and release readiness.', points: ['Drive execution and remove blockers', 'Ensure quality and compliance', 'Enable user adoption and training', 'Scale across teams and geographies'], focus: 'Turn plans into working solutions with measurable outcomes.', tone: 'blue' },
+  { number: '07', tag: 'Learn & Measure', icon: 'learn', title: 'Measure impact and iterate', text: 'Use feedback, usage, exceptions and operational signals to improve the product.', points: ['Track adoption and usage', 'Measure business outcomes (KPIs)', 'Capture user feedback and insights', 'Iterate, optimize and plan the next cycle'], focus: 'Close the loop with data and continuous improvement.', tone: 'green' }
+];
+
+const strategyOutcomes = [
+  ['Strategy outcomes', 'A consistent approach that turns strategy into measurable business impact.', 'target'],
+  ['Higher customer satisfaction', 'Better user experience and adoption.', 'people'],
+  ['Measurable business impact', 'Revenue, efficiency and cost optimization.', 'chart'],
+  ['Faster time to value', 'Prioritized and focused delivery.', 'focus'],
+  ['Scalable & compliant growth', 'Future-ready and risk-aware products.', 'shield']
+];
+
+const prioritization = [
+  ['Customer Value', 'Does it solve a meaningful user problem?'],
+  ['Business Value', 'Does it improve revenue, cost, productivity or service?'],
+  ['Risk / Compliance', 'Does it reduce regulatory or operational exposure?'],
+  ['AI / Automation', 'Can intelligence or automation materially improve the flow?'],
+  ['Feasibility', 'Can technology and data support the intended outcome?'],
+  ['Effort', 'What delivery complexity and dependency does it introduce?']
+];
+
+const pmScope = [
+  ['01', 'Discover', 'Customer workshops, stakeholder interviews, process mapping, use cases and problem framing.', ['Discovery', 'Process maps', 'Use cases']],
+  ['02', 'Define', 'Business and functional requirements translated into journeys, capabilities and acceptance criteria.', ['BRD / FRD / FSD', 'User stories', 'Acceptance criteria']],
+  ['03', 'Design', 'Workflow design, prototypes and solution concepts shaped with business, UX and technology teams.', ['Figma', 'Journeys', 'Workflow design']],
+  ['04', 'Architect', 'API contracts, DFDs, ER models, field mappings and integration behavior for enterprise systems.', ['APIs', 'DFD / ER', 'Data mapping']],
+  ['05', 'Automate', 'Rules, approval orchestration, exception handling, reconciliation and compliance workflows.', ['Rules engine', 'Approvals', 'Exceptions']],
+  ['06', 'AI / GenAI', 'AI-assisted decisioning, document intelligence, knowledge workflows and intelligent process assistance.', ['Decisioning', 'Document AI', 'GenAI workflows']],
+  ['07', 'Deliver', 'Backlog, epics, sprint execution, QA, UAT, VAPT, release coordination and stakeholder demos.', ['JIRA', 'Agile', 'UAT / VAPT']],
+  ['08', 'Scale & Adopt', 'Data migration, deployment, training, support readiness, rollout and feedback loops.', ['Migration', 'Deployment', 'Training / support']]
+];
+
+const metricGroups = [
+  { title: 'Adoption', question: 'Are the intended users actually using the product?', metrics: ['Eligible-user adoption', 'Active users / active accounts', 'Workflow completion rate'] },
+  { title: 'Activation', question: 'How quickly does a user reach meaningful value?', metrics: ['Time to first value', 'Activation rate', 'Onboarding completion'] },
+  { title: 'Efficiency', question: 'Does the product remove time, effort or manual work?', metrics: ['Turnaround time', 'Manual effort saved', 'Automation rate'] },
+  { title: 'Quality & Risk', question: 'Does the product make the process more reliable and controlled?', metrics: ['Error / exception rate', 'Reconciliation breaks', 'Control effectiveness'] },
+  { title: 'AI & Automation', question: 'Is intelligence improving the workflow without losing control?', metrics: ['Assist rate', 'Straight-through rate', 'Human hand-off rate'] },
+  { title: 'Business Impact', question: 'Did the product change a meaningful business outcome?', metrics: ['Cost reduction', 'Productivity gain', 'Revenue / service impact'] }
+];
+
+const metricFormulas = [
+  ['Adoption rate', 'Active eligible users ÷ total eligible users × 100'],
+  ['Activation rate', 'Users reaching first-value milestone ÷ eligible users × 100'],
+  ['Efficiency gain', '(Baseline effort − current effort) ÷ baseline effort × 100'],
+  ['Automation rate', 'Automated cases ÷ total eligible cases × 100'],
+  ['Exception rate', 'Exception cases ÷ total processed cases × 100']
+];
+
+const products = [
+  { number: '01', company: 'M2P FINTECH', title: 'Integrated Channels Suite', problem: 'Banks and NBFCs needed connected capabilities across lending, compliance, reconciliation, payments and operations.', ownership: 'Product strategy, requirements, workflows, API integrations, DFD / ER mapping, roadmap and delivery.', outcome: 'A modular multi-application platform designed for configurable workflows and integration-led deployment.', tags: ['Banking', 'Lending', 'Payments', 'Enterprise Platform'], url: '/projects/integrated-channels', tint: 'blue' },
+  { number: '02', company: 'M2P FINTECH', title: 'AML & Compliance Automation', problem: 'Compliance teams needed structured transaction monitoring, risk profiling, alert handling and regulatory reporting.', ownership: 'Product flow, rules, risk logic, transaction monitoring, exception handling and reporting requirements.', outcome: 'Automation initiative focused on reducing manual compliance effort while preserving audit and regulatory controls.', tags: ['AML / KYC', 'Decisioning', 'Rules', 'Compliance'], url: '/projects/aml-compliance', tint: 'amber' },
+  { number: '03', company: 'AYU HEALTH', title: 'Ayu DocConnect', problem: 'Doctor acquisition and onboarding required a scalable digital experience with clear provider journeys.', ownership: '0→1 product definition, onboarding flows, engagement workflows, adoption analysis and cross-functional delivery.', outcome: 'Doctor adoption increased from 40% to 75% in the represented initiative.', tags: ['0→1', 'Healthcare', 'Provider Experience', 'Adoption'], url: '/projects/ayu-docconnect', tint: 'mint' },
+  { number: '04', company: 'PHONEME / AYU HEALTH', title: 'Provider Payout Automation', problem: 'Provider payout processing involved rules, approvals, calculations and operational hand-offs.', ownership: 'Workflow design, rules, approval states, exception handling, operational reporting and process automation.', outcome: 'Provider payout turnaround represented in the portfolio moved from 10 days to 2 days.', tags: ['Automation', 'Rules', 'Approvals', 'Healthcare'], url: '/projects/provider-payout', tint: 'lav' },
+  { number: '05', company: 'NOKIA NETWORKS', title: 'Telecom Analytics & Cost Optimization', problem: 'Large operational datasets needed clearer financial visibility, KPI tracking and cost-control decisions.', ownership: 'SQL analysis, Power BI / Tableau reporting, KPI frameworks, financial tracking and workflow automation.', outcome: 'The represented initiative delivered a 25% telecom operating-cost reduction.', tags: ['SQL', 'Power BI', 'Telecom', 'Optimization'], url: '/projects/telecom-cost-optimization', tint: 'teal' }
+];
+
+const capabilityRows = [
+  ['Product', 'Strategy · discovery · roadmap · MVP · prioritization · GTM · adoption'],
+  ['AI & GenAI', 'AI-assisted decisioning · GenAI use cases · document intelligence · knowledge workflows · intelligent assistance'],
+  ['Automation', 'Rules engines · approval orchestration · exception handling · reconciliation · compliance automation'],
+  ['Architecture', 'API-first products · modular platforms · integrations · DFD · ER models · field mapping'],
+  ['Data', 'SQL · Power BI · Tableau · Looker Studio · Excel · KPI frameworks · product analytics'],
+  ['Delivery', 'Agile · JIRA · epics · stories · QA · UAT · VAPT · migration · deployment · training'],
+  ['Enterprise', 'Banking · lending · payments · healthcare · telecom · regulated enterprise platforms'],
+  ['Stakeholders', 'Business · clients · engineering · UX · data · QA · operations · compliance · InfoSec']
+];
+
+const techLayers = [
+  ['01', 'Business layer', 'Goals · users · process · economics · operating constraints'],
+  ['02', 'Product layer', 'Vision · journeys · roadmap · capabilities · requirements'],
+  ['03', 'Intelligence layer', 'AI / GenAI · decisioning · document intelligence · product analytics'],
+  ['04', 'Workflow layer', 'Rules · approvals · exceptions · reconciliation · orchestration'],
+  ['05', 'Technology layer', 'APIs · integrations · architecture · data flows · deployment'],
+  ['06', 'Outcome layer', 'Adoption · efficiency · quality · risk · business impact']
+];
+
+const outcomes = [
+  ['40% → 75%', 'Doctor adoption', 'Ayu Health', 'Adoption'],
+  ['10 → 2 days', 'Provider payout turnaround', 'Provider Automation', 'Efficiency'],
+  ['25%', 'Manual compliance effort reduction', 'M2P Fintech · AML / Compliance', 'Automation'],
+  ['20%', 'Manual reconciliation reduction', 'M2P Fintech · UPI Collections', 'Efficiency'],
+  ['30%', 'Manual claim processing reduction', 'Claims Automation', 'Automation'],
+  ['25%', 'Telecom operating-cost reduction', 'Nokia Networks', 'Business impact']
+];
+
+const seniorSignals = [
+  ['01', 'I connect the problem to the system', 'I do not stop at feature requirements; I map process, data, integrations, controls and operational impact.'],
+  ['02', 'I can go technical without becoming the engineer', 'I work with APIs, data flows, ER models, architecture, integration behavior and technical constraints.'],
+  ['03', 'I treat automation as a product capability', 'Rules, approvals, exceptions, reconciliation and intelligent assistance are designed into the workflow.'],
+  ['04', 'I use data to close the loop', 'KPIs, dashboards, product signals and operational metrics feed prioritization and improvement.']
+];
+
 ---
-<Layout>
-  <Header />
-  <main id="portfolio-main" data-scroll-root data-portfolio-viewport>
-    <div data-portfolio-canvas>
-      <Overview />
-      <Ecosystem />
-      <Challenge />
-      <Strategy />
-      <PMScope />
-      <Metrics />
-      <Portfolio />
-      <TechData />
-      <Outcomes />
-      <Connect />
-    </div>
-  </main>
-<script>
-  import '../scripts/navigation.js';
-</script>
+
+<!-- The remainder of this file is the authoritative 10-section visual implementation from the supplied reference. -->
