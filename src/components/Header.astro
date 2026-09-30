@@ -4,12 +4,12 @@ import { navItems } from '../data/portfolio.js';
 <header class="site-header" id="site-header">
   <div class="header-inner">
     <a class="brand" href="#overview" aria-label="Manoj Pant portfolio home">
-      <span class="brand-name">Manoj Pant</span>
-      <span class="brand-role">SENIOR PRODUCT MANAGER</span>
+      <img class="brand-avatar" src="https://avatars.githubusercontent.com/u/133200664?v=4" alt="Manoj Pant" />
+      <span class="brand-copy"><strong>Manoj Pant</strong><small>SENIOR PRODUCT MANAGER</small></span>
     </a>
     <nav class="main-nav" id="portfolio-nav" aria-label="Portfolio sections">
       {navItems.map(([id, label]) => <a href={`#${id}`} data-nav-id={id}>{label}</a>)}
     </nav>
-    <a class="header-cta" href="#portfolio">View Projects <span>→</span></a>
+    <a class="header-cta" href="#portfolio"><span class="grid-icon">⊞</span> View Projects <span>→</span></a>
   </div>
 </header>
