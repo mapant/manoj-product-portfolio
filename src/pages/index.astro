@@ -1,5 +1,6 @@
 ---
 import PortfolioLayout from '../layouts/PortfolioLayout.astro';
+
 /* --------------------------------------------------------------------------
    PORTFOLIO CONTENT MODEL
    -------------------------------------------------------------------------- */
@@ -9933,8 +9934,8 @@ html[data-layout="desktop"] #contact .ref-connect-wrap {
         align-items: center !important;
       }
       html[data-layout="desktop"] #overview .overview-visual {
-        height: 100% !important;
-        max-height: none !important;
+        height: min(760px, calc(var(--app-vh, 100dvh)) - var(--header-h) - 30px)) !important;
+        max-height: min(760px, calc(var(--app-vh, 100dvh)) - var(--header-h) - 30px)) !important;
       }
       html[data-layout="desktop"] #overview .model-stage {
         height: calc(100% - 95px) !important;
@@ -10203,8 +10204,8 @@ html:not([data-layout="desktop"]) #contact .ref-connect-wrap {
         align-items: center !important;
       }
       html:not([data-layout="desktop"]) #overview .overview-visual {
-        height: 100% !important;
-        max-height: none !important;
+        height: min(760px, calc(var(--app-vh, 100dvh)) - var(--header-h) - 30px)) !important;
+        max-height: min(760px, calc(var(--app-vh, 100dvh)) - var(--header-h) - 30px)) !important;
       }
       html:not([data-layout="desktop"]) #overview .model-stage {
         height: calc(100% - 95px) !important;
@@ -10569,95 +10570,57 @@ html:not([data-layout="desktop"]) .ref-connect-main { grid-template-columns: min
     }
 
     /* ======================================================================
-       AUTHORITATIVE DESKTOP PRESENTATION SYSTEM
+       AUTHORITATIVE DESKTOP PRESENTATION SYSTEM  (single source of truth)
        ----------------------------------------------------------------------
-       One stable 1840 x 1072 presentation canvas. Desktop mode is selected
-       from physical-screen/device signals, not the zoom-dependent CSS width.
-       Browser zoom therefore changes the scale of the whole presentation
-       instead of switching its internal grids.
+       - Activated ONLY by html[data-layout="desktop"], set by the mode script
+         from zoom-invariant signals (fine pointer + physical window width).
+         It is never inferred from the CSS viewport width, so browser zoom
+         cannot switch layouts.
+       - Every width/height @media block above is evaluated against the fixed
+         1440x900 design viewport for desktop mode (see build transform) and
+         re-scoped to this attribute; the original queries remain in force for
+         html:not([data-layout="desktop"]) (real tablets / phones).
+       - 1440x900 stage -> uniform scale(--ds). Internal geometry is constant.
        ====================================================================== */
     html[data-layout="desktop"] {
-      --header-h: 88px;
-      --desktop-canvas-w: 1840px;
-      --desktop-slide-h: 1072px;
-      width: 100% !important;
-      height: 100% !important;
+      --app-vw: 1440px; --app-vh: 900px; --app-vw1: 14.4px; --app-vh1: 9.0px;
+      --header-h: 88px; --desktop-canvas-w: 1392px; --desktop-slide-h: 812px;
+      width: 100% !important; height: 100% !important;
       overflow: hidden !important;
-      background: #eef3fb !important;
+      background: linear-gradient(#0b2a5b 0, #0b2a5b calc(var(--ds-y, 0px) + 88px * var(--ds, 1)), #eef3fb 0);
     }
-
     html[data-layout="desktop"] body {
-      position: absolute !important;
-      left: 0 !important;
-      top: 0 !important;
-      width: 1840px !important;
-      height: 1160px !important;
-      max-width: none !important;
-      margin: 0 !important;
-      overflow: hidden !important;
+      position: absolute !important; left: 0 !important; top: 0 !important;
+      width: 1440px !important; height: 900px !important; max-width: none !important;
+      margin: 0 !important; overflow: hidden !important;
       transform-origin: 0 0 !important;
       transform: translate(var(--ds-x, 0px), var(--ds-y, 0px)) scale(var(--ds, 1)) !important;
-      background: #eef3fb !important;
+      background: #eef3fb;
     }
-
     html[data-layout="desktop"] header {
-      position: absolute !important;
-      inset: 0 0 auto 0 !important;
-      width: 1840px !important;
-      height: 88px !important;
-      min-height: 88px !important;
-      overflow: hidden !important;
+      position: absolute !important; top: 0 !important; left: 0 !important;
+      width: 1440px !important; height: 88px !important; min-height: 88px !important; overflow: hidden !important;
     }
-
     html[data-layout="desktop"] header .wrap.head {
-      width: 1792px !important;
-      max-width: 1792px !important;
-      height: 88px !important;
-      margin: 0 auto !important;
-      padding: 0 !important;
-      transform: none !important;
+      width: 1392px !important; max-width: 1392px !important; height: 88px !important;
+      margin: 0 auto !important; padding: 0 !important; transform: none !important;
     }
-
     html[data-layout="desktop"] main {
-      position: absolute !important;
-      top: 88px !important;
-      left: 0 !important;
-      width: 1840px !important;
-      height: 1072px !important;
-      min-height: 0 !important;
-      max-height: 1072px !important;
-      margin: 0 !important;
-      overflow-x: hidden !important;
-      overflow-y: auto !important;
+      position: absolute !important; top: 88px !important; left: 0 !important;
+      width: 1440px !important; height: 812px !important; min-height: 0 !important; max-height: 812px !important;
+      margin: 0 !important; overflow-x: hidden !important; overflow-y: auto !important;
       scroll-snap-type: y mandatory !important;
     }
-
     html[data-layout="desktop"] main > .slide {
-      width: 1840px !important;
-      height: 1072px !important;
-      min-height: 1072px !important;
-      max-height: 1072px !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      overflow: hidden !important;
-      display: block !important;
-      position: relative !important;
-      scroll-snap-align: start !important;
-      scroll-snap-stop: always !important;
+      width: 1440px !important; height: 812px !important; min-height: 812px !important; max-height: 812px !important;
+      padding: 0 !important; margin: 0 !important; overflow: hidden !important; display: block !important;
+      scroll-snap-align: start !important; scroll-snap-stop: always !important;
     }
-
     html[data-layout="desktop"] main > .slide > .wrap {
-      width: 1792px !important;
-      max-width: 1792px !important;
-      height: 1072px !important;
-      min-height: 1072px !important;
-      max-height: 1072px !important;
-      margin: 0 auto !important;
-      padding: 0 !important;
-      position: relative !important;
-      transform: none !important;
+      width: 1392px !important; max-width: 1392px !important;
+      height: 812px !important; min-height: 812px !important; max-height: 812px !important;
+      margin: 0 auto !important; padding: 0 !important; transform: none !important;
     }
-
     html[data-layout="desktop"] #ecosystem .ecosystem-grid-layout,
     html[data-layout="desktop"] #challenge .challenge-layout,
     html[data-layout="desktop"] #strategy .strategy-shell,
@@ -10665,286 +10628,173 @@ html:not([data-layout="desktop"]) .ref-connect-main { grid-template-columns: min
     html[data-layout="desktop"] #metrics .ref-metrics-layout,
     html[data-layout="desktop"] #tech .ref-tech-layout,
     html[data-layout="desktop"] #contact .ref-connect-wrap {
-      height: 100% !important;
-      min-height: 0 !important;
-      max-height: 100% !important;
+      height: 100% !important; min-height: 0 !important; max-height: 100% !important;
     }
-
     html[data-layout="desktop"] #ecosystem .ecosystem-grid-layout { grid-template-columns: 520px minmax(0,1fr) !important; gap: 18px !important; }
-    html[data-layout="desktop"] #challenge .challenge-layout { grid-template-columns: 520px minmax(0,1fr) !important; gap: 18px !important; }
-    html[data-layout="desktop"] #strategy .strategy-shell { grid-template-columns: 520px minmax(0,1fr) !important; gap: 18px !important; }
-    html[data-layout="desktop"] #scope .ref-scope-layout { grid-template-columns: 520px minmax(0,1fr) !important; gap: 18px !important; }
-    html[data-layout="desktop"] #metrics .ref-metrics-layout { grid-template-columns: 620px minmax(0,1fr) !important; gap: 18px !important; }
-    html[data-layout="desktop"] #tech .ref-tech-layout { grid-template-columns: 520px minmax(0,1fr) !important; gap: 16px !important; }
-    html[data-layout="desktop"] #portfolio .ref-portfolio-grid { grid-template-columns: repeat(5,minmax(0,1fr)) !important; gap: 9px !important; }
-    html[data-layout="desktop"] #outcomes .ref-outcome-cards { grid-template-columns: repeat(6,minmax(0,1fr)) !important; grid-template-rows: minmax(0,1fr) !important; }
-
+    html[data-layout="desktop"] #challenge .challenge-layout      { grid-template-columns: 520px minmax(0,1fr) !important; gap: 18px !important; }
+    html[data-layout="desktop"] #strategy .strategy-shell         { grid-template-columns: 520px minmax(0,1fr) !important; gap: 18px !important; }
+    html[data-layout="desktop"] #scope .ref-scope-layout          { grid-template-columns: 520px minmax(0,1fr) !important; gap: 18px !important; }
+    html[data-layout="desktop"] #metrics .ref-metrics-layout      { grid-template-columns: 620px minmax(0,1fr) !important; gap: 18px !important; }
+    html[data-layout="desktop"] #tech .ref-tech-layout            { grid-template-columns: 520px minmax(0,1fr) !important; gap: 16px !important; }
+    html[data-layout="desktop"] #portfolio .ref-portfolio-grid    { grid-template-columns: repeat(5, minmax(0,1fr)) !important; gap: 9px !important; }
+    html[data-layout="desktop"] #outcomes .ref-outcome-cards      { grid-template-columns: repeat(6, minmax(0,1fr)) !important; grid-template-rows: minmax(0,1fr) !important; }
     html[data-layout="desktop"] #portfolio .wrap.ref-section,
     html[data-layout="desktop"] #outcomes .wrap.ref-section,
-    html[data-layout="desktop"] #tech .wrap.ref-section {
-      padding-top: 12px !important;
-      box-sizing: border-box !important;
-    }
-
-    /* Browser zoom must never change the desktop grid itself. */
-    html[data-layout="desktop"] .ref-portfolio-grid { grid-template-columns: repeat(5,minmax(0,1fr)) !important; }
-    html[data-layout="desktop"] .ref-outcome-cards { grid-template-columns: repeat(6,minmax(0,1fr)) !important; grid-template-rows: minmax(0,1fr) !important; }
-
-
-    /* =====================================================================
-       REFERENCE FIDELITY PASS — visual/content polish only
-       ===================================================================== */
-
-    :root {
-      --pastel-blue: #eef6ff;
-      --pastel-purple: #f5efff;
-      --pastel-mint: #ecfaf5;
-      --pastel-peach: #fff5e9;
-    }
-
-    /* Overview: restore the validated operating-model diagram geometry. */
-    #overview .model-stage {
+    html[data-layout="desktop"] #tech .wrap.ref-section { padding-top: 12px !important; box-sizing: border-box !important; }
+    /* Overview is the landing presentation page. The PDF-defined presentation
+       sections remain Ecosystem through Connect; Overview is kept as the
+       portfolio landing page and uses the same fixed desktop canvas. */
+    html[data-layout="desktop"] #overview.overview-alias {
       display: block !important;
       position: relative !important;
-      min-height: 450px !important;
-      height: auto !important;
-      margin-top: 5px !important;
+      width: 1440px !important;
+      height: 812px !important;
+      min-height: 812px !important;
+      max-height: 812px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      overflow: hidden !important;
+      scroll-snap-align: start !important;
+      scroll-snap-stop: always !important;
+      background:
+        radial-gradient(circle at 77% 35%, rgba(98,157,255,.10), transparent 25%),
+        radial-gradient(circle at 93% 78%, rgba(157,89,255,.09), transparent 23%),
+        linear-gradient(180deg,#f7fbff 0%,#f3f8fd 68%,#eef5ff 100%) !important;
     }
-    #overview .model-stage::before {
-      content: "" !important;
-      position: absolute !important;
-      left: 50% !important;
-      top: 14px !important;
-      bottom: 13px !important;
-      width: 1px !important;
-      background: linear-gradient(180deg,rgba(67,122,197,.06),rgba(67,122,197,.23),rgba(67,122,197,.06)) !important;
-      transform: translateX(-50%) !important;
+    html[data-layout="desktop"] #overview.overview-alias > .wrap {
+      width: 1392px !important;
+      max-width: 1392px !important;
+      height: 812px !important;
+      min-height: 812px !important;
+      max-height: 812px !important;
+      margin: 0 auto !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
     }
-    #overview .model-capabilities {
-      display: block !important;
-      position: static !important;
+    html[data-layout="desktop"] #overview .overview-grid {
+      width: 100% !important;
+      height: 100% !important;
+      grid-template-columns: 560px minmax(0, 1fr) !important;
+      gap: 20px !important;
+      align-items: center !important;
     }
-    #overview .model-capability {
-      position: absolute !important;
-      width: 45.5% !important;
-      min-height: 120px !important;
-      height: auto !important;
-      padding: 18px !important;
-      border-radius: 17px !important;
-      z-index: 3 !important;
+    html[data-layout="desktop"] #overview .overview-copy { min-width: 0 !important; }
+    html[data-layout="desktop"] #overview .overview-title {
+      max-width: 560px !important;
+      margin: 16px 0 14px !important;
+      font-size: 48px !important;
+      line-height: .98 !important;
+      letter-spacing: -.055em !important;
     }
-    #overview .model-capability:nth-child(1) {
-      left: 4px !important; top: 24px !important; right:auto !important; bottom:auto !important;
-      background:linear-gradient(135deg,#eefaff,#d9efff) !important; border-color:#42baff !important;
+    html[data-layout="desktop"] #overview .overview-lead {
+      max-width: 550px !important;
+      font-size: 13px !important;
+      line-height: 1.42 !important;
     }
-    #overview .model-capability:nth-child(2) {
-      right: 4px !important; top: 24px !important; left:auto !important; bottom:auto !important;
-      background:linear-gradient(135deg,#fbf0ff,#eee1ff) !important; border-color:#bd5cff !important;
+    html[data-layout="desktop"] #overview .hero-stats {
+      grid-template-columns: repeat(4,minmax(0,1fr)) !important;
+      gap: 8px !important;
+      margin-top: 16px !important;
     }
-    #overview .model-capability:nth-child(3) {
-      left: 4px !important; bottom: 28px !important; right:auto !important; top:auto !important;
-      background:linear-gradient(135deg,#effffc,#daf8f3) !important; border-color:#57d9ca !important;
+    html[data-layout="desktop"] #overview .hero-stat {
+      min-height: 92px !important;
+      padding: 10px !important;
     }
-    #overview .model-capability:nth-child(4) {
-      right: 4px !important; bottom: 28px !important; left:auto !important; top:auto !important;
-      background:linear-gradient(135deg,#fff9eb,#ffefc7) !important; border-color:#ffc34b !important;
+    html[data-layout="desktop"] #overview .hero-stat .stat-icon {
+      width: 28px !important; height: 28px !important; margin-bottom: 6px !important;
     }
-    #overview .model-profile {
-      position:absolute !important;
-      left:50% !important; top:50% !important;
-      width:258px !important; min-height:174px !important; height:auto !important;
-      transform:translate(-50%,-50%) !important;
-      z-index:4 !important;
-      border:1px solid #18a2ff !important;
-      border-radius:22px !important;
-      background:linear-gradient(145deg,#071f4b,#0957a0) !important;
-      box-shadow:0 22px 42px rgba(19,75,145,.28),inset 0 1px 0 rgba(255,255,255,.13) !important;
+    html[data-layout="desktop"] #overview .hero-stat strong { font-size: 22px !important; }
+    html[data-layout="desktop"] #overview .hero-stat span { font-size: 7.5px !important; }
+    html[data-layout="desktop"] #overview .core-expertise { margin-top: 12px !important; }
+    html[data-layout="desktop"] #overview .expertise-grid { gap: 8px !important; }
+    html[data-layout="desktop"] #overview .expertise-item {
+      min-height: 92px !important; padding: 10px !important;
     }
-    #overview .connector {
-      position:absolute !important;
-      height:0 !important;
-      border-top:2px dashed currentColor !important;
-      transform-origin:left center !important;
-      border-radius:999px !important;
-      z-index:5 !important;
-      opacity:.95 !important;
+    html[data-layout="desktop"] #overview .expertise-icon {
+      width: 25px !important; height: 25px !important; margin-bottom: 6px !important;
     }
-    #overview .connector.c1 {
-      left:20% !important; top:102px !important; width:14% !important;
-      transform:rotate(38deg) !important; color:#1d76ff !important;
+    html[data-layout="desktop"] #overview .expertise-item strong { font-size: 9px !important; }
+    html[data-layout="desktop"] #overview .expertise-item span { font-size: 7px !important; line-height: 1.25 !important; }
+    html[data-layout="desktop"] #overview .overview-visual {
+      width: 100% !important;
+      height: 760px !important;
+      min-height: 760px !important;
+      max-height: 760px !important;
+      padding: 16px !important;
+      border-radius: 22px !important;
     }
-    #overview .connector.c2 {
-      left:69% !important; top:calc(50% - 31px) !important; width:14% !important;
-      transform:rotate(-38deg) !important; color:#8d32f4 !important;
+    html[data-layout="desktop"] #overview .visual-top { min-height: 38px !important; }
+    html[data-layout="desktop"] #overview .visual-title { font-size: 15px !important; }
+    html[data-layout="desktop"] #overview .visual-flow { font-size: 8px !important; padding: 8px 10px !important; }
+    html[data-layout="desktop"] #overview .model-stage {
+      height: 570px !important;
+      min-height: 570px !important;
+      max-height: 570px !important;
     }
-    #overview .connector.c3 {
-      left:20% !important; top:calc(100% - 102px) !important; width:14% !important;
-      transform:rotate(-38deg) !important; color:#10bfa2 !important;
-    }
-    #overview .connector.c4 {
-      left:69% !important; top:calc(50% + 31px) !important; width:14% !important;
-      transform:rotate(38deg) !important; color:#f5a01b !important;
-    }
-    #overview .connector::before,
-    #overview .connector::after {
-      content:"" !important;
-      position:absolute !important;
-      top:50% !important;
-      width:7px !important; height:7px !important;
-      border-radius:50% !important;
-      background:currentColor !important;
-      box-shadow:0 0 0 3px rgba(255,255,255,.9) !important;
-      z-index:1 !important;
-    }
-    #overview .connector::before { left:-1px !important; transform:translate(-50%,-50%) !important; }
-    #overview .connector::after { right:-1px !important; transform:translate(50%,-50%) !important; }
+    html[data-layout="desktop"] #overview .model-capability { min-height: 112px !important; }
+    html[data-layout="desktop"] #overview .model-capability strong { font-size: 13px !important; }
+    html[data-layout="desktop"] #overview .model-capability span { font-size: 8px !important; }
+    html[data-layout="desktop"] #overview .model-profile { width: 250px !important; height: 120px !important; min-height: 120px !important; }
+    html[data-layout="desktop"] #overview .model-profile strong { font-size: 17px !important; }
+    html[data-layout="desktop"] #overview .model-profile span { font-size: 9px !important; }
+    html[data-layout="desktop"] #overview .operating-bar { height: 58px !important; }
+    html[data-layout="desktop"] #overview .operating-bar strong { font-size: 9px !important; }
+    html[data-layout="desktop"] #overview .operating-bar span { font-size: 7px !important; }
 
-    /* Overview pastel refinement — color only. */
-    #overview .hero-stat:nth-child(1) { background:var(--pastel-blue) !important; border-color:#b9dbff !important; }
-    #overview .hero-stat:nth-child(2) { background:var(--pastel-mint) !important; border-color:#b9e8d8 !important; }
-    #overview .hero-stat:nth-child(3) { background:var(--pastel-peach) !important; border-color:#f4d1a8 !important; }
-    #overview .hero-stat:nth-child(4) { background:var(--pastel-purple) !important; border-color:#d8c5ff !important; }
-    #overview .expertise-item:nth-child(1),
-    #overview .expertise-item:nth-child(4) { background:var(--pastel-blue) !important; }
-    #overview .expertise-item:nth-child(2),
-    #overview .expertise-item:nth-child(5) { background:var(--pastel-mint) !important; }
-    #overview .expertise-item:nth-child(3),
-    #overview .expertise-item:nth-child(6) { background:var(--pastel-purple) !important; }
-    #overview .hero-stat strong,
-    #overview .expertise-item strong { color:#15385f !important; }
+    /* Keep the nine PDF presentation sections on one stable desktop canvas. */
+    html[data-layout="desktop"] main > .slide > .wrap {
+      width: 1392px !important;
+      max-width: 1392px !important;
+      height: 812px !important;
+      min-height: 812px !important;
+      max-height: 812px !important;
+      margin: 0 auto !important;
+      padding: 0 !important;
+      transform: none !important;
+    }
+    html[data-layout="desktop"] #portfolio .ref-portfolio-grid { grid-template-columns: repeat(5,minmax(0,1fr)) !important; }
+    html[data-layout="desktop"] #outcomes .ref-outcome-cards { grid-template-columns: repeat(6,minmax(0,1fr)) !important; grid-template-rows: minmax(0,1fr) !important; }
 
-    /* Ecosystem: ensure the validated diagram layer is visible. */
-    #ecosystem .ecosystem-network,
-    #ecosystem .ecosystem-network-art,
-    #ecosystem .eco-connectors {
-      display:block !important;
-      visibility:visible !important;
-    }
-    #ecosystem .ecosystem-board {
-      position:relative !important;
-      isolation:isolate !important;
-    }
-    #ecosystem .eco-connectors {
-      z-index:0 !important;
-      pointer-events:none !important;
-    }
-    #ecosystem .eco-card { z-index:1 !important; }
-    #ecosystem .ecosystem-hub {
-      display:flex !important;
-      visibility:visible !important;
-      z-index:4 !important;
-    }
-    #ecosystem .eco-connectors circle {
-      fill:#4b9ff7 !important;
-      stroke:#fff !important;
-    }
-    #ecosystem .eco-card:nth-child(3n+1) { background:linear-gradient(145deg,#eaf5ff,#f9fcff) !important; }
-    #ecosystem .eco-card:nth-child(3n+2) { background:linear-gradient(145deg,#f6efff,#fffaff) !important; }
-    #ecosystem .eco-card:nth-child(3n) { background:linear-gradient(145deg,#e9faf5,#fbfffd) !important; }
-    #ecosystem .eco-card strong,
-    #ecosystem .eco-card .eco-description,
-    #ecosystem .eco-card li { color:#173c63 !important; }
-
-    /* Pastel card language across the portfolio without changing geometry. */
-    #challenge .challenge-card:nth-child(1),
-    #scope .ref-scope-card:nth-child(1),
-    #metrics .ref-metric-card:nth-child(1),
-    #portfolio .ref-product:nth-child(1) { background:var(--pastel-blue) !important; }
-    #challenge .challenge-card:nth-child(2),
-    #scope .ref-scope-card:nth-child(2),
-    #metrics .ref-metric-card:nth-child(2),
-    #portfolio .ref-product:nth-child(2) { background:var(--pastel-purple) !important; }
-    #challenge .challenge-card:nth-child(3),
-    #scope .ref-scope-card:nth-child(3),
-    #metrics .ref-metric-card:nth-child(3),
-    #portfolio .ref-product:nth-child(3) { background:var(--pastel-mint) !important; }
-    #challenge .challenge-card:nth-child(4),
-    #scope .ref-scope-card:nth-child(4),
-    #metrics .ref-metric-card:nth-child(4),
-    #portfolio .ref-product:nth-child(4) { background:var(--pastel-peach) !important; }
-
-    /* Outcomes: readable dark copy on pastel outcome cards. */
-    #outcomes .ref-outcome-card { color:#173c63 !important; }
-    #outcomes .ref-outcome-card h3,
-    #outcomes .ref-outcome-card small,
-    #outcomes .ref-outcome-foot { color:#315a7d !important; }
-    #outcomes .ref-outcome-card strong { color:#d99016 !important; }
-
-    /* Tech model: soften internal layer surfaces while retaining the model. */
-    #tech .ref-tech-layer,
-    #tech .ref-tech-flow-item {
-      background:rgba(255,255,255,.08) !important;
-      border-color:rgba(255,255,255,.18) !important;
-    }
-
-    /* Connect: premium pastel contact cards with strong contrast. */
-    #contact .ref-focus-card {
-      background:linear-gradient(145deg,#f1f7ff,#fff) !important;
-      border-color:#cfe1f5 !important;
-    }
-    #contact .ref-focus-card:nth-child(2) { background:linear-gradient(145deg,#f7f1ff,#fff) !important; }
-    #contact .ref-focus-card:nth-child(3) { background:linear-gradient(145deg,#eefaf5,#fff) !important; }
-    #contact .ref-focus-card:nth-child(4) { background:linear-gradient(145deg,#fff6ea,#fff) !important; }
-    #contact .ref-focus-card:nth-child(5) { background:linear-gradient(145deg,#f2efff,#fff) !important; }
-    #contact .ref-focus-card strong,
-    #contact .ref-focus-card p { color:#173c63 !important; }
-
-    /* Keep the circular photo frame polished while the supplied photo asset
-       is resolved. */
-    .brand-logo {
-      background:linear-gradient(145deg,#315f91,#193e68) !important;
-    }
-
+  </style>
 
   <script is:inline>
-    /*
-     * Layout mode is intentionally NOT based only on innerWidth. Browser zoom
-     * changes the CSS viewport, which would otherwise make a desktop page enter
-     * tablet rules. screen.width is stable for normal browser zoom; touch-first
-     * tablet/phone devices are kept responsive.
-     */
+    /* Layout-mode + uniform desktop scaling.
+       innerWidth * devicePixelRatio equals the physical window width and does NOT change with
+       browser zoom (zoom divides innerWidth and multiplies devicePixelRatio), so a desktop at any
+       zoom stays "desktop". Touch-first devices (tablets/phones) report a coarse pointer and keep
+       the responsive layout. */
     (function () {
-      var root = document.documentElement;
-      var mqFine = window.matchMedia('(hover: hover) and (pointer: fine)');
-      var mqCoarse = window.matchMedia('(pointer: coarse)');
-
-      function applyLayoutMode() {
-        var ua = navigator.userAgent || '';
-        var touchDevice = navigator.maxTouchPoints > 1 && (/Android|iPad|iPhone|iPod|Mobile/i.test(ua) || mqCoarse.matches);
-        var physicalScreenWidth = Math.max(window.screen?.width || 0, window.screen?.availWidth || 0);
-        var desktop = !touchDevice && (mqFine.matches || physicalScreenWidth >= 1200) && physicalScreenWidth >= 1000;
-
+      var W = 1440, H = 900, root = document.documentElement;
+      var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+      function apply() {
+        var phys = window.innerWidth * (window.devicePixelRatio || 1);
+        var desktop = fine.matches && phys >= 1000;
         if (desktop) {
-          var W = 1840, H = 1160;
           var s = Math.min(window.innerWidth / W, window.innerHeight / H);
-          s = Math.max(0.1, s);
-          root.style.setProperty('--ds', String(s));
+          root.style.setProperty('--ds', s);
           root.style.setProperty('--ds-x', ((window.innerWidth - W * s) / 2) + 'px');
           root.style.setProperty('--ds-y', ((window.innerHeight - H * s) / 2) + 'px');
           root.setAttribute('data-layout', 'desktop');
         } else {
           root.setAttribute('data-layout', 'responsive');
-          root.style.removeProperty('--ds');
-          root.style.removeProperty('--ds-x');
-          root.style.removeProperty('--ds-y');
+          ['--ds', '--ds-x', '--ds-y'].forEach(function (p) { root.style.removeProperty(p); });
         }
       }
-
-      applyLayoutMode();
-      window.addEventListener('resize', applyLayoutMode, { passive: true });
-      if (mqFine.addEventListener) mqFine.addEventListener('change', applyLayoutMode);
-      if (mqCoarse.addEventListener) mqCoarse.addEventListener('change', applyLayoutMode);
+      apply();
+      window.addEventListener('resize', apply);
+      if (fine.addEventListener) fine.addEventListener('change', apply);
     })();
   </script>
 
   <header>
     <div class="wrap head">
-      <a class="brand" href="#ecosystem" aria-label="Manoj Pant Product Portfolio">
+      <a class="brand" href="#overview" aria-label="Manoj Pant Product Portfolio">
         <img
           class="brand-logo"
-          src="https://mapant1.github.io/profile/profile.jpg"
+          src="https://github.com/mapant.png?size=256"
           alt="Manoj Pant"
-          onerror="this.onerror=null;this.src='/profile/m2p-logo.svg';"
+          onerror="this.onerror=null;this.src='https://github.com/mapant.png?size=256';"
         />
         <span class="brand-copy">
           <b>Manoj Pant</b>
@@ -10953,7 +10803,7 @@ html:not([data-layout="desktop"]) .ref-connect-main { grid-template-columns: min
       </a>
 
       <nav id="nav" aria-label="Portfolio sections">
-        {navItems.map(([id, label]) => <a href={`#${id}`} data-nav-id={id}>{label}</a>)}
+        {navItems.map(([id, label]) => <a href={`#${id}`}>{label}</a>)}
       </nav>
 
       <div class="nav-cta">
@@ -10974,8 +10824,10 @@ html:not([data-layout="desktop"]) .ref-connect-main { grid-template-columns: min
   </header>
 
   <main>
-
-    <section class="slide soft" id="overview">
+    <!-- ==================================================================
+         01 / OVERVIEW
+         ================================================================== -->
+    <section class="slide soft overview-alias" id="overview" aria-label="Portfolio overview">
       <div class="wrap">
         <div class="overview-grid">
           <div class="overview-copy">
@@ -11040,20 +10892,6 @@ html:not([data-layout="desktop"]) .ref-connect-main { grid-template-columns: min
                   </div>
                   <strong>Product Management</strong>
                   <span>Strategy · Roadmap · Delivery · Adoption · Outcomes</span>
-                </div>
-                <div class="expertise-item">
-                  <div class="expertise-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 8a3 3 0 1 1 6 0v1a3 3 0 1 1 3 3 3 3 0 1 1-3 3v1a3 3 0 1 1-6 0v-1a3 3 0 1 1-3-3 3 3 0 1 1 3-3V8z"></path><path d="M12 9v6M9 12h6"></path></svg>
-                  </div>
-                  <strong>AI &amp; GenAI</strong>
-                  <span>AI Strategy · Copilot · LLMs · Intelligent Workflows</span>
-                </div>
-                <div class="expertise-item">
-                  <div class="expertise-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 4h8v4h3v5h-3v4H8v-4H5V8h3z"></path><path d="M10 8h4m-4 4h4m-2-10v2m0 14v2"></path></svg>
-                  </div>
-                  <strong>Automation &amp; Integration</strong>
-                  <span>API-First · Microservices · Cloud · Enterprise Platforms</span>
                 </div>
               </div>
             </div>
@@ -11138,9 +10976,6 @@ html:not([data-layout="desktop"]) .ref-connect-main { grid-template-columns: min
         </div>
       </div>
     </section>
-
-
-    <!-- Overview is a navigation alias to the first required presentation section (Ecosystem). -->
 
     <!-- ==================================================================
          02 / ECOSYSTEM
@@ -11708,29 +11543,23 @@ html:not([data-layout="desktop"]) .ref-connect-main { grid-template-columns: min
     const mainScroll = document.querySelector('main');
     const navLinks = Array.from(document.querySelectorAll('#nav a'));
     const isDesktop = () => document.documentElement.dataset.layout === 'desktop';
-    const resolveHref = (href) => href;
-    const targetFor = (href) => document.querySelector(resolveHref(href));
-
-    function goToSection(href, pushHash = true) {
-      const resolved = resolveHref(href);
-      const target = targetFor(href);
-      if (!target) return false;
-      if (isDesktop() && mainScroll) {
-        mainScroll.scrollTo({ top: target.offsetTop, behavior: 'instant' });
-      } else {
-        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-        const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - headerHeight);
-        window.scrollTo({ top, behavior: 'instant' });
-      }
-      if (pushHash) history.replaceState(null, '', resolved);
-      setActive(resolved);
-      return true;
-    }
+    const targetFor = (href) => document.querySelector(href);
 
     navLinks.forEach((link) => {
       link.addEventListener('click', (event) => {
         event.preventDefault();
-        goToSection(link.getAttribute('href') || '#overview');
+        const href = link.getAttribute('href');
+        const target = targetFor(href);
+        if (!target) return;
+        if (isDesktop()) {
+          mainScroll.scrollTo({ top: target.offsetTop, behavior: 'instant' });
+        } else {
+          const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+          const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - headerHeight);
+          window.scrollTo({ top, behavior: 'instant' });
+        }
+        history.replaceState(null, '', href);
+        setActive(href);
       });
     });
 
@@ -11754,9 +11583,7 @@ html:not([data-layout="desktop"]) .ref-connect-main { grid-template-columns: min
     window.addEventListener('scroll', updateActive, { passive: true });
     window.addEventListener('resize', updateActive);
     updateActive();
-    if (location.hash) {
-      goToSection(location.hash, false);
-    }
+    if (location.hash) { const l = navLinks.find((n) => n.getAttribute('href') === location.hash); l && l.click(); }
 
 
     // Reference-aligned Connect form handler
@@ -11775,3 +11602,4 @@ html:not([data-layout="desktop"]) .ref-connect-main { grid-template-columns: min
     });
 
   </script>
+</PortfolioLayout>
