@@ -1,0 +1,14 @@
+---
+import { pmScope } from '../../data/portfolio.js';
+---
+<section class="slide white" id="scope" data-section>
+  <div class="slide-canvas"><div class="canvas-inner">
+    <div class="section-head"><span class="section-kicker">05 · PM Scope</span><h2>End-to-end product ownership.</h2><p>From discovery and requirements to architecture, automation, AI, delivery, rollout and adoption.</p></div>
+    <div class="scope-layout">
+      <div class="scope-wheel" aria-label="Product management lifecycle"><div class="wheel-center">PM<br /><small>Lifecycle</small></div><i class="wheel-node n1">Discover</i><i class="wheel-node n2">Define</i><i class="wheel-node n3">Design</i><i class="wheel-node n4">Architect</i><i class="wheel-node n5">Automate</i><i class="wheel-node n6">AI / GenAI</i><i class="wheel-node n7">Deliver</i><i class="wheel-node n8">Scale</i></div>
+      <div class="scope-grid">
+        {pmScope.map(([number, title, text]) => <article class="scope-card"><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
+      </div>
+    </div>
+  </div></div>
+</section>

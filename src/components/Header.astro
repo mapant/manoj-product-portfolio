@@ -1,0 +1,22 @@
+---
+import { navItems } from '../data/portfolio.js';
+---
+<header class="site-header" id="site-header">
+  <div class="header-canvas">
+    <a class="brand" href="#overview" aria-label="Manoj Pant portfolio home">
+      <span class="brand-avatar" aria-hidden="true">MP</span>
+      <span class="brand-copy">
+        <strong>Manoj Pant</strong>
+        <small>Senior Product Manager · Product Portfolio</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="portfolio-nav" aria-label="Portfolio sections">
+      {navItems.map(([id, label]) => (
+        <a href={`#${id}`} data-nav-id={id}>{label}</a>
+      ))}
+    </nav>
+
+    <a class="header-cta" href="#portfolio">View Projects <span aria-hidden="true">↗</span></a>
+  </div>
+</header>

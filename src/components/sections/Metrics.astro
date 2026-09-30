@@ -1,0 +1,12 @@
+---
+import { metricGroups } from '../../data/portfolio.js';
+---
+<section class="slide soft" id="metrics" data-section>
+  <div class="slide-canvas"><div class="canvas-inner">
+    <div class="section-head"><span class="section-kicker">06 · Product Metrics</span><h2>Measure adoption, efficiency and business impact.</h2><p>Metrics connect product behavior to operational performance and strategic outcomes.</p></div>
+    <div class="metrics-layout">
+      <article class="metrics-story"><span class="mini-label">Measurement model</span><h3>Good product metrics answer a decision.</h3><p>Start with the behavior or outcome that matters, define a reliable measure, then track the change over time.</p><div class="metric-formula"><b>Efficiency gain</b><span>(Baseline effort − current effort) ÷ baseline effort × 100</span></div><div class="metric-formula"><b>Automation rate</b><span>Automated cases ÷ total eligible cases × 100</span></div><div class="metric-formula"><b>Adoption rate</b><span>Active eligible users ÷ total eligible users × 100</span></div></article>
+      <div class="metric-grid">{metricGroups.map(([title, question, metrics]) => <article class="metric-card"><span>{title}</span><h3>{question}</h3><p>{metrics}</p></article>)}</div>
+    </div>
+  </div></div>
+</section>

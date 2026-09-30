@@ -1,0 +1,16 @@
+---
+import { capabilityRows, techLayers } from '../../data/portfolio.js';
+---
+<section class="slide soft" id="tech" data-section>
+  <div class="slide-canvas"><div class="canvas-inner">
+    <div class="section-head"><span class="section-kicker">08 · Tech & Data</span><h2>Business intent translated into system capability.</h2><p>Product work sits between business context, customer value, intelligence, workflow, technology and measurable outcomes.</p></div>
+    <div class="tech-layout">
+      <div class="capability-table">{capabilityRows.map(([name, value]) => <div class="capability-row"><strong>{name}</strong><span>{value}</span></div>)}</div>
+      <article class="tech-model">
+        <div class="tech-model-head"><span>PRODUCT + DATA MODEL</span><b>Business → Customer → Intelligence → Workflow → Technology → Outcome</b></div>
+        <div class="tech-layers">{techLayers.map(([number, name, text]) => <div class="tech-layer"><span>{number}</span><div><b>{name}</b><small>{text}</small></div></div>)}</div>
+        <div class="tool-strip"><span>SQL</span><span>Power BI</span><span>Tableau</span><span>Figma</span><span>JIRA</span><span>APIs</span><span>DFD / ER</span></div>
+      </article>
+    </div>
+  </div></div>
+</section>

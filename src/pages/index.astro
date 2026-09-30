@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/PortfolioLayout.astro';
+import Header from '../components/Header.astro';
+import Overview from '../components/sections/Overview.astro';
+import Ecosystem from '../components/sections/Ecosystem.astro';
+import Challenge from '../components/sections/Challenge.astro';
+import Strategy from '../components/sections/Strategy.astro';
+import PMScope from '../components/sections/PMScope.astro';
+import Metrics from '../components/sections/Metrics.astro';
+import Portfolio from '../components/sections/Portfolio.astro';
+import TechData from '../components/sections/TechData.astro';
+import Outcomes from '../components/sections/Outcomes.astro';
+import Connect from '../components/sections/Connect.astro';
+---
+<Layout>
+  <Header />
+  <main id="portfolio-main" data-scroll-root data-portfolio-viewport>
+    <div data-portfolio-canvas>
+      <Overview />
+      <Ecosystem />
+      <Challenge />
+      <Strategy />
+      <PMScope />
+      <Metrics />
+      <Portfolio />
+      <TechData />
+      <Outcomes />
+      <Connect />
+    </div>
+  </main>
+<script>
+  import '../scripts/navigation.js';
+</script>

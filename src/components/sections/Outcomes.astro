@@ -1,0 +1,10 @@
+---
+import { outcomes } from '../../data/portfolio.js';
+---
+<section class="slide white" id="outcomes" data-section>
+  <div class="slide-canvas"><div class="canvas-inner">
+    <div class="section-head"><span class="section-kicker">09 · Product Outcomes</span><h2>Impact is the final product signal.</h2><p>Selected outcomes represented across the portfolio, connecting product initiatives to adoption, efficiency, automation and business impact.</p></div>
+    <div class="outcome-grid">{outcomes.map(([value, label, source]) => <article class="outcome-card"><strong>{value}</strong><h3>{label}</h3><span>{source}</span></article>)}</div>
+    <div class="outcome-footer"><b>Outcome pattern</b><span>Adoption · Efficiency · Automation · Quality · Risk · Business impact</span></div>
+  </div></div>
+</section>
