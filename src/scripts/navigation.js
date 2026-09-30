@@ -15,6 +15,10 @@ const initPortfolioNavigation = () => {
     });
   };
 
+  const headerHeight = Number.parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue('--header-h')
+  ) || 0;
+
   const observer = new IntersectionObserver(
     (entries) => {
       const visible = entries
@@ -25,8 +29,8 @@ const initPortfolioNavigation = () => {
     },
     {
       root: null,
-      rootMargin: '-20% 0px -65% 0px',
-      threshold: [0.1, 0.25, 0.5, 0.75]
+      rootMargin: `-${headerHeight}px 0px -55% 0px`,
+      threshold: [0.05, 0.15, 0.35, 0.6]
     }
   );
 
@@ -34,12 +38,20 @@ const initPortfolioNavigation = () => {
 
   links.forEach((link) => {
     link.addEventListener('click', () => {
-      const target = document.querySelector(link.getAttribute('href'));
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+
+      const target = document.querySelector(href);
       if (target) setActive(target.id);
     });
   });
 
-  setActive(sections[0].id);
+  window.addEventListener('hashchange', () => {
+    const id = window.location.hash.slice(1);
+    if (id) setActive(id);
+  });
+
+  setActive(window.location.hash.slice(1) || sections[0].id);
 };
 
 if (document.readyState === 'loading') {
