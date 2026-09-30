@@ -24,22 +24,21 @@ function setupCanvas() {
       canvas.style.removeProperty('width');
       canvas.style.removeProperty('height');
     });
-    slides.forEach((slide) => { slide.style.removeProperty('height'); });
+    slides.forEach((slide) => {
+      slide.style.removeProperty('height');
+      slide.style.removeProperty('min-height');
+    });
     viewport.style.removeProperty('height');
     return;
   }
 
-  // Keep the portfolio on the same centered page-alignment model as the
-  // Integrated Channels case study: a centered desktop canvas with a small
-  // 24px page gutter on either side. The 1920px design itself is unchanged.
+  // One authoritative desktop presentation canvas for every portfolio section.
+  // The canvas stays centered; browser zoom only changes the uniform scale.
   const designWidth = 1920;
   const designHeight = 920;
-  const pageGutter = 48;
-  const availableWidth = Math.max(0, viewport.clientWidth - pageGutter);
-  const availableHeight = Math.max(0, viewport.clientHeight);
   const scale = Math.min(
-    availableWidth / designWidth,
-    availableHeight / designHeight,
+    viewport.clientWidth / designWidth,
+    viewport.clientHeight / designHeight,
     1
   );
 
@@ -54,7 +53,9 @@ function setupCanvas() {
   });
 
   slides.forEach((slide) => {
-    slide.style.setProperty('height', `${designHeight * scale}px`, 'important');
+    const scaledHeight = designHeight * scale;
+    slide.style.setProperty('height', `${scaledHeight}px`, 'important');
+    slide.style.setProperty('min-height', `${scaledHeight}px`, 'important');
   });
 }
 
