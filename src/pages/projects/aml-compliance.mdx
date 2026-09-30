@@ -1,19 +1,69 @@
 ---
-import "../../styles/case-study.scss";
-title: AML & Compliance Automation
-company: M2P Fintech
+import ProjectCaseStudyShell from '../../components/ProjectCaseStudyShell.astro';
 ---
-<div class="case-study">
-  <a class="back-link" href="/#portfolio">← Back to portfolio</a>
-  <span class="case-kicker">02 · M2P FINTECH</span>
-  <h1>AML & Compliance Automation</h1>
-  <p class="case-lead">A compliance workflow focused on transaction monitoring, risk profiling, alert handling and regulatory reporting.</p>
-  <div class="case-grid">
-    <article><span>Problem</span><h2>Manual compliance effort</h2><p>Compliance teams needed structured workflows for monitoring, risk assessment, alerts, exceptions and reporting while maintaining auditability.</p></article>
-    <article><span>Product ownership</span><h2>Rules, risk and workflow</h2><p>Product flow, business rules, risk logic, transaction monitoring, exception handling and reporting requirements.</p></article>
-    <article><span>Controls</span><h2>Traceable decisions</h2><p>Design emphasized clear thresholds, review states, exception paths, evidence and regulatory controls.</p></article>
-    <article><span>Outcome</span><h2>25% manual effort reduction</h2><p>The represented initiative reduced manual compliance effort by 25% while preserving audit and control requirements.</p></article>
-  </div>
-  <div class="case-section"><h2>Capability areas</h2><div class="tags"><span>AML / KYC</span><span>Transaction Monitoring</span><span>Risk Profiling</span><span>Rules</span><span>Alerts</span><span>Exceptions</span><span>Regulatory Reporting</span></div></div>
-  <div class="case-section"><h2>Product artefacts</h2><p>BRD · workflow definitions · rules catalogue · decision logic · reporting requirements · exception matrix · UAT scenarios</p></div>
-</div>
+
+<ProjectCaseStudyShell
+  title="AML & Compliance Automation | Manoj Pant"
+  kicker="02 · M2P FINTECH"
+>
+  <section class="slide hero" id="overview">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="kicker"><span class="kicker-mark">M2P</span> Compliance platform · product ownership</span>
+          <h1>AML &amp; Compliance Automation</h1>
+          <p class="lead">A compliance workflow focused on <strong>transaction monitoring, risk profiling, alert handling and regulatory reporting</strong>, with structured review states, exception handling and auditability.</p>
+          <div class="hero-actions"><a class="btn primary" href="#problem">Start the case study ↓</a><a class="btn" href="#capabilities">Explore capabilities ↗</a></div>
+        </div>
+        <aside class="role-card">
+          <div class="role-top"><span class="m2p-mark">M2P</span><div><div class="role-kicker">M2P Fintech · Product case study</div><h2>Product at a glance</h2></div></div>
+          <div class="role-list">
+            <div><b>Manual compliance effort</b><span>Structured workflows for monitoring, risk assessment, alerts, exceptions and reporting.</span></div>
+            <div><b>Rules, risk and workflow</b><span>Product flow, business rules, risk logic and transaction-monitoring requirements.</span></div>
+            <div><b>Traceable decisions</b><span>Thresholds, review states, evidence and exception paths designed around control.</span></div>
+            <div><b>25% manual effort reduction</b><span>Represented initiative outcome while preserving audit and control requirements.</span></div>
+          </div>
+        </aside>
+      </div>
+      <div class="quick"><div class="stat"><strong>25%</strong><span>manual compliance effort reduction</span></div><div class="stat"><strong>AML</strong><span>transaction monitoring</span></div><div class="stat"><strong>KYC</strong><span>risk and customer controls</span></div><div class="stat"><strong>UAT</strong><span>validation and release readiness</span></div></div>
+    </div>
+  </section>
+
+  <section class="slide white" id="problem"><div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">01 · Product Context</span><h2>Manual compliance effort needed structured product workflows</h2></div><p>Compliance teams needed structured workflows for monitoring, risk assessment, alerts, exceptions and reporting while maintaining auditability.</p></div>
+    <div class="cards-2">
+      <article class="card"><span class="eyebrow">Problem</span><h3>Manual compliance effort</h3><p>Compliance operations required clearer workflows for transaction monitoring, risk assessment, alerts, exceptions and regulatory reporting.</p><ul><li>Structured review states</li><li>Risk and rule logic</li><li>Alert and exception handling</li><li>Audit-ready evidence</li></ul></article>
+      <article class="card"><span class="eyebrow">Product thesis</span><h3>Make compliance decisions traceable and operationally usable.</h3><p>Translate compliance requirements into explicit rules, thresholds, review states, evidence requirements and reporting outputs.</p><div class="four"><div><b>Monitor</b><span>Transaction and customer signals.</span></div><div><b>Assess</b><span>Risk profiling and rule evaluation.</span></div><div><b>Review</b><span>Alerts, exceptions and decisions.</span></div><div><b>Report</b><span>Regulatory and management outputs.</span></div></div></article>
+    </div>
+  </div></section>
+
+  <section class="slide section" id="ownership"><div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">02 · Product Management Scope</span><h2>Rules, risk and workflow connected into one product flow</h2></div><p>Product ownership covered product flow, business rules, risk logic, transaction monitoring, exception handling and reporting requirements.</p></div>
+    <div class="cards-2">
+      <article class="card"><span class="eyebrow">Product ownership</span><h3>From requirement to executable workflow</h3><ul><li>Requirement and process discovery</li><li>Business-rule definition</li><li>Risk and decision logic</li><li>Alert and exception journeys</li><li>Reporting requirements</li></ul></article>
+      <article class="card"><span class="eyebrow">Controls</span><h3>Traceable decisions</h3><p>Design emphasized clear thresholds, review states, exception paths, evidence and regulatory controls.</p><div class="four"><div><b>Thresholds</b><span>Explicit decision boundaries.</span></div><div><b>States</b><span>Review and disposition stages.</span></div><div><b>Evidence</b><span>Decision support and audit trail.</span></div><div><b>Exceptions</b><span>Controlled handling of edge cases.</span></div></div></article>
+    </div>
+  </div></section>
+
+  <section class="slide white" id="capabilities"><div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">03 · Capability Areas</span><h2>Compliance capabilities represented in the product</h2></div><p>The case combines workflow, rules, monitoring, risk and reporting capabilities into an auditable operating model.</p></div>
+    <div class="strategy-grid">
+      <div class="strategy-card" style="--tone:#bb3f76"><h3>AML / KYC</h3><p>Customer and transaction compliance workflows.</p></div>
+      <div class="strategy-card" style="--tone:#2468d7"><h3>Transaction Monitoring</h3><p>Monitoring and review of transaction signals.</p></div>
+      <div class="strategy-card" style="--tone:#7658d9"><h3>Risk Profiling</h3><p>Risk assessment and classification logic.</p></div>
+      <div class="strategy-card" style="--tone:#be7615"><h3>Rules</h3><p>Thresholds and business decision logic.</p></div>
+      <div class="strategy-card" style="--tone:#bb3f76"><h3>Alerts</h3><p>Alert creation, review and disposition.</p></div>
+      <div class="strategy-card" style="--tone:#167d87"><h3>Exceptions</h3><p>Controlled exception paths and evidence.</p></div>
+      <div class="strategy-card" style="--tone:#17886f"><h3>Regulatory Reporting</h3><p>Structured compliance and management outputs.</p></div>
+      <div class="strategy-card" style="--tone:#2468d7"><h3>Auditability</h3><p>Traceable product decisions and control evidence.</p></div>
+    </div>
+  </div></section>
+
+  <section class="slide section" id="artifacts"><div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">04 · Product Artefacts</span><h2>From compliance requirement to delivery artefact</h2></div><p>These artefacts connected business intent, workflow design, engineering execution and client validation.</p></div>
+    <div class="cards-2">
+      <article class="card"><h3>Core product artefacts</h3><div class="four"><div><b>BRD</b><span>Business requirements.</span></div><div><b>Workflow</b><span>Process and state definitions.</span></div><div><b>Rules</b><span>Rules catalogue and decision logic.</span></div><div><b>UAT</b><span>Validation scenarios.</span></div></div></article>
+      <article class="card"><h3>Outcome</h3><p>The represented initiative reduced manual compliance effort by <strong>25%</strong> while preserving audit and control requirements.</p><div class="safe">Portfolio representation excludes confidential production data and proprietary bank evidence.</div></article>
+    </div>
+  </div></section>
+</ProjectCaseStudyShell>
