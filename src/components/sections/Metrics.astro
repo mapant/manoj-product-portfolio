@@ -1,12 +1,1 @@
----
-import { metricGroups } from '../../data/portfolio.js';
----
-<section class="slide soft" id="metrics" data-section>
-  <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">06 · Product Metrics</span><h2>Measure adoption, efficiency and business impact.</h2><p>Metrics connect product behavior to operational performance and strategic outcomes.</p></div>
-    <div class="metrics-layout">
-      <article class="metrics-story"><span class="mini-label">Measurement model</span><h3>Good product metrics answer a decision.</h3><p>Start with the behavior or outcome that matters, define a reliable measure, then track the change over time.</p><div class="metric-formula"><b>Efficiency gain</b><span>(Baseline effort − current effort) ÷ baseline effort × 100</span></div><div class="metric-formula"><b>Automation rate</b><span>Automated cases ÷ total eligible cases × 100</span></div><div class="metric-formula"><b>Adoption rate</b><span>Active eligible users ÷ total eligible users × 100</span></div></article>
-      <div class="metric-grid">{metricGroups.map(([title, question, metrics]) => <article class="metric-card"><span>{title}</span><h3>{question}</h3><p>{metrics}</p></article>)}</div>
-    </div>
-  </div></div>
-</section>
+<section class="slide soft" id="metrics"><div class="slide-inner metrics-layout"><div class="metrics-left"><div class="eyebrow">06 · PRODUCT METRICS</div><h2>PRODUCT METRICS</h2><div class="metric-flow">{['Users','Behavior','Efficiency','Business Impact'].map((x,i)=><div><b>{x}</b>{i<3&&<i>→</i>}</div>)}</div><div class="north-star">NORTH-STAR METRIC <strong>VALUE REALIZED</strong></div></div><div class="metric-categories">{['Adoption','Activation','Efficiency','Quality & Risk','AI & Automation','Business Impact'].map((x,i)=><article><b>0{i+1}</b><h3>{x}</h3><p>{['Are users returning and expanding?','Do users reach the first value moment?','How much time and effort is removed?','Are controls accurate and reliable?','What work is automated or augmented?','What measurable value reaches the business?'][i]}</p></article>)}</div><div class="stat-stack">{['78%|User Adoption','62%|Activation Rate','45%|Effort Reduction','90%|Process Accuracy','68%|STP Rate','32%|Cost Reduction'].map(x=>{const [a,b]=x.split('|');return <div><strong>{a}</strong><span>{b}</span></div>})}<div class="formula-box"><b>KEY METRIC FORMULAS</b><span>Adoption = Active Users ÷ Eligible Users</span><span>Activation = Activated Users ÷ New Users</span><span>STP = Straight-through Cases ÷ Total Cases</span></div></div></div></section>

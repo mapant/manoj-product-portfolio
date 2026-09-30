@@ -1,16 +1,1 @@
----
-import { capabilityRows, techLayers } from '../../data/portfolio.js';
----
-<section class="slide soft" id="tech" data-section>
-  <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">08 · Tech & Data</span><h2>Business intent translated into system capability.</h2><p>Product work sits between business context, customer value, intelligence, workflow, technology and measurable outcomes.</p></div>
-    <div class="tech-layout">
-      <div class="capability-table">{capabilityRows.map(([name, value]) => <div class="capability-row"><strong>{name}</strong><span>{value}</span></div>)}</div>
-      <article class="tech-model">
-        <div class="tech-model-head"><span>PRODUCT + DATA MODEL</span><b>Business → Customer → Intelligence → Workflow → Technology → Outcome</b></div>
-        <div class="tech-layers">{techLayers.map(([number, name, text]) => <div class="tech-layer"><span>{number}</span><div><b>{name}</b><small>{text}</small></div></div>)}</div>
-        <div class="tool-strip"><span>SQL</span><span>Power BI</span><span>Tableau</span><span>Figma</span><span>JIRA</span><span>APIs</span><span>DFD / ER</span></div>
-      </article>
-    </div>
-  </div></div>
-</section>
+<section class="slide soft" id="tech"><div class="slide-inner tech-layout"><div class="translation"><div class="eyebrow">08 · TECH &amp; DATA</div><h2>PM TRANSLATION LAYER</h2>{[['01','Business Intent','Value | KPIs | Constraints'],['02','Product & Journeys','Users | Flows | Moments'],['03','Data & Intelligence','Models | Metrics | Quality'],['04','Workflow & Rules','States | Controls | Automation'],['05','Technology','APIs | Services | Integrations'],['06','Outcome Evidence','Adoption | Efficiency | Impact']].map(([n,t,tags])=><div class="translation-row"><b>{n}</b><strong>{t}</strong><span>{tags}</span></div>)}</div><div class="tech-right"><div class="tech-chain">{['Business','Product','Intelligence','Workflow','Technology','Outcome'].map((x,i)=><><span>{x}</span>{i<5&&<i>→</i>}</>)}</div><div class="architecture"><aside>External Systems<br/><small>NPCI · CKYC · GST · CIBIL</small></aside><div><b>API LAYER</b><strong>PRODUCT SERVICES</strong><b>DATA LAYER</b></div><aside>Enterprise Data<br/><small>BI · Reporting · Audit</small></aside></div><div class="toolbox"><b>KEY TOOLS &amp; TECHNOLOGIES</b><div>{['SQL','Power BI','Tableau','Looker Studio','API','Excel','Figma','JIRA','APIs','DFD/ER','Data Mapping'].map(x=><span>{x}</span>)}</div></div></div></div></section>

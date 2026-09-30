@@ -1,14 +1,1 @@
----
-import { pmScope } from '../../data/portfolio.js';
----
-<section class="slide white" id="scope" data-section>
-  <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">05 · PM Scope</span><h2>End-to-end product ownership.</h2><p>From discovery and requirements to architecture, automation, AI, delivery, rollout and adoption.</p></div>
-    <div class="scope-layout">
-      <div class="scope-wheel" aria-label="Product management lifecycle"><div class="wheel-center">PM<br /><small>Lifecycle</small></div><i class="wheel-node n1">Discover</i><i class="wheel-node n2">Define</i><i class="wheel-node n3">Design</i><i class="wheel-node n4">Architect</i><i class="wheel-node n5">Automate</i><i class="wheel-node n6">AI / GenAI</i><i class="wheel-node n7">Deliver</i><i class="wheel-node n8">Scale</i></div>
-      <div class="scope-grid">
-        {pmScope.map(([number, title, text]) => <article class="scope-card"><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
-      </div>
-    </div>
-  </div></div>
-</section>
+<section class="slide" id="scope"><div class="slide-inner"><div class="section-title"><div class="eyebrow">05 · PM SCOPE</div><h2>FROM IDEAS TO REAL-WORLD IMPACT</h2><p>Product management across discovery, design, architecture, delivery and adoption.</p></div><div class="scope-grid">{[['INSIGHTS',['01 Discover','02 Define']],['SOLUTION DESIGN',['03 Design','04 Architect']],['EXECUTION',['05 Automate','06 AI/GenAI']],['ADOPTION & IMPACT',['07 Deliver','08 Scale & Adopt']]].map(([lane,cards])=><div class="lane"><h3>{lane}</h3>{cards.map((c,i)=><article><strong>{c}</strong><b>KEY OUTPUTS:</b><span>{i===0?'Figma prototypes · BRD · Journey maps':i===1?'API specs · DFD/ER · Architecture':i===2?'Automation rules · AI use cases':'JIRA execution · UAT · Adoption metrics'}</span></article>)}</div>)}</div><div class="branch-flow"><span>IDEAS</span><i>→</i><span>REQUIREMENTS</span><i>→</i><span>PRODUCT DESIGN</span><i>→</i><span>BUILD &amp; INTEGRATE</span><i>→</i><span>IMPACT</span></div></div></section>

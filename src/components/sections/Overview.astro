@@ -1,44 +1,25 @@
----
-import { focusAreas, careerArc } from '../../data/portfolio.js';
----
-<section class="slide" id="overview" data-section>
-  <div class="slide-canvas">
-    <div class="canvas-inner overview-layout">
-      <div class="section-kicker">Senior Product Manager · Product Portfolio</div>
-      <div class="overview-grid">
-        <div>
-          <h1>Building products from complex problems to measurable impact.</h1>
-          <p class="lead">11+ years across telecom, healthcare, analytics and fintech, connecting product strategy, technical product management, workflow automation, AI / GenAI, data and enterprise platform delivery.</p>
-          <div class="focus-list" aria-label="Focus areas">
-            {focusAreas.map((item) => <span>{item}</span>)}
-          </div>
-          <div class="stats-grid">
-            <div><strong>11+</strong><span>Years experience</span></div>
-            <div><strong>12+</strong><span>Enterprise applications</span></div>
-            <div><strong>4</strong><span>Industry ecosystems</span></div>
-            <div><strong>0→1</strong><span>Product development</span></div>
-          </div>
-          <div class="career-strip">
-            {careerArc.map(([n, title, text]) => <div><b>{n}</b><strong>{title}</strong><span>{text}</span></div>)}
-          </div>
-        </div>
-
-        <div class="operating-model" aria-label="Product Operating Model">
-          <div class="model-heading"><span>Product Operating Model</span><b>Strategy → Delivery → Adoption & Outcomes</b></div>
-          <div class="model-diagram">
-            <div class="model-center"><span>PRODUCT</span><strong>at the centre</strong><small>Customer value · business impact</small></div>
-            <div class="model-node node-business"><b>Business</b><span>Goals & economics</span></div>
-            <div class="model-node node-ai"><b>AI & GenAI</b><span>Intelligence & decisions</span></div>
-            <div class="model-node node-auto"><b>Automation</b><span>Workflow & controls</span></div>
-            <div class="model-node node-data"><b>Data</b><span>Signals & insight</span></div>
-          </div>
-          <div class="expertise-row">
-            <div><b>Product Strategy</b><span>Vision · roadmap · prioritization</span></div>
-            <div><b>Technical Product</b><span>APIs · DFD · ER · integrations</span></div>
-            <div><b>Data & Analytics</b><span>SQL · BI · KPI frameworks</span></div>
-          </div>
-        </div>
+<section class="slide" id="overview">
+  <div class="slide-inner overview-grid">
+    <div>
+      <div class="eyebrow">PRODUCT STRATEGY | AI &amp; GENAI | ENTERPRISE PLATFORMS</div>
+      <h1>Building products from complex problems to measurable impact.</h1>
+      <p class="hero-copy">Senior Product Manager with 10+ years of experience across FinTech, Healthcare, Telecom and Enterprise IT combining product strategy, business analysis, technology, data and execution to build scalable enterprise products.</p>
+      <div class="metric-strip"><div><strong>10+</strong><span>YEARS EXPERIENCE</span></div><div><strong>12+</strong><span>CORE EXPERTISE</span></div><div><strong>4</strong><span>0-1 ENTERPRISE APPLICATIONS</span></div></div>
+      <div class="card-grid four">
+        <article class="soft-card blue"><b>Analytics</b><span>SQL | Power BI | Tableau</span><small>KPI Reporting</small></article>
+        <article class="soft-card green"><b>Business Analysis</b><span>Requirements | Process Design</span><small>Stakeholder Discovery</small></article>
+        <article class="soft-card purple"><b>Technical Product</b><span>APIs | Workflows | Data Flows</span><small>Solution Collaboration</small></article>
+        <article class="soft-card orange"><b>Product Management</b><span>Strategy | Roadmap | Delivery</span><small>Adoption | Outcomes</small></article>
       </div>
+    </div>
+    <div class="panel operating-model">
+      <div class="panel-label">PRODUCT OPERATING MODEL</div>
+      <div class="orbit">
+        <div class="orbit-line l1"></div><div class="orbit-line l2"></div><div class="orbit-line l3"></div><div class="orbit-line l4"></div>
+        <div class="orbit-core">Product</div>
+        <div class="orbit-node n1 blue">Business</div><div class="orbit-node n2 purple">AI &amp; GenAI</div><div class="orbit-node n3 orange">Automation</div><div class="orbit-node n4 green">Data</div>
+      </div>
+      <div class="process-banner"><span>STRATEGY<br><small>Vision | Priorities | Roadmap</small></span><i>→</i><span>DELIVERY<br><small>Build | Integrate | Deploy</small></span><i>→</i><span>ADOPTION &amp; OUTCOMES<br><small>Scale | Measure | Impact</small></span></div>
     </div>
   </div>
 </section>

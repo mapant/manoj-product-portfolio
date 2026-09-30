@@ -1,14 +1,10 @@
----
-import { ecosystem } from '../../data/portfolio.js';
----
-<section class="slide soft" id="ecosystem" data-section>
-  <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">02 · Product Ecosystem</span><h2>Product connects the enterprise system.</h2><p>Business, customer, product, technology, data, operations, automation, AI and compliance work as one operating model.</p></div>
+<section class="slide soft" id="ecosystem">
+  <div class="slide-inner">
+    <div class="section-title"><div class="eyebrow">02 · ECOSYSTEM</div><h2>PRODUCT ECOSYSTEM</h2><p>Product is the coordination layer between business, technology and operations.</p></div>
     <div class="ecosystem-layout">
-      <article class="dark-story"><span class="story-index">PRODUCT ECOSYSTEM</span><h3>One product lens.<br />Multiple enterprise realities.</h3><p>I translate business goals into journeys, capabilities, workflows, data models, integrations and measurable outcomes.</p><div class="story-points"><span>Customer value</span><span>Business economics</span><span>Technology feasibility</span><span>Operational control</span></div></article>
-      <div class="ecosystem-grid">
-        {ecosystem.map(([title, text, tags], index) => <article class={`eco-card eco-${index + 1}`}><span class="card-number">0{index + 1}</span><h3>{title}</h3><p>{text}</p><small>{tags}</small></article>)}
-      </div>
+      <div class="ecosystem-intro"><ul><li>Coordinates business intent, technology and operations.</li><li>Turns complex requirements into reusable workflows.</li><li>Identifies AI &amp; GenAI opportunities with measurable value.</li><li>Uses automation to remove repeatable manual work.</li><li>Embeds security, compliance and governance by design.</li></ul></div>
+      <div class="hub"><div class="hub-core">Product<br/><small>Ecosystem</small></div>{['Business','AI & GenAI','Customer','Product','Automation','Data','Operations','Compliance'].map((item,i)=><div class={`hub-node hn${i+1}`}><b>{item}</b><span>{['Intent • Value • KPIs','Assist • Predict • Generate','Journeys • Needs • Feedback','Roadmap • Features • Adoption','Rules • STP • Scale','Signals • Models • Quality','Process • Controls • Service','Risk • Audit • Policy'][i]}</span></div>)}</div>
     </div>
-  </div></div>
+    <div class="dark-footer"><strong>ENTERPRISE PRODUCT THINKING FROM PROBLEM FRAMING TO PRODUCTION READINESS</strong><div class="footer-grid"><span>100% CROSS FUNCTIONAL COLLABORATION</span><span>MULTI-SYSTEM INTEGRATIONS &amp; DATA FLOWS</span><span>COMPLIANT AND SECURE BY DESIGN</span><span>MEASURABLE BUSINESS OUTCOMES AND USER IMPACT</span></div></div>
+  </div>
 </section>

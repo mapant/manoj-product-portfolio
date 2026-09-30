@@ -1,18 +1,3 @@
----
-import { strategySteps } from '../../data/portfolio.js';
----
-<section class="slide soft" id="strategy" data-section>
-  <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">04 · Product Strategy</span><h2>A repeatable path from problem to impact.</h2><p>Frame the opportunity, discover evidence, define the product, prioritize trade-offs, sequence delivery and close the loop with outcomes.</p></div>
-    <div class="strategy-layout">
-      <div class="strategy-flow">
-        {strategySteps.map(([number, tag, title, text]) => <article class="strategy-step"><div class="step-top"><span>{number}</span><b>{tag}</b></div><h3>{title}</h3><p>{text}</p></article>)}
-      </div>
-      <aside class="strategy-panel">
-        <span class="mini-label">Prioritization lens</span><h3>Value × risk × feasibility</h3>
-        <div class="priority-matrix"><div>Customer<br /><b>Value</b></div><div>Business<br /><b>Value</b></div><div>Risk /<br /><b>Compliance</b></div><div>AI /<br /><b>Automation</b></div><div>Feasibility<br /><b>Technology</b></div><div>Effort<br /><b>Delivery</b></div></div>
-        <div class="strategy-outcome"><b>Outcome</b><span>A transparent, evidence-led roadmap that connects customer value to business impact.</span></div>
-      </aside>
-    </div>
-  </div></div>
+<section class="slide soft" id="strategy">
+  <div class="slide-inner strategy-layout"><div><div class="section-title"><div class="eyebrow">04 · STRATEGY</div><h2>PRODUCT STRATEGY</h2><p>A repeatable operating rhythm from vision to evidence.</p></div><div class="strategy-cycle">{['FRAME','DISCOVER','DEFINE','PRIORITIZE','ROADMAP','DELIVER','LEARN & MEASURE'].map((s,i)=><div class={`cycle-step c${i+1}`}><b>0{i+1}</b><span>{s}</span></div>)}<div class="cycle-core">PRODUCT STRATEGY<br/><small>VISION · ROADMAP · EXECUTION · OUTCOMES</small></div></div></div><aside class="outcome-stack"><h3>STRATEGY OUTCOMES</h3>{['HIGHER CUSTOMER SATISFACTION','MEASURABLE BUSINESS IMPACT','FASTER TIME TO VALUE','SCALABLE & COMPLIANT GROWTH'].map((x,i)=><div class={`outcome-card oc${i}`}>{x}<span>0{i+1}</span></div>)}</aside></div><div class="section-footer">A REPEATABLE PRODUCT STRATEGY FOR ENTERPRISE IMPACT</div>
 </section>

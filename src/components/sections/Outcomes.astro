@@ -1,10 +1,1 @@
----
-import { outcomes } from '../../data/portfolio.js';
----
-<section class="slide white" id="outcomes" data-section>
-  <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">09 · Product Outcomes</span><h2>Impact is the final product signal.</h2><p>Selected outcomes represented across the portfolio, connecting product initiatives to adoption, efficiency, automation and business impact.</p></div>
-    <div class="outcome-grid">{outcomes.map(([value, label, source]) => <article class="outcome-card"><strong>{value}</strong><h3>{label}</h3><span>{source}</span></article>)}</div>
-    <div class="outcome-footer"><b>Outcome pattern</b><span>Adoption · Efficiency · Automation · Quality · Risk · Business impact</span></div>
-  </div></div>
-</section>
+<section class="slide" id="outcomes"><div class="slide-inner outcomes-layout"><div class="impact-circles"><div class="eyebrow">09 · OUTCOMES</div><h2>MEASURABLE IMPACT</h2>{[['40–75%','Doctor adoption'],['10→2','days Provider payout turnaround'],['25%','Manual compliance effort reduction'],['20%','Manual reconciliation reduction'],['30%','Manual claim processing reduction']].map(([n,t],i)=><div class={`impact-badge ib${i}`}><strong>{n}</strong><span>{t}</span></div>)}</div><div class="impact-right"><h2>Business Impact</h2><div class="impact-grid">{['+60%|Adoption & Engagement','+35%|Operational Efficiency','+25%|Compliance & Risk Reduction','+25%|Cost Optimization'].map(x=>{const[a,b]=x.split('|');return <div><strong>{a}</strong><span>{b}</span></div>})}</div><div class="mapping"><b>Outcome categories</b><table><tbody><tr><th>Category</th><th>Evidence</th><th>Product signal</th></tr><tr><td>Adoption</td><td>Active usage</td><td>Retention / expansion</td></tr><tr><td>Efficiency</td><td>Time saved</td><td>Cycle-time reduction</td></tr><tr><td>Risk</td><td>Accuracy / controls</td><td>Exceptions reduced</td></tr><tr><td>Cost</td><td>Effort removed</td><td>Unit economics</td></tr></tbody></table></div></div></div></section>
