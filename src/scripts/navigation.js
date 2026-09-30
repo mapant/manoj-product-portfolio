@@ -1,3 +1,5 @@
+const desktopQuery = window.matchMedia('(min-width: 1000px)');
+
 const links = [...document.querySelectorAll('[data-nav-id]')];
 const sections = [...document.querySelectorAll('[data-section]')];
 
@@ -8,6 +10,40 @@ function setActive(id) {
     if (active) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   });
+}
+
+function setupCanvas() {
+  const viewport = document.querySelector('[data-portfolio-viewport]');
+  const canvases = [...document.querySelectorAll('.slide-canvas')];
+  const slides = [...document.querySelectorAll('.slide')];
+  if (!viewport || !canvases.length) return;
+
+  if (!desktopQuery.matches) {
+    canvases.forEach((canvas) => {
+      canvas.style.transform = '';
+      canvas.style.width = '';
+      canvas.style.height = '';
+    });
+    slides.forEach((slide) => { slide.style.height = ''; });
+    viewport.style.height = '';
+    return;
+  }
+
+  const designWidth = 1920;
+  const designHeight = 920;
+  const scale = Math.min(
+    viewport.clientWidth / designWidth,
+    viewport.clientHeight / designHeight,
+    1
+  );
+
+  canvases.forEach((canvas) => {
+    canvas.style.width = `${designWidth}px`;
+    canvas.style.height = `${designHeight}px`;
+    canvas.style.transform = `translate(-50%, -50%) scale(${scale})`;
+  });
+
+  slides.forEach((slide) => { slide.style.height = `${designHeight * scale}px`; });
 }
 
 function setupNavigation() {
@@ -34,42 +70,6 @@ function setupNavigation() {
   setActive('overview');
 }
 
-function setupCanvas() {
-  const viewport = document.querySelector('[data-portfolio-viewport]');
-  const canvases = [...document.querySelectorAll('.slide-canvas')];
-  if (!viewport || !canvases.length) return;
-
-  const designWidth = 1920;
-  const designHeight = 920;
-  const viewportWidth = viewport.clientWidth;
-  const viewportHeight = viewport.clientHeight;
-
-  if (!viewportWidth || !viewportHeight) return;
-
-  const scale = Math.min(
-    viewportWidth / designWidth,
-    viewportHeight / designHeight
-  );
-
-  canvases.forEach((canvas) => {
-    canvas.style.transform = `translate(-50%, -50%) scale(${scale})`;
-  });
-}
-
-function setupCanvasObserver() {
-  const viewport = document.querySelector('[data-portfolio-viewport]');
-  if (!viewport) return;
-
-  setupCanvas();
-
-  if ('ResizeObserver' in window) {
-    const observer = new ResizeObserver(setupCanvas);
-    observer.observe(viewport);
-  } else {
-    window.addEventListener('resize', setupCanvas, { passive: true });
-  }
-}
-
 function setupContactForm() {
   const form = document.querySelector('#contact-form');
   if (!form) return;
@@ -89,6 +89,12 @@ function setupContactForm() {
   });
 }
 
-setupNavigation();
-setupCanvasObserver();
-setupContactForm();
+function boot() {
+  setupCanvas();
+  setupNavigation();
+  setupContactForm();
+}
+
+window.addEventListener('resize', setupCanvas, { passive: true });
+window.addEventListener('load', boot, { once: true });
+boot();
