@@ -1,13 +1,15 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import fs from 'node:fs';
 
 const unwrapInlineMdxScripts = {
   name: 'unwrap-inline-mdx-scripts',
   enforce: 'pre',
-  transform(code, id) {
+  load(id) {
     const file = id.split('?')[0];
     if (!file.endsWith('.mdx')) return null;
 
+    const code = fs.readFileSync(file, 'utf8');
     const start = '<script is:inline>{`';
     const end = '`}</script>';
 
