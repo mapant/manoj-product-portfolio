@@ -1,0 +1,35 @@
+---
+import PortfolioLayout from '../layouts/PortfolioLayout.astro';
+import '../styles/case-study.scss';
+
+interface Metric { value: string; label: string; }
+interface CaseStudyProps {
+  title: string; company: string; eyebrow?: string; subtitle: string; description: string;
+  problem: string; users: string; ownership: string[]; decisions: string[]; solution: string[];
+  metrics: Metric[]; artifacts: string[]; stack: string[]; outcome: string; learnings: string[];
+}
+const { title, company, eyebrow = 'Product Case Study', subtitle, description, problem, users,
+  ownership, decisions, solution, metrics, artifacts, stack, outcome, learnings } = Astro.props as CaseStudyProps;
+---
+
+<PortfolioLayout title={title + ' | Product Case Study | Manoj Pant'}>
+  <div class="case-study">
+    <header class="case-header"><div class="case-wrap case-head">
+      <a class="case-brand" href="/" aria-label="Back to Product Portfolio"><span class="case-mark">MP</span><span><b>Manoj Pant</b><small>Senior Product Manager · Product Case Study</small></span></a>
+      <nav aria-label="Case study sections"><a href="#overview">Overview</a><a href="#challenge">Challenge</a><a href="#ownership">PM Scope</a><a href="#solution">Solution</a><a href="#metrics">Metrics</a><a href="#outcome">Outcome</a></nav>
+      <a class="case-back" href="/">← Product Portfolio</a>
+    </div></header>
+    <main>
+      <section class="case-hero" id="overview"><div class="case-wrap hero-grid"><div>
+        <span class="case-eyebrow">{eyebrow} · {company}</span><h1>{title}</h1><p class="case-subtitle">{subtitle}</p><p class="case-description">{description}</p>
+        <div class="case-actions"><a href="#challenge">Start case study ↓</a><a href="#metrics">View metrics</a></div>
+      </div><aside class="hero-panel"><span>Product lens</span><strong>Problem → Ownership → Decisions → Delivery → Outcome</strong><p>{users}</p></aside></div></section>
+      <section class="case-section" id="challenge"><div class="case-wrap"><div class="section-heading"><span>01 · Challenge</span><h2>The product problem and operating context</h2></div><div class="two-column"><article class="feature-card dark"><small>Problem</small><h3>{problem}</h3></article><article class="feature-card"><small>Users / stakeholders</small><h3>{users}</h3></article></div></div></section>
+      <section class="case-section soft" id="ownership"><div class="case-wrap"><div class="section-heading"><span>02 · PM Scope</span><h2>What I owned across the product lifecycle</h2></div><div class="bullet-grid">{ownership.map((item, i) => <article><b>{String(i + 1).padStart(2, '0')}</b><p>{item}</p></article>)}</div></div></section>
+      <section class="case-section" id="solution"><div class="case-wrap"><div class="section-heading"><span>03 · Product Decisions &amp; Solution</span><h2>How the product was structured</h2></div><div class="solution-layout"><div class="decision-flow">{decisions.map((item, i) => <div class="flow-step"><b>{String(i + 1).padStart(2, '0')}</b><span>{item}</span></div>)}</div><div class="solution-card"><span>Solution model</span><ul>{solution.map(item => <li>{item}</li>)}</ul></div></div></div></section>
+      <section class="case-section soft" id="metrics"><div class="case-wrap"><div class="section-heading"><span>04 · Product Metrics</span><h2>Signals used to understand product impact</h2></div><div class="metrics-grid">{metrics.map(metric => <article class="metric-card"><strong>{metric.value}</strong><span>{metric.label}</span></article>)}</div><div class="metric-foot"><span>Measurement framework</span><p>Adoption · efficiency · quality · control · automation · business impact</p></div></div></section>
+      <section class="case-section" id="outcome"><div class="case-wrap"><div class="section-heading"><span>05 · Outcome &amp; Evidence</span><h2>{outcome}</h2></div><div class="outcome-layout"><div class="evidence-card"><span>Product artefacts</span><div class="chips">{artifacts.map(item => <b>{item}</b>)}</div><span class="stack-label">Technology / data context</span><div class="chips">{stack.map(item => <b>{item}</b>)}</div></div><div class="learning-card"><span>Product leadership takeaways</span><ul>{learnings.map(item => <li>{item}</li>)}</ul></div></div></div></section>
+      <footer class="case-footer"><div class="case-wrap"><strong>{title}</strong><a href="/">← Back to Product Portfolio</a></div></footer>
+    </main>
+  </div>
+</PortfolioLayout>
