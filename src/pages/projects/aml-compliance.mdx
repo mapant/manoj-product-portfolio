@@ -1,19 +1,90 @@
----
-import "../../styles/case-study.scss";
-title: AML & Compliance Automation
-company: M2P Fintech
----
-<div class="case-study">
-  <a class="back-link" href="/#portfolio">← Back to portfolio</a>
-  <span class="case-kicker">02 · M2P FINTECH</span>
-  <h1>AML & Compliance Automation</h1>
-  <p class="case-lead">A compliance workflow focused on transaction monitoring, risk profiling, alert handling and regulatory reporting.</p>
-  <div class="case-grid">
-    <article><span>Problem</span><h2>Manual compliance effort</h2><p>Compliance teams needed structured workflows for monitoring, risk assessment, alerts, exceptions and reporting while maintaining auditability.</p></article>
-    <article><span>Product ownership</span><h2>Rules, risk and workflow</h2><p>Product flow, business rules, risk logic, transaction monitoring, exception handling and reporting requirements.</p></article>
-    <article><span>Controls</span><h2>Traceable decisions</h2><p>Design emphasized clear thresholds, review states, exception paths, evidence and regulatory controls.</p></article>
-    <article><span>Outcome</span><h2>25% manual effort reduction</h2><p>The represented initiative reduced manual compliance effort by 25% while preserving audit and control requirements.</p></article>
-  </div>
-  <div class="case-section"><h2>Capability areas</h2><div class="tags"><span>AML / KYC</span><span>Transaction Monitoring</span><span>Risk Profiling</span><span>Rules</span><span>Alerts</span><span>Exceptions</span><span>Regulatory Reporting</span></div></div>
-  <div class="case-section"><h2>Product artefacts</h2><p>BRD · workflow definitions · rules catalogue · decision logic · reporting requirements · exception matrix · UAT scenarios</p></div>
-</div>
+import CaseStudyPage from '../../components/CaseStudyPage.astro';
+
+const data = {
+  index: '02 · M2P FINTECH',
+  title: 'AML & Compliance Automation',
+  company: 'M2P Fintech',
+  brand: 'M2P',
+  eyebrow: 'Financial crime controls · product ownership',
+  theme: 'compliance',
+  lead: 'A compliance workflow platform focused on transaction monitoring, risk profiling, alert handling and regulatory reporting — turning fragmented review activity into traceable, controlled workflows.',
+  metrics: [
+    { value: '25%', label: 'represented reduction in manual compliance effort', tone: 'mint' },
+    { value: '3', label: 'regulatory reporting paths: CTR · STR · NTR', tone: 'lav' },
+    { value: '24×7', label: 'transaction monitoring mindset', tone: 'blue' },
+    { value: 'RBAC', label: 'role-controlled review and approval model', tone: 'rose' }
+  ],
+  friction: [
+    'Manual compliance reviews created repeated evidence collection and hand-offs.',
+    'Transaction monitoring needed consistent rules, thresholds, alerts and risk signals.',
+    'Investigators needed a clear path from alert → review → decision → evidence.',
+    'Regulatory reporting required traceability, exception handling and controlled outputs.'
+  ],
+  personas: [
+    { role: 'Compliance Analyst', need: 'Review alerts and investigate transaction patterns.', control: 'Evidence + disposition' },
+    { role: 'Compliance Manager', need: 'Approve escalations and monitor exposure.', control: 'Maker-checker' },
+    { role: 'Operations', need: 'Resolve exceptions and maintain reference data.', control: 'Queue ownership' },
+    { role: 'Audit / Leadership', need: 'Trace decisions and monitor reporting.', control: 'Audit trail' },
+    { role: 'Product / Admin', need: 'Configure rules, thresholds and roles.', control: 'RBAC' },
+    { role: 'Regulatory Reporting', need: 'Produce controlled CTR / STR / NTR outputs.', control: 'Validation' }
+  ],
+  strategy: [
+    { title: 'MVP: monitor first', text: 'Prioritise transaction ingestion, rules, risk signals, alert creation and investigator workflow before optimisation.', bullets: ['Monitoring', 'Risk profiling', 'Alert queue'] },
+    { title: 'Controls by design', text: 'Make roles, review states, evidence and auditability part of the product model rather than post-release checks.', bullets: ['RBAC', 'Maker-checker', 'Audit trail'] },
+    { title: 'Exception-first thinking', text: 'Design the unhappy paths early: API failures, incomplete evidence, duplicate alerts and rejected dispositions.', bullets: ['Retry', 'Manual queue', 'Rework'] },
+    { title: 'Reporting as a product', text: 'Treat regulatory outputs as controlled workflows with validation, ownership and traceable source records.', bullets: ['CTR', 'STR', 'NTR'] }
+  ],
+  architecture: [
+    { title: 'Experience layer', items: ['Analyst workspace', 'Compliance dashboard', 'Alert queue', 'Reporting console'] },
+    { title: 'Workflow & rules', items: ['Transaction monitoring', 'Risk profiling', 'Rules engine', 'Alert orchestration'] },
+    { title: 'Control services', items: ['RBAC', 'Maker-checker', 'Audit trail', 'Evidence management'] },
+    { title: 'Data layer', items: ['Transactions', 'Customer profile', 'Risk signals', 'Case history'] },
+    { title: 'External ecosystem', items: ['Bank / core systems', 'KYC / CKYC', 'Regulatory reporting', 'Document repository'] }
+  ],
+  integrations: ['Core / transaction source', 'KYC / CKYC', 'Document repository', 'Reporting / regulatory layer', 'Bank data services', 'Identity / access'],
+  dataFlow: ['Transaction received', 'Normalise & enrich', 'Apply rules', 'Risk score', 'Create / update alert', 'Investigate', 'Disposition & report'],
+  workflow: [
+    { title: 'Ingest', text: 'Receive transaction and profile data' },
+    { title: 'Monitor', text: 'Apply rules and thresholds' },
+    { title: 'Alert', text: 'Create risk-based review queue' },
+    { title: 'Investigate', text: 'Capture evidence and rationale' },
+    { title: 'Approve', text: 'Escalate / approve disposition' },
+    { title: 'Report', text: 'Generate controlled regulatory output' }
+  ],
+  exceptions: [
+    { title: 'Incomplete evidence', text: 'Hold disposition and return the case to the owner until mandatory evidence is captured.' },
+    { title: 'Rule / API failure', text: 'Retry through a controlled path and surface the item for manual review when automation cannot proceed.' },
+    { title: 'Potential duplicate alert', text: 'Link related alerts and preserve the investigation history rather than creating parallel evidence trails.' },
+    { title: 'Rejected disposition', text: 'Route back to rework with the rejection reason and maintain the approval chain.' }
+  ],
+  artifacts: [
+    { type: 'UI reconstruction', title: 'Investigator alert workspace', text: 'A portfolio-safe reconstruction of a review screen: risk score, trigger, evidence, transaction context, disposition and escalation controls.' },
+    { type: 'API / specification', title: 'Monitoring event contract', text: 'A technical requirement artifact showing how product and engineering align on request shape, status and error handling.', code: 'POST /api/v1/monitoring/events\n{ transactionId, customerId, amount, channel }\n→ { alertId, riskScore, status }' },
+    { type: 'Decision model', title: 'Risk + disposition matrix', text: 'Maps rule hits and risk signals to queue priority, investigator action, escalation and reporting state.' }
+  ],
+  rollout: [
+    { title: 'Discovery & rule mapping', text: 'Map current monitoring practices, reporting obligations, roles, source data and exception paths.', bullets: ['SME workshops', 'Rule catalogue', 'Data mapping'] },
+    { title: 'Build & validate', text: 'Execute in short sprints with workflow demos, QA, edge-case validation and progressive refinement.', bullets: ['Backlog', '2-week sprints', 'UAT'] },
+    { title: 'Release readiness', text: 'Validate controls, evidence, access, reporting and deployment dependencies before operational rollout.', bullets: ['VAPT readiness', 'Access model', 'Reports'] },
+    { title: 'Adoption & support', text: 'Enable compliance teams with manuals, training, operational runbooks and an enhancement backlog.', bullets: ['Training', 'Manuals', 'L1/L2'] }
+  ],
+  outcomes: [
+    { value: '25%', label: 'manual compliance effort reduction represented in the initiative' },
+    { value: '3', label: 'regulatory reporting pathways represented: CTR / STR / NTR' },
+    { value: 'RBAC', label: 'role-based review and controlled approval model' },
+    { value: 'Audit', label: 'traceable evidence, decisions and exception history' }
+  ],
+  lessons: [
+    'Compliance products become easier to operate when rules, workflow states and evidence are modelled together instead of as separate requirements.',
+    'Exception handling deserves the same product attention as the happy path because operational trust is built when users know exactly what happens after failure.'
+  ],
+  roadmap: [
+    { title: 'Risk intelligence layer', text: 'Expand from deterministic rules toward explainable risk signals and prioritisation.' },
+    { title: 'Investigator copilot', text: 'Use AI-assisted evidence summarisation while keeping human disposition and audit controls explicit.' },
+    { title: 'Continuous control monitoring', text: 'Add operational control dashboards for rule effectiveness, alert ageing and exception patterns.' },
+    { title: 'Reusable compliance services', text: 'Expose common monitoring, risk and reporting capabilities as reusable APIs across products.' }
+  ],
+  capabilities: ['AML / KYC', 'Transaction Monitoring', 'Risk Profiling', 'Rules & Thresholds', 'Alert Management', 'CTR / STR / NTR', 'RBAC', 'Auditability']
+};
+
+<CaseStudyPage data={data} />
