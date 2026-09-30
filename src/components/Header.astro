@@ -13,3 +13,6 @@ import { navItems } from '../data/portfolio.js';
     <a class="header-cta" href="#portfolio"><span class="grid-icon">⊞</span> View Projects <span>→</span></a>
   </div>
 </header>
+<script>
+const links=[...document.querySelectorAll('[data-nav-id]')];const sections=[...document.querySelectorAll('[data-section]')];const setActive=id=>links.forEach(a=>a.classList.toggle('active',a.dataset.navId===id));const observer=new IntersectionObserver(es=>{const e=es.filter(x=>x.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(e)setActive(e.target.id)},{rootMargin:'-25% 0px -55% 0px',threshold:[.15,.4,.7]});sections.forEach(s=>observer.observe(s));setActive('overview');
+</script>
