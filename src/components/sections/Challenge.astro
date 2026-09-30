@@ -3,11 +3,15 @@ import { challenges } from '../../data/portfolio.js';
 ---
 <section class="slide white" id="challenge" data-section>
   <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">03 · The Challenge</span><h2>Complex problems need product structure.</h2><p>These are the recurring enterprise constraints I solve through product framing, system thinking, workflow design and measurable delivery.</p></div>
     <div class="challenge-layout">
-      <aside class="challenge-intro"><div class="challenge-orbit"><span>PRODUCT<br />PROBLEM</span></div><h3>From ambiguity to an executable product.</h3><p>Separate symptoms from root causes, identify dependencies, then make the workflow, data and decision model explicit.</p></aside>
+      <aside class="challenge-intro">
+        <span class="section-kicker">The Challenge</span>
+        <h2>Complex enterprise products rarely have a single problem.</h2>
+        <p>The hard part is usually the coordination: stakeholders, systems, data sources, business rules, exceptions, regulations, requirements and operational hand-offs have to behave as one product experience.</p>
+        <div class="challenge-stack"><b>People & Stakeholders</b><b>Business Rules</b><b>External Systems</b><b>Data & Intelligence</b><b>Compliance & Risk</b></div>
+      </aside>
       <div class="challenge-grid">
-        {challenges.map(([number, title, text]) => <article class="challenge-card"><span>{number}</span><h3>{title}</h3><p>{text}</p><div class="response">Product response <b>→</b></div></article>)}
+        {challenges.map(([number, title, text]) => <article class="challenge-card"><span>{number}</span><h3>{title}</h3><p>{text}</p><div class="response">PM response <b>Frame → Design → Deliver → Measure</b></div></article>)}
       </div>
     </div>
   </div></div>
