@@ -1,9 +1,6 @@
----
-import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
-import '../../styles/case-study.scss';
----
+import ProjectCaseStudyShell from '../../components/ProjectCaseStudyShell.astro';
 
-<PortfolioLayout title="Integrated Channels Suite | Digital Banking Platform | Manoj Pant">
+<ProjectCaseStudyShell title="Integrated Channels Suite | Digital Banking Platform | Manoj Pant">
 <div class="ics" id="integrated-channels">
   <div class="progress" id="ics-progress"></div>
   <header>
@@ -162,7 +159,7 @@ import '../../styles/case-study.scss';
   <div class="drawer-backdrop" id="ics-backdrop" aria-hidden="true"><aside class="drawer" id="ics-drawer"><div class="drawer-head"><div class="drawer-title"><span class="drawer-badge" id="ics-badge">A</span><div><h2 id="ics-name">Application</h2><small id="ics-cat">Integrated Channels Suite</small></div></div><button class="close" id="ics-close" aria-label="Close product workspace">×</button></div><div class="drawer-body" id="ics-body"></div></aside></div>
 </div>
 
-<script is:inline>
+<script is:inline>{`
 const APPS=[
 {id:'audit',name:'Audit',cat:'Governance & Control',purpose:'Internal, compliance, statutory and operations audit management.',problem:'Structured planning, evidence, observations, ownership, closure and management visibility.',caps:['Internal Audit','Compliance Audit','Statutory Audit','Operations Audit','Findings & action tracking','Audit reporting'],users:['Auditor','Audit Manager','Business Owner','Approver','Leadership'],integrations:['Source / core systems','Document repository','Reporting layer'],flow:['Audit plan','Scope & evidence','Observation','Action owner','Closure','Management view'],api:'/api/v1/audit/findings',error:'Finding cannot be closed until mandatory evidence and owner response are captured.'},
 {id:'fam',name:'FAM',cat:'Financial Control',purpose:'Fixed Assets Management for physical assets across the institution.',problem:'A structured asset register with lifecycle visibility, categorisation, assignment, tracking and depreciation.',caps:['Asset registration','Asset categorisation','Assignment / tracking','Depreciation','Asset history','Operational reporting'],users:['Asset Manager','Branch / Operations','Finance','Approver','Auditor'],integrations:['Finance / accounting data','GST-related information','Document repository'],flow:['Register asset','Classify','Assign','Track','Depreciate','Report'],api:'/api/v1/assets/{asset_id}',error:'Asset assignment blocked: destination branch and custodian are required.'},
@@ -196,5 +193,5 @@ links.forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href').
 function updateNav(){const marker=window.scrollY+130;let current='overview';sections.forEach(s=>{if(s.offsetTop<=marker)current=s.id;});links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));const h=document.documentElement,max=h.scrollHeight-h.clientHeight;document.querySelector('#ics-progress').style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
 window.addEventListener('scroll',updateNav,{passive:true});window.addEventListener('resize',updateNav);updateNav();
 if(location.hash.startsWith('#app/'))openApp(location.hash.slice(5));
-</script>
-</PortfolioLayout>
+`}</script>
+</ProjectCaseStudyShell>
