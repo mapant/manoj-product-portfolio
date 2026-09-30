@@ -4460,9 +4460,45 @@ header {
 
   /* Desktop internals remain fixed to the 1920px composition.
      Do not add viewport-width-dependent desktop rearrangements here. */
-  .portfolio-root .overview-grid,
+  .portfolio-root .overview-grid {
+    grid-template-columns: minmax(0, 1.04fr) minmax(500px, .96fr);
+    gap: 48px;
+    min-width: 0;
+  }
+
+  .portfolio-root .overview-title {
+    font-size: clamp(50px, 4.25vw, 66px);
+  }
+
+  .portfolio-root .overview-lead {
+    font-size: 16px;
+  }
+
   .portfolio-root .overview-visual {
     min-width: 0;
+    min-height: 555px;
+  }
+
+  .portfolio-root .head {
+    grid-template-columns: 280px minmax(530px, 1fr) 250px;
+  }
+
+  .portfolio-root #nav {
+    gap: 2px 22px;
+  }
+
+  .portfolio-root .portfolio-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .portfolio-root #overview .model-capability {
+    width: auto;
+    min-height: 70px;
+  }
+
+  .portfolio-root #overview .model-profile {
+    width: auto;
+    min-height: 230px;
   }
 }
 
