@@ -1,0 +1,228 @@
+/*
+ * Responsive layout foundation.
+ * Layout sizing is owned by CSS; JavaScript must never calculate a canvas scale.
+ */
+
+html {
+  scroll-padding-top: 112px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+}
+
+#portfolio-main {
+  margin-top: 0;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  scroll-snap-type: none;
+}
+
+.slide {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+}
+
+/* Native equivalent of: w-full max-w-[1920px] mx-auto aspect-[16/10] */
+.slide-canvas {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  max-width: 1920px;
+  aspect-ratio: 16 / 10;
+  height: auto;
+  margin-inline: auto;
+  transform: none !important;
+  transform-origin: initial;
+}
+
+.canvas-inner {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding: clamp(28px, 3.5vw, 54px) clamp(20px, 4.7vw, 90px) clamp(28px, 3vw, 48px);
+}
+
+/* Desktop/tablet fluid grids. The layout reflows instead of shrinking a fixed canvas. */
+@media (max-width: 1199px) {
+  .header-canvas {
+    padding-inline: clamp(20px, 3vw, 48px);
+    grid-template-columns: minmax(250px, 300px) minmax(0, 1fr) 190px;
+    gap: 14px;
+  }
+
+  .main-nav {
+    gap: 4px 10px;
+  }
+
+  .overview-grid,
+  .ecosystem-layout,
+  .challenge-layout,
+  .strategy-layout,
+  .scope-layout,
+  .metrics-layout,
+  .tech-layout,
+  .connect-layout {
+    gap: 24px;
+  }
+
+  .overview-grid h1 {
+    font-size: clamp(48px, 4.8vw, 67px);
+  }
+
+  .ecosystem-layout {
+    grid-template-columns: minmax(320px, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .ecosystem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .portfolio-card {
+    height: auto;
+    min-height: 480px;
+  }
+
+  .outcome-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .outcome-card {
+    height: auto;
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 999px) {
+  html {
+    scroll-padding-top: 0;
+  }
+
+  .site-header {
+    position: sticky;
+    height: auto;
+  }
+
+  .header-canvas {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px 18px;
+  }
+
+  .brand {
+    justify-content: center;
+  }
+
+  .main-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    justify-content: stretch;
+    gap: 5px;
+  }
+
+  .main-nav a {
+    text-align: center;
+  }
+
+  .header-cta {
+    justify-self: center;
+  }
+
+  .slide-canvas {
+    aspect-ratio: auto;
+  }
+
+  .canvas-inner {
+    height: auto;
+    min-height: 0;
+    padding: 48px 20px;
+  }
+
+  .overview-grid,
+  .ecosystem-layout,
+  .challenge-layout,
+  .strategy-layout,
+  .scope-layout,
+  .metrics-layout,
+  .tech-layout,
+  .connect-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-grid h1 {
+    font-size: clamp(42px, 10vw, 62px);
+  }
+
+  .stats-grid,
+  .career-strip,
+  .challenge-grid,
+  .strategy-flow,
+  .metric-grid,
+  .scope-grid,
+  .connect-copy {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ecosystem-grid,
+  .portfolio-grid,
+  .outcome-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-head {
+    align-items: start;
+  }
+
+  .connect-copy {
+    order: 2;
+  }
+
+  .connect-form {
+    order: 1;
+  }
+}
+
+@media (max-width: 620px) {
+  .stats-grid,
+  .career-strip,
+  .ecosystem-grid,
+  .challenge-grid,
+  .strategy-flow,
+  .scope-grid,
+  .metric-grid,
+  .portfolio-grid,
+  .outcome-grid,
+  .connect-copy {
+    grid-template-columns: 1fr;
+  }
+
+  .location-card {
+    grid-column: auto;
+  }
+
+  .portfolio-head {
+    display: block;
+  }
+
+  .portfolio-note {
+    margin-top: 15px;
+  }
+
+  .connect-form {
+    padding: 20px;
+  }
+}
