@@ -1,0 +1,50 @@
+---
+import PortfolioLayout from '../layouts/PortfolioLayout.astro';
+import '../styles/case-study.scss';
+
+interface NavItem {
+  href: string;
+  label: string;
+}
+
+const {
+  title,
+  kicker,
+  navItems = [
+    { href: '#overview', label: 'Overview' },
+    { href: '#problem', label: 'Challenge' },
+    { href: '#ownership', label: 'PM Scope' },
+    { href: '#capabilities', label: 'Capabilities' },
+    { href: '#artifacts', label: 'Artefacts' },
+  ] as NavItem[],
+} = Astro.props;
+---
+
+<PortfolioLayout title={title}>
+  <div class="ics project-case-study">
+    <header>
+      <div class="wrap head">
+        <a class="brand" href="/" aria-label="Back to product portfolio">
+          <span class="brand-mark">MP</span>
+          <span class="brand-copy"><b>Manoj Pant</b><small>Senior Product Manager · Product Case Study</small></span>
+        </a>
+
+        <nav id="ics-nav" aria-label="Case study sections">
+          {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+
+        <div class="head-actions">
+          <div class="action-row">
+            <a class="btn" href="#problem">Explore case</a>
+            <a class="btn" href="#artifacts">View artefacts</a>
+          </div>
+          <a class="btn portfolio-top" href="/">← Product Portfolio</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+  </div>
+</PortfolioLayout>
