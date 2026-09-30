@@ -1,10 +1,9 @@
 ---
 import { outcomes } from '../../data/portfolio.js';
 ---
-<section class="slide white" id="outcomes" data-section>
-  <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">09 · Product Outcomes</span><h2>Impact is the final product signal.</h2><p>Selected outcomes represented across the portfolio, connecting product initiatives to adoption, efficiency, automation and business impact.</p></div>
-    <div class="outcome-grid">{outcomes.map(([value, label, source]) => <article class="outcome-card"><strong>{value}</strong><h3>{label}</h3><span>{source}</span></article>)}</div>
-    <div class="outcome-footer"><b>Outcome pattern</b><span>Adoption · Efficiency · Automation · Quality · Risk · Business impact</span></div>
-  </div></div>
+<section class="slide outcomes-slide" id="outcomes" data-section>
+  <div class="slide-inner outcomes-layout">
+    <div class="outcomes-left"><div class="eyebrow"><i></i>PRODUCT OUTCOMES</div><h2>Outcomes that connect product work to <span>real business performance.</span></h2><p>Measurable impact across adoption, efficiency, automation, compliance and cost optimization from product work in fintech, healthcare and telecom.</p><div class="outcome-orbit">{outcomes.slice(0,5).map(([metric,label,company],i)=><div class={`outcome-circle o${i+1}`}><strong>{metric}</strong><span>{label}</span><small>{company}</small></div>)}</div></div>
+    <div class="outcomes-right"><div class="outcome-note"><b>Outcome lens</b><span>Each outcome maps to a business goal and is measured through clear metrics across adoption, efficiency, automation, cost and impact.</span></div><h3>Key Outcomes by Domain</h3><div class="impact-grid"><article><strong>+60%</strong><b>Adoption &amp; Engagement</b><span>Higher adoption and usage</span></article><article><strong>+35%</strong><b>Operational Efficiency</b><span>Automation and efficiency</span></article><article><strong>+25%</strong><b>Compliance &amp; Risk Reduction</b><span>Reduced risk and audit effort</span></article><article><strong>+25%</strong><b>Cost Optimization</b><span>Opex and manual effort</span></article></div><div class="outcome-table"><b>OUTCOME CATEGORY</b><b>KEY AREAS I MEASURE</b><span>Adoption</span><span>Users · activation · engagement</span><span>Efficiency</span><span>Time · effort · productivity</span><span>Compliance</span><span>Risk · audit · regulatory</span><span>Cost</span><span>Opex · manual effort</span><span>Business Impact</span><span>Revenue · growth · customer value</span></div></div>
+  </div>
 </section>

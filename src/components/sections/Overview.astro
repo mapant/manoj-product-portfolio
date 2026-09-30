@@ -1,44 +1,36 @@
 ---
-import { focusAreas, careerArc } from '../../data/portfolio.js';
+import { careerArc } from '../../data/portfolio.js';
 ---
-<section class="slide" id="overview" data-section>
-  <div class="slide-canvas">
-    <div class="canvas-inner overview-layout">
-      <div class="section-kicker">Senior Product Manager · Product Portfolio</div>
-      <div class="overview-grid">
-        <div>
-          <h1>Building products from complex problems to measurable impact.</h1>
-          <p class="lead">11+ years across telecom, healthcare, analytics and fintech, connecting product strategy, technical product management, workflow automation, AI / GenAI, data and enterprise platform delivery.</p>
-          <div class="focus-list" aria-label="Focus areas">
-            {focusAreas.map((item) => <span>{item}</span>)}
-          </div>
-          <div class="stats-grid">
-            <div><strong>11+</strong><span>Years experience</span></div>
-            <div><strong>12+</strong><span>Enterprise applications</span></div>
-            <div><strong>4</strong><span>Industry ecosystems</span></div>
-            <div><strong>0→1</strong><span>Product development</span></div>
-          </div>
-          <div class="career-strip">
-            {careerArc.map(([n, title, text]) => <div><b>{n}</b><strong>{title}</strong><span>{text}</span></div>)}
-          </div>
+<section class="slide overview-slide" id="overview" data-section>
+  <div class="slide-inner">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow"><i></i>PRODUCT STRATEGY · AI &amp; GENAI · ENTERPRISE PLATFORMS</div>
+        <h1>Building products from <span>complex problems</span> to measurable impact.</h1>
+        <p class="hero-lead">Senior Product Manager with <b>11+ years of experience</b> across FinTech, Healthcare, Telecom and Enterprise IT — combining product strategy, business analysis, technology, data and execution to build scalable enterprise products.</p>
+        <div class="hero-stats">
+          <div><strong>11+</strong><span>YEARS EXPERIENCE</span></div><div><strong>12+</strong><span>ENTERPRISE APPLICATIONS</span></div><div><strong>4</strong><span>INDUSTRY ECOSYSTEMS</span></div><div><strong>0→1</strong><span>PRODUCT DEVELOPMENT</span></div>
         </div>
-
-        <div class="operating-model" aria-label="Product Operating Model">
-          <div class="model-heading"><span>Product Operating Model</span><b>Strategy → Delivery → Adoption & Outcomes</b></div>
-          <div class="model-diagram">
-            <div class="model-center"><span>PRODUCT</span><strong>at the centre</strong><small>Customer value · business impact</small></div>
-            <div class="model-node node-business"><b>Business</b><span>Goals & economics</span></div>
-            <div class="model-node node-ai"><b>AI & GenAI</b><span>Intelligence & decisions</span></div>
-            <div class="model-node node-auto"><b>Automation</b><span>Workflow & controls</span></div>
-            <div class="model-node node-data"><b>Data</b><span>Signals & insight</span></div>
-          </div>
-          <div class="expertise-row">
-            <div><b>Product Strategy</b><span>Vision · roadmap · prioritization</span></div>
-            <div><b>Technical Product</b><span>APIs · DFD · ER · integrations</span></div>
-            <div><b>Data & Analytics</b><span>SQL · BI · KPI frameworks</span></div>
-          </div>
+        <div class="expertise-grid">
+          <article class="expertise blue"><b>01</b><h3>Analytics</h3><p>SQL · Power BI · Tableau</p><small>KPI reporting &amp; product intelligence</small></article>
+          <article class="expertise green"><b>02</b><h3>Business Analysis</h3><p>Requirements · Process Design</p><small>Stakeholder discovery &amp; alignment</small></article>
+          <article class="expertise purple"><b>03</b><h3>Technical Product</h3><p>APIs · Workflows · Data Flows</p><small>Solution collaboration</small></article>
+          <article class="expertise yellow"><b>04</b><h3>Product Management</h3><p>Strategy · Roadmap · Delivery</p><small>Adoption &amp; outcomes</small></article>
         </div>
       </div>
+      <div class="operating-model-card">
+        <div class="model-title"><div><span>PRODUCT OPERATING MODEL</span><h2>Problem → Product → Outcome</h2></div></div>
+        <div class="operating-diagram">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="model-node business"><b>Business</b><span>Goals · economics · constraints</span></div>
+          <div class="model-node ai"><b>AI &amp; GenAI</b><span>Decisioning · copilot · LLMs</span></div>
+          <div class="model-node automation"><b>Automation</b><span>Rules · approvals · exceptions</span></div>
+          <div class="model-node data"><b>Data</b><span>SQL · BI · KPIs · insight</span></div>
+          <div class="model-core"><strong>PRODUCT</strong><b>Manoj Pant</b><small>Technical Product Management</small></div>
+        </div>
+        <div class="model-flow"><span><b>01</b> STRATEGY</span><i>→</i><span><b>02</b> DELIVERY</span><i>→</i><span><b>03</b> ADOPTION &amp; OUTCOMES</span></div>
+      </div>
     </div>
+    <div class="career-strip">{careerArc.map(([n,title,text]) => <div><b>{n}</b><strong>{title}</strong><span>{text}</span></div>)}</div>
   </div>
 </section>

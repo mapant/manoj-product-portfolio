@@ -1,14 +1,22 @@
 ---
-import { ecosystem } from '../../data/portfolio.js';
 ---
-<section class="slide soft" id="ecosystem" data-section>
-  <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">02 · Product Ecosystem</span><h2>Product connects the enterprise system.</h2><p>Business, customer, product, technology, data, operations, automation, AI and compliance work as one operating model.</p></div>
-    <div class="ecosystem-layout">
-      <article class="dark-story"><span class="story-index">PRODUCT ECOSYSTEM</span><h3>One product lens.<br />Multiple enterprise realities.</h3><p>I translate business goals into journeys, capabilities, workflows, data models, integrations and measurable outcomes.</p><div class="story-points"><span>Customer value</span><span>Business economics</span><span>Technology feasibility</span><span>Operational control</span></div></article>
-      <div class="ecosystem-grid">
-        {ecosystem.map(([title, text, tags], index) => <article class={`eco-card eco-${index + 1}`}><span class="card-number">0{index + 1}</span><h3>{title}</h3><p>{text}</p><small>{tags}</small></article>)}
+<section class="slide ecosystem-slide" id="ecosystem" data-section>
+  <div class="slide-inner">
+    <div class="split-heading"><div><div class="eyebrow"><i></i>PRODUCT ECOSYSTEM</div><h2>Product is the coordination layer between business, technology and operations.</h2><p>My work spans enterprise products where a feature is only one part of the solution. The product has to connect the user journey with workflows, data, integrations, controls, intelligence and operational readiness.</p></div><div class="section-index">02</div></div>
+    <div class="ecosystem-body">
+      <aside class="story-panel"><span>THE PRODUCT LAYER</span><h3>One product experience.<br/><em>Many moving parts.</em></h3><p>Product management connects customer need, business value, technical feasibility and operational execution.</p><ul><li>Customer and business priorities → measurable outcome</li><li>Product journey → workflows and systems</li><li>AI / GenAI opportunity → controlled intelligence</li><li>Automation and integrations → operational scale</li><li>Data and compliance → trusted decisions</li></ul></aside>
+      <div class="eco-visual">
+        <svg class="connector-svg" viewBox="0 0 920 560" preserveAspectRatio="none" aria-hidden="true"><path d="M460 280 L150 85 M460 280 L460 65 M460 280 L770 85 M460 280 L825 280 M460 280 L770 475 M460 280 L460 500 M460 280 L150 475"/></svg>
+        <div class="eco-core"><strong>PRODUCT</strong><span>ECOSYSTEM</span><small>Strategy · Systems · People · Outcomes</small></div>
+        <article class="eco-node n1"><b>Business</b><span>Goals, economics and constraints</span></article>
+        <article class="eco-node n2"><b>AI &amp; GenAI</b><span>Decisioning, knowledge and copilots</span></article>
+        <article class="eco-node n3"><b>Customer</b><span>Journeys, pain points and adoption</span></article>
+        <article class="eco-node n4"><b>Operations</b><span>Controls, rollout and support</span></article>
+        <article class="eco-node n5"><b>Compliance</b><span>AML/KYC, audit and risk controls</span></article>
+        <article class="eco-node n6"><b>Data</b><span>SQL, BI, KPIs and insight</span></article>
+        <article class="eco-node n7"><b>Automation</b><span>Rules, approvals and reconciliation</span></article>
       </div>
     </div>
-  </div></div>
+    <div class="bottom-banner"><strong>ENTERPRISE PRODUCT THINKING FROM PROBLEM FRAMING TO PRODUCTION READINESS</strong><span>100% CROSS-FUNCTIONAL COLLABORATION</span><span>MULTI-SYSTEM INTEGRATIONS &amp; DATA FLOWS</span><span>COMPLIANT &amp; SECURE BY DESIGN</span><span>MEASURABLE BUSINESS OUTCOMES</span></div>
+  </div>
 </section>

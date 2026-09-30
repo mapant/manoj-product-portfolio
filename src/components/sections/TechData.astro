@@ -1,16 +1,9 @@
 ---
 import { capabilityRows, techLayers } from '../../data/portfolio.js';
 ---
-<section class="slide soft" id="tech" data-section>
-  <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">08 · Tech & Data</span><h2>Business intent translated into system capability.</h2><p>Product work sits between business context, customer value, intelligence, workflow, technology and measurable outcomes.</p></div>
-    <div class="tech-layout">
-      <div class="capability-table">{capabilityRows.map(([name, value]) => <div class="capability-row"><strong>{name}</strong><span>{value}</span></div>)}</div>
-      <article class="tech-model">
-        <div class="tech-model-head"><span>PRODUCT + DATA MODEL</span><b>Business → Customer → Intelligence → Workflow → Technology → Outcome</b></div>
-        <div class="tech-layers">{techLayers.map(([number, name, text]) => <div class="tech-layer"><span>{number}</span><div><b>{name}</b><small>{text}</small></div></div>)}</div>
-        <div class="tool-strip"><span>SQL</span><span>Power BI</span><span>Tableau</span><span>Figma</span><span>JIRA</span><span>APIs</span><span>DFD / ER</span></div>
-      </article>
-    </div>
-  </div></div>
+<section class="slide tech-slide" id="tech" data-section>
+  <div class="slide-inner tech-layout">
+    <div class="tech-left"><div class="eyebrow"><i></i>TECH &amp; DATA</div><h2>Where product meets technology, AI and data.</h2><p>Technical product management grounded in enterprise architecture. APIs, workflows, analytics, integrations and delivery collaboration.</p><div class="translation"><div class="translation-title">PM TRANSLATION LAYER</div>{capabilityRows.slice(0,6).map(([title,text],i)=><div class="translation-row"><b>0{i+1}</b><strong>{title}</strong><span>{text}</span></div>)}</div></div>
+    <div class="tech-right"><div class="technology-model"><div class="eyebrow">PRODUCT TECHNOLOGY MODEL FROM BUSINESS REQUIREMENTS TO REAL-WORLD IMPACT</div><div class="tech-flow">{techLayers.slice(0,5).map(([n,title,text],i)=><div><b>{n}</b><strong>{title}</strong><span>{text}</span></div>)}</div></div><div class="architecture"><div class="arch-side left"><span>Core systems</span><span>External APIs</span><span>Partner systems</span></div><div class="arch-stack"><div>API LAYER <small>REST APIs · integrations · security</small></div><div>PRODUCT SERVICES <small>business logic · workflows · AI / GenAI · rules</small></div><div>DATA LAYER <small>SQL · data models · DFD · ER · analytics</small></div></div><div class="arch-side right"><span>Databases</span><span>Documents</span><span>Real-time data</span></div></div><div class="tools"><b>KEY TOOLS &amp; TECHNOLOGIES</b>{['SQL','Power BI','Tableau','Looker Studio','Excel','Figma','JIRA','APIs','DFD / ER','Data Mapping'].map(x=><span>{x}</span>)}</div></div>
+  </div>
 </section>

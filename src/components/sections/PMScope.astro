@@ -1,14 +1,9 @@
 ---
 import { pmScope } from '../../data/portfolio.js';
 ---
-<section class="slide white" id="scope" data-section>
-  <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">05 · PM Scope</span><h2>End-to-end product ownership.</h2><p>From discovery and requirements to architecture, automation, AI, delivery, rollout and adoption.</p></div>
-    <div class="scope-layout">
-      <div class="scope-wheel" aria-label="Product management lifecycle"><div class="wheel-center">PM<br /><small>Lifecycle</small></div><i class="wheel-node n1">Discover</i><i class="wheel-node n2">Define</i><i class="wheel-node n3">Design</i><i class="wheel-node n4">Architect</i><i class="wheel-node n5">Automate</i><i class="wheel-node n6">AI / GenAI</i><i class="wheel-node n7">Deliver</i><i class="wheel-node n8">Scale</i></div>
-      <div class="scope-grid">
-        {pmScope.map(([number, title, text]) => <article class="scope-card"><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
-      </div>
-    </div>
-  </div></div>
+<section class="slide scope-slide" id="scope" data-section>
+  <div class="slide-inner scope-layout">
+    <aside class="dark-story scope-intro"><div class="eyebrow light"><i></i>PM SCOPE</div><h2>Product management across <span>strategy, systems and execution.</span></h2><p>End-to-end ownership from problem discovery and requirements to solution design, build, deployment and continuous improvement across stakeholders, systems and regulated environments.</p><div class="scope-tags"><span>DISCOVER</span><span>DEFINE</span><span>DESIGN</span><span>ARCHITECT</span><span>DELIVER</span></div></aside>
+    <div class="scope-work"><div class="swimlane-head"><span>INSIGHTS</span><span>SOLUTION DESIGN</span><span>EXECUTION</span><span>ADOPTION &amp; IMPACT</span></div><div class="scope-board">{pmScope.map(([n,title,text],i) => <article class={`scope-card sc${i+1}`}><b>{n}</b><h3>{title}</h3><p>{text}</p><small>KEY OUTPUTS</small><span>{i===0?'Discovery notes · process maps':i===1?'BRD · FRD · FSD · user stories':i===2?'Figma · workflows · feature specs':i===3?'APIs · DFD · ER · field mapping':i===4?'Rules · approvals · reconciliation':i===5?'AI use cases · intelligence workflows':i===6?'Epics · QA · UAT · VAPT': 'Migration · deployment · training · rollout'}</span></article>)}</div><div class="scope-flow"><span>Business &amp; Customer Needs</span><i>→</i><strong>Product Management</strong><i>→</i><span>Architecture · Intelligence · Workflows</span><i>→</i><strong>Impact</strong></div></div>
+  </div>
 </section>

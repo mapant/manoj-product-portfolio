@@ -1,12 +1,10 @@
 ---
 import { metricGroups } from '../../data/portfolio.js';
 ---
-<section class="slide soft" id="metrics" data-section>
-  <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">06 · Product Metrics</span><h2>Measure adoption, efficiency and business impact.</h2><p>Metrics connect product behavior to operational performance and strategic outcomes.</p></div>
-    <div class="metrics-layout">
-      <article class="metrics-story"><span class="mini-label">Measurement model</span><h3>Good product metrics answer a decision.</h3><p>Start with the behavior or outcome that matters, define a reliable measure, then track the change over time.</p><div class="metric-formula"><b>Efficiency gain</b><span>(Baseline effort − current effort) ÷ baseline effort × 100</span></div><div class="metric-formula"><b>Automation rate</b><span>Automated cases ÷ total eligible cases × 100</span></div><div class="metric-formula"><b>Adoption rate</b><span>Active eligible users ÷ total eligible users × 100</span></div></article>
-      <div class="metric-grid">{metricGroups.map(([title, question, metrics]) => <article class="metric-card"><span>{title}</span><h3>{question}</h3><p>{metrics}</p></article>)}</div>
-    </div>
-  </div></div>
+<section class="slide metrics-slide" id="metrics" data-section>
+  <div class="slide-inner metrics-layout">
+    <aside class="metrics-principle"><div class="eyebrow light"><i></i>PRODUCT METRICS</div><h2>Measure the product, <span>not just the release.</span></h2><p>Metrics connect activity to adoption, efficiency, quality, control and business impact across the product lifecycle.</p><div class="metric-flow"><span>Users</span><i>→</i><span>Behavior</span><i>→</i><span>Efficiency</span><i>→</i><span>Business Impact</span></div><div class="north-star">✦ <b>North-star metric</b><small>One measurable outcome that reflects customer and business value.</small></div></aside>
+    <div class="metric-categories">{metricGroups.map(([title,q,sub],i) => <article class={`metric-category m${i+1}`}><b>0{i+1}</b><h3>{title}</h3><p>{q}</p><span>{sub}</span></article>)}</div>
+    <aside class="metric-results"><div class="stat-grid"><div><strong>78%</strong><span>User Adoption</span></div><div><strong>62%</strong><span>Activation Rate</span></div><div><strong>45%</strong><span>Effort Reduction</span></div><div><strong>90%</strong><span>Process Accuracy</span></div><div><strong>68%</strong><span>STP Rate</span></div><div><strong>32%</strong><span>Cost Reduction</span></div></div><div class="formula-card"><b>Measurement examples</b><span>Adoption rate = active eligible users ÷ total eligible users × 100</span><span>Activation rate = users reaching first value ÷ new users × 100</span><span>Efficiency gain = (baseline effort − current effort) ÷ baseline effort × 100</span></div><div class="metric-legend"><b>Category</b><b>What I measure</b><span>Adoption</span><span>Users · activation · engagement</span><span>Efficiency</span><span>Time · effort · productivity</span><span>Risk</span><span>Errors · controls · audit</span><span>Business</span><span>Cost · growth · customer value</span></div></aside>
+  </div>
 </section>
