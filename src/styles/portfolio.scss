@@ -4405,8 +4405,9 @@ body {
 }
 
 .portfolio-root > header {
-  position: fixed;
-  inset: 0 auto auto 0;
+  position: sticky;
+  top: 0;
+  left: 0;
   width: var(--desktop-canvas-width);
   min-width: var(--desktop-canvas-width);
   height: var(--header-h);
@@ -4425,7 +4426,7 @@ body {
   height: auto;
   min-height: 0;
   margin: 0;
-  padding-top: var(--header-h);
+  padding-top: 0;
   overflow: visible;
   scroll-snap-type: none;
 }
@@ -4491,6 +4492,9 @@ body {
   }
 
   .portfolio-root > header {
+    position: sticky;
+    top: 0;
+    left: 0;
     width: 100%;
     min-width: 0;
     height: var(--header-h);
@@ -4507,7 +4511,7 @@ body {
     min-width: 0;
     height: auto;
     min-height: 0;
-    padding-top: var(--header-h);
+    padding-top: 0;
     overflow: visible;
   }
 
