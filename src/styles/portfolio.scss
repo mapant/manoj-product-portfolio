@@ -4372,10 +4372,10 @@ header {
 }
 
 /* ======================================================================
-   FINAL DESKTOP CANVAS / MOBILE RELEASE
-   Reference desktop composition: 1920 × 1200 (16:10).
-   The desktop canvas is CSS-sized, not JavaScript-scaled.
-   Browser zoom must never alter the internal grid geometry.
+   FINAL LAYOUT CONTRACT
+   Desktop baseline: 1920 × 1200 / 16:10.
+   Desktop is a static CSS canvas. No JS scaling and no transform scaling.
+   Tablet/mobile release the canvas and use native responsive flow.
    ====================================================================== */
 
 :root {
@@ -4383,97 +4383,94 @@ header {
   --desktop-canvas-height: 1200px;
 }
 
-html {
-  min-width: 0;
-  min-height: 100%;
-  overflow-x: auto;
-  overflow-y: auto;
-  scroll-padding-top: var(--header-h);
+/* Desktop canvas: this geometry does not change with viewport width. */
+@media (min-width: 1024px) {
+  html {
+    min-width: 0;
+    min-height: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    scroll-padding-top: 112px;
+  }
+
+  body {
+    min-width: 0;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+
+  .portfolio-root {
+    width: var(--desktop-canvas-width);
+    min-width: var(--desktop-canvas-width);
+    overflow: visible;
+  }
+
+  .portfolio-root > header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: var(--desktop-canvas-width);
+    min-width: var(--desktop-canvas-width);
+    height: 112px;
+    z-index: 1200;
+  }
+
+  .portfolio-root > header .head {
+    width: var(--desktop-canvas-width);
+    min-width: var(--desktop-canvas-width);
+    max-width: none;
+    margin: 0;
+  }
+
+  .portfolio-root > main {
+    width: var(--desktop-canvas-width);
+    min-width: var(--desktop-canvas-width);
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .portfolio-root > main > .slide {
+    width: var(--desktop-canvas-width);
+    min-width: var(--desktop-canvas-width);
+    height: var(--desktop-canvas-height);
+    min-height: var(--desktop-canvas-height);
+    max-height: var(--desktop-canvas-height);
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 30px 0 28px;
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+
+  .portfolio-root > main > .slide > .wrap {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    padding-inline: 54px;
+  }
+
+  /* Desktop internals remain fixed to the 1920px composition.
+     Do not add viewport-width-dependent desktop rearrangements here. */
+  .portfolio-root .overview-grid,
+  .portfolio-root .overview-visual {
+    min-width: 0;
+  }
 }
 
-body {
-  min-width: 0;
-  min-height: 100%;
-  overflow-x: auto;
-  overflow-y: visible;
-}
-
-.portfolio-root {
-  width: 100%;
-  min-width: 0;
-  overflow: visible;
-}
-
-.portfolio-root > header {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: var(--desktop-canvas-width);
-  min-width: var(--desktop-canvas-width);
-  height: var(--header-h);
-  z-index: 1200;
-}
-
-.portfolio-root > header .head {
-  width: var(--desktop-canvas-width);
-  max-width: none;
-  margin: 0;
-}
-
-.portfolio-root > main {
-  width: var(--desktop-canvas-width);
-  min-width: var(--desktop-canvas-width);
-  height: auto;
-  min-height: 0;
-  margin: 0;
-  padding-top: 0;
-  overflow: visible;
-  scroll-snap-type: none;
-}
-
-.portfolio-root > main > .slide {
-  width: var(--desktop-canvas-width);
-  min-width: var(--desktop-canvas-width);
-  height: var(--desktop-canvas-height);
-  min-height: var(--desktop-canvas-height);
-  max-height: var(--desktop-canvas-height);
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding: 30px 0 28px;
-  scroll-snap-align: none;
-  scroll-snap-stop: normal;
-}
-
-.portfolio-root > main > .slide > .wrap {
-  width: 100%;
-  max-width: none;
-  min-width: 0;
-  margin: 0;
-  padding-inline: 54px;
-}
-
-/*
- * Desktop internals stay tied to the 1920px composition.
- * No viewport units are used to resize the canvas itself.
- */
-.portfolio-root .overview-grid {
-  width: 100%;
-}
-
-.portfolio-root .overview-visual {
-  min-width: 0;
-}
-
-/* ======================================================================
-   MOBILE / TABLET RELEASE
-   < 1024px = normal responsive document flow.
-   ====================================================================== */
-
+/* Tablet + mobile: release the desktop canvas completely. */
 @media (max-width: 1023px) {
   html {
     min-width: 0;
+    min-height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     scroll-padding-top: var(--header-h);
@@ -4481,6 +4478,7 @@ body {
 
   body {
     min-width: 0;
+    min-height: 100%;
     overflow-x: hidden;
     overflow-y: visible;
   }
@@ -4502,8 +4500,8 @@ body {
 
   .portfolio-root > header .head {
     width: 100%;
-    max-width: none;
     min-width: 0;
+    max-width: none;
   }
 
   .portfolio-root > main {
@@ -4511,8 +4509,10 @@ body {
     min-width: 0;
     height: auto;
     min-height: 0;
-    padding-top: 0;
+    margin: 0;
+    padding: 0;
     overflow: visible;
+    scroll-snap-type: none;
   }
 
   .portfolio-root > main > .slide {
@@ -4531,6 +4531,7 @@ body {
     width: 100%;
     max-width: 100%;
     min-width: 0;
+    margin: 0;
     padding-inline: 20px;
   }
 
@@ -4540,6 +4541,7 @@ body {
     height: auto;
     min-width: 0;
     grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .portfolio-root #overview .overview-copy {
@@ -4569,10 +4571,6 @@ body {
     height: var(--header-h);
   }
 
-  .portfolio-root > main {
-    padding-top: var(--header-h);
-  }
-
   .portfolio-root > main > .slide {
     padding-block: 36px;
   }
@@ -4589,3 +4587,4 @@ body {
     min-height: 520px;
   }
 }
+
