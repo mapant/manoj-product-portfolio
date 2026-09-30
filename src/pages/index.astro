@@ -10690,6 +10690,212 @@ html:not([data-layout="desktop"]) .ref-connect-main { grid-template-columns: min
     html[data-layout="desktop"] .ref-portfolio-grid { grid-template-columns: repeat(5,minmax(0,1fr)) !important; }
     html[data-layout="desktop"] .ref-outcome-cards { grid-template-columns: repeat(6,minmax(0,1fr)) !important; grid-template-rows: minmax(0,1fr) !important; }
 
+
+    /* =====================================================================
+       REFERENCE FIDELITY PASS — visual/content polish only
+       ===================================================================== */
+
+    :root {
+      --pastel-blue: #eef6ff;
+      --pastel-purple: #f5efff;
+      --pastel-mint: #ecfaf5;
+      --pastel-peach: #fff5e9;
+    }
+
+    /* Overview: restore the validated operating-model diagram geometry. */
+    #overview .model-stage {
+      display: block !important;
+      position: relative !important;
+      min-height: 450px !important;
+      height: auto !important;
+      margin-top: 5px !important;
+    }
+    #overview .model-stage::before {
+      content: "" !important;
+      position: absolute !important;
+      left: 50% !important;
+      top: 14px !important;
+      bottom: 13px !important;
+      width: 1px !important;
+      background: linear-gradient(180deg,rgba(67,122,197,.06),rgba(67,122,197,.23),rgba(67,122,197,.06)) !important;
+      transform: translateX(-50%) !important;
+    }
+    #overview .model-capabilities {
+      display: block !important;
+      position: static !important;
+    }
+    #overview .model-capability {
+      position: absolute !important;
+      width: 45.5% !important;
+      min-height: 120px !important;
+      height: auto !important;
+      padding: 18px !important;
+      border-radius: 17px !important;
+      z-index: 3 !important;
+    }
+    #overview .model-capability:nth-child(1) {
+      left: 4px !important; top: 24px !important; right:auto !important; bottom:auto !important;
+      background:linear-gradient(135deg,#eefaff,#d9efff) !important; border-color:#42baff !important;
+    }
+    #overview .model-capability:nth-child(2) {
+      right: 4px !important; top: 24px !important; left:auto !important; bottom:auto !important;
+      background:linear-gradient(135deg,#fbf0ff,#eee1ff) !important; border-color:#bd5cff !important;
+    }
+    #overview .model-capability:nth-child(3) {
+      left: 4px !important; bottom: 28px !important; right:auto !important; top:auto !important;
+      background:linear-gradient(135deg,#effffc,#daf8f3) !important; border-color:#57d9ca !important;
+    }
+    #overview .model-capability:nth-child(4) {
+      right: 4px !important; bottom: 28px !important; left:auto !important; top:auto !important;
+      background:linear-gradient(135deg,#fff9eb,#ffefc7) !important; border-color:#ffc34b !important;
+    }
+    #overview .model-profile {
+      position:absolute !important;
+      left:50% !important; top:50% !important;
+      width:258px !important; min-height:174px !important; height:auto !important;
+      transform:translate(-50%,-50%) !important;
+      z-index:4 !important;
+      border:1px solid #18a2ff !important;
+      border-radius:22px !important;
+      background:linear-gradient(145deg,#071f4b,#0957a0) !important;
+      box-shadow:0 22px 42px rgba(19,75,145,.28),inset 0 1px 0 rgba(255,255,255,.13) !important;
+    }
+    #overview .connector {
+      position:absolute !important;
+      height:0 !important;
+      border-top:2px dashed currentColor !important;
+      transform-origin:left center !important;
+      border-radius:999px !important;
+      z-index:5 !important;
+      opacity:.95 !important;
+    }
+    #overview .connector.c1 {
+      left:20% !important; top:102px !important; width:14% !important;
+      transform:rotate(38deg) !important; color:#1d76ff !important;
+    }
+    #overview .connector.c2 {
+      left:69% !important; top:calc(50% - 31px) !important; width:14% !important;
+      transform:rotate(-38deg) !important; color:#8d32f4 !important;
+    }
+    #overview .connector.c3 {
+      left:20% !important; top:calc(100% - 102px) !important; width:14% !important;
+      transform:rotate(-38deg) !important; color:#10bfa2 !important;
+    }
+    #overview .connector.c4 {
+      left:69% !important; top:calc(50% + 31px) !important; width:14% !important;
+      transform:rotate(38deg) !important; color:#f5a01b !important;
+    }
+    #overview .connector::before,
+    #overview .connector::after {
+      content:"" !important;
+      position:absolute !important;
+      top:50% !important;
+      width:7px !important; height:7px !important;
+      border-radius:50% !important;
+      background:currentColor !important;
+      box-shadow:0 0 0 3px rgba(255,255,255,.9) !important;
+      z-index:1 !important;
+    }
+    #overview .connector::before { left:-1px !important; transform:translate(-50%,-50%) !important; }
+    #overview .connector::after { right:-1px !important; transform:translate(50%,-50%) !important; }
+
+    /* Overview pastel refinement — color only. */
+    #overview .hero-stat:nth-child(1) { background:var(--pastel-blue) !important; border-color:#b9dbff !important; }
+    #overview .hero-stat:nth-child(2) { background:var(--pastel-mint) !important; border-color:#b9e8d8 !important; }
+    #overview .hero-stat:nth-child(3) { background:var(--pastel-peach) !important; border-color:#f4d1a8 !important; }
+    #overview .hero-stat:nth-child(4) { background:var(--pastel-purple) !important; border-color:#d8c5ff !important; }
+    #overview .expertise-item:nth-child(1),
+    #overview .expertise-item:nth-child(4) { background:var(--pastel-blue) !important; }
+    #overview .expertise-item:nth-child(2),
+    #overview .expertise-item:nth-child(5) { background:var(--pastel-mint) !important; }
+    #overview .expertise-item:nth-child(3),
+    #overview .expertise-item:nth-child(6) { background:var(--pastel-purple) !important; }
+    #overview .hero-stat strong,
+    #overview .expertise-item strong { color:#15385f !important; }
+
+    /* Ecosystem: ensure the validated diagram layer is visible. */
+    #ecosystem .ecosystem-network,
+    #ecosystem .ecosystem-network-art,
+    #ecosystem .eco-connectors {
+      display:block !important;
+      visibility:visible !important;
+    }
+    #ecosystem .ecosystem-board {
+      position:relative !important;
+      isolation:isolate !important;
+    }
+    #ecosystem .eco-connectors {
+      z-index:0 !important;
+      pointer-events:none !important;
+    }
+    #ecosystem .eco-card { z-index:1 !important; }
+    #ecosystem .ecosystem-hub {
+      display:flex !important;
+      visibility:visible !important;
+      z-index:4 !important;
+    }
+    #ecosystem .eco-connectors circle {
+      fill:#4b9ff7 !important;
+      stroke:#fff !important;
+    }
+    #ecosystem .eco-card:nth-child(3n+1) { background:linear-gradient(145deg,#eaf5ff,#f9fcff) !important; }
+    #ecosystem .eco-card:nth-child(3n+2) { background:linear-gradient(145deg,#f6efff,#fffaff) !important; }
+    #ecosystem .eco-card:nth-child(3n) { background:linear-gradient(145deg,#e9faf5,#fbfffd) !important; }
+    #ecosystem .eco-card strong,
+    #ecosystem .eco-card .eco-description,
+    #ecosystem .eco-card li { color:#173c63 !important; }
+
+    /* Pastel card language across the portfolio without changing geometry. */
+    #challenge .challenge-card:nth-child(1),
+    #scope .ref-scope-card:nth-child(1),
+    #metrics .ref-metric-card:nth-child(1),
+    #portfolio .ref-product:nth-child(1) { background:var(--pastel-blue) !important; }
+    #challenge .challenge-card:nth-child(2),
+    #scope .ref-scope-card:nth-child(2),
+    #metrics .ref-metric-card:nth-child(2),
+    #portfolio .ref-product:nth-child(2) { background:var(--pastel-purple) !important; }
+    #challenge .challenge-card:nth-child(3),
+    #scope .ref-scope-card:nth-child(3),
+    #metrics .ref-metric-card:nth-child(3),
+    #portfolio .ref-product:nth-child(3) { background:var(--pastel-mint) !important; }
+    #challenge .challenge-card:nth-child(4),
+    #scope .ref-scope-card:nth-child(4),
+    #metrics .ref-metric-card:nth-child(4),
+    #portfolio .ref-product:nth-child(4) { background:var(--pastel-peach) !important; }
+
+    /* Outcomes: readable dark copy on pastel outcome cards. */
+    #outcomes .ref-outcome-card { color:#173c63 !important; }
+    #outcomes .ref-outcome-card h3,
+    #outcomes .ref-outcome-card small,
+    #outcomes .ref-outcome-foot { color:#315a7d !important; }
+    #outcomes .ref-outcome-card strong { color:#d99016 !important; }
+
+    /* Tech model: soften internal layer surfaces while retaining the model. */
+    #tech .ref-tech-layer,
+    #tech .ref-tech-flow-item {
+      background:rgba(255,255,255,.08) !important;
+      border-color:rgba(255,255,255,.18) !important;
+    }
+
+    /* Connect: premium pastel contact cards with strong contrast. */
+    #contact .ref-focus-card {
+      background:linear-gradient(145deg,#f1f7ff,#fff) !important;
+      border-color:#cfe1f5 !important;
+    }
+    #contact .ref-focus-card:nth-child(2) { background:linear-gradient(145deg,#f7f1ff,#fff) !important; }
+    #contact .ref-focus-card:nth-child(3) { background:linear-gradient(145deg,#eefaf5,#fff) !important; }
+    #contact .ref-focus-card:nth-child(4) { background:linear-gradient(145deg,#fff6ea,#fff) !important; }
+    #contact .ref-focus-card:nth-child(5) { background:linear-gradient(145deg,#f2efff,#fff) !important; }
+    #contact .ref-focus-card strong,
+    #contact .ref-focus-card p { color:#173c63 !important; }
+
+    /* Keep the circular photo frame polished while the supplied photo asset
+       is resolved. */
+    .brand-logo {
+      background:linear-gradient(145deg,#315f91,#193e68) !important;
+    }
+
+
   <script is:inline>
     /*
      * Layout mode is intentionally NOT based only on innerWidth. Browser zoom
@@ -10736,7 +10942,7 @@ html:not([data-layout="desktop"]) .ref-connect-main { grid-template-columns: min
       <a class="brand" href="#ecosystem" aria-label="Manoj Pant Product Portfolio">
         <img
           class="brand-logo"
-          src="/profile/profile.jpg"
+          src="https://mapant1.github.io/profile/profile.jpg"
           alt="Manoj Pant"
           onerror="this.onerror=null;this.src='/profile/m2p-logo.svg';"
         />
