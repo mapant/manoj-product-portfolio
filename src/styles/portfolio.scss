@@ -4372,102 +4372,126 @@ header {
 }
 
 /* ======================================================================
-   FINAL LAYOUT CONTRACT
-   Desktop baseline: 1920 × 1200 / 16:10.
-   Desktop is a static CSS canvas. No JS scaling and no transform scaling.
-   Tablet/mobile release the canvas and use native responsive flow.
+   FINAL PRESENTATION LAYOUT CONTRACT
+   16:10 slide container — native CSS only.
+   Reference container: 1440 × 900.
+   Browser zoom is left entirely to the browser.
+   No JS scaling. No transform scaling. No CSS zoom.
    ====================================================================== */
 
 :root {
-  --desktop-canvas-width: 1920px;
-  --desktop-canvas-height: 1200px;
+  --max: 1440px;
+  --slide-ratio: 16 / 10;
+  --header-h: 112px;
 }
 
-/* Desktop canvas: this geometry does not change with viewport width. */
+/* The document is the only scroll surface. */
+html {
+  min-width: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  min-width: 0;
+  min-height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.portfolio-root {
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+}
+
+/* Full-width fixed header; its contents share the 1440px presentation width. */
+.portfolio-root > header {
+  position: fixed;
+  inset: 0 0 auto;
+  width: 100%;
+  height: var(--header-h);
+  z-index: 1200;
+}
+
+.portfolio-root > header .head {
+  width: 100%;
+  max-width: var(--max);
+  min-width: 0;
+  height: var(--header-h);
+  margin-inline: auto;
+}
+
+/* Native document scroll — no nested scrollbar and no snap canvas. */
+.portfolio-root > main {
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: var(--header-h) 0 0;
+  overflow: visible;
+  scroll-snap-type: none;
+}
+
+/*
+ * Every section is a presentation slide:
+ *   width: 100% of the viewport until 1440px
+ *   max-width: 1440px
+ *   exact 16:10 ratio
+ *   centered horizontally
+ *
+ * At browser zoom 25/50/75%, the CSS viewport becomes wider, so the
+ * max-width remains 1440px and the slide naturally appears smaller with
+ * centered blank margins. Nothing in JavaScript counter-scales it.
+ */
+.portfolio-root > main > .slide {
+  width: 100%;
+  max-width: var(--max);
+  height: auto;
+  min-height: 0;
+  margin-inline: auto;
+  aspect-ratio: var(--slide-ratio);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 30px 0 28px;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+}
+
+/* Keep the internal content aligned to the slide edges, not the viewport. */
+.portfolio-root > main > .slide > .wrap {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding-inline: clamp(28px, 3.75vw, 54px);
+}
+
+/* Desktop presentation geometry remains a presentation layout at 1024–1440px. */
 @media (min-width: 1024px) {
-  html {
-    min-width: 0;
-    min-height: 100%;
-    overflow-x: auto;
-    overflow-y: auto;
-    scroll-padding-top: 112px;
-  }
-
-  body {
-    min-width: 0;
-    min-height: 100%;
-    margin: 0;
-    overflow-x: auto;
-    overflow-y: visible;
-  }
-
-  .portfolio-root {
-    width: var(--desktop-canvas-width);
-    min-width: var(--desktop-canvas-width);
-    overflow: visible;
-  }
-
-  .portfolio-root > header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: var(--desktop-canvas-width);
-    min-width: var(--desktop-canvas-width);
-    height: 112px;
-    z-index: 1200;
-  }
-
   .portfolio-root > header .head {
-    width: var(--desktop-canvas-width);
-    min-width: var(--desktop-canvas-width);
-    max-width: none;
-    margin: 0;
+    grid-template-columns: 280px minmax(530px, 1fr) 250px;
   }
 
-  .portfolio-root > main {
-    width: var(--desktop-canvas-width);
-    min-width: var(--desktop-canvas-width);
-    height: auto;
-    min-height: 0;
-    margin: 0;
-    padding: 0;
-    overflow: visible;
-    scroll-snap-type: none;
+  .portfolio-root #nav {
+    grid-template-columns: repeat(5, max-content);
+    grid-template-rows: repeat(2, 30px);
+    gap: 2px 22px;
   }
 
-  .portfolio-root > main > .slide {
-    width: var(--desktop-canvas-width);
-    min-width: var(--desktop-canvas-width);
-    height: var(--desktop-canvas-height);
-    min-height: var(--desktop-canvas-height);
-    max-height: var(--desktop-canvas-height);
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    padding: 30px 0 28px;
-    scroll-snap-align: none;
-    scroll-snap-stop: normal;
-  }
-
-  .portfolio-root > main > .slide > .wrap {
-    width: 100%;
-    max-width: none;
-    min-width: 0;
-    margin: 0;
-    padding-inline: 54px;
-  }
-
-  /* Desktop internals remain fixed to the 1920px composition.
-     Do not add viewport-width-dependent desktop rearrangements here. */
   .portfolio-root .overview-grid {
     grid-template-columns: minmax(0, 1.04fr) minmax(500px, .96fr);
     gap: 48px;
-    min-width: 0;
   }
 
   .portfolio-root .overview-title {
-    font-size: clamp(50px, 4.25vw, 66px);
+    font-size: clamp(48px, 4.25vw, 66px);
   }
 
   .portfolio-root .overview-lead {
@@ -4476,19 +4500,7 @@ header {
 
   .portfolio-root .overview-visual {
     min-width: 0;
-    min-height: 555px;
-  }
-
-  .portfolio-root .head {
-    grid-template-columns: 280px minmax(530px, 1fr) 250px;
-  }
-
-  .portfolio-root #nav {
-    gap: 2px 22px;
-  }
-
-  .portfolio-root .portfolio-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    min-height: 0;
   }
 
   .portfolio-root #overview .model-capability {
@@ -4500,101 +4512,94 @@ header {
     width: auto;
     min-height: 230px;
   }
+
+  .portfolio-root .portfolio-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
-/* Tablet + mobile: release the desktop canvas completely. */
+/*
+ * Tablet/mobile: the slide remains a 16:10 presentation container.
+ * We do not introduce JS scaling or transform-based compensation.
+ * Internal spacing is reduced only so the native CSS composition remains
+ * usable on genuinely small viewports.
+ */
 @media (max-width: 1023px) {
-  html {
-    min-width: 0;
-    min-height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    scroll-padding-top: var(--header-h);
-  }
-
-  body {
-    min-width: 0;
-    min-height: 100%;
-    overflow-x: hidden;
-    overflow-y: visible;
-  }
-
-  .portfolio-root {
-    width: 100%;
-    min-width: 0;
-    overflow: visible;
+  :root {
+    --header-h: 184px;
   }
 
   .portfolio-root > header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-width: 0;
     height: var(--header-h);
   }
 
   .portfolio-root > header .head {
-    width: 100%;
-    min-width: 0;
-    max-width: none;
+    height: var(--header-h);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 8px;
+    padding-block: 12px;
   }
 
   .portfolio-root > main {
-    width: 100%;
-    min-width: 0;
-    height: auto;
-    min-height: 0;
-    margin: 0;
-    padding: 0;
-    overflow: visible;
-    scroll-snap-type: none;
+    padding-top: var(--header-h);
   }
 
   .portfolio-root > main > .slide {
     width: 100%;
-    min-width: 0;
-    height: auto;
+    max-width: var(--max);
+    aspect-ratio: var(--slide-ratio);
     min-height: 0;
-    max-height: none;
-    aspect-ratio: auto;
-    overflow: visible;
-    display: block;
-    padding: 42px 0;
+    padding: 24px 0;
   }
 
   .portfolio-root > main > .slide > .wrap {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    margin: 0;
-    padding-inline: 20px;
-  }
-
-  .portfolio-root .overview-grid,
-  .portfolio-root #overview .overview-grid {
-    width: 100%;
-    height: auto;
-    min-width: 0;
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .portfolio-root #overview .overview-copy {
-    width: 100%;
-    min-width: 0;
-    height: auto;
-  }
-
-  .portfolio-root #overview .overview-visual {
-    width: 100%;
-    min-width: 0;
-    height: auto;
-    min-height: 560px;
+    padding-inline: 24px;
   }
 
   .portfolio-root .portfolio-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .portfolio-root .overview-grid {
+    grid-template-columns: minmax(0, 1.04fr) minmax(360px, .96fr);
+    gap: 24px;
+  }
+
+  .portfolio-root #overview .overview-title {
+    font-size: clamp(34px, 4.25vw, 48px);
+  }
+
+  .portfolio-root #overview .overview-lead {
+    font-size: 13px;
+  }
+
+  .portfolio-root #overview .overview-visual {
+    min-height: 0;
+  }
+
+  .portfolio-root #nav {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 30px);
+    gap: 4px;
+    width: 100%;
+  }
+
+  .portfolio-root #nav a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .portfolio-root .brand {
+    justify-content: center;
+  }
+
+  .portfolio-root .nav-cta {
+    justify-content: center;
+  }
+
+  .portfolio-root .nav-cta .btn.primary {
+    width: min(260px, 100%);
   }
 }
 
@@ -4607,20 +4612,19 @@ header {
     height: var(--header-h);
   }
 
+  .portfolio-root > header .head {
+    height: var(--header-h);
+  }
+
+  .portfolio-root > main {
+    padding-top: var(--header-h);
+  }
+
   .portfolio-root > main > .slide {
-    padding-block: 36px;
+    padding-block: 18px;
   }
 
   .portfolio-root > main > .slide > .wrap {
     padding-inline: 16px;
   }
-
-  .portfolio-root .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .portfolio-root #overview .overview-visual {
-    min-height: 520px;
-  }
 }
-
