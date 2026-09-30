@@ -1,0 +1,945 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="Integrated Channels Suite | Digital Banking Platform | Manoj Pant">
+<style is:global>
+:root{
+  --navy:#102f55;--navy-2:#163d6a;--navy-3:#214e7d;
+  --ink:#102a4d;--ink-2:#365774;--muted:#627c97;--line:#d8e4ef;--line-2:#e8eff5;
+  --bg:#f3f7fb;--paper:#fff;--blue:#2468d7;--blue-soft:#eaf2ff;
+  --lav:#7658d9;--lav-soft:#f1edff;--mint:#17886f;--mint-soft:#e8f7f2;
+  --amber:#be7615;--amber-soft:#fff2df;--rose:#bb3f76;--rose-soft:#fff0f6;
+  --teal:#167d87;--teal-soft:#e9f7f8;--radius:18px;--max:1480px;--header-h:110px;
+  --shadow:0 12px 30px rgba(22,52,82,.07);--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 10px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.45;overflow-x:hidden}
+body.locked{overflow:hidden}
+a{text-decoration:none;color:inherit}button,input{font:inherit}button{cursor:pointer}svg,img{max-width:100%;display:block}
+.wrap{width:min(var(--max),calc(100% - 48px));margin:0 auto}
+.hidden{display:none!important}
+#progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--blue),var(--lav));z-index:300}
+
+/* HEADER */
+header{position:fixed;inset:0 0 auto;width:100%;z-index:120;background:var(--navy);color:#fff;border-bottom:1px solid rgba(255,255,255,.10);box-shadow:0 10px 24px rgba(8,28,51,.18)}
+.head{height:var(--header-h);display:grid;grid-template-columns:280px minmax(530px,1fr) 250px;gap:10px;align-items:center}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand-logo{width:82px;height:82px;border-radius:50%;object-fit:cover;object-position:center 18%;border:3px solid rgba(255,255,255,.72);background:#244f7f;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.brand-copy{min-width:0}.brand-copy b{display:block;font-size:18px;line-height:1.1;color:#fff;letter-spacing:-.02em}.brand-copy small{display:block;margin-top:5px;color:#c1d2e4;font-size:8.5px;line-height:1.15;font-weight:900;letter-spacing:.035em;text-transform:uppercase;white-space:nowrap;overflow:visible;text-overflow:clip}
+#nav{display:grid;grid-template-columns:repeat(6,max-content);grid-template-rows:repeat(2,30px);gap:2px 22px;align-items:center;justify-content:end;min-width:0}
+#nav a{width:max-content;height:30px;display:flex;align-items:center;justify-content:flex-end;border-radius:8px;color:#eaf1f7;font-size:10px;font-weight:900;white-space:nowrap;transition:.15s ease;padding:0 5px;text-align:right}
+#nav a:hover,#nav a.active{background:#234f7f;color:#fff}
+.head-actions{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:42px 42px;gap:7px}.head-actions .action-row{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:7px}.head-actions .btn{height:42px}.portfolio-top{grid-column:1/-1}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:auto;padding:10px 14px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink);font-size:12px;font-weight:950;transition:.15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(10,36,65,.12)}.btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}.portfolio-top{background:#2a5c8d;color:#fff;border-color:#547ca5}
+
+/* SECTIONS & VIEWPORT SLIDES */
+.section,.ecosystem-wrap{border-bottom:1px solid var(--line-2)}
+.section.white{background:#fff}.section{background:#f6f9fc}
+
+.fit-section, .slide-page, .section.slide-page, .section > .slide-page, .slide-page.section { min-height: calc(100vh - var(--header-h)); display: flex; flex-direction: column; overflow: hidden; }
+.slide-page { border-bottom: 1px solid var(--line-2); }
+.slide-page:last-child { border-bottom: none; }
+.fit-section > .wrap, .slide-page > .wrap, .section > .slide-page > .wrap { height: 100%; padding: 18px 0 16px; display: flex; flex-direction: column; min-height: 0; flex: 1; justify-content: center; }
+
+.eyebrow{font-size:11px;line-height:1.15;color:var(--blue);font-weight:950;letter-spacing:.17em;text-transform:uppercase}
+.section-head{display:grid;gap:6px;margin-bottom:14px;flex:none}.section-head h2{margin:4px 0 0;font-size:37px;line-height:1.03;letter-spacing:-.045em;color:var(--ink);font-weight:950;white-space:nowrap}.section-head p{margin:0;color:var(--ink-2);font-size:15px;line-height:1.42}
+main{padding-top:var(--header-h)}
+
+/* OVERVIEW */
+.hero{background:linear-gradient(180deg,#f8fbff 0%,#f3f7fb 100%)}
+.hero>.wrap{height:calc(100vh - var(--header-h));padding:16px 0 16px;display:flex;flex-direction:column;min-height:0}
+.hero-copy{display:grid;grid-template-columns:1.18fr .82fr;gap:26px;align-items:center;min-height:0;flex:1}
+.kicker{display:inline-flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid #c8def7;border-radius:999px;background:var(--blue-soft);color:#17539c;font-size:11px;font-weight:950;letter-spacing:.11em;text-transform:uppercase}.kicker-m2p{width:34px;height:34px;border-radius:9px;overflow:hidden;flex:none}.kicker-m2p img{width:100%;height:100%;object-fit:contain}
+h1{font-size:clamp(44px,4.4vw,64px);line-height:.96;letter-spacing:-.055em;margin:18px 0 15px;color:#d51f2a;font-weight:950;white-space:nowrap}.lead{font-size:16px;line-height:1.48;color:#42627f;margin:0;text-align:justify}.lead strong{color:var(--ink);font-weight:900}.hero-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.safe{margin:10px 0 0;color:#7087a0;font-size:10.5px;line-height:1.35}
+.hero>.wrap>.safe{margin-top:12px;padding:10px 13px;border:1px solid #c7dcef;border-left:4px solid var(--blue);border-radius:10px;background:#eef5ff;color:#365d82;font-size:10.5px;line-height:1.4;text-align:justify}
+.role-card{border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:var(--shadow);padding:18px}.role-top{display:flex;align-items:center;gap:11px}.m2p-mark{width:52px;height:52px;flex:none}.m2p-mark img{width:100%;height:100%}.role-kicker{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#6d84a0;font-weight:950}.role-top h2{margin:3px 0 0;font-size:24px;line-height:1.1;color:var(--ink)}.role-list{display:grid;gap:7px;margin-top:13px}.role-list>div{padding:9px 10px;border:1px solid var(--line);border-radius:11px;background:#fff}.role-list>div:nth-child(1){background:var(--blue-soft)}.role-list>div:nth-child(2){background:var(--lav-soft)}.role-list>div:nth-child(3){background:var(--mint-soft)}.role-list>div:nth-child(4){background:var(--amber-soft)}.role-list b{display:block;color:var(--ink);font-size:12px}.role-list span{display:block;margin-top:2px;color:#54708d;font-size:10.5px;line-height:1.35}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}.stat{background:#fff;border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:13px;padding:10px 12px;min-height:66px;display:flex;flex-direction:column;justify-content:center}.stat-purple{border-top-color:var(--lav)}.stat-mint{border-top-color:var(--mint)}.stat-rose{border-top-color:var(--rose)}.stat strong{font-size:25px;line-height:1;color:var(--ink);letter-spacing:-.04em}.stat span{margin-top:4px;font-size:9.5px;line-height:1.2;color:#607891;font-weight:800}
+
+/* ECOSYSTEM */
+.ecosystem-wrap{background:#edf3f8}.ecosystem-panel{height:100%;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:var(--shadow);padding:10px}.eco-shell{height:100%;border:1px solid #d9e5ef;border-radius:18px;background:#f8fbfd;display:flex;flex-direction:column;overflow:hidden}.eco-topbar{height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:#fff;border-bottom:1px solid var(--line)}.eco-dots{display:flex;gap:6px}.eco-dots i{width:8px;height:8px;border-radius:50%;background:#d2deea}.eco-brand{display:flex;align-items:center;gap:6px;color:#566f89;font-size:9px;font-weight:950;letter-spacing:.12em;text-transform:uppercase}.m2p-mini{width:22px;height:22px}.m2p-mini img{width:100%;height:100%}
+.eco-stage{flex:1;padding:15px 18px 10px;display:flex;flex-direction:column;min-height:0;justify-content:center;}.eco-heading{text-align:center;flex:none}.eco-heading h2{margin:0;font-size:28px;line-height:1.05;letter-spacing:-.035em;color:var(--ink);font-weight:950}.eco-heading h2 span{color:var(--blue)}.eco-heading p{margin:5px auto 0;max-width:1250px;color:#365a79;font-size:11.5px;line-height:1.4}.eco-heading p strong{font-weight:900;color:var(--ink-2)}
+.eco-board{position:relative;flex:1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:44px 48px 64px 48px 44px;gap:7px;margin:16px auto 0;width:min(1280px,100%);min-height:0}.eco-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}.eco-lines .ring{fill:none}.eco-lines line{fill:none}.eco-lines circle:last-child{fill:var(--blue)}
+.eco-core{z-index:2;grid-column:5/9;grid-row:2/5;align-self:center;justify-self:center;width:100%;max-width:360px;min-height:112px;padding:12px 16px;border:2px solid #b9cee4;border-radius:18px;background:#fff;box-shadow:0 14px 30px rgba(26,59,90,.09);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.core-logo{display:none}.eco-core>b{font-size:20px;line-height:1.05;color:var(--ink);letter-spacing:-.02em;white-space:nowrap}.eco-core>b br{display:none}.eco-core>span:last-child{margin-top:7px;font-size:10.5px;line-height:1.3;color:var(--ink-2);font-weight:800;white-space:nowrap}
+.eco-node{z-index:3;display:flex;align-items:center;gap:7px;padding:5px 8px;border:1px solid #ccdbe8;border-left:4px solid var(--accent);border-radius:10px;background:var(--soft);box-shadow:0 6px 15px rgba(28,57,83,.05);color:var(--ink);min-width:0;min-height:0;transition:.15s ease}.eco-node:hover{transform:translateY(-2px);box-shadow:0 11px 22px rgba(28,57,83,.10)}.eco-number{width:24px;height:24px;border-radius:7px;background:rgba(255,255,255,.80);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:9px;font-weight:950;flex:none}.eco-copy{min-width:0}.eco-copy b{display:block;font-size:12px;line-height:1.02;white-space:nowrap}.eco-copy span{display:block;margin-top:2px;font-size:9px;line-height:1.15;color:#627c97;white-space:nowrap}.eco-footnote{text-align:center;margin-top:10px;font-size:10.5px;color:#56718d;font-weight:850;flex:none}
+.eco-12{grid-column:2/5;grid-row:1}.eco-01{grid-column:5/8;grid-row:1}.eco-02{grid-column:8/11;grid-row:1}.eco-11{grid-column:1/4;grid-row:2}.eco-03{grid-column:10/13;grid-row:2}.eco-10{grid-column:1/4;grid-row:3}.eco-04{grid-column:10/13;grid-row:3}.eco-09{grid-column:1/4;grid-row:4}.eco-05{grid-column:10/13;grid-row:4}.eco-08{grid-column:2/5;grid-row:5}.eco-07{grid-column:5/8;grid-row:5}.eco-06{grid-column:8/11;grid-row:5}
+
+/* CHALLENGE */
+#challenge .section-head{margin-bottom:10px}#challenge .section-head h2{font-size:37px}#challenge .section-head p{font-size:15px;line-height:1.58}#challenge .story-grid{display:grid;grid-template-columns:1.05fr .95fr;grid-template-rows:auto auto;gap:10px;flex:1;min-height:0;align-content:start;align-items:stretch}.story{border:1px solid var(--line);border-radius:15px;padding:16px;background:var(--blue-soft);box-shadow:var(--shadow);min-height:0;height:100%}.story:nth-child(2){background:var(--lav-soft)}.story:nth-child(2) h3{font-size:21px;letter-spacing:-.03em}.story h3{font-size:24px;line-height:1.1;margin:6px 0;color:var(--ink);letter-spacing:-.025em}.story p{font-size:14px;line-height:1.45;color:#4f6d8a;margin:0}.story ul{margin:9px 0 0;padding-left:18px;color:#506d89;font-size:12.5px;line-height:1.4}.story li+li{margin-top:3px}.story-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:10px}.story-step{border:1px solid #d3dfeb;border-radius:9px;padding:9px;background:#fff}.story-step b{display:block;color:var(--ink);font-size:12px}.story-step span{display:block;margin-top:3px;color:#58728d;font-size:10.5px;line-height:1.3}.challenge-response{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:stretch}.challenge-response>div{padding:11px;border:1px solid var(--line);border-radius:9px;background:#fff;height:100%;min-height:0}.challenge-response>div:nth-child(1){background:var(--blue-soft)}.challenge-response>div:nth-child(2){background:var(--mint-soft)}.challenge-response>div:nth-child(3){background:var(--rose-soft)}.challenge-response>div:nth-child(4){background:var(--amber-soft)}.challenge-response b{display:block;color:var(--ink);font-size:13px}.challenge-response span{display:block;margin-top:3px;color:#58718d;font-size:11px;line-height:1.3}
+
+#challenge .story h3{margin-bottom:12px}
+
+/* STRATEGY */
+#strategy .section-head{margin-bottom:10px}#strategy .section-head h2{font-size:37px}#strategy .section-head p{font-size:15px;line-height:1.42}#strategy .strategy{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:10px;flex:1;min-height:0;align-content:start}.strategy-card{border:1px solid var(--line);border-left:4px solid var(--tone);border-radius:12px;padding:12px;background:#fff;box-shadow:var(--shadow);min-height:0;height:auto;display:flex;flex-direction:column}.strategy-card .num{display:none}.strategy-card h3{margin:0 0 8px;padding:7px 9px;border-radius:7px;background:var(--blue-soft);font-size:15px;line-height:1.1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.strategy-card:nth-child(2) h3,.strategy-card:nth-child(7) h3{background:var(--mint-soft)}.strategy-card:nth-child(3) h3,.strategy-card:nth-child(8) h3{background:var(--lav-soft)}.strategy-card:nth-child(4) h3{background:var(--amber-soft)}.strategy-card:nth-child(5) h3{background:var(--rose-soft)}.strategy-card p{margin:0;font-size:12px;line-height:1.42;color:#57718c;text-align:justify}.decision{margin-top:10px;border:1px solid var(--line);border-radius:11px;background:#fff;padding:10px;flex:none}.decision-title{display:block;font-size:10.5px;font-weight:950;color:var(--ink);letter-spacing:.1em}.decision-row{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;margin-top:7px}.decision-step{padding:7px 4px;border:1px solid #cbdbea;border-radius:7px;background:var(--blue-soft);text-align:center;color:var(--ink);font-size:9px;font-weight:900}
+
+#strategy .strategy{flex:none}
+
+/* PM SCOPE */
+#ownership .section-head{margin-bottom:10px}#ownership .section-head h2{font-size:37px}#ownership .section-head p{font-size:15px;line-height:1.42}#ownership .ownership{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto auto;gap:9px;flex:1;min-height:0;align-content:start}.own{border:1px solid var(--line);border-left:4px solid #9ab4cc;border-radius:12px;padding:14px;background:#fff;box-shadow:var(--shadow);min-height:0;height:auto}.own:nth-child(1),.own:nth-child(5){background:var(--blue-soft)}.own:nth-child(2),.own:nth-child(6){background:var(--lav-soft)}.own:nth-child(3),.own:nth-child(7){background:var(--mint-soft)}.own:nth-child(4),.own:nth-child(8){background:var(--amber-soft)}.pill{display:inline-flex;align-items:center;padding:5px 8px;border-radius:999px;background:#fff;border:1px solid #d5e1ec;color:#294d70;font-size:11px;font-weight:950}.own h3{margin:8px 0 5px;font-size:17px;line-height:1.1;color:var(--ink)}.own p{margin:0;color:#58718d;font-size:12px;line-height:1.35}.own ul{margin:8px 0 0;padding-left:17px;color:#58718d;font-size:11.5px;line-height:1.4}.scope-evidence{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.scope-evidence-card{border:1px solid #294d72;border-radius:9px;background:var(--navy);padding:11px}.scope-evidence-card b{display:block;font-size:16px;color:#fff;line-height:1}.scope-evidence-card span{display:block;margin-top:4px;color:#dbe8f4;font-size:10.5px;line-height:1.25}
+
+#ownership .own{padding:12px}#ownership .own h3{font-size:15px;line-height:1.08;white-space:nowrap}#ownership .own p{font-size:11.5px;line-height:1.3}#ownership .own ul{font-size:11px;line-height:1.3;margin-top:6px}#ownership .scope-evidence-card{padding:9px}#ownership .scope-evidence-card b{font-size:15px}#ownership .scope-evidence-card span{font-size:10px;line-height:1.2}
+
+/* ARCHITECTURE */
+#architecture .section-head{margin-bottom:8px}#architecture .section-head h2{font-size:32px}#architecture .section-head p{font-size:13px;line-height:1.32}#architecture .arch-layout{display:grid;grid-template-columns:1.08fr .92fr;gap:8px;flex:1;min-height:0;align-content:center}.arch-card{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow);padding:12px;min-width:0;height:auto;overflow:hidden}.arch-card>h3{margin:5px 0 7px;font-size:17px;line-height:1.06;color:var(--ink)}.arch-map{display:grid;grid-template-columns:1fr 16px 2.2fr 16px 1fr;gap:5px;height:auto;min-height:0}.arch-column{display:flex;flex-direction:column;min-width:0;min-height:0}.arch-column h4{margin:0 0 5px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#607b97}.arch-side{display:grid;gap:5px}.mini-box{border:1px solid var(--line);border-radius:7px;background:#fbfdff;padding:7px;font-size:9.5px;line-height:1.15;color:#4f6b87;font-weight:850}.arch-arrow{display:flex;align-items:center;justify-content:center;color:#8ba4bc;font-size:18px}.arch-stack{display:grid;gap:5px;min-height:0}.arch-layer{border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:7px;background:var(--blue-soft);padding:7px;min-height:0}.arch-layer:nth-child(2){border-left-color:var(--lav);background:var(--lav-soft)}.arch-layer:nth-child(3){border-left-color:var(--mint);background:var(--mint-soft)}.arch-layer:nth-child(4){border-left-color:var(--amber);background:var(--amber-soft)}.arch-layer:nth-child(5){border-left-color:var(--rose);background:var(--rose-soft)}.arch-layer b{display:block;font-size:10px;color:var(--ink)}.arch-layer span{display:block;margin-top:2px;font-size:8px;line-height:1.2;color:#58728d}.arch-note{margin:5px 0 0;color:#71879f;font-size:9px}.stack{display:grid;grid-template-columns:repeat(2,1fr);gap:5px}.stack-card{border:1px solid var(--line);border-top:3px solid #9eb7cf;border-radius:8px;padding:8px;background:#fff;min-height:0}.stack-card:nth-child(2n){border-top-color:#9a86e8;background:var(--lav-soft)}.stack-card:nth-child(3n){border-top-color:#75c8af;background:var(--mint-soft)}.stack-card:nth-child(4n){border-top-color:#e1b16d;background:var(--amber-soft)}.stack-card h3{margin:0 0 4px;font-size:11px;color:var(--ink)}.chips{display:flex;flex-wrap:wrap;gap:4px}.stack-card .chips{flex-wrap:wrap;overflow:visible}.chip{padding:4px 6px;border:1px solid #d5e1eb;border-radius:5px;background:rgba(255,255,255,.84);font-size:8px;font-weight:850;color:#4e6985;white-space:normal}
+
+#architecture>.slide-page:first-child .arch-card:first-child{padding:16px}#architecture>.slide-page:first-child .arch-card:first-child>h3{margin:6px 0 9px;font-size:19px;line-height:1.08}#architecture>.slide-page:first-child .arch-map{grid-template-columns:1fr 18px 2.2fr 18px 1fr;gap:7px}#architecture>.slide-page:first-child .arch-column h4{margin-bottom:7px;font-size:11px;color:var(--ink);font-weight:950}#architecture>.slide-page:first-child .arch-side{gap:7px}#architecture>.slide-page:first-child .mini-box{padding:9px;font-size:11px;line-height:1.2;border-radius:8px}#architecture>.slide-page:first-child .arch-arrow{font-size:20px}#architecture>.slide-page:first-child .arch-stack{gap:6px}#architecture>.slide-page:first-child .arch-layer{padding:9px;border-radius:8px}#architecture>.slide-page:first-child .arch-layer b{font-size:11.5px}#architecture>.slide-page:first-child .arch-layer span{font-size:9px;line-height:1.25}#architecture>.slide-page:first-child .arch-note{margin-top:7px;font-size:10px}
+.stack-groups{display:grid;gap:7px;min-height:0}.stack-parent{border:1px solid var(--line);border-radius:9px;padding:8px;background:var(--blue-soft)}.stack-parent.stack-methods{background:var(--lav-soft);border-color:#d7c9fa}.stack-parent>h4{margin:0 0 6px;color:var(--ink);font-size:11px;line-height:1.1;letter-spacing:.08em;text-transform:uppercase}.stack-subcategories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.stack-subcategory{min-width:0;padding:6px;border:1px solid rgba(172,193,214,.68);border-radius:7px;background:rgba(255,255,255,.84)}.stack-subcategory>b{display:block;margin-bottom:4px;color:var(--ink);font-size:8.5px;line-height:1.1}.stack-subcategory .chips{gap:3px}.stack-subcategory .chip{font-size:7.5px;padding:3px 4px}
+.stack-groups{gap:8px}.stack-parent{padding:10px;border-radius:10px}.stack-parent>h4{margin-bottom:7px;font-size:12.5px;line-height:1.1;color:var(--ink);font-weight:950;letter-spacing:.06em}.stack-subcategories{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.stack-subcategory{padding:8px;border-radius:8px;background:#fff}.stack-subcategory>b{margin-bottom:5px;padding:4px 6px;border-radius:5px;background:var(--blue-soft);color:var(--ink);font-size:10px;line-height:1.1;font-weight:900}.stack-methods .stack-subcategory>b{background:var(--lav-soft)}.stack-subcategory .chips{gap:4px}.stack-subcategory .chip{font-size:8px;padding:4px 5px}
+
+/* INTEGRATION DESIGN */
+.integrations{margin-top:0;border:none;border-radius:0;background:transparent;padding:0;box-shadow:none;flex:1;min-height:0;overflow:hidden}.integration-head h3{margin:4px 0 10px;padding:8px 11px;border-left:4px solid var(--blue);border-radius:8px;background:var(--blue-soft);font-size:20px;color:var(--ink)}.integration-flow{display:grid;grid-template-columns:1fr 24px 1.18fr 24px 1fr;gap:10px;align-items:stretch;height:auto;flex:1}.integration-column,.integration-boundary{border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0;display:flex;flex-direction:column;justify-content:center}.integration-column:first-child{background:var(--mint-soft);border-color:#bfe1d6}.integration-column:last-child{background:var(--amber-soft);border-color:#efd6a9}.integration-column h4,.boundary-label{margin:0 0 10px;font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--blue);font-weight:950}.integration-items{display:flex;flex-wrap:wrap;gap:6px}.integration-item{padding:7px 10px;border:1px solid rgba(154,183,207,.62);border-radius:7px;background:#fff;font-size:11px;font-weight:800;color:#4e6b88}.integration-boundary{background:var(--lav-soft);border-color:#d7c9fa;text-align:center;box-shadow:inset 0 3px 0 var(--lav)}.integration-boundary b{font-size:16px;color:var(--ink)}.integration-boundary p{margin:6px 0 0;font-size:11px;line-height:1.35;color:#55718d}.integration-arrow{display:flex;align-items:center;justify-content:center;color:#8198b1;font-size:24px}.api-lifecycle{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px;height:auto;flex:none}.api-step{border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:10px;background:var(--blue-soft);padding:10px;min-width:0}.api-step:nth-child(2){border-top-color:var(--lav);background:var(--lav-soft)}.api-step:nth-child(3){border-top-color:var(--mint);background:var(--mint-soft)}.api-step:nth-child(4){border-top-color:var(--amber);background:var(--amber-soft)}.api-step:nth-child(5){border-top-color:var(--rose);background:var(--rose-soft)}.api-step:nth-child(6){border-top-color:var(--teal);background:var(--teal-soft)}.api-step b{display:block;font-size:11px;color:var(--ink)}.api-step span{display:block;margin-top:4px;font-size:9.5px;line-height:1.3;color:#607993}
+
+/* DELIVERY */
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,auto);gap:10px;flex:none;align-content:start;height:auto}.time{border:1px solid var(--line);border-right:4px solid var(--blue);border-radius:13px;background:var(--blue-soft);padding:14px;min-height:0;box-shadow:var(--shadow);height:100%}.time:nth-child(2){background:var(--lav-soft);border-right-color:var(--lav)}.time:nth-child(3){background:var(--mint-soft);border-right-color:var(--mint)}.time:nth-child(4){background:var(--amber-soft);border-right-color:var(--amber)}.time:nth-child(5){background:var(--rose-soft);border-right-color:var(--rose)}.time:nth-child(6){background:var(--teal-soft);border-right-color:var(--teal)}.time>b{font-size:11px;color:var(--ink);font-weight:950}.time h3{margin:8px 0 6px;font-size:17px;line-height:1.1;color:var(--ink)}.time p{margin:0;font-size:12px;line-height:1.4;color:#58718d}.time ul{margin:8px 0 0;padding-left:16px;font-size:11px;line-height:1.4;color:#58718d}
+.delivery-subhead{margin:0 0 14px}.delivery-subhead h3{margin:4px 0 6px;font-size:20px;color:var(--ink)}.delivery-subhead p{margin:0 0 4px;font-size:12px;line-height:1.4;color:#5a7390}.implementation{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;flex:1;align-content:center;height:auto}.impl{border:1px solid var(--line);border-left:4px solid #9bb4ce;border-radius:14px;background:#fff;padding:14px 16px;min-height:0;height:auto}.impl:nth-child(2n){background:var(--lav-soft);border-left-color:var(--lav)}.impl:nth-child(3n){background:var(--mint-soft);border-left-color:var(--mint)}.impl:nth-child(4n){background:var(--amber-soft);border-left-color:var(--amber)}.impl .pill{font-size:10.5px}.impl h3{margin:8px 0 4px;font-size:16px;color:var(--ink)}.impl p{margin:0;font-size:11px;line-height:1.35;color:#58718d}.impl ul{margin:8px 0 0;padding-left:16px;font-size:10.5px;line-height:1.35;color:#58718d}
+
+#delivery .delivery-subhead h2{margin-bottom:12px}
+
+/* PRODUCT EXPLORER */
+#products{background:#f0f5f9}.product-page-label{font-size:11px;font-weight:950;letter-spacing:.14em;text-transform:uppercase;color:#6a829d;margin-bottom:6px}.product-page .section-head{margin-bottom:12px}.product-page .section-head h2{font-size:36px}.product-page .section-head p{font-size:14px}.toolbar{display:grid;grid-template-columns:minmax(280px,1fr) auto;gap:10px;margin-bottom:12px}.search{height:42px;border:1px solid var(--line);border-radius:10px;padding:0 14px;background:#fff;color:var(--ink);outline:none;font-size:14px;}.filters{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.filter{height:40px;padding:0 12px;border:1px solid var(--line);border-radius:9px;background:#fff;color:#536d87;font-size:11px;font-weight:900}.filter.active{background:var(--navy);border-color:var(--navy);color:#fff}.app-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;flex:1;min-height:0}.app-card{position:relative;display:flex;flex-direction:column;min-width:0;height:100%;padding:18px;border:1px solid var(--line);border-left:5px solid var(--app);border-radius:15px;background:#fff;box-shadow:var(--shadow);color:var(--ink);transition:.15s ease;text-align:left}.app-card:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(16,45,82,.11)}.app-top{display:grid;grid-template-columns:34px 1fr 16px;gap:10px;align-items:center}.app-index{width:34px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:#eef3f7;font-size:11px;font-weight:950;color:var(--ink)}.app-domain{font-size:11px;line-height:1.15;letter-spacing:.10em;text-transform:uppercase;color:var(--blue);font-weight:900;background:var(--blue-soft);padding:4px 8px;border-radius:6px;display:inline-block;width:fit-content;}.app-go{text-align:right;font-size:16px;color:#7690aa}.app-card h3{font-size:24px;line-height:1.1;letter-spacing:-.025em;margin:14px 0 8px;color:var(--ink);font-weight:950;}.app-card p{font-size:13px;line-height:1.45;color:#57708b;margin:0}.mini-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px}.mini-tags span{display:inline-flex;padding:6px 10px;border:1px solid #d7e2ec;border-radius:8px;background:#f4f8fb;color:#4f6884;font-size:10px;line-height:1.1;font-weight:850}.app-foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid var(--line-2);font-size:10px;color:#698098}.app-foot b{color:var(--blue)}.product-page-heading{border:1px solid var(--line);border-radius:13px;padding:14px 16px;background:#fff;margin-bottom:12px}.product-page-heading h3{margin:0;font-size:18px;color:var(--ink)}.product-page-heading p{margin:4px 0 0;font-size:12px;color:#5b7490}
+
+/* IMPACT */
+#impact .section-head{margin-bottom:14px}.impact-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.impact-card{border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:15px;background:#fff;padding:16px;box-shadow:var(--shadow)}.impact-purple{border-top-color:var(--lav)}.impact-mint{border-top-color:var(--mint)}.impact-rose{border-top-color:var(--rose)}.impact-card strong{font-size:32px;line-height:1;color:var(--ink);letter-spacing:-.04em}.impact-card b{display:block;margin-top:6px;font-size:13px;color:var(--ink)}.impact-card span{display:block;margin-top:4px;font-size:11px;color:#607993}.outcome-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:12px;margin-top:12px;flex:1;min-height:0;align-content:center;}.outcome-card{border:1px solid var(--line);border-radius:15px;background:#fff;padding:18px;height:auto;}.outcome-card:nth-child(1){background:var(--blue-soft)}.outcome-card:nth-child(2){background:var(--lav-soft)}.outcome-card:nth-child(3){background:var(--mint-soft)}.outcome-card:nth-child(4){background:var(--amber-soft)}.outcome-card:nth-child(5){background:var(--rose-soft)}.outcome-card:nth-child(6){background:var(--teal-soft)}.outcome-card .eyebrow{color:var(--blue);font-size:11.5px;font-weight:900;letter-spacing:0.1em;}.outcome-card h3{margin:6px 0 6px;font-size:17px;color:var(--ink)}.outcome-card p{margin:0;font-size:12.5px;line-height:1.4;color:#58718d}.outcome-principles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}.outcome-principles b,.outcome-principles span{padding:10px 12px;border:1px solid var(--line);background:#fff;font-size:11px;text-align:justify}.outcome-principles b{border-radius:10px 0 0 10px;color:var(--ink)}.outcome-principles span{margin-left:-8px;border-left:0;border-radius:0 10px 10px 0;color:#5c7590}
+
+/* PRODUCT METRICS */
+#product-metrics{background:#f8fafc}.metrics-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;align-items:start}.metrics-panel{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff;box-shadow:var(--shadow)}.metrics-panel:nth-child(1){background:linear-gradient(180deg,#eef5ff 0%,#fff 100%)}.metrics-panel:nth-child(2){background:linear-gradient(180deg,#f3f0ff 0%,#fff 100%)}.metrics-panel:nth-child(3){background:linear-gradient(180deg,#ebfaf4 0%,#fff 100%)}.metrics-panel h3{margin:0 0 12px;font-size:20px;letter-spacing:-.025em;color:var(--ink)}.framework-list,.metric-list{display:grid;gap:10px}.framework-card,.metric-card{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:rgba(255,255,255,.75)}.framework-card{border-left:4px solid var(--tone)}.metric-card{border-left:4px solid var(--tone)}.framework-card h4,.metric-card h4{margin:0 0 6px;font-size:14px;color:var(--ink)}.framework-card p,.metric-card p{margin:0;color:#59748d;font-size:11.5px;line-height:1.45;text-align:justify}.metric-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric-group{display:grid;gap:10px}.relationship{margin-top:12px;border:1px solid #dce7f5;border-radius:12px;padding:12px;background:#f8fbff}.relationship b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}.relationship p{margin:0;color:#536f8d;font-size:11.5px;line-height:1.5}.relationship strong{color:var(--ink)}
+
+/* LEADERSHIP */
+#learnings{background:#edf3f8}.comps{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto auto;gap:12px;flex:none;height:auto;align-content:center;}.comp{border:1px solid var(--line);border-left:4px solid #9fb8cf;border-radius:12px;background:#fff;padding:12px 14px;min-height:0;height:fit-content;}.comp:nth-child(1),.comp:nth-child(5),.comp:nth-child(9){background:var(--blue-soft)}.comp:nth-child(2),.comp:nth-child(6),.comp:nth-child(10){background:var(--lav-soft)}.comp:nth-child(3),.comp:nth-child(7),.comp:nth-child(11){background:var(--mint-soft)}.comp:nth-child(4),.comp:nth-child(8),.comp:nth-child(12){background:var(--amber-soft)}.comp b{display:block;font-size:12.5px;color:var(--ink);font-weight:950}.comp span{display:block;margin-top:4px;font-size:10.5px;line-height:1.35;color:#607993}.learn{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:12px;margin-top:14px;flex:none;height:auto;align-content:center;}.lesson{border:1px solid #cdddef;border-left:4px solid var(--blue);border-radius:12px;padding:14px;background:var(--blue-soft);height:fit-content;}.lesson:nth-child(2),.lesson:nth-child(5){background:var(--lav-soft);border-left-color:var(--lav)}.lesson:nth-child(3),.lesson:nth-child(6){background:var(--mint-soft);border-left-color:var(--mint)}.lesson:nth-child(4){background:var(--amber-soft);border-left-color:var(--amber)}.lesson strong{display:block;font-size:22px;line-height:1;color:var(--blue)}.lesson:nth-child(2) strong,.lesson:nth-child(5) strong{color:var(--lav)}.lesson:nth-child(3) strong,.lesson:nth-child(6) strong{color:var(--mint)}.lesson:nth-child(4) strong{color:var(--amber)}.lesson h3{margin:6px 0 4px;font-size:14px;color:var(--ink)}.lesson p{margin:0;font-size:11.5px;line-height:1.35;color:#58718d}.star-card{margin-top:14px;border:1px solid #294d72;border-radius:16px;background:var(--navy);padding:14px 18px;color:#fff;flex:none;min-height:0;height:auto;}.star-card .eyebrow{color:#c8d8e7}.star-card .story-flow{margin-top:8px}.star-card .story-step{border-color:#416585;background:#183c61}.star-card .story-step:nth-child(2){background:#4b3c78}.star-card .story-step:nth-child(3){background:#1a5b55}.star-card .story-step:nth-child(4){background:#75501a}.star-card .story-step b{color:#fff;font-size:11px}.star-card .story-step span{color:#eef5fb;font-size:9.5px;line-height:1.3;}.star-card .safe{color:#c7d6e4;font-size:9px;margin-top:8px}
+
+/* CLOSING FOOTER */
+footer{color:var(--ink);background:#fff;border-top:1px solid var(--line)}.footer-wrap{min-height:calc(100vh - var(--header-h));padding:40px 0;display:grid;grid-template-columns:1fr;gap:16px;align-content:center;position:relative;max-width:860px;margin:0 auto;text-align:center;}.footer-cta,.footer-meta{position:relative;z-index:1}.footer-cta{margin:0 auto;}.footer-eyebrow{color:var(--blue);font-weight:950;}.footer-cta h2{margin:12px 0 14px;font-size:clamp(38px, 3vw, 58px);line-height:1.05;letter-spacing:-.05em;color:var(--ink);white-space:nowrap}.footer-cta p{margin:0 auto;color:var(--ink-2);font-size:16px;line-height:1.5}.footer-cta-btn{display:inline-flex;margin-top:20px;padding:14px 18px;border:1px solid var(--navy);border-radius:12px;background:var(--navy);color:#fff;font-size:12px;font-weight:950}.footer-meta{border:1px solid var(--line-2);border-radius:18px;background:#fbfdff;padding:22px;margin-top:30px;text-align:left;}.footer-meta>b,.footer-meta b{display:block;font-size:16px;color:var(--ink)}.footer-meta small{display:block;margin-top:6px;color:#627a94;font-size:11px}.footer-note{border:1px solid #cbddec;border-radius:11px;padding:12px;background:var(--blue-soft);margin-top:14px}.footer-note strong{display:block;font-size:11px;color:var(--ink)}.footer-note span{display:block;margin-top:4px;color:#55718c;font-size:10px;line-height:1.3}.source-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;justify-content:center;}.source-links a{padding:8px 12px;border-radius:9px;border:none;font-size:11px;font-weight:800;transition:.15s;}
+.source-links a:nth-child(1){background:var(--blue-soft);color:var(--blue);}
+.source-links a:nth-child(2){background:var(--mint-soft);color:var(--mint);}
+.source-links a:nth-child(3){background:var(--lav-soft);color:var(--lav);}
+.source-links a:nth-child(4){background:var(--amber-soft);color:var(--amber);}
+.source-links a:nth-child(5){background:var(--rose-soft);color:var(--rose);}
+
+/* DRAWER */
+.drawer-backdrop{position:fixed;inset:0;background:rgba(13,34,58,.64);backdrop-filter:blur(6px);z-index:150;display:none}.drawer-backdrop.open{display:block}.drawer{position:absolute;right:0;top:0;height:100%;width:min(1080px,94vw);background:#f4f7fb;border-left:1px solid #cbd9e7;overflow:auto}.drawer-head{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);background:#fff}.drawer-title{display:flex;align-items:center;gap:10px}.drawer-badge{width:40px;height:40px;border-radius:10px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:950}.drawer-title h2{margin:0;font-size:22px;color:var(--ink)}.drawer-title small{display:block;margin-top:2px;font-size:8.5px;color:#6c829a;text-transform:uppercase;font-weight:850;letter-spacing:.08em}.close{width:38px;height:38px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);font-size:21px}.drawer-body{padding:12px 16px 22px}.dhero{display:grid;grid-template-columns:1.1fr .9fr;gap:9px}.dcard{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;box-shadow:var(--shadow)}.dhero .dcard:first-child{background:var(--blue-soft)}.dcard h3{font-size:17px;line-height:1.2;margin:5px 0;color:var(--ink)}.dcard>p{font-size:12px;line-height:1.48;color:#54708c;margin:0}.dcard>p b{color:var(--ink)}.dsection{margin-top:9px}.dsection-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:5px}.dsection-head h3{font-size:14px;margin:0;color:var(--ink)}.dsection-head span{font-size:8.5px;color:#6b829b}.list2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.list2>div,.journey-card{border:1px solid var(--line);border-radius:8px;padding:7px 8px;background:#fff;font-size:10px;font-weight:750;color:#4f6c88}.journey-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.journey-card{background:var(--lav-soft)}.journey-card:nth-child(2){background:var(--mint-soft)}.journey-card:nth-child(3){background:var(--amber-soft)}.journey-card:nth-child(4){background:var(--blue-soft)}.journey-card b{display:block;font-size:9.5px;color:var(--ink)}.journey-card span{display:block;margin-top:2px;font-size:8.4px;line-height:1.25;color:#59728d}.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}.fstep{border:1px solid var(--line);border-top:3px solid #8da8c1;border-radius:8px;padding:8px;background:#fff;min-height:65px}.fstep b{font-size:9px;color:var(--ink)}.fstep span{display:block;margin-top:3px;font-size:8px;line-height:1.25;color:#607993}.report{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}.report-head{display:flex;justify-content:space-between;gap:8px;padding:8px 10px;border-bottom:1px solid var(--line);background:var(--blue-soft)}.report-head b{font-size:10px}.report-head span{font-size:8px;color:#637a95}.report table{width:100%;border-collapse:collapse}.report th,.report td{padding:6px 8px;border-bottom:1px solid var(--line-2);text-align:left;font-size:8.5px}.report th{color:var(--ink);background:#f8fafc}.report td{color:#55718c}.api{border:1px solid #c7d9ed;border-radius:10px;background:#edf4fb;padding:9px 10px;font-family:var(--mono);font-size:8.5px;line-height:1.4;color:#3a5874;white-space:pre-wrap;word-break:break-word}.method{display:inline-flex;padding:2px 5px;border-radius:5px;background:var(--navy);color:#fff;font-size:7.5px;font-family:var(--sans);font-weight:900}.error{margin-top:5px;border:1px solid #e4c1cc;border-radius:9px;background:var(--rose-soft);padding:8px 9px}.error b{font-size:9px;color:var(--ink)}.error p{font-size:8.5px;line-height:1.3;color:#5b7188;margin:2px 0 0}
+.app-card:focus-visible,.eco-node:focus-visible,.btn:focus-visible,.source-links a:focus-visible{outline:3px solid #6e9fe2;outline-offset:2px}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media screen and (max-width:1180px){:root{--header-h:132px}.head{grid-template-columns:205px minmax(440px,1fr) 260px}.section-head h2{font-size:34px}.lead{font-size:15px}.hero-copy{grid-template-columns:1.05fr .95fr}.eco-stage{padding:14px 10px 8px}.eco-board{width:100%}}
+@media screen and (max-width:900px){:root{--header-h:178px}.head{height:var(--header-h);grid-template-columns:1fr;grid-template-rows:82px 72px 46px;gap:6px;padding:10px 0}.brand{justify-content:flex-start}.brand-logo{width:64px;height:64px}.head-actions{position:absolute;right:24px;top:10px;width:280px}.hero-copy{grid-template-columns:1fr}.role-card{max-width:none}.quick{grid-template-columns:repeat(2,1fr)}#architecture .arch-layout{grid-template-columns:1fr;height:auto}.integrations{height:auto}.integration-flow{grid-template-columns:1fr}.integration-arrow{display:none}.eco-board{grid-template-columns:repeat(6,1fr);grid-template-rows:auto;min-height:0}.eco-core{grid-column:1/-1;grid-row:auto;width:100%;max-width:none;}.eco-lines{display:none}.eco-node{grid-column:auto!important;grid-row:auto!important}.app-grid{grid-template-columns:repeat(2,1fr)}#ownership .ownership{grid-template-columns:repeat(2,1fr)}.scope-evidence{grid-template-columns:repeat(2,1fr)}.scope-chain{flex-wrap:wrap}.timeline{grid-template-columns:repeat(3,1fr)}.implementation{grid-template-columns:repeat(2,1fr)}.comps{grid-template-columns:repeat(2,1fr);height:auto}.learn{grid-template-columns:repeat(2,1fr);height:auto}.footer-wrap{grid-template-columns:1fr}.footer-meta{margin-top:0}}
+@media screen and (max-width:640px){:root{--header-h:238px}.head{height:var(--header-h)}.head-actions{position:static;width:100%}#nav{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(6,34px)}.wrap{width:min(var(--max),calc(100% - 28px))}.fit-section>.wrap,.slide-page>.wrap{padding-top:14px}.section-head h2{white-space:normal;font-size:28px}.section-head p{font-size:12.5px}.hero>.wrap{padding-top:12px}.hero-copy{gap:14px}.hero h1{font-size:42px;white-space:normal}.lead{font-size:15px}.quick{grid-template-columns:1fr 1fr}.story-grid{grid-template-columns:1fr}.story-flow,.challenge-response{grid-template-columns:1fr 1fr}.strategy{grid-template-columns:1fr 1fr!important}.decision-row{grid-template-columns:repeat(3,1fr)}#ownership .ownership{grid-template-columns:1fr}.scope-evidence{grid-template-columns:1fr}.scope-chain{display:none}.arch-map{grid-template-columns:1fr}.arch-arrow{display:none}.stack{grid-template-columns:1fr}.timeline,.implementation{grid-template-columns:1fr}.app-grid{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr}.filters{justify-content:flex-start}.impact-metrics,.outcome-grid,.outcome-principles, .metrics-grid{grid-template-columns:1fr}.comps,.learn{grid-template-columns:1fr}.footer-cta h2{font-size:40px;white-space:normal}}
+
+@media screen and (max-width:900px){.stack-card .chips{flex-wrap:wrap}.stack-subcategories{grid-template-columns:1fr}}
+
+@media print{
+  @page{size:A4 landscape;margin:0}
+  html{scroll-behavior:auto}
+  body{background:#fff;font-size:12px}
+  header,#progress,.drawer-backdrop,.head-actions,.hero-actions,.safe,.source-links{display:none!important}
+  main{padding-top:0}
+  .slide-page,.fit-section{height:100vh;min-height:100vh;max-height:100vh;break-after:page;page-break-after:always;overflow:hidden}
+  .slide-page:last-child{break-after:auto;page-break-after:auto}
+  .slide-page>.wrap,.fit-section>.wrap{height:100%;padding:28px 34px;justify-content:center}
+  #products{height:auto;min-height:0;max-height:none;overflow:visible}
+  #products>.wrap{height:auto;min-height:0;max-height:none;display:block;padding:0}
+  #products .product-page{height:100vh;min-height:100vh;max-height:100vh;padding:28px 34px;break-after:page;page-break-after:always}
+  #products .product-page:last-child{break-after:auto;page-break-after:auto}
+  footer{height:100vh;min-height:100vh}
+  .brand-logo{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+}
+</style>
+
+<div class="progress" id="progress"></div>
+<header>
+  <div class="wrap head">
+    <a aria-label="Integrated Channels Suite overview" class="brand" href="#overview">
+      <img alt="Manoj Pant" class="brand-logo mp-logo" onerror="this.onerror=null;this.src='/profile/m2p-logo.svg';" src="/profile/profile.jpg" />
+      <span class="brand-copy"><b>Manoj Pant</b><small>Senior Product Manager</small></span>
+    </a>
+    <nav aria-label="Case study sections" id="nav">
+      <a href="#overview">Overview</a>
+      <a href="#ecosystem">Ecosystem</a>
+      <a href="#challenge">Challenge</a>
+      <a href="#strategy">Strategy</a>
+      <a href="#ownership">PM Scope</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#products">Product Explorer</a>
+      <a href="#impact">Impact</a>
+      <a href="#learnings">Product Leadership</a>
+      <a href="#product-metrics">Product Metrics</a>
+      <a href="#connect">Connect</a>
+    </nav>
+    <div class="head-actions">
+      <div class="action-row">
+        <a class="btn light-btn" href="#download-pdf" id="download-pdf">Download PDF</a>
+        <a class="btn light-btn" href="#ecosystem">Explore suite →</a>
+      </div>
+      <a class="btn portfolio-top" href="/">← Product Portfolio</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- 1. OVERVIEW -->
+<section class="hero slide-page" id="overview">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="reveal visible">
+        <span class="kicker">
+          <span aria-hidden="true" class="kicker-m2p">
+            <img alt="M2P" aria-hidden="true" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI3LjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxMDIgMTAyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMDIgMTAyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6I0NFMjIyOTt9Cgkuc3Qxe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+CjxnPgoJPGc+CgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwMSw1MWMtMC4zLDE3LjktMS45LDMyLjMtMTAsNDBjLTcuOCw4LjEtMjIuMSw5LjYtNDAsMTBjLTE3LjktMC4zLTMyLjMtMS45LTQwLTEwQzIuOSw4My4zLDEuMyw2OC45LDEsNTEKCQkJYzAuMy0xNy45LDEuOS0zMi4zLDEwLTQwYzcuOC04LjEsMjIuMS05LjYsNDAtMTBjMTcuOSwwLjMsMzIuMywxLjksNDAsMTBDOTkuMSwxOC43LDEwMC43LDMzLjEsMTAxLDUxeiIvPgoJCTxnPgoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMzcuMyw0OC42bC0wLjEsMTEuN2MwLDEuNiwxLjQsMi45LDMuMSwyLjhjMS40LTAuMiwyLjUtMS40LDIuNS0yLjhWNDMuN2MwLTIuMy0xLjktNC4yLTQuMi00LjJoMAoJCQkJYy0xLjcsMC0zLjMsMS0zLjksMi42bC00LjksMTIuM2MwLDAuMS0wLjEsMC4xLTAuMiwwLjFzLTAuMi0wLjEtMC4yLTAuMWwtNC45LTEyLjNjLTAuNy0xLjYtMi4yLTIuNi0zLjktMi42aDAKCQkJCWMtMi4zLDAtNC4yLDEuOS00LjIsNC4ydjE2LjZjMCwxLjQsMSwyLjcsMi41LDIuOGMxLjcsMC4yLDMuMS0xLjEsMy4xLTIuOFY0OC41bDUuMSwxM2MwLjUsMC45LDEuNCwxLjYsMi42LDEuNgoJCQkJYzEuMywwLDIuMy0wLjgsMi43LTEuOEwzNy4zLDQ4LjZ6Ii8+CgkJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik04NC42LDQzLjNjLTAuNy0xLjItMS43LTIuMi0zLTIuOWMtMS4zLTAuNy0yLjgtMS00LjYtMWgtNi4yYy0yLDAtMy42LDEuNi0zLjYsMy42djE3LjIKCQkJCWMwLDEuNiwxLjMsMi45LDIuOSwyLjloMGMxLjYsMCwyLjktMS4zLDIuOS0yLjl2LTQuNWMwLDAsMCwwLDAuMSwwaDMuOGMxLjgsMCwzLjQtMC4zLDQuNy0xYzEuMy0wLjcsMi43LTEuNiwzLTIuOAoJCQkJYzAuNy0xLjIsMS4xLTIuNiwxLjEtNC4zQzg1LjYsNDYsODUuMyw0NC42LDg0LjYsNDMuM3ogTTc5LjMsNDkuNWMtMC4zLDAuNS0wLjcsMS0xLjMsMS4zYy0wLjYsMC4zLTEuMywwLjUtMi4yLDAuNUg3MwoJCQkJYzAsMCwwLDAtMC4xLDBWNDRoMi44YzAuOSwwLDEuNiwwLjEsMi4yLDAuNGMwLjYsMC4zLDEsMC43LDEuMywxLjJjMC4zLDAuNSwwLjUsMS4yLDAuNSwxLjlDNzkuNyw0OC4zLDc5LjYsNDksNzkuMyw0OS41eiIvPgoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNjEuMyw1Ny44YzAsMC0wLjEsMC0wLjEsMGwtNi4zLDBsMi4yLTEuOWMxLjgtMS41LDMuMS0yLjgsNC4xLTMuOWMxLTEuMSwxLjYtMi4xLDItMwoJCQkJYzAuNC0wLjksMC42LTEuOCwwLjYtMi43YzAtMS41LTAuNC0yLjgtMS4xLTMuOWMtMC43LTEuMS0xLjgtMi0zLjEtMi42Yy0xLjQtMC42LTMtMC45LTQuOC0wLjljLTEuOCwwLTMuMywwLjMtNC43LDEKCQkJCWMtMS4zLDAuNy0yLjQsMS42LTMuMSwyLjhsLTAuMSwwLjFjLTAuMSwwLjItMC4yLDAuNC0wLjMsMC42YzAsMCwwLDAuMS0wLjEsMC4xYzAsMCwwLDAuMSwwLDAuMWMwLDAuMSwwLDAuMi0wLjEsMC4yCgkJCQljMCwwLDAsMCwwLDBjMCwwLjEsMCwwLjIsMCwwLjJjMCwwLjEsMCwwLjIsMCwwLjNjMCwxLjYsMS4zLDIuOSwyLjksMi45YzEuMywwLDIuMy0wLjgsMi44LTEuOWMwLDAsMCwwLDAtMC4xbDAuMS0wLjEKCQkJCWMwLjItMC41LDAuNi0wLjgsMS0xLjFjMC40LTAuMiwwLjktMC40LDEuNS0wLjRjMC42LDAsMS4xLDAuMSwxLjUsMC40YzAuNCwwLjIsMC44LDAuNiwxLDFjMC4zLDAuNCwwLjQsMSwwLjQsMS42CgkJCQljMCwwLjYtMC4xLDEuMS0wLjMsMS41Yy0wLjIsMC41LTAuNSwwLjktMC45LDEuM2MtMC40LDAuNC0wLjksMC45LTEuNSwxLjRsLTcuNiw2LjVjLTAuNywwLjYtMSwxLjQtMSwyLjN20zYzAsMS42LDEuMywzLDMsMwoJCQkJbDEyLjEsMHYwYzAsMCwwLDAsMC4xLDBjMS41LDAsMi42LTEuMiwyLjYtMi42QzYzLjksNTksNjIuNyw1Ny44LDYxLjMsNTcuOHoiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==" />
+          </span>
+          Digital banking platform · end-to-end product ownership
+        </span>
+        <h1>Integrated Channels Suite</h1>
+        <p class="lead">I led product management for a <strong>digital banking platform for banks and NBFCs, built from scratch as a reusable 12-application suite</strong>, bringing together lending, cards, payments, reconciliation, compliance, treasury, audit, assets, GST, shares, government schemes, credit bureau connectivity and document/KYC workflows - while supporting configurable journeys, controls, integrations and implementation at client sites.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#challenge">Start the case study ↓</a>
+          <a class="btn" href="#products">Explore the products ↗</a>
+          <a class="btn" href="#architecture">See ecosystem architecture</a>
+        </div>
+      </div>
+      <aside class="role-card reveal visible">
+        <div class="role-top">
+          <span class="m2p-mark">
+            <img alt="M2P" aria-hidden="true" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI3LjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxMDIgMTAyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMDIgMTAyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6I0NFMjIyOTt9Cgkuc3Qxe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+CjxnPgoJPGc+CgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwMSw1MWMtMC4zLDE3LjktMS45LDMyLjMtMTAsNDBjLTcuOCw4LjEtMjIuMSw5LjYtNDAsMTBjLTE3LjktMC4zLTMyLjMtMS45LTQwLTEwQzIuOSw4My4zLDEuMyw2OC45LDEsNTEKCQkJYzAuMy0xNy45LDEuOS0zMi4zLDEwLTQwYzcuOC04LjEsMjIuMS05LjYsNDAtMTBjMTcuOSwwLjMsMzIuMywxLjksNDAsMTBDOTkuMSwxOC43LDEwMC43LDMzLjEsMTAxLDUxeiIvPgoJCTxnPgoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMzcuMyw0OC42bC0wLjEsMTEuN2MwLDEuNiwxLjQsMi45LDMuMSwyLjhjMS40LTAuMiwyLjUtMS40LDIuNS0yLjhWNDMuN2MwLTIuMy0xLjktNC4yLTQuMi00LjJoMAoJCQkJYy0xLjcsMC0zLjMsMS0zLjksMi42bC00LjksMTIuM2MwLDAuMS0wLjEsMC4xLTAuMiwwLjFzLTAuMi0wLjEtMC4yLTAuMWwtNC45LTEyLjNjLTAuNy0xLjYtMi4yLTIuNi0zLjktMi42aDAKCQkJCWMtMi4zLDAtNC4yLDEuOS00LjIsNC4ydjE2LjZjMCwxLjQsMSwyLjcsMi41LDIuOGMxLjcsMC4yLDMuMS0xLjEsMy4xLTIuOFY0OC41bDUuMSwxM2MwLjUsMC45LDEuNCwxLjYsMi42LDEuNgoJCQkJYzEuMywwLDIuMy0wLjgsMi43LTEuOEwzNy4zLDQ4LjZ6Ii8+CgkJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik04NC42LDQzLjNjLTAuNy0xLjItMS43LTIuMi0zLTIuOWMtMS4zLTAuNy0yLjgtMS00LjYtMWgtNi4yYy0yLDAtMy42LDEuNi0zLjYsMy42djE3LjIKCQkJCWMwLDEuNiwxLjMsMi45LDIuOSwyLjloMGMxLjYsMCwyLjktMS4zLDIuOS0yLjl2LTQuNWMwLDAsMCwwLDAuMSwwaDMuOGMxLjgsMCwzLjQtMC4zLDQuNy0xYzEuMy0wLjcsMi43LTEuNiwzLTIuOAoJCQkJYzAuNy0xLjIsMS4xLTIuNiwxLjEtNC4zQzg1LjYsNDYsODUuMyw0NC42LDg0LjYsNDMuM3ogTTc5LjMsNDkuNWMtMC4zLDAuNS0wLjcsMS0xLjMsMS4zYy0wLjYsMC4zLTEuMywwLjUtMi4yLDAuNUg3MwoJCQkJYzAuMCwwLDAtMC4xLDBWNDRoMi44YzAuOSwwLDEuNiwwLjEsMi4yLDAuNGMwLjYsMC4zLDEsMC43LDEuMywxLjJjMC4zLDAuNSwwLjUsMS4yLDAuNSwxLjlDNzkuNyw0OC4zLDc5LjYsNDksNzkuMyw0OS41eiIvPgoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNjEuMyw1Ny44YzAsMC0wLjEsMC0wLjEsMGwtNi4zLDBsMi4yLTEuOWMxLjgtMS41LDMuMS0yLjgsNC4xLTMuOWMxLTEuMSwxLjYtMi4xLDItMwoJCQkJYzAuNC0wLjksMC42LTEuOCwwLjYtMi43YzAtMS41LTAuNC0yLjgtMS4xLTMuOWMtMC43LTEuMS0xLjgtMi0zLjEtMi42Yy0xLjQtMC42LTMtMC45LTQuOC0wLjljLTEuOCwwLTMuMywwLjMtNC43LDEKCQkJCWMtMS4zLDAuNy0yLjQsMS42LTMuMSwyLjhsLTAuMSwwLjFjLTAuMSwwLjItMC4yLDAuNC0wLjMsMC42YzAsMCwwLDAuMS0wLjEsMC4xYzAsMCwwLDAuMSwwLDAuMWMwLDAuMSwwLDAuMi0wLjEsMC4yCgkJCQljMCwwLDAsMCwwLDBjMCwwLjEsMCwwLjIsMCwwLjJjMCwwLjEsMCwwLjIsMCwwLjNjMCwxLjYsMS4zLDIuOSwyLjksMi45YzEuMywwLDIuMy0wLjgsMi44LTEuOWMwLDAsMCwwLDAtMC4xbDAuMS0wLjEKCQkJCWMwLjItMC41LDAuNi0wLjgsMS0xLjFjMC40LTAuMiwwLjktMC40LDEuNS0wLjRjMC42LDAsMS4xLDAuMSwxLjUsMC40YzAuNCwwLjIsMC44LDAuNiwxLDFjMC4zLDAuNCwwLjQsMSwwLjQsMS42CgkJCQljMCwwLjYtMC4xLDEuMS0wLjMsMS41Yy0wLjIsMC41LTAuNSwwLjktMC45LDEuM2MtMC40LDAuNC0wLjksMC45LTEuNSwxLjRsLTcuNiw2LjVjLTAuNywwLjYtMSwxLjQtMSwyLjN20zYzAsMS42LDEuMywzLDMsMwoJCQkJbDEyLjEsMHYwYzAsMCwwLDAsMC4xLDBjMS41LDAsMi42LTEuMiwyLjYtMi42QzYzLjksNTksNjIuNyw1Ny44LDYxLjMsNTcuOHoiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==" />
+          </span>
+          <div><div class="role-kicker">M2P Fintech · Product case study</div><h2>Product at a glance</h2></div>
+        </div>
+        <div class="role-list">
+          <div><b>12 connected applications</b><span>Reusable banking workflows across lending, payments, compliance and financial control.</span></div>
+          <div><b>Built from scratch</b><span>Common platform patterns with configurable institution-specific workflows.</span></div>
+          <div><b>Integration-ready</b><span>Designed to coexist with existing bank systems, payment rails and external services.</span></div>
+          <div><b>Implementation-aware</b><span>Product ownership extended through validation, migration, deployment, training and support readiness.</span></div>
+        </div>
+      </aside>
+    </div>
+    <p class="safe">Confidential bank screenshots and proprietary production data are intentionally excluded. Product screens, reports, workflows, API examples and architecture visuals are original portfolio-safe reconstructions.</p>
+    <div class="quick reveal visible">
+      <div class="stat stat-blue"><strong>12</strong><span>applications built from scratch</span></div>
+      <div class="stat stat-purple"><strong>6 + 6</strong><span>two-phase product build</span></div>
+      <div class="stat stat-mint"><strong>100+</strong><span>bank deployments · project claim</span></div>
+      <div class="stat stat-rose"><strong>25%</strong><span>manual AML/KYC compliance effort reduction</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. ECOSYSTEM -->
+<section aria-labelledby="ecosystem-title" class="ecosystem-wrap slide-page" id="ecosystem">
+  <div class="wrap">
+    <div class="ecosystem-panel reveal visible">
+      <div class="eco-shell">
+        <div class="eco-topbar">
+          <div class="eco-dots"><i></i><i></i><i></i></div>
+          <div class="eco-brand">
+            <span class="m2p-mini"><img alt="M2P" aria-hidden="true" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI3LjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxMDIgMTAyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMDIgMTAyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6I0NFMjIyOTt9Cgkuc3Qxe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+CjxnPgoJPGc+CgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwMSw1MWMtMC4zLDE3LjktMS45LDMyLjMtMTAsNDBjLTcuOCw8LjEtMjIuMSw5LjYtNDAsMTBjLTE3LjktMC4zLTMyLjMtMS45LTQwLTEwQzIuOSw4My4zLDEuMyw2OC45LDEsNTEKCQkJYzAuMy0xNy45LDEuOS0zMi4zLDEwLTQwYzcuOC04LjEsMjIuMS05LjYsNDAtMTBjMTcuOSwwLjMsMzIuMywxLjksNDAsMTBDOTkuMSwxOC43LDEwMC43LDMzLjEsMTAxLDUxeiIvPgoJCTxnPgoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMzcuMyw0OC42bC0wLjEsMTEuN2MwLDEuNiwxLjQsMi45LDMuMSwyLjhjMS40LTAuMiwyLjUtMS40LDIuNS0yLjhWNDMuN2MwLTIuMy0xLjktNC4yLTQuMi00LjJoMAoJCQkJYy0xLjcsMC0zLjMsMS0zLjksMi42bC00LjksMTIuM2MwLDAuMS0wLjEsMC4xLTAuMiwwLjFzLTAuMi0wLjEtMC4yLTAuMWwtNC45LTEyLjNjLTAuNy0xLjYtMi4yLTIuNi0zLjktMi42aDAKCQkJCWMtMi4zLDAtNC4yLDEuOS00LjIsNC4ydjE2LjZjMCwxLjQsMSwyLjcsMi41LDIuOGMxLjcsMC4yLDMuMS0xLjEsMy4xLTIuOFY0OC41bDUuMSwxM2MwLjUsMC45LDEuNCwxLjYsMi42LDEuNgoJCQkJYzEuMywwLDIuMy0wLjgsMi43LTEuOEwzNy4zLDQ4LjZ6Ii8+CgkJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik04NC42LDQzLjNjLTAuNy0xLjItMS43LTIuMi0zLTIuOWMtMS4zLTAuNy0yLjgtMS00LjYtMWgtNi4yYy0yLDAtMy42LDEuNi0zLjYsMy42djE3LjIKCQkJCWMwLDEuNiwxLjMsMi45LDIuOSwyLjloMGMxLjYsMCwyLjktMS4zLDIuOS0yLjl2LTQuNWMwLDAsMCwwLDAuMSwwaDMuOGMxLjgsMCwzLjQtMC4zLDQuNy0xYzEuMy0wLjcsMi43LTEuNiwzLTIuOAoJCQkJYzAuNy0xLjIsMS4xLTIuNiwxLjEtNC4zQzg1LjYsNDYsODUuMyw0NC42LDg0LjYsNDMuM3ogTTc5LjMsNDkuNWMtMC4zLDAuNS0wLjcsMS0xLjMsMS4zYy0wLjYsMC4zLTEuMywwLjUtMi4yLDAuNUg3MwoJCQkJYzAuMCwwLDAtMC4xLDBWNDRoMi44YzAuOSwwLDEuNiwwLjEsMi4yLDAuNGMwLjYsMC4zLDEsMC43LDEuMywxLjJjMC4zLDAuNSwwLjUsMS4yLDAuNSwxLjlDNzkuNyw0OC4zLDc5LjYsNDksNzkuMyw0OS41eiIvPgoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNjEuMyw1Ny44YzAsMC0wLjEsMC0wLjEsMGwtNi4zLDBsMi4yLTEuOWMxLjgtMS41LDMuMS0yLjgsNC4xLTMuOWMxLTEuMSwxLjYtMi4xLDItMwoJCQkJYzAuNC0wLjksMC42LTEuOCwwLjYtMi43YzAtMS41LTAuNC0yLjgtMS4xLTMuOWMtMC43LTEuMS0xLjgtMi0zLjEtMi42Yy0xLjQtMC42LTMtMC45LTQuOC0wLjljLTEuOCwwLTMuMywwLjMtNC43LDEKCQkJCWMtMS4zLDAuNy0yLjQsMS42LTMuMSwyLjhsLTAuMSwwLjFjLTAuMSwwLjItMC4yLDAuNC0wLjMsMC42YzAsMCwwLDAuMS0wLjEsMC4xYzAsMCwwLDAuMSwwLDAuMWMwLDAuMSwwLDAuMi0wLjEsMC4yCgkJCQljMCwwLDAsMCwwLDBjMCwwLjEsMCwwLjIsMCwwLjJjMCwwLjEsMCwwLjIsMCwwLjNjMCwxLjYsMS4zLDIuOSwyLjksMi45YzEuMywwLDIuMy0wLjgsMi44LTEuOWMwLDAsMCwwLDAtMC4xbDAuMS0wLjEKCQkJCWMwLjItMC41LDAuNi0wLjgsMS0xLjFjMC40LTAuMiwwLjktMC40LDEuNS0wLjRjMC42LDAsMS4xLDAuMSwxLjUsMC40YzAuNCwwLjIsMC44LDAuNiwxLDFjMC4zLDAuNCwwLjQsMSwwLjQsMS42CgkJCQljMCwwLjYtMC4xLDEuMS0wLjMsMS41Yy0wLjIsMC41LTAuNSwwLjktMC45LDEuM2MtMC40LDAuNC0wLjksMC45LTEuNSwxLjRsLTcuNiw2LjVjLTAuNywwLjYtMSwxLjQtMSwyLjN20zYzAsMS42LDEuMywzLDMsMwoJCQkJbDEyLjEsMHYwYzAsMCwwLDAsMC4xLDBjMS41LDAsMi42LTEuMiwyLjYtMi42QzYzLjksNTksNjIuNyw1Ny44LDYxLjMsNTcuOHoiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==" /></span>
+            <span>M2P FINTECH</span><span>·</span><span>INTEGRATED CHANNELS · PRODUCT ECOSYSTEM</span>
+          </div>
+        </div>
+        <div class="eco-stage">
+          <div class="eco-heading">
+            <h2 id="ecosystem-title">INTEGRATED CHANNELS · <span>PRODUCT ECOSYSTEM</span></h2>
+            <p class="eco-detail"><strong>A digital banking platform for banks and NBFCs, built from scratch as a reusable 12-application suite. It standardises shared product patterns, controls and reporting while supporting institution-specific workflows, integrations with existing bank systems and operational readiness for implementation at client sites.</strong></p>
+          </div>
+          <div aria-label="Twelve clickable Integrated Channels Suite applications" class="eco-board">
+            <svg aria-hidden="true" class="eco-lines" preserveAspectRatio="none" viewBox="0 0 1000 600">
+              <circle class="ring" cx="500" cy="300" fill="none" r="247" stroke="#cdd9e6" stroke-width="2"></circle>
+              <circle class="ring" cx="500" cy="300" fill="none" r="205" stroke="#cdd9e6" stroke-width="2"></circle>
+              <line stroke="#b5c5d7" stroke-dasharray="5 5" stroke-width="1.5" x1="500" x2="300" y1="300" y2="60"></line>
+              <line stroke="#b5c5d7" stroke-dasharray="5 5" stroke-width="1.5" x1="500" x2="500" y1="300" y2="60"></line>
+              <line stroke="#b5c5d7" stroke-dasharray="5 5" stroke-width="1.5" x1="500" x2="700" y1="300" y2="60"></line>
+              <line stroke="#b5c5d7" stroke-dasharray="5 5" stroke-width="1.5" x1="500" x2="100" y1="300" y2="180"></line>
+              <line stroke="#b5c5d7" stroke-dasharray="5 5" stroke-width="1.5" x1="500" x2="900" y1="300" y2="180"></line>
+              <line stroke="#b5c5d7" stroke-dasharray="5 5" stroke-width="1.5" x1="500" x2="100" y1="300" y2="300"></line>
+              <line stroke="#b5c5d7" stroke-dasharray="5 5" stroke-width="1.5" x1="500" x2="900" y1="300" y2="300"></line>
+              <line stroke="#b5c5d7" stroke-dasharray="5 5" stroke-width="1.5" x1="500" x2="100" y1="300" y2="420"></line>
+              <line stroke="#b5c5d7" stroke-dasharray="5 5" stroke-width="1.5" x1="500" x2="900" y1="300" y2="420"></line>
+              <line stroke="#b5c5d7" stroke-dasharray="5 5" stroke-width="1.5" x1="500" x2="300" y1="300" y2="540"></line>
+              <line stroke="#b5c5d7" stroke-dasharray="5 5" stroke-width="1.5" x1="500" x2="500" y1="300" y2="540"></line>
+              <line stroke="#b5c5d7" stroke-dasharray="5 5" stroke-width="1.5" x1="500" x2="700" y1="300" y2="540"></line>
+              <circle cx="500" cy="300" fill="#2167d8" r="8"></circle>
+            </svg>
+            <div class="eco-core">
+              <span class="core-logo">
+                <img alt="M2P" aria-hidden="true" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI3LjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxMDIgMTAyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMDIgMTAyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6I0NFMjIyOTt9Cgkuc3Qxe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+CjxnPgoJPGc+CgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwMSw1MWMtMC4zLDE3LjktMS45LDMyLjMtMTAsNDBjLTcuOCw4LjEtMjIuMSw5LjYtNDAsMTBjLTE3LjktMC4zLTMyLjMtMS45LTQwLTEwQzIuOSw4My4zLDEuMyw2OC45LDEsNTEKCQkJYzAuMy0xNy45LDEuOS0zMi4zLDEwLTQwYzcuOC04LjEsMjIuMS05LjYsNDAtMTBjMTcuOSwwLjMsMzIuMywxLjksNDAsMTBDOTkuMSwxOC43LDEwMC43LDMzLjEsMTAxLDUxeiIvPgoJCTxnPgoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMzcuMyw0OC42bC0wLjEsMTEuN2MwLDEuNiwxLjQsMi45LDMuMSwyLjhjMS40LTAuMiwyLjUtMS40LDIuNS0yLjhWNDMuN2MwLTIuMy0xLjktNC4yLTQuMi00LjJoMAoJCQkJYy0xLjcsMC0zLjMsMS0zLjksMi42bC00LjksMTIuM2MwLDAuMS0wLjEsMC4xLTAuMiwwLjFzLTAuMi0wLjEtMC4yLTAuMWwtNC45LTEyLjNjLTAuNy0xLjYtMi4yLTIuNi0zLjktMi42aDAKCQkJCWMtMi4zLDAtNC4yLDEuOS00LjIsNC4ydjE2LjZjMCwxLjQsMSwyLjcsMi41LDIuOGMxLjcsMC4yLDMuMS0xLjEsMy4xLTIuOFY4OC41bDUuMSwxM2MwLjUsMC45LDEuNCwxLjYsMi42LDEuNgoJCQkJYzEuMywwLDIuMy0wLjgsMi43LTEuOEwzNy4zLDQ4LjZ6Ii8+CgkJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik04NC42LDQzLjNjLTAuNy0xLjItMS43LTIuMi0zLTIuOWMtMS4zLTAuNy0yLjgtMS00LjYtMWgtNi4yYy0yLDAtMy42LDEuNi0zLjYsMy42djE3LjIKCQkJCWMwLDEuNiwxLjMsMi45LDIuOSwyLjloMGMxLjYsMCwyLjktMS4zLDIuOS0yLjl2LTQuNWMwLDAsMCwwLDAuMSwwaDMuOGMxLjgsMCwzLjQtMC4zLDQuNy0xYzEuMy0wLjcsMi43LTEuNiwzLTIuOAoJCQkJYzAuNy0xLjIsMS4xLTIuNiwxLjEtNC4zQzg1LjYsNDYsODUuMyw0NC42LDg0LjYsNDMuM3ogTTc5LjMsNDkuNWMtMC4zLDAuNS0wLjcsMS0xLjMsMS4zYy0wLjYsMC4zLTEuMywwLjUtMi4yLDAuNUg3MwoJCQkJYzAuMCwwLDAtMC4xLDBWNDRoMi44YzAuOSwwLDEuNiwwLjEsMi4yLDAuNGMwLjYsMC4zLDEsMC43LDEuMywxLjJjMC4zLDAuNSwwLjUsMS4yLDAuNSwxLjlDNzkuNyw0OC4zLDc5LjYsNDksNzkuMyw0OS41eiIvPgoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNjEuMyw1Ny44YzAsMC0wLjEsMC0wLjEsMGwtNi4zLDBsMi4yLTEuOWMxLjgtMS41LDMuMS0yLjgsNC4xLTMuOWMxLTEuMSwxLjYtMi4xLDItMwoJCQkJYzAuNC0wLjksMC42LTEuOCwwLjYtMi43YzAtMS41LTAuNC0yLjgtMS4xLTMuOWMtMC43LTEuMS0xLjgtMi0zLjEtMi42Yy0xLjQtMC42LTMtMC45LTQuOC0wLjljLTEuOCwwLTMuMywwLjMtNC43LDEKCQkJCWMtMS4zLDAuNy0yLjQsMS42LTMuMSwyLjhsLTAuMSwwLjFjLTAuMSwwLjItMC4yLDAuNC0wLjMsMC42YzAsMCwwLDAuMS0wLjEsMC4xYzAsMCwwLDAuMSwwLDAuMWMwLDAuMSwwLDAuMi0wLjEsMC4yCgkJCQljMCwwLDAsMCwwLDBjMCwwLjEsMCwwLjIsMCwwLjJjMCwwLjEsMCwwLjIsMCwwLjNjMCwxLjYsMS4zLDIuOSwyLjksMi45YzEuMywwLDIuMy0wLjgsMi44LTEuOWMwLDAsMCwwLDAtMC4xbDAuMS0wLjEKCQkJCWMwLjItMC41LDAuNi0wLjgsMS0xLjFjMC40LTAuMiwwLjktMC40LDEuNS0wLjRjMC42LDAsMS4xLDAuMSwxLjUsMC40YzAuNCwwLjIsMC44LDAuNiwxLDFjMC4zLDAuNCwwLjQsMSwwLjQsMS42CgkJCQljMCwwLjYtMC4xLDEuMS0wLjMsMS41Yy0wLjIsMC41LTAuNSwwLjktMC45LDEuM2MtMC40LDAuNC0wLjksMC45LTEuNSwxLjRsLTcuNiw2LjVjLTAuNywwLjYtMSwxLjQtMSwyLjN20zYzAsMS42LDEuMywzLDMsMwoJCQkJbDEyLjEsMHYwYzAsMCwwLDAsMC4xLDBjMS41LDAsMi42LTEuMiwyLjYtMi42QzYzLjksNTksNjIuNyw1Ny44LDYxLjMsNTcuOHoiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==" />
+              </span>
+              <b>Integrated Channels<br/>Suite</b>
+              <span>12 applications · common platform patterns · configurable workflows</span>
+            </div>
+            <a aria-label="Open Audit product workspace" class="eco-node eco-01" data-open="audit" href="#products" style="--accent:#7557d9;--soft:#f1edff"><span class="eco-number">01</span><span class="eco-copy"><b>Audit</b><span>Governance &amp; Control</span></span></a>
+            <a aria-label="Open FAM product workspace" class="eco-node eco-02" data-open="fam" href="#products" style="--accent:#278f73;--soft:#eaf8f3"><span class="eco-number">02</span><span class="eco-copy"><b>FAM</b><span>Financial Control</span></span></a>
+            <a aria-label="Open GST product workspace" class="eco-node eco-03" data-open="gst" href="#products" style="--accent:#b97215;--soft:#fff4e3"><span class="eco-number">03</span><span class="eco-copy"><b>GST</b><span>Financial Control</span></span></a>
+            <a aria-label="Open LOS–LMS product workspace" class="eco-node eco-04" data-open="los-lms" href="#products" style="--accent:#1f64d8;--soft:#eaf2ff"><span class="eco-number">04</span><span class="eco-copy"><b>LOS–LMS</b><span>Lending &amp; Credit</span></span></a>
+            <a aria-label="Open CMS product workspace" class="eco-node eco-05" data-open="cms" href="#products" style="--accent:#b63e74;--soft:#fff0f6"><span class="eco-number">05</span><span class="eco-copy"><b>CMS</b><span>Payments &amp; Cards</span></span></a>
+            <a aria-label="Open Shares product workspace" class="eco-node eco-06" data-open="shares" href="#products" style="--accent:#1f64d8;--soft:#eaf2ff"><span class="eco-number">06</span><span class="eco-copy"><b>Shares</b><span>Financial Control</span></span></a>
+            <a aria-label="Open PM Schemes product workspace" class="eco-node eco-07" data-open="pm-schemes" href="#products" style="--accent:#177e8b;--soft:#eaf8fa"><span class="eco-number">07</span><span class="eco-copy"><b>PM Schemes</b><span>Operations</span></span></a>
+            <a aria-label="Open CIBIL product workspace" class="eco-node eco-08" data-open="cibil" href="#products" style="--accent:#1f64d8;--soft:#eaf2ff"><span class="eco-number">08</span><span class="eco-copy"><b>CIBIL</b><span>Lending &amp; Credit</span></span></a>
+            <a aria-label="Open Reconciliation product workspace" class="eco-node eco-09" data-open="reconciliation" href="#products" style="--accent:#b97215;--soft:#fff4e3"><span class="eco-number">09</span><span class="eco-copy"><b>Reconciliation</b><span>Payments &amp; Cards</span></span></a>
+            <a aria-label="Open AML–KYC product workspace" class="eco-node eco-10" data-open="aml-kyc" href="#products" style="--accent:#b63e74;--soft:#fff0f6"><span class="eco-number">10</span><span class="eco-copy"><b>AML–KYC</b><span>Compliance</span></span></a>
+            <a aria-label="Open Treasury product workspace" class="eco-node eco-11" data-open="treasury" href="#products" style="--accent:#1f64d8;--soft:#eaf2ff"><span class="eco-number">11</span><span class="eco-copy"><b>Treasury</b><span>Financial Control</span></span></a>
+            <a aria-label="Open DMS &amp; CKYC product workspace" class="eco-node eco-12" data-open="dms-ckyc" href="#products" style="--accent:#7557d9;--soft:#f1edff"><span class="eco-number">12</span><span class="eco-copy"><b>DMS &amp; CKYC</b><span>Compliance</span></span></a>
+          </div>
+          <div class="eco-footnote">Click any application to open its detailed Product Workspace</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. CHALLENGE -->
+<section class="section white slide-page" id="challenge">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">01 · Product Context</span><h2>The problem was bigger than building 12 applications</h2></div>
+      <p>Banks already operated within complex technology environments. The product therefore had to support domain-specific workflows while remaining configurable, integration-ready, migration-aware, controlled and implementable at client sites.</p>
+    </div>
+    <div class="story-grid">
+      <div class="story reveal">
+        <span class="eyebrow">The product challenge</span>
+        <h3>One platform had to serve very different banking jobs.</h3>
+        <p>Lending, AML, cards, reconciliation, treasury and audit do not share the same users or workflows. The product challenge was to find the reusable platform patterns without flattening the domain complexity.</p>
+        <ul>
+          <li>Existing bank applications meant coexistence and integration mattered from day one.</li>
+          <li>Client-specific workflows required configuration rather than a rigid one-size-fits-all product.</li>
+          <li>Regulated processes required roles, validations, approvals, evidence, traceability and reporting.</li>
+          <li>Legacy data required field mapping, transformation, validation and post-migration checks.</li>
+          <li>Deployment success required training, documentation and L1/L2 support readiness.</li>
+        </ul>
+      </div>
+      <div class="story reveal">
+        <span class="eyebrow">Product thesis</span>
+        <h3>Standardise the platform. Configure the institution.<br/>Integrate the ecosystem.</h3>
+        <p>The suite was approached as a common product foundation with modular domain applications—not as 12 disconnected projects.</p>
+        <div class="story-flow">
+          <div class="story-step"><b>Standardise</b><span>Roles, controls, workflow patterns, reporting conventions.</span></div>
+          <div class="story-step"><b>Configure</b><span>Institution-specific business rules and journeys.</span></div>
+          <div class="story-step"><b>Integrate</b><span>Bank systems, payment rails and external services.</span></div>
+          <div class="story-step"><b>Adopt</b><span>Migration, deployment, training and support.</span></div>
+        </div>
+      </div>
+      <div class="challenge-response">
+        <div><b>Configure</b><span>Institution-specific journeys without rebuilding the product.</span></div>
+        <div><b>Integrate</b><span>Existing bank systems, payment rails and external services.</span></div>
+        <div><b>Control</b><span>Roles, validations, approvals, evidence and traceability.</span></div>
+        <div><b>Implement</b><span>Migration, deployment, training and support readiness.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. STRATEGY -->
+<section class="section slide-page" id="strategy">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">02 · Product Strategy</span><h2>From application list to a reusable banking product ecosystem</h2></div>
+      <p>The strategy connected platform architecture, domain product design, implementation realities and client adoption. Each decision was intended to reduce repeated effort while preserving the flexibility banks needed.</p>
+    </div>
+    <div class="strategy reveal">
+      <div class="strategy-card" style="--tone:#9b8cf5"><div class="num">01</div><h3>Common platform foundation</h3><p>Define reusable roles, permissions, workflow states, validations, reporting patterns and auditability before multiplying application complexity.</p></div>
+      <div class="strategy-card" style="--tone:#73cbb4"><div class="num">02</div><h3>Configurable institution model</h3><p>Separate reusable product behaviour from bank-specific configuration so workflows can adapt without turning every implementation into a new product.</p></div>
+      <div class="strategy-card" style="--tone:#7eb5ed"><div class="num">03</div><h3>Integration-first product design</h3><p>Identify systems of record, API contracts, authentication, failures, retries, reconciliation and hand-offs while journeys are being designed.</p></div>
+      <div class="strategy-card" style="--tone:#efb785"><div class="num">04</div><h3>Controls by design</h3><p>Translate business and regulatory requirements into roles, maker-checker patterns, approval states, validations, evidence and reports.</p></div>
+      <div class="strategy-card" style="--tone:#f49dbd"><div class="num">05</div><h3>Migration-aware product design</h3><p>Treat existing data as part of the product problem: assess, map, transform, validate, migrate and verify after migration.</p></div>
+      <div class="strategy-card" style="--tone:#9dcbed"><div class="num">06</div><h3>Two-phase roadmap</h3><p>Develop the first six applications during the initial six months, then select and build the remaining six using the foundation and learnings from phase one.</p></div>
+      <div class="strategy-card" style="--tone:#a8d7a8"><div class="num">07</div><h3>Feedback-led refinement</h3><p>Use progressive product demos, bank feedback, QA and UAT to refine workflows, reports, exceptions and implementation readiness.</p></div>
+      <div class="strategy-card" style="--tone:#b6a7f0"><div class="num">08</div><h3>Adoption as product outcome</h3><p>Carry product ownership through manuals, training, L1/L2 enablement, deployment readiness, production feedback and enhancement backlog.</p></div>
+    </div>
+    <div class="decision reveal">
+      <span class="eyebrow decision-title">Decision framework used across applications</span>
+      <div class="decision-row">
+        <div class="decision-step">Problem</div>
+        <div class="decision-step">User / Role</div>
+        <div class="decision-step">Journey</div>
+        <div class="decision-step">Business Rule</div>
+        <div class="decision-step">Data</div>
+        <div class="decision-step">Integration</div>
+        <div class="decision-step">Exception</div>
+        <div class="decision-step">Report</div>
+        <div class="decision-step">Outcome</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. PM SCOPE -->
+<section class="section white slide-page" id="ownership">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">03 · Product Management Scope</span><h2>End-to-end product leadership across strategy, build and adoption</h2></div>
+      <p>The work extended beyond backlog management. It connected business discovery, product definition, technical solutioning, engineering execution, client validation, implementation and post-release enablement.</p>
+    </div>
+    <div class="ownership reveal">
+      <div class="own"><span class="pill">Strategy</span><h3>Vision, roadmap &amp; prioritisation</h3><p>Shaped the suite direction and phased roadmap.</p><ul><li>Product vision</li><li>6+6 sequencing</li><li>Dependencies</li><li>Prioritisation</li></ul></div>
+      <div class="own"><span class="pill">Discovery</span><h3>Problem &amp; requirement discovery</h3><p>Worked with SMEs, banks and compliance teams before development.</p><ul><li>Elicitation</li><li>Process mapping</li><li>Use cases</li><li>Edge cases</li></ul></div>
+      <div class="own"><span class="pill">Definition</span><h3>Product documentation</h3><p>Converted needs into executable product artefacts.</p><ul><li>BRD / FRD / FSD</li><li>API specs</li><li>Acceptance criteria</li><li>User manuals</li></ul></div>
+      <div class="own"><span class="pill">Design</span><h3>UX &amp; solution design</h3><p>Made workflows and architecture understandable across teams.</p><ul><li>Figma</li><li>DFD</li><li>ER mapping</li><li>Architecture diagrams</li></ul></div>
+      <div class="own"><span class="pill">Delivery</span><h3>Agile product execution</h3><p>Led backlog and sprint execution with engineering.</p><ul><li>Epics / stories</li><li>Refinement</li><li>2-week sprints</li><li>Daily sessions</li></ul></div>
+      <div class="own"><span class="pill">Quality</span><h3>Validation &amp; release readiness</h3><p>Connected product intent to QA and client acceptance.</p><ul><li>Feature testing</li><li>Edge cases</li><li>UAT</li><li>VAPT readiness</li></ul></div>
+      <div class="own"><span class="pill">Implementation</span><h3>Migration &amp; deployment</h3><p>Supported implementation at bank/client sites.</p><ul><li>Field mapping</li><li>Migration validation</li><li>Integration readiness</li><li>Production checks</li></ul></div>
+      <div class="own"><span class="pill">Adoption</span><h3>Training &amp; support enablement</h3><p>Prepared teams to operate and support the product.</p><ul><li>Core-team training</li><li>Manuals / FAQs</li><li>L1/L2 enablement</li><li>Feedback backlog</li></ul></div>
+      <div class="scope-evidence" id="scope-evidence">
+        <div class="scope-evidence-card"><b>12 applications</b><span>End-to-end product ownership across the suite</span></div>
+        <div class="scope-evidence-card"><b>6 + 6 phases</b><span>Sequenced delivery across two build phases</span></div>
+        <div class="scope-evidence-card"><b>100+ deployments*</b><span>Portfolio/project claim supplied for this case study</span></div>
+        <div class="scope-evidence-card"><b>25% AML/KYC</b><span>Stated manual compliance effort reduction</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. ARCHITECTURE SLIDE 1 -->
+<section class="section" id="architecture">
+  <div class="slide-page">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="eyebrow">04 · Product Architecture &amp; Technology</span><h2>Technology mapped to the banking problem it solved</h2></div>
+        <p>The architecture is presented as a product system: experience and workflow, domain applications, integration contracts, data/reporting and cross-cutting controls.</p>
+      </div>
+      <div class="arch-summary" style="margin-bottom: 12px; font-weight: 800; font-size: 13px; color: var(--blue);">
+        <strong>Bank users</strong> <span style="margin: 0 4px;">↔</span> <strong>Integrated Channels Suite</strong> <span style="margin: 0 4px;">↔</span> <strong>Bank systems, payment rails &amp; external services</strong>
+      </div>
+      <div class="arch-layout">
+        <div class="arch-card reveal visible">
+          <span class="eyebrow">Conceptual platform architecture</span>
+          <h3>How users, the suite and the fintech ecosystem connect</h3>
+          <div class="arch-map">
+            <div class="arch-column">
+              <h4>Bank users</h4>
+              <div class="arch-side">
+                <div class="mini-box">Branch · Operations</div>
+                <div class="mini-box">Credit</div>
+                <div class="mini-box">Compliance</div>
+                <div class="mini-box">Finance</div>
+                <div class="mini-box">Management</div>
+              </div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-column">
+              <h4>Integrated Channels Suite</h4>
+              <div class="arch-stack">
+                <div class="arch-layer"><b>Experience &amp; workflow layer</b><span>Frappe forms · roles · permissions · workflow states · configuration</span></div>
+                <div class="arch-layer"><b>12 domain applications</b><span>LOS–LMS · CMS · Reconciliation · AML–KYC · Treasury · Audit · FAM · GST · Shares · PM Schemes · CIBIL · DMS &amp; CKYC</span></div>
+                <div class="arch-layer"><b>API / integration layer</b><span>Contracts · validation · status · errors · retries · hand-offs</span></div>
+                <div class="arch-layer"><b>Data &amp; reporting layer</b><span>SQL · reports · migration · Power BI / management views</span></div>
+                <div class="arch-layer"><b>Cross-cutting controls</b><span>Maker-checker · auditability · QA · UAT · VAPT · deployment readiness</span></div>
+              </div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-column">
+              <h4>Fintech ecosystem</h4>
+              <div class="arch-side">
+                <div class="mini-box">CBS / bank systems</div>
+                <div class="mini-box">NPCI · UPI · AEPS</div>
+                <div class="mini-box">ATM / Switch</div>
+                <div class="mini-box">CIBIL · CKYC · GST</div>
+                <div class="mini-box">RuPay · Visa · Mastercard</div>
+                <div class="mini-box">Other client systems</div>
+              </div>
+            </div>
+          </div>
+          <p class="arch-note">Conceptual portfolio architecture, not a reproduction of confidential client architecture.</p>
+        </div>
+        <div class="arch-card reveal visible">
+          <span class="eyebrow">Stack by product requirement</span>
+          <h3>Tools were selected and used within specific product responsibilities</h3>
+          <div class="stack-groups">
+            <section class="stack-parent stack-tools">
+              <h4>Software &amp; Tech Stack</h4>
+              <div class="stack-subcategories">
+                <div class="stack-subcategory"><b>Platform &amp; Core Engineering</b><div class="chips"><span class="chip">Frappe Framework</span><span class="chip">.NET Core</span></div></div>
+                <div class="stack-subcategory"><b>Data &amp; Analytics</b><div class="chips"><span class="chip">SQL</span><span class="chip">Power BI</span></div></div>
+                <div class="stack-subcategory"><b>Design &amp; Prototyping</b><div class="chips"><span class="chip">Figma</span></div></div>
+                <div class="stack-subcategory"><b>Documentation &amp; Diagramming</b><div class="chips"><span class="chip">draw.io</span><span class="chip">Visio</span><span class="chip">Lucidchart</span><span class="chip">Canva</span></div></div>
+                <div class="stack-subcategory"><b>Delivery &amp; Project Management</b><div class="chips"><span class="chip">JIRA</span></div></div>
+              </div>
+            </section>
+            <section class="stack-parent stack-methods">
+              <h4>Product Deliverables &amp; Methodologies</h4>
+              <div class="stack-subcategories">
+                <div class="stack-subcategory"><b>Architecture &amp; System Design</b><div class="chips"><span class="chip">Modular applications</span><span class="chip">Configurable workflows</span><span class="chip">DFD</span><span class="chip">ER mapping</span><span class="chip">Architecture diagrams</span></div></div>
+                <div class="stack-subcategory"><b>API &amp; Integration</b><div class="chips"><span class="chip">API-first</span><span class="chip">REST/API connectivity</span><span class="chip">API specifications</span><span class="chip">Integration mapping</span></div></div>
+                <div class="stack-subcategory"><b>Agile &amp; Requirements</b><div class="chips"><span class="chip">Scrum</span><span class="chip">Kanban</span><span class="chip">Use cases</span><span class="chip">Epics</span><span class="chip">Stories</span><span class="chip">Acceptance criteria</span></div></div>
+                <div class="stack-subcategory"><b>Quality &amp; Security</b><div class="chips"><span class="chip">QA</span><span class="chip">UAT</span><span class="chip">Edge cases</span><span class="chip">VAPT readiness</span></div></div>
+                <div class="stack-subcategory"><b>Implementation &amp; Deployment</b><div class="chips"><span class="chip">Data migration</span><span class="chip">On-prem / bank-site</span><span class="chip">Production validation</span></div></div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. ARCHITECTURE SLIDE 2 -->
+  <div class="slide-page white">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="eyebrow">04A · Integration Design</span><h2>Mapped to the fintech ecosystem</h2></div>
+        <p>Detailed view of the integration boundary, connected systems and API lifecycle.</p>
+      </div>
+      <div class="integrations reveal visible">
+        <div class="integration-head">
+          <span class="eyebrow" style="font-size: 13px;">Integration approach</span>
+          <h3 style="font-size: 24px; margin-top: 8px;">Systems are not treated as generic API boxes</h3>
+        </div>
+        <div class="integration-flow">
+          <div class="integration-column">
+            <h4>Internal product domains</h4>
+            <div class="integration-items">
+              <div class="integration-item">Branch / Operations</div>
+              <div class="integration-item">Lending / Credit</div>
+              <div class="integration-item">Compliance</div>
+              <div class="integration-item">Finance / Treasury</div>
+              <div class="integration-item">Management</div>
+            </div>
+          </div>
+          <div class="integration-arrow">→</div>
+          <div class="integration-boundary">
+            <div class="boundary-label">API / integration boundary</div>
+            <b>Integrated Channels Suite</b>
+            <p style="font-size: 12px; margin-top: 8px; margin-bottom: 8px;">Domain workflows + controls + reports + configuration</p>
+            <p style="font-size: 13px; font-weight: bold; color: var(--navy);">Contracts · authentication · request/response · validation · status · error handling · retry/recovery · reconciliation · operational ownership</p>
+          </div>
+          <div class="integration-arrow">→</div>
+          <div class="integration-column">
+            <h4>Connected systems &amp; rails</h4>
+            <div class="integration-items">
+              <div class="integration-item">CBS / internal bank systems</div>
+              <div class="integration-item">NPCI · UPI · AEPS · ATM / Switch</div>
+              <div class="integration-item">CIBIL · CKYC · GST</div>
+              <div class="integration-item">RuPay · Visa · Mastercard</div>
+              <div class="integration-item">Other client / third-party systems</div>
+            </div>
+          </div>
+        </div>
+        <div class="api-lifecycle">
+          <div class="api-step"><b>01 · Discover</b><span>System of record and business dependency.</span></div>
+          <div class="api-step"><b>02 · Contract</b><span>Fields, request, response, status and ownership.</span></div>
+          <div class="api-step"><b>03 · Validate</b><span>Mandatory data and business rules.</span></div>
+          <div class="api-step"><b>04 · Fail safely</b><span>Timeout, duplicate, rejection and retry.</span></div>
+          <div class="api-step"><b>05 · Reconcile</b><span>Reference, amount/status and exceptions.</span></div>
+          <div class="api-step"><b>06 · Observe</b><span>Reports, audit trail and operational ownership.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. DELIVERY SLIDE 1 -->
+<section class="section white" id="delivery">
+  <div class="slide-page section">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="eyebrow">05 · Product Operating Model</span><h2>From zero-to-one foundation to implementation and adoption</h2></div>
+        <p>All 12 applications were built from scratch. The first six were developed during the initial six months; the remaining six were selected and built after month six.</p>
+      </div>
+      <div class="timeline reveal">
+        <div class="time"><b>01 · DISCOVER</b><h3>Domain &amp; client discovery</h3><p>Understand processes, users, compliance requirements, existing systems and desired outcomes.</p><ul><li>SME / bank discussions</li><li>Use cases</li><li>Problem definition</li></ul></div>
+        <div class="time active"><b>02 · MONTHS 0–6</b><h3>Foundation + first six</h3><p>Build the common product foundation and first six applications from scratch.</p><ul><li>UX / architecture</li><li>Backlog / sprints</li><li>Progressive demos</li></ul></div>
+        <div class="time"><b>03 · VALIDATE</b><h3>Learn &amp; harden</h3><p>Use QA, demos, feedback and UAT to strengthen common patterns and implementation readiness.</p><ul><li>Edge cases</li><li>Reports</li><li>Integration behaviour</li></ul></div>
+        <div class="time active"><b>04 · AFTER MONTH 6</b><h3>Remaining six</h3><p>Select and build the remaining applications using the foundation and lessons from phase one.</p><ul><li>Reuse patterns</li><li>New domains</li><li>Client validation</li></ul></div>
+        <div class="time"><b>05 · IMPLEMENT</b><h3>Secure, migrate &amp; deploy</h3><p>Prepare integration, migration, environments and production deployment.</p><ul><li>Field mapping</li><li>Integration readiness</li><li>Bank-site deployment</li></ul></div>
+        <div class="time"><b>06 · ADOPT</b><h3>Train, support &amp; improve</h3><p>Enable core users and L1/L2 teams and feed production learning into the roadmap.</p><ul><li>Manuals</li><li>Training</li><li>Enhancement backlog</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. DELIVERY SLIDE 2 -->
+  <div class="slide-page white">
+    <div class="wrap">
+      <div class="delivery-subhead section-head">
+        <div><span class="eyebrow">05A · IMPLEMENTATION READINESS</span><h2>From implementation discovery to production and adoption readiness</h2></div>
+        <p>The delivery work extended beyond software build: integration readiness, data transition, quality validation, deployment preparation, core-user enablement, support readiness and leadership visibility.</p>
+      </div>
+      <div class="implementation reveal">
+        <div class="impl"><span class="pill">Requirements</span><h3>Implementation discovery</h3><p>Understand current applications, source data, client-specific workflow and infrastructure dependencies.</p><ul><li>As-is / to-be</li><li>Gap analysis</li><li>Dependency map</li></ul></div>
+        <div class="impl"><span class="pill">Integration</span><h3>Interface readiness</h3><p>Confirm upstream/downstream systems, API contracts, auth, failure paths and test connectivity.</p><ul><li>API mapping</li><li>Error states</li><li>Reconciliation</li></ul></div>
+        <div class="impl"><span class="pill">Migration</span><h3>Data transition</h3><p>Assess, map, transform, validate, migrate and perform post-migration checks.</p><ul><li>Field mapping</li><li>Validation</li><li>Reconciliation</li></ul></div>
+        <div class="impl"><span class="pill">Quality</span><h3>QA → UAT → VAPT</h3><p>Validate feature behaviour, edge cases, client acceptance and security readiness before production.</p><ul><li>Acceptance criteria</li><li>UAT scenarios</li><li>VAPT readiness</li></ul></div>
+        <div class="impl"><span class="pill">Deployment</span><h3>Production readiness</h3><p>Coordinate environment, configuration, integrations, migration and bank-site/on-prem deployment.</p><ul><li>Readiness checklist</li><li>Production validation</li><li>Issue tracking</li></ul></div>
+        <div class="impl"><span class="pill">Adoption</span><h3>Core-user enablement</h3><p>Use demos, manuals, use cases and FAQs to help bank teams operate the platform.</p><ul><li>Training</li><li>User manuals</li><li>Product demos</li></ul></div>
+        <div class="impl"><span class="pill">Support</span><h3>L1/L2 readiness</h3><p>Train support teams on use cases, common issues, query handling, impact and possible downtime.</p><ul><li>Triage</li><li>Common issues</li><li>Escalation context</li></ul></div>
+        <div class="impl"><span class="pill">Governance</span><h3>Leadership visibility</h3><p>Provide progress, timeline, feedback, risk, dependency and readiness updates to senior stakeholders.</p><ul><li>Roadmap status</li><li>Risks / blockers</li><li>Client feedback</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. PRODUCT EXPLORER -->
+<section class="section slide-page" id="products">
+  <div class="wrap">
+    <div class="product-page product-page-one">
+      <div class="section-head">
+        <div><span class="eyebrow">06 · Product Explorer</span><h2>Explore the banking applications</h2></div>
+        <p>The main case study stays readable. Every product opens an in-depth workspace with its purpose, problem, users, capabilities, workflow, integration landscape, sample reporting, API thinking, exception design and PM contribution.</p>
+      </div>
+      <div class="toolbar">
+        <input aria-label="Search products" class="search" id="search" placeholder="Search product, capability, domain…"/>
+        <div class="filters" id="filters">
+          <button class="filter active" data-filter="All">All 12</button>
+          <button class="filter" data-filter="Lending &amp; Credit">Lending</button>
+          <button class="filter" data-filter="Payments &amp; Cards">Payments &amp; Cards</button>
+          <button class="filter" data-filter="Compliance">Compliance</button>
+          <button class="filter" data-filter="Financial Control">Financial Control</button>
+          <button class="filter" data-filter="Governance &amp; Control">Governance</button>
+          <button class="filter" data-filter="Operations">Operations</button>
+        </div>
+        <div class="story hidden" id="empty" style="text-align:center;margin-top:10px"><p>No matching product found.</p></div>
+      </div>
+      <div class="app-grid">
+        <button class="app-card" data-cat="Governance &amp; Control" data-open="audit" data-search="audit governance &amp; control internal, compliance, statutory and operations audit management. internal audit compliance audit statutory audit operations audit findings &amp; action tracking audit reporting" style="--app:#b7a6ff">
+          <div class="app-top"><span class="app-index">01</span><span class="app-domain">Governance &amp; Control</span><span class="app-go">↗</span></div>
+          <h3>Audit</h3><p>Internal, compliance, statutory and operations audit management.</p>
+          <div class="mini-tags"><span>Internal Audit</span><span>Compliance Audit</span><span>Statutory Audit</span></div>
+          <div class="app-foot"><span>Open product workspace</span><b>Explore →</b></div>
+        </button>
+        <button class="app-card" data-cat="Financial Control" data-open="fam" data-search="fam financial control fixed assets management for physical assets across the institution. asset registration asset categorisation assignment / tracking depreciation asset history operational reporting" style="--app:#8bd8c5">
+          <div class="app-top"><span class="app-index">02</span><span class="app-domain">Financial Control</span><span class="app-go">↗</span></div>
+          <h3>FAM</h3><p>Fixed Assets Management for physical assets across the institution.</p>
+          <div class="mini-tags"><span>Asset registration</span><span>Asset categorisation</span><span>Assignment / tracking</span></div>
+          <div class="app-foot"><span>Open product workspace</span><b>Explore →</b></div>
+        </button>
+        <button class="app-card" data-cat="Financial Control" data-open="gst" data-search="gst financial control gst-related purchase, calculation, warranty, insurance and reporting workflows. purchase capture gst calculation warranty tracking insurance tracking gstr1b-related extraction reporting" style="--app:#ffd39a">
+          <div class="app-top"><span class="app-index">03</span><span class="app-domain">Financial Control</span><span class="app-go">↗</span></div>
+          <h3>GST</h3><p>GST-related purchase, calculation, warranty, insurance and reporting workflows.</p>
+          <div class="mini-tags"><span>Purchase capture</span><span>GST calculation</span><span>Warranty tracking</span></div>
+          <div class="app-foot"><span>Open product workspace</span><b>Explore →</b></div>
+        </button>
+        <button class="app-card" data-cat="Lending &amp; Credit" data-open="los-lms" data-search="los–lms lending &amp; credit loan origination and loan management workflows across multiple loan products. vehicle loans education loans gold loans staff loans personal loans home loans maker-checker-sanctioner disbursement repayment schedule configuration" style="--app:#83b9ff">
+          <div class="app-top"><span class="app-index">04</span><span class="app-domain">Lending &amp; Credit</span><span class="app-go">↗</span></div>
+          <h3>LOS–LMS</h3><p>Loan origination and loan management workflows across multiple loan products.</p>
+          <div class="mini-tags"><span>Vehicle loans</span><span>Education loans</span><span>Gold loans</span></div>
+          <div class="app-foot"><span>Open product workspace</span><b>Explore →</b></div>
+        </button>
+        <button class="app-card" data-cat="Payments &amp; Cards" data-open="cms" data-search="cms payments &amp; cards card management covering personalised and instant cards across major card networks. personalised cards instant cards card product setup rupay visa mastercard nbin-related issuance context operational reporting" style="--app:#ff9fc5">
+          <div class="app-top"><span class="app-index">05</span><span class="app-domain">Payments &amp; Cards</span><span class="app-go">↗</span></div>
+          <h3>CMS</h3><p>Card management covering personalised and instant cards across major card networks.</p>
+          <div class="mini-tags"><span>Personalised cards</span><span>Instant cards</span><span>Card product setup</span></div>
+          <div class="app-foot"><span>Open product workspace</span><b>Explore →</b></div>
+        </button>
+        <button class="app-card" data-cat="Financial Control" data-open="shares" data-search="shares financial control share and portfolio management with dividend calculation and governance reporting. share management portfolio management dividend calculation maker-checker board meeting reports operational reporting" style="--app:#a7d8ff">
+          <div class="app-top"><span class="app-index">06</span><span class="app-domain">Financial Control</span><span class="app-go">↗</span></div>
+          <h3>Shares</h3><p>Share and portfolio management with dividend calculation and governance reporting.</p>
+          <div class="mini-tags"><span>Share management</span><span>Portfolio management</span><span>Dividend calculation</span></div>
+          <div class="app-foot"><span>Open product workspace</span><b>Explore →</b></div>
+        </button>
+      </div>
+    </div>
+    <div class="product-page product-page-two">
+      <div class="product-page-heading">
+        <h3>Continue exploring the suite</h3>
+        <p>Six additional banking applications complete the second half of the product portfolio.</p>
+      </div>
+      <div class="app-grid">
+        <button class="app-card" data-cat="Operations" data-open="pm-schemes" data-search="pm schemes operations management of government-launched schemes through configurable operational workflows. scheme master eligibility / workflow configuration operational tracking status monitoring reports user controls" style="--app:#9fe3a9">
+          <div class="app-top"><span class="app-index">07</span><span class="app-domain">Operations</span><span class="app-go">↗</span></div>
+          <h3>PM Schemes</h3><p>Management of government-launched schemes through configurable operational workflows.</p>
+          <div class="mini-tags"><span>Scheme master</span><span>Eligibility / workflow configuration</span><span>Operational tracking</span></div>
+          <div class="app-foot"><span>Open product workspace</span><b>Explore →</b></div>
+        </button>
+        <button class="app-card" data-cat="Lending &amp; Credit" data-open="cibil" data-search="cibil lending &amp; credit credit-information retrieval through api connectivity for lending workflows. credit information request api connectivity response capture status tracking exception handling los hand-off" style="--app:#86c8ff">
+          <div class="app-top"><span class="app-index">08</span><span class="app-domain">Lending &amp; Credit</span><span class="app-go">↗</span></div>
+          <h3>CIBIL</h3><p>Credit-information retrieval through API connectivity for lending workflows.</p>
+          <div class="mini-tags"><span>Credit information request</span><span>API connectivity</span><span>Response capture</span></div>
+          <div class="app-foot"><span>Open product workspace</span><b>Explore →</b></div>
+        </button>
+        <button class="app-card" data-cat="Payments &amp; Cards" data-open="reconciliation" data-search="reconciliation payments &amp; cards transaction reconciliation across aeps, upi, switch, atm and other transaction streams. transaction ingestion matching / reconciliation exception identification status tracking operational reporting settlement-oriented views" style="--app:#f4c78e">
+          <div class="app-top"><span class="app-index">09</span><span class="app-domain">Payments &amp; Cards</span><span class="app-go">↗</span></div>
+          <h3>Reconciliation</h3><p>Transaction reconciliation across AEPS, UPI, Switch, ATM and other transaction streams.</p>
+          <div class="mini-tags"><span>Transaction ingestion</span><span>Matching / reconciliation</span><span>Exception identification</span></div>
+          <div class="app-foot"><span>Open product workspace</span><b>Explore →</b></div>
+        </button>
+        <button class="app-card" data-cat="Compliance" data-open="aml-kyc" data-search="aml–kyc compliance transaction monitoring, rule-based flagging and compliance reporting. transaction monitoring rule-based flagging risk / alert workflow ctr reporting str reporting ntr reporting kyc controls compliance dashboards" style="--app:#ffb2a6">
+          <div class="app-top"><span class="app-index">10</span><span class="app-domain">Compliance</span><span class="app-go">↗</span></div>
+          <h3>AML–KYC</h3><p>Transaction monitoring, rule-based flagging and compliance reporting.</p>
+          <div class="mini-tags"><span>Transaction monitoring</span><span>Rule-based flagging</span><span>Risk / alert workflow</span></div>
+          <div class="app-foot"><span>Open product workspace</span><b>Explore →</b></div>
+        </button>
+        <button class="app-card" data-cat="Financial Control" data-open="treasury" data-search="treasury financial control treasury operational workflows supporting bod and eod activities. bod activities eod activities operational checklist status tracking exception visibility reporting" style="--app:#9ed7ff">
+          <div class="app-top"><span class="app-index">11</span><span class="app-domain">Financial Control</span><span class="app-go">↗</span></div>
+          <h3>Treasury</h3><p>Treasury operational workflows supporting BOD and EOD activities.</p>
+          <div class="mini-tags"><span>BOD activities</span><span>EOD activities</span><span>Operational checklist</span></div>
+          <div class="app-foot"><span>Open product workspace</span><b>Explore →</b></div>
+        </button>
+        <button class="app-card" data-cat="Compliance" data-open="dms-ckyc" data-search="dms &amp; ckyc compliance document management and ckyc workflows covering ovd, verification, secure storage and ckyc retrieval. ovd capture customer information document authenticity verification secure storage ckyc number retrieval document status" style="--app:#c2b0ff">
+          <div class="app-top"><span class="app-index">12</span><span class="app-domain">Compliance</span><span class="app-go">↗</span></div>
+          <h3>DMS &amp; CKYC</h3><p>Document management and CKYC workflows covering OVD, verification, secure storage and CKYC retrieval.</p>
+          <div class="mini-tags"><span>OVD capture</span><span>Customer information</span><span>Document authenticity verification</span></div>
+          <div class="app-foot"><span>Open product workspace</span><b>Explore →</b></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. IMPACT -->
+<section class="section white slide-page" id="impact">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">07 · Outcomes &amp; Evidence</span><h2>Product Outcome and Impact</h2></div>
+      <p>Impact is presented using the project evidence provided, supported by concrete product, integration, implementation and adoption outcomes rather than fabricated KPIs.</p>
+    </div>
+    <div class="impact-metrics">
+      <div class="impact-card impact-blue"><strong>12</strong><b>Applications built from scratch</b><span>One reusable suite spanning multiple banking domains.</span></div>
+      <div class="impact-card impact-purple"><strong>6 + 6</strong><b>Two-phase product build</b><span>First six in the initial six months, then the remaining six.</span></div>
+      <div class="impact-card impact-mint"><strong>100+</strong><b>Bank deployments</b><span>Portfolio / project claim supplied for this case study.</span></div>
+      <div class="impact-card impact-rose"><strong>25%</strong><b>AML/KYC manual effort reduction</b><span>Stated automation outcome for the compliance workflow.</span></div>
+    </div>
+    <div class="outcome-grid">
+      <div class="outcome-card"><span class="eyebrow">Product development</span><h3>Reusable platform patterns</h3><p>Common roles, workflow states, validations, reporting conventions and controls were designed so multiple domain applications could share a product foundation without becoming identical.</p></div>
+      <div class="outcome-card"><span class="eyebrow">Regulatory &amp; controls</span><h3>Traceability built into workflows</h3><p>AML/KYC, audit and other regulated journeys were designed around ownership, approvals, evidence, exception handling and reporting needs.</p></div>
+      <div class="outcome-card"><span class="eyebrow">Integration</span><h3>Existing ecosystem accounted for</h3><p>Integration design considered CBS / bank systems, NPCI, UPI, AEPS, ATM / Switch, CIBIL, CKYC, GST and card-network dependencies.</p></div>
+      <div class="outcome-card"><span class="eyebrow">Data migration</span><h3>Migration treated as product work</h3><p>Implementation readiness included field mapping, transformation, validation, migration and post-migration checks rather than treating data movement as a separate afterthought.</p></div>
+      <div class="outcome-card"><span class="eyebrow">Deployment</span><h3>Bank-site readiness</h3><p>Product ownership continued into environment readiness, integration checks, production validation and deployment at bank / client sites.</p></div>
+      <div class="outcome-card"><span class="eyebrow">User adoption</span><h3>Enablement beyond release</h3><p>Core-team training, user manuals, FAQs and L1/L2 support enablement extended the product lifecycle into operational adoption and enhancement feedback.</p></div>
+    </div>
+    <div class="outcome-principles">
+      <b>Standardise</b><span>Reusable platform patterns</span>
+      <b>Configure</b><span>Institution-specific workflows</span>
+      <b>Integrate</b><span>Existing financial ecosystem</span>
+      <b>Adopt</b><span>Migration, deployment &amp; enablement</span>
+    </div>
+  </div>
+</section>
+
+<!-- 10. PRODUCT LEADERSHIP -->
+<section class="section slide-page" id="learnings">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">08 · Product Leadership</span><h2>Competencies demonstrated and lessons carried forward</h2></div>
+      <p>The case study demonstrates strategic product thinking, technical depth, enterprise execution, stakeholder leadership and adoption ownership.</p>
+    </div>
+    <div class="comps reveal">
+      <div class="comp"><b>Product vision &amp; strategy</b><span>Platform direction across 12 domains.</span></div>
+      <div class="comp"><b>Roadmap &amp; prioritisation</b><span>Two-phase sequencing and dependencies.</span></div>
+      <div class="comp"><b>Enterprise discovery</b><span>SMEs, banks, compliance and operations.</span></div>
+      <div class="comp"><b>Requirements leadership</b><span>BRD, FRD, FSD, use cases, acceptance.</span></div>
+      <div class="comp"><b>Technical product management</b><span>Architecture, DFD, ER, API and integrations.</span></div>
+      <div class="comp"><b>UX / prototyping</b><span>Figma and journey communication.</span></div>
+      <div class="comp"><b>Agile product delivery</b><span>Epics, stories, refinement and sprints.</span></div>
+      <div class="comp"><b>Quality ownership</b><span>QA, UAT, edge cases and VAPT readiness.</span></div>
+      <div class="comp"><b>Implementation leadership</b><span>Migration, deployment and production readiness.</span></div>
+      <div class="comp"><b>Stakeholder management</b><span>Client, engineering, QA, compliance, leadership.</span></div>
+      <div class="comp"><b>Adoption &amp; enablement</b><span>Training, manuals and L1/L2 support.</span></div>
+      <div class="comp"><b>Outcome orientation</b><span>Connect product decisions to operational effect.</span></div>
+    </div>
+    <div class="learn reveal">
+      <div class="lesson"><strong>01</strong><h3>Platform thinking creates leverage</h3><p>Reusable roles, workflows, controls and reporting patterns can accelerate multiple domain products while preserving configurability.</p></div>
+      <div class="lesson"><strong>02</strong><h3>Integration is part of the UX</h3><p>Timeouts, invalid data, duplicates, retries, failure ownership and recovery paths must be designed as product behaviour.</p></div>
+      <div class="lesson"><strong>03</strong><h3>Controls are product features</h3><p>In regulated workflows, who acted, under which role, with what evidence and what output is central to the product.</p></div>
+      <div class="lesson"><strong>04</strong><h3>Enterprise UX is clarity</h3><p>Users need to see current state, owner, next action, exception reason and downstream effect without ambiguity.</p></div>
+      <div class="lesson"><strong>05</strong><h3>Implementation belongs in product</h3><p>A feature is not truly successful if migration, integration, deployment, training or support prevents adoption.</p></div>
+      <div class="lesson"><strong>06</strong><h3>Senior PM impact is cross-system</h3><p>End-to-end ownership connects strategy, technology, teams, client constraints, quality, release and measurable outcomes.</p></div>
+    </div>
+    <div class="story star-card reveal">
+      <span class="eyebrow">STAR case-study narrative</span>
+      <div class="story-flow">
+        <div class="story-step"><b>Situation</b><span>12 banking domains, existing systems and regulated workflows.</span></div>
+        <div class="story-step"><b>Task</b><span>Build a configurable suite from scratch across two phases.</span></div>
+        <div class="story-step"><b>Action</b><span>Strategy through design, build, QA/UAT, migration and adoption.</span></div>
+        <div class="story-step"><b>Result</b><span>12 applications, 6+6 phases, 100+ deployment claim and AML/KYC impact.</span></div>
+      </div>
+      <p class="safe">STAR is used as a portfolio/interview communication structure, not represented as the organisation's formal methodology.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11. PRODUCT METRICS -->
+<section class="section slide-page" id="product-metrics">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">09 · Product Metrics</span><h2>Prioritisation frameworks and product metrics used in regulated digital banking</h2></div>
+      <p>These tools reflect realistic product-management practice for fintech and digital banking platforms, where decisions must balance customer value, regulatory criticality, implementation constraints and operational risk.</p>
+    </div>
+    <div class="metrics-grid reveal">
+      <div class="metrics-panel">
+        <h3>Prioritisation frameworks</h3>
+        <div class="framework-list">
+          <div class="framework-card" style="--tone:#2f6fe5;">
+            <h4>RICE</h4>
+            <p>Prioritise regulated features by reach, impact, confidence and effort, particularly when deciding between onboarding improvements, AML controls, reconciliation workflows, or API enhancements across multiple bank implementations.</p>
+          </div>
+          <div class="framework-card" style="--tone:#5c6be3;">
+            <h4>MoSCoW</h4>
+            <p>Separate must-have compliance and customer-critical workflows from should-have improvements so releases remain aligned to legal obligations, service continuity and migration readiness.</p>
+          </div>
+          <div class="framework-card" style="--tone:#1a9c7c;">
+            <h4>Impact vs. Effort</h4>
+            <p>Use this to sequence reusable platform capabilities such as workflow configuration, document upload, exception handling, and reporting dashboards across the product suite.</p>
+          </div>
+          <div class="framework-card" style="--tone:#d08d1d;">
+            <h4>WSJF</h4>
+            <p>Apply weighted short-job-first thinking where business urgency, regulatory dependency and customer friction are combined into a single prioritisation view for roadmap decisions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="metrics-panel">
+        <h3>Product metrics</h3>
+        <div class="metric-list">
+          <div class="metric-pair">
+            <div class="metric-group">
+              <div class="metric-card" style="--tone:#2f6fe5;">
+                <h4>Adoption Rate</h4>
+                <p>Track percent of bank users or teams actively using a workflow after deployment.</p>
+              </div>
+              <div class="metric-card" style="--tone:#1a9c7c;">
+                <h4>Transaction Success Rate</h4>
+                <p>Measure successful completion of payments, lending actions, reconciliations, and operational flows.</p>
+              </div>
+              <div class="metric-card" style="--tone:#d08d1d;">
+                <h4>Exception Rate</h4>
+                <p>Identify failed or manually worked cases requiring intervention across integrations and operational functions.</p>
+              </div>
+            </div>
+            <div class="metric-group">
+              <div class="metric-card" style="--tone:#7b5de7;">
+                <h4>STP Rate</h4>
+                <p>Monitor straight-through processing for credit, payment, and compliance case handling.</p>
+              </div>
+              <div class="metric-card" style="--tone:#ba4d8c;">
+                <h4>API Success Rate</h4>
+                <p>Track the success of external calls to CBS, payment rails, credit bureaus and compliance services.</p>
+              </div>
+              <div class="metric-card" style="--tone:#3198a0;">
+                <h4>Reconciliation Accuracy</h4>
+                <p>Measure the percent of transaction records matching without manual adjustment or defect escalation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relationship">
+          <b>Product → Use case → Metric → Impact</b>
+          <p><strong>Loan origination:</strong> Application completion rate and turnaround time → reduced processing delays and better credit operations.</p>
+        </div>
+      </div>
+      <div class="metrics-panel" style="grid-column:1 / -1;">
+        <h3>Portfolio-relevant decision lens</h3>
+        <div class="metric-list">
+          <div class="metric-card" style="--tone:#6f96e8;"><h4>Risk Reduction</h4><p>Prioritise controls, alerting, validation and exception handling where compliance exposure and operational risk are highest.</p></div>
+          <div class="metric-card" style="--tone:#5ca580;"><h4>Customer / Business Impact</h4><p>Weight improvements by effect on user experience, clearances, turnaround time and operational efficiency for banks, NBFCs and support teams.</p></div>
+          <div class="metric-card" style="--tone:#b77a2f;"><h4>Dependency-based prioritisation</h4><p>Sequence work according to external dependencies, data migration readiness, integration contracts and downstream approvals that can block delivery.</p></div>
+          <div class="metric-card" style="--tone:#ba5d8d;"><h4>Regulatory / Criticality-based prioritisation</h4><p>Promote compliance, AML, KYC, audit and control functionalities ahead of low-risk enhancements when criticality and legal obligations justify it.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. CONNECT (FOOTER) -->
+<footer class="slide-page" id="connect" style="border-bottom: none;">
+  <div class="wrap" style="align-items: center;">
+    <div class="footer-wrap">
+      <div class="footer-cta">
+        <span class="eyebrow footer-eyebrow">Connect</span>
+        <h2>Building similar regulated digital banking products?</h2>
+        <p>A digital banking platform for banks and NBFCs needs more than application screens: the product must define the workflow, controls and integration model, then carry those decisions through migration, deployment, training, support and adoption.</p>
+        <a class="footer-cta-btn" href="mailto:manoj.pant.pm@outlook.com">Interested in building similar regulated digital banking products? Let's discuss the challenge →</a>
+      </div>
+      <div class="footer-meta">
+        <div class="footer-note">
+          <strong>Portfolio-safe reconstruction</strong>
+          <span>Confidential client information excluded. Product-space references: RBI / NPCI / CKYC / CIBIL / GST / Frappe official documentation.</span>
+        </div>
+        <div class="source-links">
+          <a href="https://www.rbi.org.in/" rel="noopener" target="_blank">RBI</a>
+          <a href="https://www.npci.org.in/product/upi" rel="noopener" target="_blank">NPCI / UPI</a>
+          <a href="https://www.cibil.com/" rel="noopener" target="_blank">CIBIL</a>
+          <a href="https://www.gst.gov.in/" rel="noopener" target="_blank">GST</a>
+          <a href="https://frappe.io/framework" rel="noopener" target="_blank">Frappe Framework</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</main>
+
+<div aria-hidden="true" class="drawer-backdrop" id="backdrop">
+  <aside class="drawer" id="drawer">
+    <div class="drawer-head">
+      <div class="drawer-title">
+        <span class="drawer-badge" id="dbadge">A</span>
+        <div><h2 id="dname">Application</h2><small id="dcat">Domain</small></div>
+      </div>
+      <button class="close" id="close">×</button>
+    </div>
+    <div class="drawer-body" id="dbody"></div>
+  </aside>
+</div>
+
+<script is:inline>
+const APPS=[{"id": "audit", "name": "Audit", "category": "Governance & Control", "color": "#b7a6ff", "purpose": "Internal, compliance, statutory and operations audit management.", "problem": "Structured planning, evidence, observations, ownership, closure and management visibility.", "capabilities": ["Internal Audit", "Compliance Audit", "Statutory Audit", "Operations Audit", "Findings & action tracking", "Audit reporting"], "users": ["Auditor", "Audit Manager", "Business Owner", "Approver", "Leadership"], "integrations": ["Source / core systems", "Document repository", "Reporting layer"], "workflow": ["Audit plan", "Scope & evidence", "Observation", "Action owner", "Closure", "Management view"], "reports": ["Audit status", "Open findings", "Closure ageing", "Management report"], "pm": ["Discovery & requirement elicitation", "Workflow and role design", "BRD / FRD / FSD", "Acceptance criteria", "Reporting requirements", "UAT & client demo"], "api": "/api/v1/audit/findings", "error": "Finding cannot be closed until mandatory evidence and owner response are captured.", "learning": "Control-heavy products require explicit ownership, evidence and exception paths—not only happy-path screens."}, {"id": "fam", "name": "FAM", "category": "Financial Control", "color": "#8bd8c5", "purpose": "Fixed Assets Management for physical assets across the institution.", "problem": "A structured asset register with lifecycle visibility, categorisation, assignment, tracking and depreciation.", "capabilities": ["Asset registration", "Asset categorisation", "Assignment / tracking", "Depreciation", "Asset history", "Operational reporting"], "users": ["Asset Manager", "Branch / Operations", "Finance", "Approver", "Auditor"], "integrations": ["Finance / accounting data", "GST-related information", "Document repository"], "workflow": ["Register asset", "Classify", "Assign", "Track", "Depreciate", "Report"], "reports": ["Asset register", "Depreciation", "Asset movement", "Category-wise inventory"], "pm": ["Domain modelling", "Data-field definition", "Validation rules", "Role matrix", "Report specification", "Client feedback"], "api": "/api/v1/assets/{asset_id}", "error": "Asset assignment blocked: destination branch and custodian are required.", "learning": "Operational modules become reliable when master data, lifecycle state and ownership are designed together."}, {"id": "gst", "name": "GST", "category": "Financial Control", "color": "#ffd39a", "purpose": "GST-related purchase, calculation, warranty, insurance and reporting workflows.", "problem": "Tax and purchase information needs traceability from source transaction through calculation and reporting.", "capabilities": ["Purchase capture", "GST calculation", "Warranty tracking", "Insurance tracking", "GSTR1B-related extraction", "Reporting"], "users": ["Finance User", "Operations User", "Approver", "Auditor"], "integrations": ["GST portal / external source where applicable", "Finance systems", "FAM"], "workflow": ["Purchase", "Capture tax data", "Validate", "Track warranty / insurance", "Extract", "Report"], "reports": ["GST summary", "Purchase register", "Warranty ageing", "Insurance register"], "pm": ["Requirement elicitation", "Integration mapping", "Validation rules", "Report design", "UAT scenarios"], "api": "/api/v1/gst/transactions", "error": "Tax calculation requires valid tax category and transaction jurisdiction.", "learning": "Financial-control products need traceability from the originating transaction to the reporting output."}, {"id": "los-lms", "name": "LOS–LMS", "category": "Lending & Credit", "color": "#83b9ff", "purpose": "Loan origination and loan management workflows across multiple loan products.", "problem": "Different loan products need common lending controls while retaining product-specific configuration and approval flows.", "capabilities": ["Vehicle loans", "Education loans", "Gold loans", "Staff loans", "Personal loans", "Home loans", "Maker-checker-sanctioner", "Disbursement", "Repayment schedule configuration"], "users": ["Maker", "Checker", "Sanctioner", "Credit", "Operations", "Admin"], "integrations": ["CIBIL", "DMS & CKYC", "Core banking / bank systems", "Payment / collection systems"], "workflow": ["Application", "Checks", "Credit decision", "Sanction", "Disbursement", "Repayment"], "reports": ["Application funnel", "Approval status", "Disbursement status", "Workflow ageing"], "pm": ["Product strategy", "Journey & workflow design", "API / integration requirements", "Business rules", "UAT scenario design", "Client demos"], "api": "/api/v1/loans/applications", "error": "Sanction action unavailable: checker approval is pending.", "learning": "A reusable lending platform needs configurable product rules without losing the controls that make credit workflows auditable."}, {"id": "cms", "name": "CMS", "category": "Payments & Cards", "color": "#ff9fc5", "purpose": "Card management covering personalised and instant cards across major card networks.", "problem": "Card operations require network-aware product configuration, issuance workflows and operational visibility.", "capabilities": ["Personalised cards", "Instant cards", "Card product setup", "RuPay", "Visa", "Mastercard", "NBIN-related issuance context", "Operational reporting"], "users": ["Card Operations", "Maker", "Checker", "Branch User", "Admin"], "integrations": ["NPCI / card ecosystem", "RuPay", "Visa", "Mastercard", "Core banking"], "workflow": ["Request", "Validate", "Network route", "Issue", "Track", "Report"], "reports": ["Issuance status", "Card product summary", "Pending actions", "Operations dashboard"], "pm": ["Integration readiness", "Configuration design", "Exception handling", "API requirements", "Client demos", "UAT"], "api": "/api/v1/cards/requests", "error": "Card request cannot progress: network/product mapping is incomplete.", "learning": "Network-dependent products need configuration, dependency visibility and failure handling as first-class product concerns."}, {"id": "shares", "name": "Shares", "category": "Financial Control", "color": "#a7d8ff", "purpose": "Share and portfolio management with dividend calculation and governance reporting.", "problem": "Share operations need controlled updates, calculations, approvals and reliable management outputs.", "capabilities": ["Share management", "Portfolio management", "Dividend calculation", "Maker-checker", "Board meeting reports", "Operational reporting"], "users": ["Share Manager", "Maker", "Checker", "Finance", "Management"], "integrations": ["Core / finance data", "Document repository", "Reporting layer"], "workflow": ["Capture holding", "Validate", "Calculate", "Approve", "Report", "Board view"], "reports": ["Portfolio summary", "Dividend report", "Shareholding report", "Board meeting pack"], "pm": ["Business-rule mapping", "Workflow controls", "Report specification", "Data validation", "UAT"], "api": "/api/v1/shares/portfolio", "error": "Dividend calculation requires an approved shareholding snapshot.", "learning": "When outputs feed governance forums, calculation integrity and approval lineage become product features."}, {"id": "pm-schemes", "name": "PM Schemes", "category": "Operations", "color": "#9fe3a9", "purpose": "Management of government-launched schemes through configurable operational workflows.", "problem": "Scheme processes evolve and need configurable operational journeys, controls and reporting.", "capabilities": ["Scheme master", "Eligibility / workflow configuration", "Operational tracking", "Status monitoring", "Reports", "User controls"], "users": ["Scheme Operations", "Maker", "Checker", "Branch User", "Admin"], "integrations": ["Bank systems", "Customer / account data", "Reporting layer"], "workflow": ["Scheme setup", "Capture", "Validate", "Process", "Track", "Report"], "reports": ["Scheme status", "Application / beneficiary view", "Pending actions", "Management summary"], "pm": ["Configuration strategy", "Workflow design", "Stakeholder alignment", "Training", "Feedback-driven enhancement"], "api": "/api/v1/schemes", "error": "Scheme processing blocked: mandatory scheme parameters are incomplete.", "learning": "Configuration reduces the need to rebuild the product every time an operational programme changes."}, {"id": "cibil", "name": "CIBIL", "category": "Lending & Credit", "color": "#86c8ff", "purpose": "Credit-information retrieval through API connectivity for lending workflows.", "problem": "Credit decisions depend on timely external credit information and a reliable exception path when the dependency fails.", "capabilities": ["Credit information request", "API connectivity", "Response capture", "Status tracking", "Exception handling", "LOS hand-off"], "users": ["Credit User", "Maker", "Operations", "Admin"], "integrations": ["CIBIL API", "LOS–LMS", "Customer / application data"], "workflow": ["Loan application", "Request credit info", "API response", "Validate", "Attach to decision", "Continue"], "reports": ["Request status", "Response success / failure", "Pending requests", "Credit workflow view"], "pm": ["API requirement definition", "Failure-state design", "Integration testing", "UAT", "Operational readiness"], "api": "/api/v1/credit/cibil/request", "error": "Credit bureau response unavailable. Retry and manual exception handling are required.", "learning": "An integration is not complete when the happy-path API works; timeout, retry, status and recovery are product requirements."}, {"id": "reconciliation", "name": "Reconciliation", "category": "Payments & Cards", "color": "#f4c78e", "purpose": "Transaction reconciliation across AEPS, UPI, Switch, ATM and other transaction streams.", "problem": "Identify matched and unmatched records, manage exceptions and close reconciliation cycles.", "capabilities": ["Transaction ingestion", "Matching / reconciliation", "Exception identification", "Status tracking", "Operational reporting", "Settlement-oriented views"], "users": ["Reconciliation User", "Operations", "Maker", "Checker", "Finance"], "integrations": ["AEPS", "UPI", "Switch", "ATM", "Bank transaction systems"], "workflow": ["Ingest", "Normalise", "Match", "Exception", "Resolve", "Close"], "reports": ["Matched / unmatched", "Exception ageing", "Stream-wise summary", "Daily reconciliation"], "pm": ["Data-flow mapping", "Exception design", "Operational dashboards", "Integration readiness", "UAT"], "api": "/api/v1/reconciliation/transactions", "error": "Record remains unreconciled: source reference and settlement amount differ.", "learning": "Reconciliation is fundamentally an exception-management product; the unresolved queue is as important as the matched count."}, {"id": "aml-kyc", "name": "AML–KYC", "category": "Compliance", "color": "#ffb2a6", "purpose": "Transaction monitoring, rule-based flagging and compliance reporting.", "problem": "Compliance teams need to identify relevant activity, investigate exceptions and produce required reporting with traceability.", "capabilities": ["Transaction monitoring", "Rule-based flagging", "Risk / alert workflow", "CTR reporting", "STR reporting", "NTR reporting", "KYC controls", "Compliance dashboards"], "users": ["Compliance User", "AML Analyst", "Maker", "Checker", "Compliance Manager"], "integrations": ["Transaction sources", "KYC / CKYC", "Bank systems", "Reporting interfaces"], "workflow": ["Transaction", "Rules", "Alert", "Review", "Decision", "Report"], "reports": ["Alerts", "Case ageing", "CTR", "STR", "NTR", "Compliance summary"], "pm": ["Regulatory requirement translation", "Rule / workflow design", "Reporting", "Stakeholder governance", "UAT", "Operational training"], "api": "/api/v1/aml/alerts", "error": "Alert cannot be closed: review disposition and mandatory evidence are missing.", "learning": "Compliance products need traceability: why something was flagged, who reviewed it, what evidence was used and what was reported."}, {"id": "treasury", "name": "Treasury", "category": "Financial Control", "color": "#9ed7ff", "purpose": "Treasury operational workflows supporting BOD and EOD activities.", "problem": "Time-bound treasury activities need clear state transitions, dependencies, controls and closure visibility.", "capabilities": ["BOD activities", "EOD activities", "Operational checklist", "Status tracking", "Exception visibility", "Reporting"], "users": ["Treasury User", "Maker", "Checker", "Treasury Manager", "Admin"], "integrations": ["Core banking / finance systems", "Transaction data", "Reporting layer"], "workflow": ["BOD start", "Validate inputs", "Execute", "Check", "EOD close", "Report"], "reports": ["BOD checklist", "EOD status", "Pending actions", "Treasury summary"], "pm": ["Operational workflow design", "Dependency mapping", "Exception paths", "Release readiness", "Client feedback"], "api": "/api/v1/treasury/eod", "error": "EOD close blocked: a mandatory reconciliation / validation task is still open.", "learning": "Time-bound operational products need strong guardrails before a cycle can be closed."}, {"id": "dms-ckyc", "name": "DMS & CKYC", "category": "Compliance", "color": "#c2b0ff", "purpose": "Document management and CKYC workflows covering OVD, verification, secure storage and CKYC retrieval.", "problem": "KYC processes require complete customer information, authentic documents, controlled access and reliable retrieval.", "capabilities": ["OVD capture", "Customer information", "Document authenticity verification", "Secure storage", "CKYC number retrieval", "Document status"], "users": ["KYC User", "Maker", "Checker", "Compliance", "Admin"], "integrations": ["CKYC", "Customer / account systems", "LOS–LMS", "Document services"], "workflow": ["Capture", "Validate", "Verify", "Store", "Retrieve CKYC", "Share status"], "reports": ["KYC status", "Document completeness", "Verification exceptions", "CKYC lookup status"], "pm": ["Data model", "API integration", "Security considerations", "Edge-case design", "UAT", "Training"], "api": "/api/v1/ckyc/search", "error": "Document rejected: authenticity or mandatory metadata validation failed.", "learning": "Document products need lifecycle, metadata, permissions and verification—not simply file upload."}];
+
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+const backdrop=document.getElementById('backdrop');
+const header=document.querySelector('header');
+document.querySelectorAll('img[alt="M2P"]').forEach(img=>{img.src='/profile/m2p-logo.svg';});
+document.getElementById('download-pdf')?.addEventListener('click',e=>{e.preventDefault();window.print();});
+
+function openApp(id,push=true){
+ const a=APPS.find(x=>x.id===id); if(!a)return;
+ document.getElementById('dbadge').textContent=a.name[0];
+ document.getElementById('dbadge').style.background='#edf2f7';
+ document.getElementById('dbadge').style.color='#10284b';
+ document.getElementById('dname').textContent=a.name;
+ document.getElementById('dcat').textContent=a.category+' · Integrated Channels Suite';
+ const capabilities=a.capabilities.map(x=>'<div>'+esc(x)+'</div>').join('');
+ const users=a.users.map(x=>'<div>'+esc(x)+'</div>').join('');
+ const integrations=a.integrations.map(x=>'<div>'+esc(x)+'</div>').join('');
+ const pm=a.pm.map(x=>'<div>'+esc(x)+'</div>').join('');
+ const workflow=a.workflow.map((x,i)=>'<div class="fstep"><b>'+String(i+1).padStart(2,'0')+' · '+esc(x)+'</b><span>State · owner · validation · next action</span></div>').join('');
+ const rows=a.reports.map((x,i)=>'<tr><td>'+esc(x)+'</td><td>'+['Operational monitoring','Management visibility','Exception management','Control / compliance'][i%4]+'</td><td>'+(i%2?'On demand':'Cycle / daily')+'</td></tr>').join('');
+ const api=esc(JSON.stringify({reference_id:'IC-DEMO-001',application:a.name,source_system:'BANK-SOURCE',idempotency_key:'synthetic-key',metadata:{channel:'operations',suite:'integrated-channels'}},null,2));
+ document.getElementById('dbody').innerHTML=`
+ <div class="dhero">
+  <div class="dcard"><span class="eyebrow">Product brief</span><h3>${esc(a.purpose)}</h3><p><b>Problem:</b> ${esc(a.problem)}</p><div class="dsection"><div class="dsection-head"><h3>Core capabilities</h3><span>${a.capabilities.length} capabilities</span></div><div class="list2">${capabilities}</div></div></div>
+  <div class="dcard"><span class="eyebrow">Users &amp; ecosystem</span><div class="dsection-head"><h3>Primary users</h3></div><div class="list2">${users}</div><div class="dsection"><div class="dsection-head"><h3>Integration landscape</h3></div><div class="list2">${integrations}</div></div></div>
+ </div>
+ <div class="dsection"><div class="dsection-head"><h3>End-to-end workflow</h3><span>Conceptual product journey</span></div><div class="flow">${workflow}</div></div>
+ <div class="dsection"><div class="dsection-head"><h3>Product design lens</h3><span>What had to be designed beyond screens</span></div><div class="journey-grid"><div class="journey-card"><b>Roles &amp; permissions</b><span>Who can create, review, approve, close or view.</span></div><div class="journey-card"><b>Business rules</b><span>Validations, thresholds, mandatory information and state transitions.</span></div><div class="journey-card"><b>Exceptions</b><span>Failure, retry, rejection, duplicate, incomplete and manual handling.</span></div><div class="journey-card"><b>Reporting</b><span>Operational queue, management view, auditability and closure.</span></div></div></div>
+ <div class="dsection"><div class="dsection-head"><h3>Sample reporting view</h3><span>Synthetic · no client data</span></div><div class="report"><div class="report-head"><b>${esc(a.name)} Operations Dashboard</b><span>Illustrative reporting specification</span></div><table><thead><tr><th>Report / widget</th><th>Product purpose</th><th>Cadence</th></tr></thead><tbody>${rows}</tbody></table></div></div>
+ <div class="dsection"><div class="dsection-head"><h3>API / integration thinking</h3><span>Conceptual contract</span></div><div class="api"><span class="method">POST</span> ${esc(a.api)}<br><br>${api}</div><div class="error"><b>Representative guardrail / exception</b><p>${esc(a.error)}</p></div></div>
+ <div class="dsection"><div class="dsection-head"><h3>Product management contribution</h3><span>PM responsibilities applied to this product</span></div><div class="list2">${pm}</div></div>
+ <div class="dsection"><div class="dcard"><span class="eyebrow">Product learning</span><p style="font-size:11.5px;margin-top:6px">${esc(a.learning)}</p></div></div>
+ <div class="dsection"><div class="dcard"><span class="eyebrow">Portfolio artefacts represented</span><div class="list2"><div>Problem statement / use cases</div><div>Workflow &amp; role model</div><div>BRD / FRD / FSD</div><div>Figma / product screens</div><div>DFD / ER / architecture</div><div>API specification</div><div>Acceptance criteria / UAT</div><div>User manual / training</div></div></div></div>`;
+ backdrop.classList.add('open');backdrop.setAttribute('aria-hidden','false');document.body.classList.add('locked');
+ if(push)history.replaceState({app:id},'', '#app/'+id);
+}
+function closeApp(push=true){backdrop.classList.remove('open');backdrop.setAttribute('aria-hidden','true');document.body.classList.remove('locked');if(push&&location.hash.startsWith('#app/'))history.replaceState({},'', '#products');}
+document.querySelectorAll('[data-open]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();openApp(el.dataset.open,true)}));
+document.getElementById('close').onclick=()=>closeApp();backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeApp()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeApp()});
+const search=document.getElementById('search'),filters=[...document.querySelectorAll('.filter')];let filter='All';
+function applyFilter(){if(!search)return;let count=0,q=search.value.toLowerCase().trim();document.querySelectorAll('.app-card').forEach(c=>{let show=(filter==='All'||c.dataset.cat===filter)&&(!q||c.dataset.search.includes(q));c.classList.toggle('hidden',!show);if(show)count++});const empty=document.getElementById('empty');if(empty)empty.classList.toggle('hidden',count>0)}
+if(search){search.oninput=applyFilter;filters.forEach(f=>f.onclick=()=>{filters.forEach(x=>x.classList.remove('active'));f.classList.add('active');filter=f.dataset.filter;applyFilter()})}
+
+function getHeaderOffset(){return (header?.getBoundingClientRect().height || 0)+8;}
+function scrollToSection(id,updateHash=true){
+  const target=document.getElementById(id);if(!target)return;
+  const top=target.getBoundingClientRect().top+window.scrollY-getHeaderOffset();
+  window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+ setActiveNav(id);
+  if(updateHash)history.replaceState({section:id},'', '#'+id);
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const href=a.getAttribute('href')||'';
+  if(!href.startsWith('#')||href==='#'||a.hasAttribute('data-open'))return;
+  const id=href.slice(1),target=document.getElementById(id);if(!target)return;
+  e.preventDefault();scrollToSection(id,true);
+}));
+const sections=[...document.querySelectorAll('main section[id]')],links=[...document.querySelectorAll('nav a[href^="#"]')];
+function setActiveNav(id){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));}
+function updateActiveNav(){
+  const marker=window.scrollY+getHeaderOffset()+28;
+  let current=sections[0]?.id||'overview';
+  for(const s of sections){if(s.offsetTop<=marker)current=s.id;else break;}
+ setActiveNav(current);
+}
+window.addEventListener('scroll',updateActiveNav,{passive:true});
+window.addEventListener('resize',updateActiveNav);
+updateActiveNav();
+window.addEventListener('scroll',()=>{const h=document.documentElement,max=h.scrollHeight-h.clientHeight;document.getElementById('progress').style.width=(max>0?(h.scrollTop/max)*100:0)+'%'},{passive:true});
+function handleHash(){
+  if(location.hash.startsWith('#app/')){openApp(location.hash.slice(5),false);return}
+  const id=location.hash.slice(1);
+ if(id&&document.getElementById(id))setTimeout(()=>scrollToSection(id,false),50);
+}
+window.addEventListener('popstate',handleHash);window.addEventListener('hashchange',handleHash);handleHash();
+</script>
+</SiteLayout>
