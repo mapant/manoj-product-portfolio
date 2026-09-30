@@ -805,6 +805,7 @@ const seniorSignals = [
     }
 
     #overview .model-stage {
+      position: relative;
       flex: 1;
       min-height: 310px;
       display: grid;
@@ -3452,18 +3453,21 @@ html:not([data-layout="desktop"]) #tech .tech-layout { grid-template-columns: 1f
     #overview .connector.c3 { left:30%; top:71%; width:118px; transform:rotate(-31deg); color:#10bfa2; }
     #overview .connector.c4 { left:51%; top:71%; width:118px; transform:rotate(31deg); color:#f5a01b; }
 
+    #overview .connector::before,
     #overview .connector::after {
       content:"";
       position:absolute;
-      right:-1px;
       top:50%;
       width:8px;
       height:8px;
       border-radius:50%;
       background:currentColor;
-      transform:translate(50%,-50%);
+      transform:translateY(-50%);
       box-shadow:0 0 0 4px rgba(255,255,255,.72);
     }
+
+    #overview .connector::before { left:-1px; }
+    #overview .connector::after { right:-1px; }
 
     #overview .operating-bar {
       position:relative;
