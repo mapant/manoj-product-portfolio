@@ -8,3 +8,49 @@
 .connect-copy-main{display:flex;flex-direction:column;justify-content:center}.connect-copy-main h2{max-width:780px;color:#fff;font-size:52px}.connect-copy-main h2 span{background:linear-gradient(90deg,#1ca4e9,#7341e2);-webkit-background-clip:text;background-clip:text;color:transparent}.connect-copy-main>p{max-width:720px;color:#bfd0e2;font-size:13px;line-height:1.5}.connect-capabilities{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:23px;max-width:740px}.connect-capabilities span{padding:11px;border:1px solid rgba(255,255,255,.13);border-radius:10px;background:rgba(255,255,255,.06);color:#d6e3ee;font-size:8px;font-weight:850}.connect-links{display:flex;gap:8px;margin-top:18px}.connect-links a{padding:9px 12px;border:1px solid rgba(255,255,255,.16);border-radius:9px;color:#fff;text-decoration:none;font-size:8px;font-weight:850;background:rgba(255,255,255,.05)}.connect-links a:hover{background:rgba(255,255,255,.1)}
 @media(max-width:999px){.overview-focus{flex-wrap:wrap}.strategy-intro,.scope-intro,.metrics-story{min-height:0}.metrics-layout{grid-template-columns:1fr}.metric-grid{grid-template-columns:repeat(2,1fr)}.connect-copy-main h2{font-size:40px}.connect-capabilities{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.metric-grid,.strategy-outcomes,.scope-pillars,.challenge-stack,.connect-capabilities{grid-template-columns:1fr}.metric-card{min-height:170px}.connect-copy-main h2{font-size:34px}}
+
+/* Responsive desktop presentation canvas: CSS owns sizing and flow. */
+@media (min-width: 1000px) {
+  .slide {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .slide-canvas {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-width: 1920px;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    margin: 0 auto;
+    transform: none !important;
+    transform-origin: initial;
+  }
+
+  .canvas-inner {
+    width: 100%;
+    height: 100%;
+    padding-left: clamp(32px, 4.6875vw, 90px);
+    padding-right: clamp(32px, 4.6875vw, 90px);
+  }
+}
+
+@media (max-width: 999px) {
+  .slide-canvas {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    aspect-ratio: auto;
+    margin: 0;
+    transform: none !important;
+  }
+
+  .canvas-inner {
+    width: 100%;
+    height: auto;
+  }
+}
