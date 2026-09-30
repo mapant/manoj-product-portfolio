@@ -68,7 +68,7 @@
     button, a { -webkit-tap-highlight-color: transparent; }
 
     main {
-      height: calc(var(--app-vh, 100dvh)) - var(--header-h));
+      height: calc(var(--app-vh, 100dvh) - var(--header-h));
       overflow-y: auto;
       overflow-x: hidden;
       scroll-snap-type: y mandatory;
@@ -77,7 +77,7 @@
     }
 
     .slide {
-      height: calc(var(--app-vh, 100dvh)) - var(--header-h));
+      height: calc(var(--app-vh, 100dvh) - var(--header-h));
       min-height: 720px;
       width: 100%;
       overflow: hidden;
@@ -997,8 +997,7 @@
     .strategy-principle {
       padding: 17px 18px;
       border-radius: 16px;
-      background: var(--navy-900);
-      color: #fff;
+      background: var(--navy-900);      color: #fff;
     }
 
     .strategy-principle strong {
@@ -1986,7 +1985,7 @@ html:not([data-layout="desktop"]) .contact-grid { gap: 18px; }
       html:not([data-layout="desktop"]) .nav-cta { position: absolute; right: 18px; top: 10px; }
       html:not([data-layout="desktop"]) #nav { height: 72px; grid-template-columns: repeat(5,minmax(0,1fr)); grid-template-rows: repeat(2,34px); gap: 4px; }
       html:not([data-layout="desktop"]) #nav a { padding: 6px 4px; font-size: 9px; }
-      html:not([data-layout="desktop"]) main { height: calc(var(--app-vh, 100dvh)) - var(--header-h)); overflow-y: auto; scroll-snap-type: y mandatory; }
+      html:not([data-layout="desktop"]) main { height: calc(var(--app-vh, 100dvh) - var(--header-h)); overflow-y: auto; scroll-snap-type: y mandatory; }
       html:not([data-layout="desktop"]) .slide { min-height: auto; height: auto; overflow: visible; scroll-snap-align: none; padding: 55px 0; }
       html:not([data-layout="desktop"]) .section-head h2,
 html:not([data-layout="desktop"]) .section-head p { white-space: normal; }
@@ -1997,8 +1996,7 @@ html:not([data-layout="desktop"]) .metrics-layout,
 html:not([data-layout="desktop"]) .tech-layout,
 html:not([data-layout="desktop"]) .contact-grid { grid-template-columns: 1fr; }
       html:not([data-layout="desktop"]) .overview-title { font-size: clamp(42px, calc(9 * var(--app-vw1, 1vw)), 56px); }
-      html:not([data-layout="desktop"]) .overview-lead { font-size: 15px; }
-      html:not([data-layout="desktop"]) #overview .overview-visual { min-height: 0; }
+      html:not([data-layout="desktop"]) .overview-lead { font-size: 15px; }      html:not([data-layout="desktop"]) #overview .overview-visual { min-height: 0; }
       html:not([data-layout="desktop"]) #overview .model-stage { min-height: 0; grid-template-columns: 1fr; }
       html:not([data-layout="desktop"]) #overview .model-capabilities { grid-template-columns: repeat(3,minmax(0,1fr)); }
       html:not([data-layout="desktop"]) #overview .model-capability { min-height: 70px; }
@@ -2997,8 +2995,7 @@ html:not([data-layout="desktop"]) #tech .tech-layout { grid-template-columns: 1f
 
     #overview .expertise-item span {
       display:block;
-      margin-top:6px;
-      color:#496987;
+      margin-top:6px;      color:#496987;
       font-size:8.8px;
       line-height:1.34;
     }
@@ -3454,7 +3451,7 @@ html:not([data-layout="desktop"]) #overview .expertise-grid { grid-template-colu
 
       /* The hero itself must occupy exactly the remaining viewport. */
       html[data-layout="desktop"] #overview.slide.soft {
-        height: calc(var(--app-vh, 100dvh)) - var(--header-h));
+        height: calc(var(--app-vh, 100dvh) - var(--header-h));
         min-height: 0;
         overflow: hidden;
       }
@@ -3863,7 +3860,7 @@ html[data-layout="desktop"] #overview .connector.c4 {
 
       /* The hero itself must occupy exactly the remaining viewport. */
       html:not([data-layout="desktop"]) #overview.slide.soft {
-        height: calc(var(--app-vh, 100dvh)) - var(--header-h));
+        height: calc(var(--app-vh, 100dvh) - var(--header-h));
         min-height: 0;
         overflow: hidden;
       }
@@ -3997,7 +3994,6 @@ html[data-layout="desktop"] #overview .connector.c4 {
         padding: 8px 12px;
         font-size: 9px;
       }
-
       html:not([data-layout="desktop"]) #overview .model-stage {
         min-height: 0;
         height: calc(100% - 95px);
@@ -4256,7 +4252,7 @@ html:not([data-layout="desktop"]) header .nav-cta .btn.primary {
     /* ---------- 100% desktop viewport fit ---------- */
       html[data-layout="desktop"] .slide {
         min-height: 0;
-        height: calc(var(--app-vh, 100dvh)) - var(--header-h));
+        height: calc(var(--app-vh, 100dvh) - var(--header-h));
         padding: 16px 0 14px;
       }
 
@@ -4455,7 +4451,7 @@ html[data-layout="desktop"] #overview .model-capability:nth-child(4) { bottom: 2
     @media (min-width: 1181px) and (min-height: 760px) {
       html:not([data-layout="desktop"]) .slide {
         min-height: 0;
-        height: calc(var(--app-vh, 100dvh)) - var(--header-h));
+        height: calc(var(--app-vh, 100dvh) - var(--header-h));
         padding: 16px 0 14px;
       }
 
@@ -4997,8 +4993,7 @@ html:not([data-layout="desktop"]) #overview .model-capability:nth-child(4) { bot
     /* ---------- All section backgrounds use the Overview palette ---------- */
     .slide,
     .slide.white,
-    .slide.soft,
-    .slide.dark {
+    .slide.soft,    .slide.dark {
       background:
         radial-gradient(circle at 88% 12%, rgba(112,65,239,.055), transparent 24%),
         radial-gradient(circle at 10% 82%, rgba(22,169,239,.055), transparent 25%),
@@ -5302,7 +5297,7 @@ html:not([data-layout="desktop"]) #overview .model-capability:nth-child(4) { bot
       html[data-layout="desktop"] { --header-h: 112px; }
 
       html[data-layout="desktop"] .slide {
-        height: calc(var(--app-vh, 100dvh)) - var(--header-h));
+        height: calc(var(--app-vh, 100dvh) - var(--header-h));
         min-height: 0;
         padding: 18px 0 16px;
       }
@@ -5504,7 +5499,7 @@ html[data-layout="desktop"] #portfolio .portfolio-outcome p { font-size:9px; lin
       html:not([data-layout="desktop"]) { --header-h: 112px; }
 
       html:not([data-layout="desktop"]) .slide {
-        height: calc(var(--app-vh, 100dvh)) - var(--header-h));
+        height: calc(var(--app-vh, 100dvh) - var(--header-h));
         min-height: 0;
         padding: 18px 0 16px;
       }
@@ -5997,8 +5992,7 @@ html:not([data-layout="desktop"]) #scope .scope-grid { grid-template-columns:rep
       overflow-wrap:anywhere;
       color:#375875;
       font-size:8.8px;
-      line-height:1.3;
-    }
+      line-height:1.3;    }
     #ecosystem .eco-card li::before {
       content:"";
       position:absolute;
@@ -6997,8 +6991,7 @@ html:not([data-layout="desktop"]) #metrics .ref-metrics-story{height:auto;}
 
     #tech .ref-tech-layout {
       height:auto;
-      min-height:0;
-      grid-template-columns:minmax(400px,.78fr) minmax(0,1.22fr);
+      min-height:0;      grid-template-columns:minmax(400px,.78fr) minmax(0,1.22fr);
       align-items:stretch;
     }
 
@@ -7600,13 +7593,13 @@ html[data-layout="desktop"] body { overflow: hidden; }
       html[data-layout="desktop"] .btn { min-height: 40px; padding: 0 16px; font-size: 11.5px; }
 
       html[data-layout="desktop"] main {
-        height: calc(var(--app-vh, 100dvh)) - var(--header-h));
+        height: calc(var(--app-vh, 100dvh) - var(--header-h));
         overflow-y: auto;
         scroll-snap-type: y mandatory;
       }
 
       html[data-layout="desktop"] .slide {
-        height: calc(var(--app-vh, 100dvh)) - var(--header-h));
+        height: calc(var(--app-vh, 100dvh) - var(--header-h));
         min-height: 0;
         padding: 12px 0;
         overflow: hidden;
@@ -7991,14 +7984,13 @@ html:not([data-layout="desktop"]) body { overflow: hidden; }
       html:not([data-layout="desktop"]) .btn { min-height: 40px; padding: 0 16px; font-size: 11.5px; }
 
       html:not([data-layout="desktop"]) main {
-        height: calc(var(--app-vh, 100dvh)) - var(--header-h));
+        height: calc(var(--app-vh, 100dvh) - var(--header-h));
         overflow-y: auto;
         scroll-snap-type: y mandatory;
       }
 
       html:not([data-layout="desktop"]) .slide {
-        height: calc(var(--app-vh, 100dvh)) - var(--header-h));
-        min-height: 0;
+        height: calc(var(--app-vh, 100dvh) - var(--header-h));        min-height: 0;
         padding: 12px 0;
         overflow: hidden;
         scroll-snap-align: start;
@@ -8997,8 +8989,7 @@ html:not([data-layout="desktop"]) body {
         height: 88px !important;
         padding: 0 !important;
         grid-template-columns: 300px minmax(0,1fr) 250px !important;
-        gap: 18px !important;
-      }
+        gap: 18px !important;      }
 
       html:not([data-layout="desktop"]) .brand-logo {
         width: 64px !important;
@@ -9997,8 +9988,7 @@ html:not([data-layout="desktop"]) #ecosystem .ecosystem-panel {
         min-height: 0 !important;
       }
       html:not([data-layout="desktop"]) #ecosystem .ecosystem-board {
-        height: calc(100% - 62px) !important;
-        min-height: 0 !important;
+        height: calc(100% - 62px) !important;        min-height: 0 !important;
       }
 
       /* Challenge --------------------------------------------------------- */
