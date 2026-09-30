@@ -4350,3 +4350,132 @@ header {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ======================================================================
+   FINAL NATIVE DOCUMENT LAYOUT — AUTHORITATIVE OVERRIDE
+   Reference: 1920 × 1200 at 100% browser zoom.
+   This is presentation-layer CSS only. No fixed canvas, no JS scaling,
+   no nested page scroller and no viewport transform.
+   ====================================================================== */
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  min-width: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+main {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding-top: var(--header-h);
+  overflow: visible;
+  scroll-snap-type: none;
+}
+
+.slide {
+  width: 100%;
+  height: auto;
+  min-height: calc(100svh - var(--header-h));
+  max-height: none;
+  overflow: visible;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+}
+
+.slide > .wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+}
+
+header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  width: 100%;
+  height: var(--header-h);
+  z-index: 1200;
+}
+
+header .head {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+}
+
+#nav {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 30px);
+}
+
+#nav a {
+  width: 100%;
+  min-width: 0;
+}
+
+#portfolio .portfolio-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+/* The 1920×1200 reference uses the full available width naturally.
+   Smaller desktop screens compress through the existing grid breakpoints. */
+@media (min-width: 821px) {
+  .slide {
+    min-height: calc(100svh - var(--header-h));
+  }
+
+  .wrap {
+    max-width: 1920px;
+  }
+}
+
+/* Tablet/mobile: normal document flow. Content is allowed to grow vertically. */
+@media (max-width: 820px) {
+  html {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  body {
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  main {
+    height: auto;
+    padding-top: var(--header-h);
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .slide {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+}
+
+/* Small phones: header is two-column / five-row navigation, so its
+   measured height must be part of normal document flow. */
+@media (max-width: 640px) {
+  :root {
+    --header-h: 238px;
+  }
+
+  .slide {
+    min-height: 0;
+  }
+}
