@@ -1,0 +1,36 @@
+---
+import PortfolioLayout from '../layouts/PortfolioLayout.astro';
+
+interface NavItem { href: string; label: string }
+const { title, navItems = [] } = Astro.props as { title: string; navItems?: NavItem[] };
+---
+
+<PortfolioLayout title={title}>
+  <div class="project-case-study-shell">
+    <header class="pcs-header">
+      <div class="pcs-header-inner">
+        <a class="pcs-brand" href="/" aria-label="Back to product portfolio">
+          <span class="pcs-mark">MP</span>
+          <span><b>Manoj Pant</b><small>Senior Product Manager · Product Case Study</small></span>
+        </a>
+        <nav aria-label="Case study sections">
+          {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+        <div class="pcs-actions">
+          <a href="#context">Explore case</a>
+          <a href="/">← Portfolio</a>
+        </div>
+      </div>
+    </header>
+    <main><slot /></main>
+  </div>
+</PortfolioLayout>
+
+<style is:global>
+  .project-case-study-shell{min-height:100vh;background:#f3f7fb;color:#102a4d}
+  .pcs-header{position:sticky;top:0;z-index:100;background:#102f55;color:#fff;box-shadow:0 10px 28px rgba(8,28,51,.18)}
+  .pcs-header-inner{width:min(1480px,calc(100% - 48px));min-height:82px;margin:auto;display:grid;grid-template-columns:250px 1fr 190px;gap:22px;align-items:center}
+  .pcs-brand{display:flex;gap:11px;align-items:center;color:#fff;text-decoration:none}.pcs-mark{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:#244f7f;border:1px solid rgba(255,255,255,.35);font-weight:950}.pcs-brand b{display:block;font-size:15px}.pcs-brand small{display:block;margin-top:3px;color:#c7d8e8;font-size:8px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+  .pcs-header nav{display:flex;justify-content:center;gap:5px;flex-wrap:wrap}.pcs-header nav a,.pcs-actions a{padding:7px 9px;border-radius:8px;color:#dce8f2;text-decoration:none;font-size:9px;font-weight:900}.pcs-header nav a:hover,.pcs-actions a:hover{background:#234f7f;color:#fff}.pcs-actions{display:flex;justify-content:flex-end;gap:4px}.pcs-actions a:last-child{background:#2a5c8d;color:#fff}
+  @media(max-width:980px){.pcs-header-inner{grid-template-columns:1fr;gap:8px;padding:12px 0}.pcs-header nav,.pcs-actions{justify-content:flex-start}.pcs-header{position:relative}}
+</style>
