@@ -1,19 +1,90 @@
----
-import "../../styles/case-study.scss";
-title: Ayu DocConnect
-company: Ayu Health
----
-<div class="case-study">
-  <a class="back-link" href="/#portfolio">← Back to portfolio</a>
-  <span class="case-kicker">03 · AYU HEALTH</span>
-  <h1>Ayu DocConnect</h1>
-  <p class="case-lead">A 0→1 provider experience focused on doctor acquisition, onboarding, engagement and adoption.</p>
-  <div class="case-grid">
-    <article><span>Problem</span><h2>Provider acquisition and onboarding</h2><p>Doctor journeys needed a scalable digital experience with clearer onboarding and engagement flows.</p></article>
-    <article><span>Product ownership</span><h2>0→1 product definition</h2><p>Defined the product journey, workflows, requirements, adoption signals and cross-functional delivery approach.</p></article>
-    <article><span>Product lens</span><h2>Journey + adoption</h2><p>Focused on reducing friction in the provider journey and creating a measurable adoption loop.</p></article>
-    <article><span>Outcome</span><h2>40% → 75% adoption</h2><p>Doctor adoption increased from 40% to 75% in the represented initiative.</p></article>
-  </div>
-  <div class="case-section"><h2>Capability areas</h2><div class="tags"><span>0→1</span><span>Provider Experience</span><span>Onboarding</span><span>Engagement</span><span>Adoption</span><span>Analytics</span></div></div>
-  <div class="case-section"><h2>Product artefacts</h2><p>Product vision · journey maps · requirements · workflow definitions · adoption metrics · stakeholder alignment · delivery backlog</p></div>
-</div>
+import CaseStudyPage from '../../components/CaseStudyPage.astro';
+
+const data = {
+  index: '03 · AYU HEALTH',
+  title: 'Ayu DocConnect',
+  company: 'Ayu Health',
+  brand: 'AYU HEALTH',
+  eyebrow: 'Provider experience · 0→1 product ownership',
+  theme: 'provider',
+  lead: 'A 0→1 provider experience focused on doctor acquisition, onboarding, engagement and adoption — designed around a clearer digital journey and measurable provider behaviour.',
+  metrics: [
+    { value: '40% → 75%', label: 'represented doctor adoption improvement', tone: 'mint' },
+    { value: '0→1', label: 'provider product definition and delivery', tone: 'lav' },
+    { value: '6', label: 'core journey stages modelled', tone: 'blue' },
+    { value: 'UX', label: 'journey-led product approach', tone: 'rose' }
+  ],
+  friction: [
+    'Provider acquisition and onboarding required too many unclear steps and hand-offs.',
+    'Doctor profiles and verification information needed a consistent digital journey.',
+    'Engagement required product signals beyond simple registration completion.',
+    'Teams needed a shared definition of adoption, journey states and improvement opportunities.'
+  ],
+  personas: [
+    { role: 'Doctor / Provider', need: 'Discover, register, verify and manage provider presence.', control: 'Profile completeness' },
+    { role: 'Provider Operations', need: 'Review onboarding and resolve exceptions.', control: 'Verification queue' },
+    { role: 'Business / Growth', need: 'Improve acquisition and adoption.', control: 'Funnel metrics' },
+    { role: 'Product Team', need: 'Understand journey friction and prioritise improvements.', control: 'Experiment backlog' },
+    { role: 'Support', need: 'Resolve provider questions quickly.', control: 'Case visibility' },
+    { role: 'Leadership', need: 'Track provider adoption and engagement.', control: 'Outcome metrics' }
+  ],
+  strategy: [
+    { title: 'Journey before feature list', text: 'Start from provider intent and friction rather than designing disconnected screens.', bullets: ['Discover', 'Onboard', 'Verify'] },
+    { title: 'Reduce time-to-value', text: 'Prioritise the shortest path to a complete, usable provider profile and a meaningful first action.', bullets: ['Progressive onboarding', 'Clear states', 'Guidance'] },
+    { title: 'Adoption loop', text: 'Treat adoption as a product loop: activation → value → repeat usage → deeper engagement.', bullets: ['Activation', 'Engagement', 'Retention'] },
+    { title: 'Operational feedback', text: 'Connect provider feedback and support issues to the product backlog rather than treating them as separate work.', bullets: ['Feedback', 'Exceptions', 'Backlog'] }
+  ],
+  architecture: [
+    { title: 'Provider experience', items: ['Registration', 'Profile', 'Verification', 'Engagement'] },
+    { title: 'Journey services', items: ['Onboarding workflow', 'Profile service', 'Status model', 'Notifications'] },
+    { title: 'Operational controls', items: ['Verification queue', 'Role access', 'Exception handling', 'Audit history'] },
+    { title: 'Data & analytics', items: ['Provider profile', 'Journey events', 'Adoption signals', 'Funnel reporting'] },
+    { title: 'Connected ecosystem', items: ['Operations', 'Support', 'Provider data', 'Reporting'] }
+  ],
+  integrations: ['Provider profile', 'Verification / operations', 'Notifications', 'Analytics layer', 'Support workflow', 'Reporting'],
+  dataFlow: ['Provider starts', 'Capture profile', 'Validate', 'Verify', 'Activate', 'Engage', 'Measure adoption'],
+  workflow: [
+    { title: 'Discover', text: 'Provider enters the product journey' },
+    { title: 'Register', text: 'Capture minimum required information' },
+    { title: 'Complete', text: 'Guide profile completion' },
+    { title: 'Verify', text: 'Operations review and resolve exceptions' },
+    { title: 'Activate', text: 'Provider reaches usable state' },
+    { title: 'Engage', text: 'Measure repeat behaviour and value' }
+  ],
+  exceptions: [
+    { title: 'Incomplete profile', text: 'Show missing information and return the provider to the exact step rather than restarting the journey.' },
+    { title: 'Verification mismatch', text: 'Create an operations queue with a visible reason, ownership and resolution state.' },
+    { title: 'Provider drop-off', text: 'Capture journey state so the product can identify where activation is being lost.' },
+    { title: 'Support dependency', text: 'Give support enough journey context to resolve issues without duplicating provider effort.' }
+  ],
+  artifacts: [
+    { type: 'UI reconstruction', title: 'Provider onboarding workspace', text: 'A portfolio-safe dashboard concept showing journey progress, profile completion, verification status and next best action.' },
+    { type: 'Journey artifact', title: 'Provider journey map', text: 'Maps provider intent, friction, system state, operational intervention and adoption signal across the end-to-end journey.' },
+    { type: 'Analytics artifact', title: 'Adoption funnel', text: 'A product analytics view connecting registration, completion, activation and repeat engagement into one decision surface.' }
+  ],
+  rollout: [
+    { title: 'Discovery & journey mapping', text: 'Map provider behaviour, operational hand-offs, support friction and the minimum viable onboarding journey.', bullets: ['Interviews', 'Journey map', 'Requirements'] },
+    { title: '0→1 build', text: 'Translate the journey into workflows, UI, acceptance criteria and a delivery backlog.', bullets: ['Prototype', 'Stories', 'UAT'] },
+    { title: 'Pilot & feedback', text: 'Use provider and operations feedback to refine onboarding, verification and activation points.', bullets: ['Pilot cohort', 'Feedback loop', 'Iteration'] },
+    { title: 'Adoption operating model', text: 'Make adoption visible through metrics, support enablement and an ongoing improvement backlog.', bullets: ['Dashboards', 'Training', 'Enhancements'] }
+  ],
+  outcomes: [
+    { value: '40% → 75%', label: 'represented improvement in doctor adoption' },
+    { value: '0→1', label: 'product definition across provider acquisition and engagement' },
+    { value: 'Journey', label: 'shared product model across provider and operations teams' },
+    { value: 'Analytics', label: 'adoption signals used to guide product improvement' }
+  ],
+  lessons: [
+    'Provider products benefit when onboarding is treated as a complete product journey rather than a collection of registration screens.',
+    'Adoption metrics become useful only when they are connected to explicit journey states and product actions the team can influence.'
+  ],
+  roadmap: [
+    { title: 'Provider self-service', text: 'Increase self-service profile management and reduce avoidable operations intervention.' },
+    { title: 'Personalised engagement', text: 'Use provider context to tailor recommendations, education and product prompts.' },
+    { title: 'Journey intelligence', text: 'Add cohort-level funnel analysis and friction detection to prioritise improvements.' },
+    { title: 'AI-assisted support', text: 'Use AI to summarise provider issues and recommend next actions while retaining human control.' }
+  ],
+  capabilities: ['0→1 Product', 'Provider Experience', 'Onboarding', 'Journey Mapping', 'Engagement', 'Adoption Analytics', 'Workflow Design', 'Stakeholder Alignment']
+};
+
+<CaseStudyPage data={data} />
