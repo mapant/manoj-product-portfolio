@@ -20,30 +20,42 @@ function setupCanvas() {
 
   if (!desktopQuery.matches) {
     canvases.forEach((canvas) => {
-      canvas.style.transform = '';
-      canvas.style.width = '';
-      canvas.style.height = '';
+      canvas.style.removeProperty('transform');
+      canvas.style.removeProperty('width');
+      canvas.style.removeProperty('height');
     });
-    slides.forEach((slide) => { slide.style.height = ''; });
-    viewport.style.height = '';
+    slides.forEach((slide) => { slide.style.removeProperty('height'); });
+    viewport.style.removeProperty('height');
     return;
   }
 
+  // Keep the portfolio on the same centered page-alignment model as the
+  // Integrated Channels case study: a centered desktop canvas with a small
+  // 24px page gutter on either side. The 1920px design itself is unchanged.
   const designWidth = 1920;
   const designHeight = 920;
+  const pageGutter = 48;
+  const availableWidth = Math.max(0, viewport.clientWidth - pageGutter);
+  const availableHeight = Math.max(0, viewport.clientHeight);
   const scale = Math.min(
-    viewport.clientWidth / designWidth,
-    viewport.clientHeight / designHeight,
+    availableWidth / designWidth,
+    availableHeight / designHeight,
     1
   );
 
   canvases.forEach((canvas) => {
-    canvas.style.width = `${designWidth}px`;
-    canvas.style.height = `${designHeight}px`;
-    canvas.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    canvas.style.setProperty('width', `${designWidth}px`, 'important');
+    canvas.style.setProperty('height', `${designHeight}px`, 'important');
+    canvas.style.setProperty(
+      'transform',
+      `translate(-50%, -50%) scale(${scale})`,
+      'important'
+    );
   });
 
-  slides.forEach((slide) => { slide.style.height = `${designHeight * scale}px`; });
+  slides.forEach((slide) => {
+    slide.style.setProperty('height', `${designHeight * scale}px`, 'important');
+  });
 }
 
 function setupNavigation() {
