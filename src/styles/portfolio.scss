@@ -4371,3 +4371,217 @@ header {
   }
 }
 
+/* ======================================================================
+   FINAL DESKTOP CANVAS / MOBILE RELEASE
+   Reference desktop composition: 1920 × 1200 (16:10).
+   The desktop canvas is CSS-sized, not JavaScript-scaled.
+   Browser zoom must never alter the internal grid geometry.
+   ====================================================================== */
+
+:root {
+  --desktop-canvas-width: 1920px;
+  --desktop-canvas-height: 1200px;
+}
+
+html {
+  min-width: 0;
+  min-height: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  min-width: 0;
+  min-height: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.portfolio-root {
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+}
+
+.portfolio-root > header {
+  position: fixed;
+  inset: 0 auto auto 0;
+  width: var(--desktop-canvas-width);
+  min-width: var(--desktop-canvas-width);
+  height: var(--header-h);
+  z-index: 1200;
+}
+
+.portfolio-root > header .head {
+  width: var(--desktop-canvas-width);
+  max-width: none;
+  margin: 0;
+}
+
+.portfolio-root > main {
+  width: var(--desktop-canvas-width);
+  min-width: var(--desktop-canvas-width);
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding-top: var(--header-h);
+  overflow: visible;
+  scroll-snap-type: none;
+}
+
+.portfolio-root > main > .slide {
+  width: var(--desktop-canvas-width);
+  min-width: var(--desktop-canvas-width);
+  height: var(--desktop-canvas-height);
+  min-height: var(--desktop-canvas-height);
+  max-height: var(--desktop-canvas-height);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 30px 0 28px;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+}
+
+.portfolio-root > main > .slide > .wrap {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding-inline: 54px;
+}
+
+/*
+ * Desktop internals stay tied to the 1920px composition.
+ * No viewport units are used to resize the canvas itself.
+ */
+.portfolio-root .overview-grid {
+  width: 100%;
+}
+
+.portfolio-root .overview-visual {
+  min-width: 0;
+}
+
+/* ======================================================================
+   MOBILE / TABLET RELEASE
+   < 1024px = normal responsive document flow.
+   ====================================================================== */
+
+@media (max-width: 1023px) {
+  html {
+    min-width: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-padding-top: var(--header-h);
+  }
+
+  body {
+    min-width: 0;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .portfolio-root {
+    width: 100%;
+    min-width: 0;
+    overflow: visible;
+  }
+
+  .portfolio-root > header {
+    width: 100%;
+    min-width: 0;
+    height: var(--header-h);
+  }
+
+  .portfolio-root > header .head {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .portfolio-root > main {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    padding-top: var(--header-h);
+    overflow: visible;
+  }
+
+  .portfolio-root > main > .slide {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: auto;
+    overflow: visible;
+    display: block;
+    padding: 42px 0;
+  }
+
+  .portfolio-root > main > .slide > .wrap {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-inline: 20px;
+  }
+
+  .portfolio-root .overview-grid,
+  .portfolio-root #overview .overview-grid {
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-root #overview .overview-copy {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+
+  .portfolio-root #overview .overview-visual {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 560px;
+  }
+
+  .portfolio-root .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --header-h: 238px;
+  }
+
+  .portfolio-root > header {
+    height: var(--header-h);
+  }
+
+  .portfolio-root > main {
+    padding-top: var(--header-h);
+  }
+
+  .portfolio-root > main > .slide {
+    padding-block: 36px;
+  }
+
+  .portfolio-root > main > .slide > .wrap {
+    padding-inline: 16px;
+  }
+
+  .portfolio-root .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-root #overview .overview-visual {
+    min-height: 520px;
+  }
+}
