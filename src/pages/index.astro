@@ -1,6 +1,5 @@
 ---
 import PortfolioLayout from '../layouts/PortfolioLayout.astro';
-import '../styles/portfolio.scss';
 
 /* --------------------------------------------------------------------------
    PORTFOLIO CONTENT MODEL
@@ -35,41 +34,35 @@ const careerArc = [
 ];
 
 const ecosystem = [
-  { title: 'Business', text: 'Goals, economics and operating constraints', type: 'business', details: ['Business strategy & OKRs', 'Revenue, cost and productivity', 'Operating model and constraints'] },
-  { title: 'Customer', text: 'Journeys, pain points and adoption', type: 'customer', details: ['User personas and segments', 'Journey mapping and NPS', 'Adoption and experience metrics'] },
-  { title: 'Product', text: 'Vision, roadmap, capabilities and experience', type: 'product', details: ['Product strategy and roadmap', 'Capabilities and features', 'Omnichannel experience'] },
-  { title: 'AI & GenAI', text: 'Decisioning, document and knowledge workflows', type: 'ai', details: ['AI-assisted decisioning', 'Document intelligence (IDP)', 'Knowledge and copilot workflows'] },
-  { title: 'Automation', text: 'Rules, approvals, exceptions and reconciliation', type: 'automation', details: ['Workflow automation', 'Approvals and exception handling', 'Reconciliation and straight-through'] },
-  { title: 'Data', text: 'SQL, BI, KPIs and product intelligence', type: 'data', details: ['Source systems and data model', 'KPI definitions and product analytics', 'Insights and data-driven decisions'] },
-  { title: 'Operations', text: 'Controls, rollout, training and support', type: 'operations', details: ['Operational processes and SLAs', 'Rollout, change and training', 'L1/L2/L3 support and improvement'] },
-  { title: 'Compliance', text: 'AML/KYC, audit, regulatory and risk controls', type: 'compliance', details: ['Regulatory and policy compliance', 'Risk controls and monitoring', 'Audit readiness and reporting'] }
+  ['Business', 'Goals, economics and operating constraints', 'business'],
+  ['Customer', 'Journeys, pain points and adoption', 'customer'],
+  ['Product', 'Vision, roadmap, capabilities and experience', 'product'],
+  ['AI & GenAI', 'Decisioning, document and knowledge workflows', 'ai'],
+  ['Automation', 'Rules, approvals, exceptions and reconciliation', 'automation'],
+  ['Technology', 'APIs, architecture, integrations and delivery', 'technology'],
+  ['Data', 'SQL, BI, KPIs and product intelligence', 'data'],
+  ['Operations', 'Controls, rollout, training and support', 'operations'],
+  ['Compliance', 'AML/KYC, audit, regulatory and risk controls', 'compliance']
 ];
 
 const challengeItems = [
-  { number: '01', title: 'Fragmented processes', text: 'Turn business processes spread across teams and systems into one coherent product journey.', type: 'workflow', points: ['Multiple teams and systems', 'Inconsistent process variants', 'Manual hand-offs and rework', 'Lack of end-to-end visibility'], response: 'Map, standardize and streamline the end-to-end product workflow.' },
-  { number: '02', title: 'Integration dependency', text: 'Design product behavior around APIs, external systems, failures, retries and reconciliation.', type: 'integration', points: ['Multiple external and internal systems', 'API failures, retries and timeouts', 'Data inconsistencies and reconciliation', 'Dependency on third-party platforms'], response: 'Define integration patterns, failure handling and reconciliation logic.' },
-  { number: '03', title: 'Decision complexity', text: 'Convert rules, risk signals, exceptions and human judgment into clear decision workflows.', type: 'decision', points: ['Complex business rules and policies', 'Risk signals and multiple data inputs', 'High exception and manual review', 'Need for transparent audit trail'], response: 'Design decision workflows with clear rules, thresholds and exception handling.' },
-  { number: '04', title: 'Manual operations', text: 'Find opportunities to remove repetitive work through workflow automation and intelligent assistance.', type: 'automation', points: ['Manual data entry and processing', 'Repetitive checks and approvals', 'High operational effort and errors', 'Slow turnaround for customers and teams'], response: 'Automate repeatable work with approvals and exception handling.' },
-  { number: '05', title: 'Data ambiguity', text: 'Create a reliable link between source data, KPI definitions, reporting and product decisions.', type: 'data', points: ['Multiple source systems and data models', 'Inconsistent KPI definitions', 'Data quality and reconciliation issues', 'Limited product and operational insights'], response: 'Define data models, KPI frameworks and reliable reporting for product decisions.' },
-  { number: '06', title: 'Enterprise alignment', text: 'Bring business, design, engineering, data, operations, compliance and clients around one outcome.', type: 'alignment', points: ['Diverse stakeholder priorities', 'Different success metrics across teams', 'Regulatory and compliance requirements', 'Need for shared roadmap and accountability'], response: 'Align stakeholders with a clear product vision, roadmap and measurable outcomes.' }
+  ['01', 'Fragmented processes', 'Turn business processes spread across teams and systems into one coherent product journey.', 'workflow'],
+  ['02', 'Integration dependency', 'Design product behavior around APIs, external systems, failures, retries and reconciliation.', 'integration'],
+  ['03', 'Decision complexity', 'Convert rules, risk signals, exceptions and human judgment into clear decision workflows.', 'decision'],
+  ['04', 'Manual operations', 'Find opportunities to remove repetitive work through workflow automation and intelligent assistance.', 'automation'],
+  ['05', 'Data ambiguity', 'Create a reliable link between source data, KPI definitions, reporting and product decisions.', 'data'],
+  ['06', 'Enterprise alignment', 'Bring business, design, engineering, data, operations, compliance and clients around one outcome.', 'alignment']
 ];
 
 const strategySteps = [
-  { number: '01', tag: 'Frame', icon: 'frame', title: 'Problem framing and opportunity', text: 'Clarify the business problem, user pain points and measurable outcome.', points: ['Understand customer and market context', 'Define the problem, success criteria and scope', 'Identify opportunities (including AI / automation)', 'Assess constraints and dependencies'], focus: 'Define a clear problem statement and opportunity thesis.', tone: 'blue' },
-  { number: '02', tag: 'Discover', icon: 'discover', title: 'User, process and data discovery', text: 'Map users, journeys, processes, data and system dependencies.', points: ['User research and journey mapping', 'Process analysis and pain points', 'Data analysis and system landscape', 'Identify automation and AI opportunities'], focus: 'Build a shared understanding with evidence.', tone: 'purple' },
-  { number: '03', tag: 'Define', icon: 'define', title: 'Translate to product strategy', text: 'Convert insights into vision, capabilities, requirements and acceptance criteria.', points: ['Define target user experience and capabilities', 'Set product strategy and positioning', 'Write data and legal requirements', 'Align on KPIs and success metrics'], focus: 'Prioritize solutions and define what to build and why.', tone: 'green' },
-  { number: '04', tag: 'Prioritize', icon: 'prioritize', title: 'Balance value, risk and feasibility', text: 'Evaluate opportunities based on customer value, business impact, feasibility and AI potential.', points: ['Value vs effort and impact analysis', 'Risk and compliance assessment', 'Technical and operational feasibility', 'Identify quick wins and strategic bets'], focus: 'Create a transparent, data-driven prioritization framework.', tone: 'amber' },
-  { number: '05', tag: 'Roadmap', icon: 'roadmap', title: 'Plan and sequence delivery', text: 'Sequence capabilities, dependencies, releases and adoption activities.', points: ['Define product roadmap and milestones', 'Identify cross-team dependencies', 'Plan for adoption, change and training', 'Allocate resources and capacity'], focus: 'Build a feasible, outcome-driven roadmap.', tone: 'pink' },
-  { number: '06', tag: 'Deliver', icon: 'deliver', title: 'Execute and scale solutions', text: 'Coordinate design, engineering, QA, security, migration and release readiness.', points: ['Drive execution and remove blockers', 'Ensure quality and compliance', 'Enable user adoption and training', 'Scale across teams and geographies'], focus: 'Turn plans into working solutions with measurable outcomes.', tone: 'blue' },
-  { number: '07', tag: 'Learn & Measure', icon: 'learn', title: 'Measure impact and iterate', text: 'Use feedback, usage, exceptions and operational signals to improve the product.', points: ['Track adoption and usage', 'Measure business outcomes (KPIs)', 'Capture user feedback and insights', 'Iterate, optimize and plan the next cycle'], focus: 'Close the loop with data and continuous improvement.', tone: 'green' }
-];
-
-const strategyOutcomes = [
-  ['Strategy outcomes', 'A consistent approach that turns strategy into measurable business impact.', 'target'],
-  ['Higher customer satisfaction', 'Better user experience and adoption.', 'people'],
-  ['Measurable business impact', 'Revenue, efficiency and cost optimization.', 'chart'],
-  ['Faster time to value', 'Prioritized and focused delivery.', 'focus'],
-  ['Scalable & compliant growth', 'Future-ready and risk-aware products.', 'shield']
+  ['01', 'Frame', 'Clarify the business problem, user pain and measurable outcome.'],
+  ['02', 'Discover', 'Map users, processes, data, constraints, dependencies and opportunity areas.'],
+  ['03', 'Define', 'Translate the problem into journeys, capabilities, requirements and acceptance criteria.'],
+  ['04', 'Prioritize', 'Balance customer value, business value, risk, feasibility, AI opportunity and effort.'],
+  ['05', 'Roadmap', 'Sequence capabilities, dependencies, releases and adoption activities.'],
+  ['06', 'Deliver', 'Coordinate design, engineering, QA, UAT, security, migration and release readiness.'],
+  ['07', 'Learn', 'Use feedback, usage, exceptions and operational signals to improve the product.'],
+  ['08', 'Measure', 'Connect adoption, efficiency, quality and business outcomes back to the roadmap.']
 ];
 
 const prioritization = [
@@ -230,18 +223,14 @@ const seniorSignals = [
 ---
 
 <PortfolioLayout title="Manoj Pant | Senior Product Manager | Product Portfolio">
-  
-
-  
-
   <header>
     <div class="wrap head">
       <a class="brand" href="#overview" aria-label="Manoj Pant Product Portfolio">
         <img
           class="brand-logo"
-          src="https://github.com/mapant.png?size=256"
+          src="/profile/profile.jpg"
           alt="Manoj Pant"
-          onerror="this.onerror=null;this.src='https://github.com/mapant.png?size=256';"
+          onerror="this.onerror=null;this.src='/profile/m2p-logo.svg';"
         />
         <span class="brand-copy">
           <b>Manoj Pant</b>
@@ -274,7 +263,7 @@ const seniorSignals = [
     <!-- ==================================================================
          01 / OVERVIEW
          ================================================================== -->
-    <section class="slide soft overview-alias" id="overview" aria-label="Portfolio overview">
+    <section class="slide soft" id="overview">
       <div class="wrap">
         <div class="overview-grid">
           <div class="overview-copy">
@@ -285,26 +274,43 @@ const seniorSignals = [
               <span class="gradient-line">complex problems to</span>
               <span class="gradient-line">measurable impact.</span>
             </h1>
+
             <p class="overview-lead">
               Senior Product Manager with <strong>10+ years of experience</strong> across FinTech, Healthcare, Telecom and Enterprise IT — combining product strategy, business analysis, technology, data and execution to build scalable enterprise products.
             </p>
+
             <div class="hero-stats" aria-label="Product leadership highlights">
               <div class="hero-stat">
                 <div class="stat-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 19 6v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="m9.5 12 1.7 1.7 3.7-4"/></svg>
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 3l7 3v5c0 4.7-2.9 8-7 10-4.1-2-7-5.3-7-10V6l7-3z"></path>
+                    <path d="m9.5 12 1.7 1.7 3.7-4"></path>
+                  </svg>
                 </div>
                 <strong>10+</strong><span>Years Experience</span>
               </div>
               <div class="hero-stat">
-                <div class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 20V6a2 2 0 0 1 2-2h7v16M14 9h4a2 2 0 0 1 2 2v9H5"/><path d="M8 8h2m-2 4h2m-2 4h2"/></svg></div>
+                <div class="stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M4 20V6a2 2 0 0 1 2-2h7v16"></path><path d="M13 9h5a2 2 0 0 1 2 2v9H4"></path><path d="M8 8h2M8 12h2M8 16h2M16 13h2M16 16h2"></path>
+                  </svg>
+                </div>
                 <strong>12+</strong><span>Enterprise Applications</span>
               </div>
               <div class="hero-stat">
-                <div class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 3 5-3 5-3-5 3-5zM6 8l3 5-3 5-3-5 3-5zm12 0 3 5-3 5-3-5 3-5zM9 18h6"/></svg></div>
+                <div class="stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="m12 3 3 5-3 5-3-5 3-5z"></path><path d="m6 8 3 5-3 5-3-5 3-5z"></path><path d="m18 8 3 5-3 5-3-5 3-5z"></path><path d="M9 18h6"></path>
+                  </svg>
+                </div>
                 <strong>4</strong><span>Industry Ecosystems</span>
               </div>
               <div class="hero-stat">
-                <div class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19V9M12 19V5M19 19v-7M3 19h18M5 7l7-3 7 3"/></svg></div>
+                <div class="stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M5 19V9"></path><path d="M12 19V5"></path><path d="M19 19v-7"></path><path d="M3 19h18"></path><path d="m5 7 7-3 7 3"></path>
+                  </svg>
+                </div>
                 <strong>0→1</strong><span>Product Development</span>
               </div>
             </div>
@@ -367,7 +373,7 @@ const seniorSignals = [
                     <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 20V6a2 2 0 0 1 2-2h7v16"></path><path d="M14 9h4a1 1 0 0 1 1 1v10H5"></path><path d="M8 8h2M8 12h2M8 16h2"></path></svg>
                   </div>
                   <strong>Business</strong>
-                  <span>FinTech | Health Tech | Telecom</span>
+                  <span>FinTech · Health Tech · Telecom</span>
                   <div class="cap-art business-art" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
                 </div>
                 <div class="model-capability">
@@ -375,7 +381,7 @@ const seniorSignals = [
                     <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 8a3 3 0 1 1 6 0v1a3 3 0 1 1 3 3 3 3 0 1 1-3 3v1a3 3 0 1 1-6 0v-1a3 3 0 1 1-3-3 3 3 0 1 1 3-3V8z"></path><path d="M12 9v6M9 12h6"></path></svg>
                   </div>
                   <strong>AI &amp; GenAI</strong>
-                  <span>AI Strategy | Copilot | LLMs</span>
+                  <span>AI Strategy · Copilot · LLMs</span>
                   <div class="cap-art ai-art" aria-hidden="true"><b></b><i></i><i></i><i></i></div>
                 </div>
                 <div class="model-capability">
@@ -383,7 +389,7 @@ const seniorSignals = [
                     <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a4 4 0 0 0-4 4v2H6a3 3 0 0 0 0 6h2v2a4 4 0 0 0 8 0v-2h2a3 3 0 0 0 0-6h-2V7a4 4 0 0 0-4-4z"></path><path d="M8 12h8M12 8v8"></path></svg>
                   </div>
                   <strong>Automation</strong>
-                  <span>API-First | Microservices | Cloud</span>
+                  <span>API-First · Microservices · Cloud</span>
                   <div class="cap-art cloud-art" aria-hidden="true"><i></i><i></i><i></i></div>
                 </div>
                 <div class="model-capability">
@@ -391,7 +397,7 @@ const seniorSignals = [
                     <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"></path><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path></svg>
                   </div>
                   <strong>Data</strong>
-                  <span>SQL | Power BI | KPI Frameworks</span>
+                  <span>SQL · Power BI · KPI Frameworks</span>
                   <div class="cap-art data-art" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
                 </div>
               </div>
@@ -433,117 +439,30 @@ const seniorSignals = [
           <div class="ecosystem-story">
             <div>
               <span class="eyebrow">Product Ecosystem</span>
-              <h3>Product is the coordination layer between<br class="ecosystem-title-break" />business, technology and operations.</h3>
+              <h3>Product is the coordination layer between business, technology and operations.</h3>
               <p>
                 My work spans enterprise products where a feature is only one part of the solution. The product has to connect the user journey with workflows, data, integrations, controls, intelligence and operational readiness.
               </p>
 
               <div class="story-points">
-                <div class="story-point"><i></i>Customer and business problem → measurable outcome</div>
-                <div class="story-point"><i></i>Product journey and workflow across multiple systems</div>
-                <div class="story-point"><i></i>AI / GenAI opportunity in real business processes</div>
-                <div class="story-point"><i></i>Automation and integration behavior with enterprise platforms</div>
-                <div class="story-point"><i></i>Data, operations, compliance and support readiness</div>
+                <div class="story-point"><i></i>Customer and business problem</div>
+                <div class="story-point"><i></i>Product journey and workflow</div>
+                <div class="story-point"><i></i>AI / GenAI opportunity</div>
+                <div class="story-point"><i></i>Automation and integration behavior</div>
+                <div class="story-point"><i></i>Data, operations and measurable outcome</div>
               </div>
             </div>
-            <div class="ecosystem-network" aria-hidden="true">
-              <svg class="ecosystem-network-art" viewBox="0 0 500 220" preserveAspectRatio="xMidYMid meet">
-                <defs>
-                  <linearGradient id="eco-net-blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#18b9ff"/><stop offset="1" stop-color="#0754d9"/></linearGradient>
-                  <linearGradient id="eco-net-violet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b739ff"/><stop offset="1" stop-color="#5820d2"/></linearGradient>
-                  <linearGradient id="eco-net-teal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#30efcf"/><stop offset="1" stop-color="#079b9b"/></linearGradient>
-                  <linearGradient id="eco-net-orange" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffc13c"/><stop offset="1" stop-color="#f26a0b"/></linearGradient>
-                  <linearGradient id="eco-net-pink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff62c6"/><stop offset="1" stop-color="#cc238f"/></linearGradient>
-                  <linearGradient id="eco-net-core" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#18c4ff"/><stop offset=".55" stop-color="#0874ef"/><stop offset="1" stop-color="#334de8"/></linearGradient>
-                  <filter id="eco-net-glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-                </defs>
-
-                <ellipse class="orbit" cx="250" cy="119" rx="226" ry="78" />
-                <ellipse class="orbit" cx="250" cy="119" rx="173" ry="56" opacity=".55" />
-                <path class="link" d="M222 104 C188 88 170 78 143 80" />
-                <path class="link link-purple" d="M250 84 C250 69 250 61 250 53" />
-                <path class="link link-teal" d="M278 104 C314 87 333 78 358 80" />
-                <path class="link link-teal" d="M220 141 C190 158 174 167 160 170" />
-                <path class="link link-pink" d="M280 141 C312 158 330 168 343 170" />
-                <path class="link" d="M115 115 C96 126 78 137 66 151M385 115 C404 126 422 137 434 151" opacity=".72" />
-
-                <polygon points="250,91 337,132 250,174 163,132" fill="#149eff" opacity=".16" />
-                <polygon points="250,103 318,135 250,168 182,135" fill="#33baff" opacity=".16" />
-                <polygon points="250,117 294,138 250,160 206,138" fill="#55d0ff" opacity=".12" />
-                <path d="m250 78 45 23-45 24-45-24z" fill="#31bcff" stroke="#8be5ff" stroke-width="1.5" />
-                <path d="m205 101 45 24v49l-45-24z" fill="#0878dc" stroke="#52c8ff" stroke-width="1.2" />
-                <path d="m250 125 45-24v49l-45 24z" fill="#0756bb" stroke="#52aaff" stroke-width="1.2" />
-                <ellipse cx="250" cy="191" rx="6" ry="6" fill="#68caff" stroke="#fff" stroke-width="2" filter="url(#eco-net-glow)" />
-
-                <g filter="url(#eco-net-glow)">
-                  <path d="M31 65 80 39Q87 35 94 39l49 26v26l-49 26q-7 4-14 0L31 91z" fill="url(#eco-net-blue)" stroke="#64cfff" stroke-width="1.4" />
-                  <path d="M357 65 406 39q7-4 14 0l49 26v26l-49 26q-7 4-14 0l-49-26z" fill="url(#eco-net-teal)" stroke="#78ffe8" stroke-width="1.4" />
-                  <rect x="194" y="4" width="112" height="58" rx="15" fill="url(#eco-net-violet)" stroke="#c98aff" stroke-width="1.5" />
-                  <path d="M44 151 91 128q7-4 14 0l48 23v25l-48 23q-7 4-14 0l-47-23z" fill="url(#eco-net-orange)" stroke="#ffd07a" stroke-width="1.4" />
-                  <path d="m348 151 48-23q7-4 14 0l47 23v25l-47 23q-7 4-14 0l-48-23z" fill="url(#eco-net-pink)" stroke="#ff9de0" stroke-width="1.4" />
-                </g>
-
-                <g class="icon-line">
-                  <g transform="translate(0 -2)"><path d="M239 17a5 5 0 1 1 10 0 5 5 0 0 1-10 0m12 2a4 4 0 1 1 8 0m-23 13v-2a8 8 0 0 1 16 0v2m3-8a6 6 0 0 1 5 6v2" /></g>
-                  <path d="M81 69h6v12h-6zm10-6h6v18h-6zm10 9h6v9h-6z" fill="#fff" stroke="none" transform="translate(-4 -6)" />
-                  <g transform="translate(414 57) scale(.8) translate(-418 -68)"><ellipse cx="418" cy="66" rx="10" ry="4"/><path d="M408 66v17c0 2 4 4 10 4s10-2 10-4V66m-20 8c0 2 4 4 10 4s10-2 10-4" /></g>
-                  <g transform="translate(98.5 147) scale(.68) translate(-100 -155)"><path d="M94 155a6 6 0 1 1 12 0 6 6 0 0 1-12 0m-5 17a11 11 0 0 1 22 0m-3-17 4-2m-2 7 4 2m-19-9-4-2m2 7-4 2" /></g>
-                  <g transform="translate(402.5 146) scale(.72) translate(-414 -158)"><path d="m405 154 9-4 9 4v6c0 7-4 11-9 14-5-3-9-7-9-14z"/><path d="m410 160 3 3 6-7" /></g>
-                  <path d="m250 88 14 8v16l-14 8-14-8V96zM236 96l14 8 14-8m-14 8v16" stroke-width="2.5" transform="translate(0 -4)" />
-                </g>
-
-                <text class="label" x="87" y="93"><tspan x="87">Business</tspan><tspan x="87" dy="11">Goals</tspan></text>
-                <text class="label" x="250" y="43"><tspan x="250">Customer</tspan><tspan x="250" dy="11">Experience</tspan></text>
-                <text class="label" x="414" y="93"><tspan x="414">Technology</tspan><tspan x="414" dy="11">&amp; Data</tspan></text>
-                <text class="label" x="98.5" y="174"><tspan x="98.5">Operations</tspan><tspan x="98.5" dy="10">&amp; Support</tspan></text>
-                <text class="label" x="402.5" y="178"><tspan x="402.5">Compliance</tspan><tspan x="402.5" dy="10">&amp; Risk</tspan></text>
-                <text class="label" x="250" y="136" font-size="11">Product</text>
-
-                <g fill="#8ad8ff" stroke="#fff" stroke-width="1.5" filter="url(#eco-net-glow)">
-                  <circle cx="23" cy="119" r="3.5"/><circle cx="178" cy="34" r="3.5"/><circle cx="326" cy="35" r="3"/>
-                  <circle cx="342" cy="114" r="3.5"/><circle cx="176" cy="151" r="3.5"/><circle cx="326" cy="153" r="3.5"/>
-                  <circle cx="250" cy="198" r="4.5"/>
-                </g>
-              </svg>
-            </div>
-            <div class="ecosystem-story-foot">Enterprise product thinking — from problem framing<br />to production readiness</div>
+            <div class="ecosystem-story-foot">Enterprise product thinking — from problem framing to production readiness</div>
           </div>
 
           <div class="ecosystem-panel">
-            <svg class="eco-icon-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-              <symbol id="eco-business" viewBox="0 0 24 24"><path d="M4 20V6a2 2 0 0 1 2-2h8v16M14 9h4a2 2 0 0 1 2 2v9M2 20h20M8 8h2m-2 4h2m-2 4h2m7-4h1m-1 4h1" /></symbol>
-              <symbol id="eco-customer" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2z"/></symbol>
-              <symbol id="eco-product" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7zM3 7l9 5 9-5m-9 5v10"/></symbol>
-              <symbol id="eco-ai" viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3v1a3 3 0 0 0 0 6v1a3 3 0 0 0 3 3m6-14a3 3 0 0 1 3 3v1a3 3 0 0 1 0 6v1a3 3 0 0 1-3 3M12 3v18m-4-9h8m-7-4h2m2 8h2"/></symbol>
-              <symbol id="eco-automation" viewBox="0 0 24 24"><path d="m12 3 2 2 3-.5.5 3 2.5 1.5-1.2 3 1.2 3-2.5 1.5-.5 3-3-.5-2 2-2-2-3 .5-.5-3L4 15l1.2-3L4 9l2.5-1.5.5-3 3 .5z"/><circle cx="12" cy="12" r="3"/></symbol>
-              <symbol id="eco-data" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
-              <symbol id="eco-operations" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20v-1a6 6 0 0 1 12 0v1m1-5a5 5 0 0 1 5 5"/></symbol>
-              <symbol id="eco-compliance" viewBox="0 0 24 24"><path d="M12 2 21 6v6c0 5-3.8 8.5-9 10-5.2-1.5-9-5-9-10V6z"/><path d="m8 12 2.5 2.5L16 9"/></symbol>
-              <symbol id="eco-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="m12 12 8-8m-4 0h4v4"/></symbol>
-            </svg>
-            <div class="ecosystem-board">
-              <svg class="eco-connectors" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M160 95 500 300M500 95v205M840 95 500 300M160 300h340M840 300H500M160 505 500 300M500 505V300M840 505 500 300" />
-                <circle cx="500" cy="300" r="6" />
-              </svg>
-              <div class="ecosystem-grid">
-                {ecosystem.map(({ title, text, type, details }) => (
-                  <article class:list={['eco-card', type]}>
-                    <span class="eco-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href={`#eco-${type}`} /></svg></span>
-                    <strong>{title}</strong>
-                    <span class="eco-description">{text}</span>
-                    <ul>{details.map((detail) => <li>{detail}</li>)}</ul>
-                    <i class="eco-art" aria-hidden="true"></i>
-                  </article>
-                ))}
-              </div>
-              <div class="ecosystem-hub"><span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#eco-product" /></svg></span><strong>Product<br />Ecosystem</strong></div>
-            </div>
-            <div class="ecosystem-metrics">
-              <div><span class="metric-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#eco-operations" /></svg></span><strong>100%</strong><small>Cross-functional<br />collaboration</small></div>
-              <div><span class="metric-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#eco-data" /></svg></span><strong>Multi-system</strong><small>Integrations<br />&amp; data flows</small></div>
-              <div><span class="metric-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#eco-automation" /></svg></span><strong>Compliant</strong><small>And secure<br />by design</small></div>
-              <div><span class="metric-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#eco-target" /></svg></span><strong>Measurable</strong><small>Business outcomes<br />and user impact</small></div>
+            <div class="ecosystem-grid">
+              {ecosystem.map(([title, text, type]) => (
+                <article class:list={['eco-card', type]}>
+                  <strong>{title}</strong>
+                  <span>{text}</span>
+                </article>
+              ))}
             </div>
           </div>
         </div>
@@ -559,80 +478,20 @@ const seniorSignals = [
           <div class="challenge-lead">
             <div>
               <span class="eyebrow">The Challenge</span>
-              <h3>Complex enterprise<br />products rarely have<br /><span class="challenge-highlight">a single problem.</span></h3>
+              <h3>Complex enterprise products rarely have a single problem.</h3>
               <p>
                 The hard part is usually the coordination: multiple stakeholders, systems, data sources, business rules, exceptions, regulatory requirements and operational hand-offs have to behave as one product experience.
               </p>
-              <div class="challenge-points">
-                <div><i></i>Customer and business problem → measurable outcome</div>
-                <div><i></i>Product journey and workflow across multiple systems</div>
-                <div><i></i>AI / GenAI opportunity in real business processes</div>
-                <div><i></i>Automation and integration behavior with enterprise platforms</div>
-                <div><i></i>Data, operations, compliance and support readiness</div>
-              </div>
             </div>
             <div>
-              <div class="challenge-network" aria-hidden="true">
-                <svg viewBox="0 0 500 220" preserveAspectRatio="xMidYMid meet">
-                  <defs><marker id="challenge-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 8 4 0 8z" fill="#b8d8ff"/></marker></defs>
-                  <path class="challenge-flow" d="M250 47V55M155 69H140M155 117H140M155 165H140M345 69H360M345 117H360M345 165H360" />
-                  <path class="challenge-spine" d="M140 69v96M360 69v96" />
-                  <path class="challenge-branches" d="M140 69H113M140 117H113M140 165H113M360 69H387M360 117H387M360 165H387" marker-end="url(#challenge-arrow)" />
-                  <rect class="challenge-map-customer" x="190" y="2" width="120" height="45" rx="12" />
-                  <rect class="challenge-map-box" x="5" y="51" width="108" height="37" rx="8" />
-                  <rect class="challenge-map-box" x="5" y="99" width="108" height="37" rx="8" />
-                  <rect class="challenge-map-box" x="5" y="147" width="108" height="37" rx="8" />
-                  <rect class="challenge-map-box" x="387" y="51" width="108" height="37" rx="8" />
-                  <rect class="challenge-map-box" x="387" y="99" width="108" height="37" rx="8" />
-                  <rect class="challenge-map-box" x="387" y="147" width="108" height="37" rx="8" />
-                  <rect class="challenge-map-layer layer-business" x="155" y="55" width="190" height="27" rx="7" />
-                  <rect class="challenge-map-layer layer-tech" x="155" y="85" width="190" height="27" rx="7" />
-                  <rect class="challenge-map-layer layer-data" x="155" y="115" width="190" height="27" rx="7" />
-                  <rect class="challenge-map-layer layer-compliance" x="155" y="145" width="190" height="27" rx="7" />
-                  <g class="challenge-map-icons">
-                    <g transform="translate(-2 -12)"><circle cx="250" cy="14" r="5"/><circle cx="258" cy="13" r="4"/><path d="M240 26a9 9 0 0 1 18 0m2-1a7 7 0 0 1 8 7"/></g>
-                    <circle cx="22" cy="63" r="4"/><circle cx="33" cy="63" r="4"/><path d="M15 79a7 7 0 0 1 14 0m-3-1a7 7 0 0 1 14 0"/>
-                    <path d="M18 106h17v22H18zM22 111h9m-9 5h9m-9 5h6"/>
-                    <circle cx="25" cy="158" r="4"/><circle cx="25" cy="176" r="4"/><circle cx="39" cy="167" r="4"/><path d="m28 160 8 5m-8 9 8-5"/>
-                    <path d="M405 77V61h14v16m-10-12h2m3 0h2m-7 5h2m3 0h2m7 8V67h8v10"/>
-                    <circle cx="410" cy="117" r="8"/><path d="M410 109v16m-8-8h16m4-8 5-5m-4 13 7 3"/>
-                    <path d="M406 155v20m9-26v26m9-13v13m-21-20h4m5-9h4m4 12h4"/>
-                    <g transform="translate(18 0)"><circle cx="174" cy="68" r="5"/><path d="M174 58v3m0 14v3m-10-10h3m14 0h3m-17-7 2 2m10 10 2 2m0-14-2 2m-10 10-2 2"/></g>
-                    <g transform="translate(18 0)"><path d="m174 88 9 5v10l-9 5-9-5V93zM165 93l9 5 9-5m-9 5v10"/></g>
-                    <g transform="translate(18 0)"><ellipse cx="174" cy="122" rx="9" ry="4"/><path d="M165 122v12c0 2 4 4 9 4s9-2 9-4v-12m-18 6c0 2 4 4 9 4s9-2 9-4"/></g>
-                    <g transform="translate(18 0)"><path d="m174 148 9 4v6c0 5-4 8-9 11-5-3-9-6-9-11v-6z"/><path d="m170 158 3 3 6-7"/></g>
-                  </g>
-                  <text class="challenge-map-label" x="250" y="32">Customer<tspan x="250" dy="10">Experience</tspan></text>
-                  <text class="challenge-map-label" x="72" y="66">People &amp;<tspan x="72" dy="10">Stakeholders</tspan></text>
-                  <text class="challenge-map-label" x="72" y="114">Business<tspan x="72" dy="10">Rules</tspan></text>
-                  <text class="challenge-map-label" x="72" y="162">External<tspan x="72" dy="10">Systems</tspan></text>
-                  <text class="challenge-map-label" x="466" y="66">Operational<tspan x="466" dy="10">Readiness</tspan></text>
-                  <text class="challenge-map-label" x="466" y="114">Measurable<tspan x="466" dy="10">Outcomes</tspan></text>
-                  <text class="challenge-map-label" x="466" y="162">Scalable<tspan x="466" dy="10">Growth</tspan></text>
-                  <text class="challenge-layer-label" x="252" y="72">Business Process</text>
-                  <text class="challenge-layer-label" x="252" y="102">Technology &amp; Integrations</text>
-                  <text class="challenge-layer-label" x="252" y="132">Data &amp; Intelligence</text>
-                  <text class="challenge-layer-label" x="252" y="162">Compliance &amp; Risk</text>
-                </svg>
-              </div>
               <div class="dark-rule"></div>
               <span class="mini-label" style="display:block;margin-top:12px;">Problem framing before solution design</span>
             </div>
           </div>
 
-          <svg class="challenge-icon-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-            <symbol id="challenge-workflow" viewBox="0 0 24 24"><rect x="2" y="4" width="8" height="6" rx="1"/><rect x="14" y="2" width="8" height="6" rx="1"/><rect x="14" y="16" width="8" height="6" rx="1"/><path d="M10 7h2a2 2 0 0 1 2 2v10m0-10h2m-2 10h2"/></symbol>
-            <symbol id="challenge-integration" viewBox="0 0 24 24"><path d="M5 14a4 4 0 0 1 .8-7.9A6.5 6.5 0 0 1 18 8a3.2 3.2 0 0 1 .2 6.4H5z"/><rect x="5" y="16" width="6" height="6" rx="1"/><rect x="14" y="16" width="6" height="6" rx="1"/><path d="M8 18h.1m9-.1h.1"/></symbol>
-            <symbol id="challenge-decision" viewBox="0 0 24 24"><rect x="2" y="3" width="16" height="19" rx="2"/><path d="m5 8 1.5 1.5L9 7m2 1h4m-10 5 1.5 1.5L9 12m2 1h4m-6 5h6"/><circle cx="20" cy="16" r="3"/><path d="M18 22a4 4 0 0 1 4-4"/></symbol>
-            <symbol id="challenge-automation" viewBox="0 0 24 24"><path d="M8 3h8l1 3 3 1v8l-3 1-1 3H8l-1-3-3-1V7l3-1z"/><circle cx="12" cy="11" r="3"/><path d="M5 2 2 5m17-3 3 3M5 20l-3 2m17-2 3 2M12 1v2m0 17v3"/><rect x="7" y="17" width="10" height="6" rx="2"/><path d="M10 20h.1m4-.1h.1"/></symbol>
-            <symbol id="challenge-data" viewBox="0 0 24 24"><ellipse cx="9" cy="4" rx="6" ry="2.5"/><path d="M3 4v13c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V4m-12 6c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5m-12 6c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5m3-1h2v5h-2zm4-4h2v9h-2z"/></symbol>
-            <symbol id="challenge-alignment" viewBox="0 0 24 24"><circle cx="6" cy="8" r="2.5"/><circle cx="12" cy="6" r="3"/><circle cx="19" cy="8" r="2.5"/><path d="M1 19v-1a5 5 0 0 1 8-4m2 7v-2a6 6 0 0 1 12 0v2M8 13l3-2m6 1 5-5m-4 0h4v4"/><path d="M14 19v-3h2v3m2-5v5h2"/></symbol>
-            <symbol id="challenge-response" viewBox="0 0 24 24"><path d="m12 2 2.2 2.5 3.3-.5.5 3.3 2.8 1.7-1.3 3 1.3 3-2.8 1.7-.5 3.3-3.3-.5L12 22l-2.2-2.5-3.3.5-.5-3.3-2.8-1.7 1.3-3-1.3-3 2.8-1.7.5-3.3 3.3.5z"/><circle cx="12" cy="12" r="3"/></symbol>
-          </svg>
-
           <div class="challenge-cards">
-            {challengeItems.map(({ number, title, text, type, points, response }) => (
-              <article class:list={['challenge-card', type]}>
+            {challengeItems.map(([number, title, text, type]) => (
+              <article class="challenge-card">
                 <div>
                   <div class="challenge-card-top">
                     <span class="number">{number}</span>
@@ -640,13 +499,8 @@ const seniorSignals = [
                   </div>
                   <h3>{title}</h3>
                   <p>{text}</p>
-                  <ul>{points.map((point) => <li>{point}</li>)}</ul>
                 </div>
-                <div class="response">
-                  <span class="response-icon"><svg viewBox="0 0 24 24"><use href="#challenge-response" /></svg></span>
-                  <div><strong>PM Response</strong><b>Frame → Design → Deliver → Measure</b><small>{response}</small></div>
-                </div>
-                <svg class="challenge-art" viewBox="0 0 100 100" aria-hidden="true"><use href={`#challenge-${type}`} /></svg>
+                <div class="response">PM response: frame → design → deliver → measure</div>
               </article>
             ))}
           </div>
@@ -659,135 +513,35 @@ const seniorSignals = [
          ================================================================== -->
     <section class="slide white" id="strategy">
       <div class="wrap">
-        <div class="strategy-shell">
-          <div class="strategy-story">
-            <div>
-              <span class="eyebrow">Product Strategy</span>
-              <h2>From problem framing<br />to <span>measurable<br />product delivery.</span></h2>
-              <p>A practical product strategy that keeps customer need, business value, feasibility, AI opportunity, automation potential and measurable outcomes connected.</p>
-              <div class="strategy-checks">
-                <div><i></i>Bridge customer needs with business outcomes</div>
-                <div><i></i>Data-informed, opportunity-driven prioritization</div>
-                <div><i></i>Scalable and compliant product roadmaps</div>
-                <div><i></i>Continuous learning and iteration for impact</div>
-              </div>
-            </div>
-            <div class="strategy-network" aria-hidden="true">
-              <svg viewBox="0 0 500 235" preserveAspectRatio="xMidYMid meet">
-                <defs>
-                  <linearGradient id="strategy-customer" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#13baf0"/><stop offset="1" stop-color="#782ee8"/></linearGradient>
-                  <linearGradient id="strategy-business" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#12baf4"/><stop offset="1" stop-color="#0877e8"/></linearGradient>
-                  <linearGradient id="strategy-tech" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a644f0"/><stop offset="1" stop-color="#5b25cf"/></linearGradient>
-                  <linearGradient id="strategy-data" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1bd6c4"/><stop offset="1" stop-color="#078f9e"/></linearGradient>
-                  <linearGradient id="strategy-risk" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffad18"/><stop offset="1" stop-color="#ed650b"/></linearGradient>
-                </defs>
-                <path class="strategy-net-line" d="M250 31v33M250 183v28M110 91h44M110 143h44M346 91h44M346 143h44" />
-                <rect x="190" y="2" width="120" height="48" rx="13" fill="url(#strategy-customer)" stroke="#b67cff" />
-                <rect x="4" y="64" width="106" height="42" rx="8" fill="#073d75" stroke="#20baff" />
-                <rect x="4" y="116" width="106" height="42" rx="8" fill="#073d75" stroke="#20baff" />
-                <rect x="4" y="168" width="106" height="42" rx="8" fill="#073d75" stroke="#20baff" />
-                <rect x="390" y="64" width="106" height="42" rx="8" fill="#073d75" stroke="#20baff" />
-                <rect x="390" y="116" width="106" height="42" rx="8" fill="#073d75" stroke="#20baff" />
-                <rect x="390" y="168" width="106" height="42" rx="8" fill="#073d75" stroke="#20baff" />
-                <rect x="154" y="61" width="192" height="30" rx="7" fill="url(#strategy-business)" />
-                <rect x="154" y="94" width="192" height="30" rx="7" fill="url(#strategy-tech)" />
-                <rect x="154" y="127" width="192" height="30" rx="7" fill="url(#strategy-data)" />
-                <rect x="154" y="160" width="192" height="30" rx="7" fill="url(#strategy-risk)" />
-                <g class="strategy-net-icon">
-                  <circle cx="250" cy="13" r="5"/><circle cx="260" cy="13" r="4"/><path d="M238 29a10 10 0 0 1 20 0m2-1a8 8 0 0 1 9 8"/>
-                  <path d="M18 89v-13h17v13m-13-9h3m3 0h3m-9 4h3m3 0h3"/><path d="M22 126h15v23H22zm4 5h7m-7 5h7m-7 5h5"/><path d="M24 179v-1a5 5 0 0 1 10 0v1m-5-1-8 8m8-8 8 8m-16 0h16"/>
-                  <path d="M404 92h5v-8l8-5 8 5v8h5"/><path d="m408 136 8-8 8 8m-8-8v16"/><path d="M407 199v-17m10 17v-25m10 25v-12m-24 12h27"/>
-                  <circle cx="174" cy="76" r="5"/><path d="M174 66v3m0 14v3m-10-10h3m14 0h3m-17-7 2 2m10 10 2 2m0-14-2 2m-10 10-2 2"/>
-                  <path d="m174 98 9 5v12l-9 5-9-5v-12zM165 103l9 5 9-5m-9 5v12"/>
-                  <ellipse cx="174" cy="132" rx="9" ry="4"/><path d="M165 132v14c0 2 4 4 9 4s9-2 9-4v-14m-18 7c0 2 4 4 9 4s9-2 9-4"/>
-                  <path d="m174 163 9 4v8c0 6-4 10-9 13-5-3-9-7-9-13v-8z"/><path d="m170 174 3 3 6-7"/>
-                </g>
-                <text x="267" y="20">Customer<tspan x="267" dy="12">Need &amp; Experience</tspan></text>
-                <text x="72" y="83">Market &amp;<tspan x="72" dy="11">Competition</tspan></text>
-                <text x="72" y="135">Technology<tspan x="72" dy="11">&amp; AI Opportunity</tspan></text>
-                <text x="72" y="187">Data &amp;<tspan x="72" dy="11">Insights</tspan></text>
-                <text x="447" y="83">Business<tspan x="447" dy="11">Goals &amp; OKRs</tspan></text>
-                <text x="447" y="135">Risk, Compliance<tspan x="447" dy="11">&amp; Constraints</tspan></text>
-                <text x="447" y="187">People, Process<tspan x="447" dy="11">&amp; Operations</tspan></text>
-                <text x="260" y="81">STRATEGY &amp; PRIORITIES</text>
-                <text x="260" y="114">PRODUCT ROADMAP</text>
-                <text x="260" y="147">EXECUTION &amp; ENABLEMENT</text>
-                <text x="260" y="180">MEASUREMENT &amp; OUTCOMES</text>
-              </svg>
-            </div>
-            <div class="strategy-story-foot">A repeatable product strategy for enterprise impact</div>
+        <div class="section-head">
+          <span class="eyebrow">Product Strategy</span>
+          <h2>From problem framing to measurable product delivery.</h2>
+          <p>A practical product flow that keeps customer need, business value, feasibility, AI opportunity, automation potential and measurable outcomes connected.</p>
+        </div>
+
+        <div class="strategy-flow">
+          {strategySteps.map(([number, title, text]) => (
+            <article class="strategy-step">
+              <span class="number">{number}</span>
+              <strong>{title}</strong>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+
+        <div class="strategy-bottom">
+          <div class="strategy-principle">
+            <strong>Product decision model</strong>
+            <span>Customer problem + business value + technical feasibility + risk + measurable outcome.</span>
           </div>
 
-          <div class="strategy-panel">
-            <svg class="strategy-icon-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-              <symbol id="strategy-frame" viewBox="0 0 24 24"><circle cx="10" cy="13" r="8"/><circle cx="10" cy="13" r="4"/><path d="m10 13 10-10m-5 0h5v5"/></symbol>
-              <symbol id="strategy-discover" viewBox="0 0 24 24"><circle cx="10" cy="10" r="7"/><path d="m15 15 6 6m-11-11 3-3"/></symbol>
-              <symbol id="strategy-define" viewBox="0 0 24 24"><path d="M5 2h10l4 4v16H5zM15 2v5h5M8 12h8m-8 4h8"/></symbol>
-              <symbol id="strategy-prioritize" viewBox="0 0 24 24"><path d="M4 19V5m0 14h17M8 15l4-5 4 3 5-7"/><path d="M17 6h4v4"/></symbol>
-              <symbol id="strategy-roadmap" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3zM9 3v15m6-12v15"/></symbol>
-              <symbol id="strategy-deliver" viewBox="0 0 24 24"><path d="M5 15c5-9 10-11 16-12-1 6-3 11-12 16l-4-4zM5 15l-2 6 6-2m4-9h.1"/><circle cx="16" cy="7" r="2"/></symbol>
-              <symbol id="strategy-learn" viewBox="0 0 24 24"><path d="M4 20V10m6 10V4m6 16v-7m6 7H2"/><path d="m4 7 6-4 6 7 6-5"/></symbol>
-              <symbol id="strategy-focus" viewBox="0 0 24 24"><path d="m12 2 2 2.5 3-.5.5 3L20 9l-1 3 1 3-2.5 2-.5 3-3-.5L12 22l-2-2.5-3 .5-.5-3L4 15l1-3-1-3 2.5-2 .5-3 3 .5z"/><circle cx="12" cy="12" r="3"/></symbol>
-              <symbol id="strategy-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 21v-1a6 6 0 0 1 12 0v1m1-5a5 5 0 0 1 5 5"/></symbol>
-              <symbol id="strategy-chart" viewBox="0 0 24 24"><path d="M4 20V9m6 11V4m6 16v-7m6 7H2"/><path d="m4 7 6-4 6 7 6-5"/></symbol>
-              <symbol id="strategy-shield" viewBox="0 0 24 24"><path d="M12 2 21 6v6c0 5-3.8 8.5-9 10-5.2-1.5-9-5-9-10V6z"/><path d="m8 12 2.5 2.5L16 9"/></symbol>
-            </svg>
-            <div class="strategy-board">
-              <svg class="strategy-connectors" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
-                <defs><marker id="strategy-connector-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 8 4 0 8z" fill="#9acaf7" /></marker></defs>
-                <path d="M160 95 500 200M840 95 500 200M160 300 500 200M840 300 500 200M160 505 500 200M500 505V200M840 505 500 200" />
-                <circle cx="500" cy="200" r="7" />
-              </svg>
-              <div class="strategy-flow">
-                {strategySteps.map(({ number, tag, icon, title, text, points, focus, tone }) => (
-                  <article class:list={['strategy-step', tone]}>
-                    <div class="strategy-step-head"><span>{number}</span><b>{tag}</b><svg viewBox="0 0 24 24" aria-hidden="true"><use href={`#strategy-${icon}`} /></svg></div>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                    <ul>{points.map((point) => <li>{point}</li>)}</ul>
-                    <div class="strategy-focus"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#strategy-focus" /></svg><div><strong>PM Focus</strong><span>{focus}</span></div></div>
-                  </article>
-                ))}
-              </div>
-              <svg class="strategy-wheel" viewBox="0 0 320 320" role="img" aria-label="Product strategy wheel: customer value, business impact, feasibility, execution readiness, measurable outcomes, and continuous learning">
-                <defs>
-                  <linearGradient id="strategy-wheel-core" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0788ed"/><stop offset=".58" stop-color="#174bd6"/><stop offset="1" stop-color="#702ce4"/></linearGradient>
-                </defs>
-                <circle class="strategy-wheel-orbit" cx="160" cy="160" r="151" />
-                <path class="wheel-segment wheel-customer" d="M86 33A145 145 0 0 1 234 33L201 88A82 82 0 0 0 119 88Z" />
-                <path class="wheel-segment wheel-business" d="M236 36A145 145 0 0 1 304 158L241 158A82 82 0 0 0 204 89Z" />
-                <path class="wheel-segment wheel-feasibility" d="M304 162A145 145 0 0 1 234 286L201 231A82 82 0 0 0 241 162Z" />
-                <path class="wheel-segment wheel-execution" d="M230 289A145 145 0 0 1 90 289L120 232A82 82 0 0 0 200 232Z" />
-                <path class="wheel-segment wheel-measurable" d="M86 285A145 145 0 0 1 16 162L79 162A82 82 0 0 0 119 231Z" />
-                <path class="wheel-segment wheel-learning" d="M16 158A145 145 0 0 1 84 36L116 89A82 82 0 0 0 79 158Z" />
-
-                <g class="wheel-icon wheel-icon-customer"><use href="#strategy-people" x="145" y="22" width="30" height="30" /></g>
-                <g class="wheel-icon wheel-icon-business"><use href="#strategy-chart" x="258" y="75" width="27" height="27" /></g>
-                <g class="wheel-icon wheel-icon-feasibility"><use href="#strategy-focus" x="259" y="166" width="26" height="26" /></g>
-                <g class="wheel-icon wheel-icon-execution"><use href="#strategy-deliver" x="147" y="234" width="27" height="27" /></g>
-                <g class="wheel-icon wheel-icon-measurable"><use href="#strategy-chart" x="35" y="166" width="28" height="28" /></g>
-                <g class="wheel-icon wheel-icon-learning"><use href="#strategy-focus" x="35" y="76" width="27" height="27" /></g>
-
-                <text class="wheel-label" x="160" y="60"><tspan x="160">Customer</tspan><tspan x="160" dy="10">Value</tspan></text>
-                <text class="wheel-label" x="268" y="112"><tspan x="268">Business</tspan><tspan x="268" dy="10">Impact</tspan></text>
-                <text class="wheel-label" x="268" y="205">Feasibility</text>
-                <text class="wheel-label" x="160" y="273"><tspan x="160">Execution</tspan><tspan x="160" dy="10">Readiness</tspan></text>
-                <text class="wheel-label" x="52" y="205"><tspan x="52">Measurable</tspan><tspan x="52" dy="10">Outcomes</tspan></text>
-                <text class="wheel-label" x="52" y="112"><tspan x="52">Continuous</tspan><tspan x="52" dy="10">Learning</tspan></text>
-
-                <circle class="strategy-wheel-hub" cx="160" cy="160" r="79" fill="url(#strategy-wheel-core)" />
-                <circle class="strategy-wheel-hub-ring" cx="160" cy="160" r="84" />
-                <rect class="strategy-wheel-cube-back" x="142" y="117" width="36" height="36" rx="10" />
-                <use class="strategy-wheel-cube" href="#eco-product" x="147" y="122" width="26" height="26" />
-                <text class="strategy-wheel-title" x="160" y="168"><tspan x="160">PRODUCT</tspan><tspan x="160" dy="13">STRATEGY</tspan></text>
-                <text class="strategy-wheel-sub" x="160" y="197"><tspan x="160">VISION → ROADMAP</tspan><tspan x="160" dy="9">EXECUTION → OUTCOMES</tspan></text>
-              </svg>
-            </div>
-            <div class="strategy-outcomes">
-              {strategyOutcomes.map(([title, text, icon]) => (
-                <div class:list={['strategy-outcome', icon]}>
-                  <span><svg viewBox="0 0 24 24" aria-hidden="true"><use href={`#strategy-${icon}`} /></svg></span>
-                  <div><strong>{title}</strong><small>{text}</small></div>
+          <div class="priority-panel">
+            <span class="mini-label">Prioritization lens</span>
+            <div class="priority-grid">
+              {prioritization.map(([title, text]) => (
+                <div class="priority-item">
+                  <i></i>
+                  <div><strong>{title}</strong><span>{text}</span></div>
                 </div>
               ))}
             </div>
@@ -800,191 +554,263 @@ const seniorSignals = [
          05 / PM SCOPE
          ================================================================== -->
     <section class="slide soft" id="scope">
-<div class="wrap ref-section">
-  <div class="ref-scope-layout">
-    <div class="ref-scope-story">
-      <span class="ref-kicker">PM Scope</span>
-      <h2>Product management<br />across strategy,<br /><span>systems and execution.</span></h2>
-      <p>End-to-end ownership from problem discovery and requirements to solution design, build, deployment and continuous improvement, across multiple stakeholders, systems and regulated environments.</p>
-      <div class="ref-scope-mini">
-        <div class="ref-scope-mini-item">
-          <span class="ref-scope-mini-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2.5"></circle><path d="M3 21v-1a6 6 0 0 1 12 0v1m1-5a5 5 0 0 1 5 5"></path></svg></span>
-          <div><strong>Business & Customer</strong><span>Needs & Outcomes</span></div>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">PM Scope</span>
+          <h2>Product management across strategy, systems and execution.</h2>
+          <p>Hands-on ownership from discovery and requirements through architecture, AI / GenAI, workflow automation, delivery, adoption and operational readiness.</p>
         </div>
-        <div class="ref-scope-mini-item">
-          <span class="ref-scope-mini-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="12" r="7"></circle><circle cx="10" cy="12" r="3"></circle><path d="m10 12 9-9m-4 0h4v4"></path></svg></span>
-          <div><strong>Strategy & Planning</strong><span>Vision & Roadmap</span></div>
+
+        <div class="scope-grid">
+          {pmScope.map(([number, title, text, tags]) => (
+            <article class:list={['scope-card', title === 'AI / GenAI' ? 'ai-scope' : '', title === 'Automate' ? 'auto-scope' : '']}>
+              <span class="number">{number}</span>
+              <strong>{title}</strong>
+              <p>{text}</p>
+              <div class="scope-tags">
+                {tags.map((tag) => <span class="scope-tag">{tag}</span>)}
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="scope-footer">
+          <strong>Typical product artifacts</strong>
+          <span>BRD · FRD · FSD · PRD · user stories · acceptance criteria · DFD · ER models · API specifications · prototypes · UAT · VAPT · migration · deployment · training</span>
         </div>
       </div>
-      <div class="ref-scope-wheel" aria-label="Eight product management stages">
-        <div class="ref-scope-core">Product<br />Management</div>
-        <div class="ref-wheel-node discover"><span>⌕</span><b>01<br />Discover</b></div>
-        <div class="ref-wheel-node define"><span>▤</span><b>02<br />Define</b></div>
-        <div class="ref-wheel-node design"><span>▣</span><b>03<br />Design</b></div>
-        <div class="ref-wheel-node architect"><span>⌘</span><b>04<br />Architect</b></div>
-        <div class="ref-wheel-node automate"><span>⚙</span><b>05<br />Automate</b></div>
-        <div class="ref-wheel-node ai"><span>✦</span><b>06<br />AI / GenAI</b></div>
-        <div class="ref-wheel-node deliver"><span>➤</span><b>07<br />Deliver</b></div>
-        <div class="ref-wheel-node scale"><span>▥</span><b>08<br />Scale & Adopt</b></div>
-      </div>
-      <div class="ref-scope-foot">FROM IDEAS AND REQUIREMENTS TO REAL-WORLD IMPACT</div>
-    </div>
-    <div class="ref-scope-grid">
-      <article class="ref-scope-card blue">
-        <div class="ref-card-head"><span class="ref-num">01</span><div class="ref-card-title-wrap"><span class="ref-card-label">INSIGHTS</span><h3 class="ref-card-title">Discover</h3><p class="ref-card-desc">Understand customer needs, business problems and opportunities.</p></div></div>
-        <div class="ref-scope-art"><div class="sheet"></div><div class="bubble"></div><div class="pen"></div></div>
-        <ul class="ref-scope-bullets"><li>Stakeholder interviews & workshops</li><li>Process mapping & current state analysis</li><li>Market and user research</li><li>Identify problem statements & opportunities</li></ul>
-        <div class="ref-output"><strong>KEY OUTPUTS:</strong>Problem statement, user insights, process maps, opportunity assessment</div>
-      </article>
-      <article class="ref-scope-card purple">
-        <div class="ref-card-head"><span class="ref-num">02</span><div class="ref-card-title-wrap"><span class="ref-card-label">REQUIREMENTS</span><h3 class="ref-card-title">Define</h3><p class="ref-card-desc">Translate insights into clear requirements and acceptance criteria.</p></div></div>
-        <div class="ref-scope-art"><div class="sheet"></div><div class="bubble"></div><div class="pen"></div></div>
-        <ul class="ref-scope-bullets"><li>BRD, FRD, FSD and user stories</li><li>Functional & non-functional requirements</li><li>Acceptance criteria and use cases</li><li>Stakeholder alignment & sign-offs</li></ul>
-        <div class="ref-output"><strong>KEY OUTPUTS:</strong>BRD / FRD / FSD, user stories, acceptance criteria, prioritization (MoSCoW)</div>
-      </article>
-      <article class="ref-scope-card green">
-        <div class="ref-card-head"><span class="ref-num">03</span><div class="ref-card-title-wrap"><span class="ref-card-label">SOLUTION DESIGN</span><h3 class="ref-card-title">Design</h3><p class="ref-card-desc">Create user-centric designs and product workflows aligned to business goals.</p></div></div>
-        <div class="ref-scope-art"><div class="sheet"></div><div class="bubble"></div><div class="pen"></div></div>
-        <ul class="ref-scope-bullets"><li>User journeys and process flows</li><li>Figma prototypes and UX design</li><li>Workflow and rules design</li><li>Feature specifications</li></ul>
-        <div class="ref-output"><strong>KEY OUTPUTS:</strong>Figma designs, user journeys, workflow diagrams, feature specs</div>
-      </article>
-      <article class="ref-scope-card amber">
-        <div class="ref-card-head"><span class="ref-num">04</span><div class="ref-card-title-wrap"><span class="ref-card-label">TECHNICAL ARCHITECTURE</span><h3 class="ref-card-title">Architect</h3><p class="ref-card-desc">Design scalable, secure and integration-ready solutions.</p></div></div>
-        <div class="ref-scope-art"><div class="sheet"></div><div class="bubble"></div><div class="pen"></div></div>
-        <ul class="ref-scope-bullets"><li>System architecture and DFDs</li><li>ER models and data mapping</li><li>API contracts and integrations</li><li>Security, compliance and scalability</li></ul>
-        <div class="ref-output"><strong>KEY OUTPUTS:</strong>Architecture diagrams, DFD, ER model, API specs, integration design, compliance controls</div>
-      </article>
-      <article class="ref-scope-card pink">
-        <div class="ref-card-head"><span class="ref-num">05</span><div class="ref-card-title-wrap"><span class="ref-card-label">WORKFLOWS & CONTROLS</span><h3 class="ref-card-title">Automate</h3><p class="ref-card-desc">Implement automation, rules and controls to reduce manual effort and improve accuracy.</p></div></div>
-        <div class="ref-scope-art"><div class="sheet"></div><div class="bubble"></div><div class="pen"></div></div>
-        <ul class="ref-scope-bullets"><li>Rules engine and approval workflows</li><li>Exception handling and alerts</li><li>Reconciliation and compliance automation</li><li>Operational dashboards</li></ul>
-        <div class="ref-output"><strong>KEY OUTPUTS:</strong>Automated workflows, rules, alerts, reconciliation logic, operational dashboards</div>
-      </article>
-      <article class="ref-scope-card cyan">
-        <div class="ref-card-head"><span class="ref-num">06</span><div class="ref-card-title-wrap"><span class="ref-card-label">INTELLIGENCE</span><h3 class="ref-card-title">AI / GenAI</h3><p class="ref-card-desc">Enable AI-driven decisioning, document intelligence and knowledge workflows.</p></div></div>
-        <div class="ref-scope-art"><div class="sheet"></div><div class="bubble"></div><div class="pen"></div></div>
-        <ul class="ref-scope-bullets"><li>AI-assisted decisioning and risk profiling</li><li>Document intelligence (IDP)</li><li>GenAI for knowledge search and summarization</li><li>Process intelligence and optimization</li></ul>
-        <div class="ref-output"><strong>KEY OUTPUTS:</strong>AI models, document AI workflows, GenAI features, intelligent recommendations</div>
-      </article>
-      <article class="ref-scope-card violet">
-        <div class="ref-card-head"><span class="ref-num">07</span><div class="ref-card-title-wrap"><span class="ref-card-label">EXECUTION</span><h3 class="ref-card-title">Deliver</h3><p class="ref-card-desc">Drive development, testing and deployment across teams and environments.</p></div></div>
-        <div class="ref-scope-art"><div class="sheet"></div><div class="bubble"></div><div class="pen"></div></div>
-        <ul class="ref-scope-bullets"><li>Backlog grooming and sprint planning</li><li>JIRA and Agile execution</li><li>QA, UAT, VAPT and release management</li><li>Stakeholder demos and training</li></ul>
-        <div class="ref-output"><strong>KEY OUTPUTS:</strong>Working product, UAT sign-off, release notes, training and handover</div>
-      </article>
-      <article class="ref-scope-card mint">
-        <div class="ref-card-head"><span class="ref-num">08</span><div class="ref-card-title-wrap"><span class="ref-card-label">ADOPTION & IMPACT</span><h3 class="ref-card-title">Scale & Adopt</h3><p class="ref-card-desc">Drive adoption, measure outcomes and continuously improve.</p></div></div>
-        <div class="ref-scope-art"><div class="sheet"></div><div class="bubble"></div><div class="pen"></div></div>
-        <ul class="ref-scope-bullets"><li>Production rollout and user training</li><li>Change management and L1/L2 support</li><li>Usage tracking and product metrics</li><li>Continuous feedback and enhancement</li></ul>
-        <div class="ref-output"><strong>KEY OUTPUTS:</strong>Adoption metrics, business impact, feedback loop, roadmap for next phase</div>
-      </article></div></div></div>
     </section>
 
     <!-- ==================================================================
          06 / PRODUCT METRICS
          ================================================================== -->
-    <section class="slide soft" id="metrics">
-<div class="wrap ref-section"><div class="ref-metrics-layout"><div class="ref-metrics-story"><span class="ref-kicker">Product Metrics</span><h2>Measure the product,<br><span>not just the release.</span></h2><p>I use product metrics to connect activity to adoption, efficiency, quality, control and business impact. Metrics help measure outcomes across the entire product lifecycle, from user adoption and workflow behavior to operational efficiency and business value.</p><div class="ref-metric-questions"><div class="ref-metric-q"><div class="qicon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2.5"></circle><path d="M3 21v-1a6 6 0 0 1 12 0v1m1-5a5 5 0 0 1 5 5"></path></svg></div>Users<span>Who is using<br>the product?</span></div><div class="ref-metric-q"><div class="qicon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V9m6 11V4m6 16v-7m6 7H2"></path><path d="m4 7 6-4 6 7 6-5"></path></svg></div>Behavior<span>How are they<br>using it?</span></div><div class="ref-metric-q"><div class="qicon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 2 2 2.5 3-.5.5 3 2.5 2-1 3 1 3-2.5 2-.5 3-3-.5L12 22l-2.5-2.5-3 .5-.5-3L3.5 15l1-3-1-3L6 7l.5-3 3 .5z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>Efficiency<span>Is it reducing<br>effort?</span></div><div class="ref-metric-q"><div class="qicon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="12" r="7"></circle><circle cx="10" cy="12" r="3"></circle><path d="m10 12 9-9m-4 0h4v4"></path></svg></div>Business Impact<span>Is it creating<br>measurable value?</span></div></div><div class="ref-chart"><svg viewBox="0 0 500 180" fill="none"><g opacity=".28" stroke="#7ca6ce"><path d="M10 160H420"></path><path d="M10 130H420"></path><path d="M10 100H420"></path><path d="M10 70H420"></path></g><g opacity=".18" fill="#3b8de8"><rect x="18" y="118" width="24" height="42" rx="7"></rect><rect x="60" y="105" width="24" height="55" rx="7"></rect><rect x="102" y="92" width="24" height="68" rx="7"></rect><rect x="144" y="72" width="24" height="88" rx="7"></rect><rect x="186" y="83" width="24" height="77" rx="7"></rect><rect x="228" y="58" width="24" height="102" rx="7"></rect><rect x="270" y="48" width="24" height="112" rx="7"></rect><rect x="312" y="31" width="24" height="129" rx="7"></rect><rect x="354" y="22" width="24" height="138" rx="7"></rect></g><path d="M10 133 C70 150,90 130,145 105 S230 110,285 75 S360 80,420 35" stroke="#13baf0" stroke-width="4"></path><path d="M10 125 C70 120,95 118,145 100 S230 82,285 55 S360 38,420 14" stroke="#ff9e18" stroke-width="4"></path><path d="M10 145 C65 160,110 142,150 125 S225 118,285 96 S360 80,420 68" stroke="#399ef5" stroke-width="4"></path><circle cx="420" cy="35" r="5" fill="#ff9e18"></circle><circle cx="420" cy="68" r="5" fill="#399ef5"></circle></svg><div class="ref-chart-labels"><span>Adoption</span><span>Efficiency</span><span>Business Impact</span></div></div><div class="ref-metric-bottom"><div><strong>North-star metric</strong><span>Adoption → Usage → Workflow Behavior → Operational Efficiency → Business Outcome</span></div><div><strong>Goal</strong><span>Data-driven decisions for continuous improvement</span></div></div></div><div><div class="ref-metric-grid">
-      <article class="ref-metric-card users">
-        <div class="ref-metric-card-head"><div class="ref-metric-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2.5"></circle><path d="M3 21v-1a6 6 0 0 1 12 0v1m1-5a5 5 0 0 1 5 5"></path></svg></div><div><span class="ref-metric-num">01</span><span class="ref-metric-name">Adoption</span><p class="ref-metric-question">Are the intended users actually using the product?</p></div></div>
-        <ul class="ref-metric-list"><li>Eligible user adoption (%)</li><li>Active users (DAU / MAU)</li><li>Workflow completion rate</li><li>Feature adoption by module</li></ul>
-        <div class="ref-donut"><span>78%</span></div><div class="ref-donut-label">↑ 12%<em>blue</em></div>
-      </article>
-      <article class="ref-metric-card rocket">
-        <div class="ref-metric-card-head"><div class="ref-metric-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 4c2.5-1.5 5.5-1.5 6-1.5 0 .5 0 3.5-1.5 6L12 15l-4-4z"></path><path d="m8 11-3 1-2 4 6-1m2 0-1 5 4-3 1-3"></path><circle cx="16" cy="7" r="1.5"></circle></svg></div><div><span class="ref-metric-num">02</span><span class="ref-metric-name">Activation</span><p class="ref-metric-question">How quickly does a user reach meaningful value?</p></div></div>
-        <ul class="ref-metric-list"><li>Time to first value</li><li>Onboarding completion rate</li><li>Feature activation rate</li><li>User journey drop-off rate</li></ul>
-        <div class="ref-donut"><span>62%</span></div><div class="ref-donut-label">↑ 18%<em>purple</em></div>
-      </article>
-      <article class="ref-metric-card gear">
-        <div class="ref-metric-card-head"><div class="ref-metric-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m12 3 2 2.5 3-.5.5 3L20 9l-1 3 1 3-2.5 1.5-.5 3-3-.5-2 2-2-2-3 .5-.5-3L4 15l1-3-1-3 2.5-1.5.5-3 3 .5z"></path><circle cx="12" cy="12" r="3"></circle></svg></div><div><span class="ref-metric-num">03</span><span class="ref-metric-name">Efficiency</span><p class="ref-metric-question">Does the product remove time, effort or manual work?</p></div></div>
-        <ul class="ref-metric-list"><li>Turnaround time reduction</li><li>Manual effort saved (hours)</li><li>Automation rate (%)</li><li>Cost per transaction/process</li></ul>
-        <div class="ref-donut"><span>45%</span></div><div class="ref-donut-label">↑ 25%<em>green</em></div>
-      </article>
-      <article class="ref-metric-card shield">
-        <div class="ref-metric-card-head"><div class="ref-metric-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2 21 6v6c0 5-3.8 8.5-9 10-5.2-1.5-9-5-9-10V6z"></path><path d="m8 12 2.5 2.5L16 9"></path></svg></div><div><span class="ref-metric-num">04</span><span class="ref-metric-name">Quality & Risk</span><p class="ref-metric-question">Does the product make the process more reliable and controlled?</p></div></div>
-        <ul class="ref-metric-list"><li>Error / exception rate</li><li>Reconciliation breaks (%)</li><li>SLA / TAT adherence</li><li>Audit readiness & control effectiveness</li></ul>
-        <div class="ref-donut"><span>90%</span></div><div class="ref-donut-label">↑ 20%<em>amber</em></div>
-      </article>
-      <article class="ref-metric-card ai">
-        <div class="ref-metric-card-head"><div class="ref-metric-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="7" width="16" height="12" rx="3"></rect><path d="M12 3v4M8 12h.1m7.8 0h.1M9 16h6M2 11v4m20-4v4"></path><circle cx="12" cy="4" r="1"></circle></svg></div><div><span class="ref-metric-num">05</span><span class="ref-metric-name">AI & Automation</span><p class="ref-metric-question">Is intelligence improving the workflow without losing control?</p></div></div>
-        <ul class="ref-metric-list"><li>AI assist usage rate</li><li>Straight-through processing rate</li><li>Document processing accuracy</li><li>Human hand-off reduction</li></ul>
-        <div class="ref-donut"><span>68%</span></div><div class="ref-donut-label">↑ 30%<em>pink</em></div>
-      </article>
-      <article class="ref-metric-card chart">
-        <div class="ref-metric-card-head"><div class="ref-metric-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20V10m5 10V4m5 16v-7m5 7H2"></path><path d="m4 7 5-3 5 5 5-4"></path></svg></div><div><span class="ref-metric-num">06</span><span class="ref-metric-name">Business Impact</span><p class="ref-metric-question">Did the product change a meaningful business outcome?</p></div></div>
-        <ul class="ref-metric-list"><li>Cost reduction (%)</li><li>Productivity gain (%)</li><li>Revenue / service impact</li><li>Customer / stakeholder satisfaction</li></ul>
-        <div class="ref-donut"><span>32%</span></div><div class="ref-donut-label">↑ 40%<em>mint</em></div>
-      </article>
-    </div>
-    <div class="ref-formulas">
-      <div class="ref-formula-title">KEY METRIC<br />FORMULAS</div>
-      <div class="ref-formula"><strong>Adoption rate</strong><span>Active eligible users ÷ total eligible users × 100</span></div>
-      <div class="ref-formula"><strong>Activation rate</strong><span>Users reaching first value ÷ eligible users × 100</span></div>
-      <div class="ref-formula"><strong>Efficiency gain</strong><span>(Baseline effort − Current effort) ÷ Baseline effort × 100</span></div>
-      <div class="ref-formula"><strong>Automation rate</strong><span>Automated cases ÷ Total eligible cases × 100</span></div>
-      <div class="ref-formula"><strong>Exception rate</strong><span>Exception cases ÷ Total processed cases × 100</span></div>
-    </div>
-    <div class="ref-outcome-legend" style="margin-top:10px">
-      <strong>METRIC CATEGORIES</strong>
-      <div class="ref-legend-item"><b>Adoption & Usage</b>Users, activation, journeys</div>
-      <div class="ref-legend-item"><b>Operational Efficiency</b>Time, effort, automation</div>
-      <div class="ref-legend-item"><b>Quality & Risk</b>Control, compliance, SLA</div>
-      <div class="ref-legend-item"><b>Business Impact</b>Cost, productivity, revenue</div>
-      <div class="ref-legend-item"><b>AI & Automation</b>Intelligence, STP, accuracy</div>
-    </div>
-  </div>
-</div>
-</div>
+    <section class="slide white" id="metrics">
+      <div class="wrap">
+        <div class="metrics-layout">
+          <div class="metrics-story">
+            <div>
+              <span class="eyebrow">Product Metrics</span>
+              <h3>Measure the product, not just the release.</h3>
+              <p>
+                I use product metrics to connect activity to adoption, efficiency, quality, control and business impact. Where a numeric result exists, it is presented as an outcome; otherwise the portfolio shows the measurement framework.
+              </p>
+            </div>
+
+            <div>
+              <div class="metric-equation">
+                <strong>North-star thinking</strong>
+                <span>Outcome → leading indicators → workflow behavior → user action → business result.</span>
+              </div>
+              <div class="metric-equation">
+                <strong>AI / automation guardrail</strong>
+                <span>Automation is not the objective by itself; quality, exception rate and human hand-offs remain part of the measurement.</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="metrics-grid">
+              {metricGroups.map((group) => (
+                <article class="metric-group">
+                  <h3>{group.title}</h3>
+                  <p>{group.question}</p>
+                  <div class="metric-list">
+                    {group.metrics.map((metric) => <div><i></i>{metric}</div>)}
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div class="formula-bar">
+              {metricFormulas.map(([title, formula]) => (
+                <div class="formula"><strong>{title}</strong><span>{formula}</span></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ==================================================================
          07 / PORTFOLIO
          ================================================================== -->
-    <section class="slide soft" id="portfolio">
-<div class="wrap ref-section"><div class="ref-portfolio-head"><div><span class="ref-kicker" style="color:#5d39eb">Selected Product Portfolio</span><h2 class="ref-title">Real products. Real impact. <span class="grad">Across domains and platforms.</span></h2><p class="ref-sub">Five representative case studies from my product journey. Each project highlights the problem, my ownership, solution, key metrics and the impact created.</p></div><div class="ref-lens"><div class="ref-lens-head"><span class="ref-lens-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="12" r="7"></circle><circle cx="10" cy="12" r="3"></circle><path d="m10 12 9-9m-4 0h4v4"></path></svg></span><div><strong>Portfolio lens</strong><p>Problem → Ownership → Solution → Execution → Outcome. Click to explore detailed case study for each product.</p></div></div></div></div><div class="ref-portfolio-grid">
-      <article class="ref-product blue">
-        <div class="ref-product-visual"><span class="ref-product-number">01</span><span class="ref-product-company">M2P FINTECH</span><h3>Integrated Channels Suite</h3><p class="visual-sub">Modular digital banking & lending platform for Banks and NBFCs.</p><div class="ref-product-art"><div class="cube"></div><div class="panel"></div></div></div>
-        <div class="ref-product-body"><div class="ref-info"><div class="ref-info-item"><strong>Problem</strong><p>Banks and NBFCs needed connected capabilities across lending, compliance, reconciliation, payments and operations.</p></div><div class="ref-info-item"><strong>My Ownership</strong><p>Product strategy, requirements, workflows, API integrations, DFD / ER mapping, roadmap and delivery.</p></div><div class="ref-info-item"><strong>Outcome</strong><p>A modular multi-application platform designed for configurable workflows and integration-led deployment.</p></div></div><div class="ref-metric-strip"><div class="ref-mini-metric"><strong>100+</strong>Banks deployed</div><div class="ref-mini-metric"><strong>12</strong>Domain apps</div><div class="ref-mini-metric"><strong>Multi-tenant</strong>Architecture</div></div><div class="ref-product-tags"><span>Banking</span><span>Lending</span><span>Payments</span><span>Compliance</span></div><a class="ref-case" href="/projects/integrated-channels">View Case Study&nbsp; →</a></div>
-      </article>
-      <article class="ref-product amber">
-        <div class="ref-product-visual"><span class="ref-product-number">02</span><span class="ref-product-company">M2P FINTECH</span><h3>AML & Compliance Automation</h3><p class="visual-sub">RBI-aligned transaction monitoring and regulatory reporting platform.</p><div class="ref-product-art"><div class="cube"></div><div class="panel"></div></div></div>
-        <div class="ref-product-body"><div class="ref-info"><div class="ref-info-item"><strong>Problem</strong><p>Compliance teams needed structured transaction monitoring, risk profiling, alert handling and regulatory reporting.</p></div><div class="ref-info-item"><strong>My Ownership</strong><p>Product flow, rules, risk logic, transaction monitoring, exception handling and reporting requirements.</p></div><div class="ref-info-item"><strong>Outcome</strong><p>Reduced manual compliance effort by 25% while improving audit and regulatory controls.</p></div></div><div class="ref-metric-strip"><div class="ref-mini-metric"><strong>25%</strong>Manual effort</div><div class="ref-mini-metric"><strong>99%</strong>Rule accuracy</div><div class="ref-mini-metric"><strong>CTR/STR/NTR</strong>Automated reporting</div></div><div class="ref-product-tags"><span>AML / KYC</span><span>Risk Monitoring</span><span>Regulatory</span><span>Automation</span></div><a class="ref-case" href="/projects/aml-compliance">View Case Study&nbsp; →</a></div>
-      </article>
-      <article class="ref-product green">
-        <div class="ref-product-visual"><span class="ref-product-number">03</span><span class="ref-product-company">AYU HEALTH</span><h3>Ayu DocConnect</h3><p class="visual-sub">Doctor onboarding and patient engagement platform.</p><div class="ref-product-art"><div class="cube"></div><div class="panel"></div></div></div>
-        <div class="ref-product-body"><div class="ref-info"><div class="ref-info-item"><strong>Problem</strong><p>Doctor acquisition and onboarding required a scalable digital experience with clear provider journeys.</p></div><div class="ref-info-item"><strong>My Ownership</strong><p>0 → 1 product definition, onboarding flows, engagement workflows, adoption analysis and cross-functional delivery.</p></div><div class="ref-info-item"><strong>Outcome</strong><p>Doctor adoption increased from 40% to 75% with improved onboarding and provider experience.</p></div></div><div class="ref-metric-strip"><div class="ref-mini-metric"><strong>40% → 75%</strong>Doctor adoption</div><div class="ref-mini-metric"><strong>3x</strong>Faster onboarding</div><div class="ref-mini-metric"><strong>Higher</strong>Provider engagement</div></div><div class="ref-product-tags"><span>Onboarding</span><span>Provider Experience</span><span>Engagement</span><span>Healthcare</span></div><a class="ref-case" href="/projects/ayu-docconnect">View Case Study&nbsp; →</a></div>
-      </article>
-      <article class="ref-product purple">
-        <div class="ref-product-visual"><span class="ref-product-number">04</span><span class="ref-product-company">PHONEME / AYU HEALTH</span><h3>Provider Payout Automation</h3><p class="visual-sub">Rules-based payout processing with approvals and reconciliation.</p><div class="ref-product-art"><div class="cube"></div><div class="panel"></div></div></div>
-        <div class="ref-product-body"><div class="ref-info"><div class="ref-info-item"><strong>Problem</strong><p>Provider payout processing involved multiple rules, approvals, calculations and operational hand-offs.</p></div><div class="ref-info-item"><strong>My Ownership</strong><p>Workflow design, rules, approval states, exception handling, operational reporting and process automation.</p></div><div class="ref-info-item"><strong>Outcome</strong><p>Provider payout turnaround reduced from 10 days to 2 days with higher process automation.</p></div></div><div class="ref-metric-strip"><div class="ref-mini-metric"><strong>10d → 2d</strong>Payout turnaround</div><div class="ref-mini-metric"><strong>80%+</strong>Process automated</div><div class="ref-mini-metric"><strong>99%</strong>Reconciliation accuracy</div></div><div class="ref-product-tags"><span>Automation</span><span>Rules</span><span>Approvals</span><span>Healthcare</span></div><a class="ref-case" href="/projects/provider-payout">View Case Study&nbsp; →</a></div>
-      </article>
-      <article class="ref-product red">
-        <div class="ref-product-visual"><span class="ref-product-number">05</span><span class="ref-product-company">NOKIA NETWORKS</span><h3>Telecom Analytics & Cost Optimization</h3><p class="visual-sub">Data-driven analytics for network rollout and financial tracking.</p><div class="ref-product-art"><div class="cube"></div><div class="panel"></div></div></div>
-        <div class="ref-product-body"><div class="ref-info"><div class="ref-info-item"><strong>Problem</strong><p>Large operational datasets needed clearer financial visibility, KPI tracking and cost optimization.</p></div><div class="ref-info-item"><strong>My Ownership</strong><p>SQL analysis, Power BI / Tableau reporting, KPI frameworks, financial tracking and workflow automation.</p></div><div class="ref-info-item"><strong>Outcome</strong><p>Delivered ~15–20% cost savings through better visibility and data-driven decisions.</p></div></div><div class="ref-metric-strip"><div class="ref-mini-metric"><strong>15–20%</strong>Cost savings</div><div class="ref-mini-metric"><strong>Real-time</strong>Network insights</div><div class="ref-mini-metric"><strong>Scalable</strong>Reporting framework</div></div><div class="ref-product-tags"><span>SQL</span><span>Power BI</span><span>Telecom</span><span>Cost Optimization</span></div><a class="ref-case" href="/projects/telecom-cost-optimization">View Case Study&nbsp; →</a></div>
-      </article></div></div>
+    <section class="slide white" id="portfolio">
+      <div class="wrap">
+        <div class="portfolio-intro">
+          <div class="section-head">
+            <span class="eyebrow">Selected Product Portfolio</span>
+            <h2>Selected product work across platforms, automation and analytics.</h2>
+            <p>Five representative case studies; deeper project detail is intentionally kept inside the individual project pages.</p>
+          </div>
+
+          <div class="portfolio-note">
+            <strong>Portfolio lens</strong>
+            <span>Problem → ownership → product decision → delivery → outcome. Competencies are shown through the work, not as a keyword list.</span>
+          </div>
+        </div>
+
+        <div class="portfolio-grid">
+          {products.map((product) => (
+            <article class:list={['portfolio-card', product.tint]}>
+              <div class="portfolio-meta">
+                <span class="portfolio-number">{product.number}</span>
+                <span class="portfolio-company">{product.company}</span>
+              </div>
+
+              <h3>{product.title}</h3>
+
+              <div class="portfolio-block">
+                <label>Problem</label>
+                <p>{product.problem}</p>
+              </div>
+
+              <div class="portfolio-block">
+                <label>My ownership</label>
+                <p>{product.ownership}</p>
+              </div>
+
+              <div class="portfolio-outcome">
+                <label>Outcome / product result</label>
+                <p>{product.outcome}</p>
+              </div>
+
+              <div class="portfolio-tags">
+                {product.tags.map((tag) => <span class="portfolio-tag">{tag}</span>)}
+              </div>
+
+              <a class="case-link" href={product.url}>View case study →</a>
+            </article>
+          ))}
+        </div>
+
+      </div>
     </section>
 
     <!-- ==================================================================
          08 / TECH & DATA
          ================================================================== -->
     <section class="slide soft" id="tech">
-<div class="wrap ref-section"><div class="ref-tech-top"><div><span class="ref-kicker" style="color:#5d39eb">Tech & Data</span><h2 class="ref-title">Where product meets <span class="grad">technology, AI and data.</span></h2><p class="ref-sub">Technical product management grounded in enterprise architecture, APIs, workflows, analytics, integrations and delivery collaboration.</p></div><div class="ref-tech-callout"><div class="ref-tech-callout-head"><span class="ref-tech-callout-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="12" r="7"></circle><circle cx="10" cy="12" r="3"></circle><path d="m10 12 9-9m-4 0h4v4"></path></svg></span><div><strong>PM Translation Layer</strong><p>I translate business intent into product behavior and technical context — connecting customer needs, business outcomes and the systems that execute them.</p></div></div></div></div><div class="ref-tech-layout"><div class="ref-tech-caps"><div class="ref-tech-cap"><span class="ref-tech-cap-num">01</span><div><strong>Business Intent</strong><p>Strategy • Discovery • Roadmap • MVP • Prioritization • GTM • Adoption</p></div><span class="ref-tech-arrow">→</span></div><div class="ref-tech-cap"><span class="ref-tech-cap-num">02</span><div><strong>Product & Journeys</strong><p>Vision • Journeys • User personas • Capabilities • Requirements • Release planning</p></div><span class="ref-tech-arrow">→</span></div><div class="ref-tech-cap"><span class="ref-tech-cap-num">03</span><div><strong>AI / GenAI Intelligence</strong><p>AI-assisted decisioning • GenAI use cases • Document intelligence • Knowledge workflows</p></div><span class="ref-tech-arrow">→</span></div><div class="ref-tech-cap"><span class="ref-tech-cap-num">04</span><div><strong>Workflow & Automation</strong><p>Rules engines • Approval orchestration • Exception handling • Reconciliation • Compliance automation</p></div><span class="ref-tech-arrow">→</span></div><div class="ref-tech-cap"><span class="ref-tech-cap-num">05</span><div><strong>APIs, Architecture & Data</strong><p>API-first products • Modular platforms • Integrations • DFD • ER models • Field mapping</p></div><span class="ref-tech-arrow">→</span></div><div class="ref-tech-cap"><span class="ref-tech-cap-num">06</span><div><strong>Delivery & Measurable Outcomes</strong><p>Agile • JIRA • Epics • Stories • QA • UAT • VAPT • Migration • Deployment • Training</p></div><span class="ref-tech-arrow">→</span></div></div><div class="ref-tech-model"><div class="ref-tech-model-head"><strong>PRODUCT TECHNOLOGY MODEL</strong><span>FROM BUSINESS REQUIREMENTS TO REAL-WORLD IMPACT</span></div><div class="ref-tech-flow"><div class="ref-tech-flow-item"><strong>Business</strong><span>Goals, needs<br>and constraints</span></div><div class="ref-tech-flow-item"><strong>Product</strong><span>Journeys, features<br>and experiences</span></div><div class="ref-tech-flow-item"><strong>Intelligence<br>(AI / GenAI)</strong><span>Decisioning<br>and insights</span></div><div class="ref-tech-flow-item"><strong>Workflow<br>& Automation</strong><span>Rules, approvals<br>and orchestration</span></div><div class="ref-tech-flow-item"><strong>Technology<br>(APIs & Data)</strong><span>Integrations,<br>architecture and data</span></div><div class="ref-tech-flow-item"><strong>Outcome</strong><span>Adoption, efficiency<br>and business value</span></div></div><div class="ref-tech-source-row"><div class="ref-tech-source-box"><strong>Data Sources</strong><span>Core Systems<br><br>External APIs<br><br>Partner Systems<br><br>Documents<br><br>Real-time Data</span></div><div class="ref-tech-systems"><div class="ref-tech-system">Web / Mobile Apps</div><div class="ref-tech-system">Partner Systems</div><div class="ref-tech-system">Banks / NBFCs</div><div class="ref-tech-system">Regulatory Systems</div><div class="ref-tech-system">3rd Party Services</div></div><div class="ref-tech-layers"><div class="ref-tech-layer">API Layer &nbsp; (REST APIs, Integrations, Security & Access Control)</div><div class="ref-tech-layer">Product Services &nbsp; (Business Logic, Workflows, AI/GenAI, Rules & Compliance)</div><div class="ref-tech-layer">Data Layer &nbsp; (SQL, Data Models, DFD, ER Models, Analytics)</div></div><div class="ref-tech-output-box" style="grid-column:7"><strong>Outputs & Impact</strong><span>Operational Efficiency<br><br>Regulatory Compliance<br><br>Better User Experience<br><br>Cost Optimization<br><br>Business Growth</span></div></div><div class="ref-tools"><div class="ref-tool"><strong>SQL</strong></div><div class="ref-tool"><strong>Power BI</strong></div><div class="ref-tool"><strong>Tableau</strong></div><div class="ref-tool"><strong>Looker Studio</strong></div><div class="ref-tool"><strong>Excel</strong></div><div class="ref-tool"><strong>Figma</strong></div><div class="ref-tool"><strong>JIRA</strong></div><div class="ref-tool"><strong>APIs</strong></div><div class="ref-tool"><strong>DFD / ER</strong></div><div class="ref-tool"><strong>Data Mapping</strong></div></div></div></div></div>
+      <div class="wrap">
+        <div class="tech-layout">
+          <div>
+            <div class="section-head">
+              <span class="eyebrow">Tech & Data</span>
+              <h2>Where product meets technology, AI and data.</h2>
+              <p>Technical product management grounded in enterprise architecture, APIs, workflows, analytics, integrations and delivery collaboration.</p>
+            </div>
+
+            <div class="capability-table">
+              {capabilityRows.map(([title, text]) => (
+                <div class="capability-row">
+                  <strong>{title}</strong>
+                  <span>{text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="tech-panel">
+            <span class="eyebrow">Product Technology Model</span>
+            <h3 class="tech-panel-title">I translate business intent into product behavior and technical context.</h3>
+            <p class="tech-panel-sub">The product layer sits between the business problem and the systems that execute it.</p>
+
+            <div class="tech-layers">
+              {techLayers.map(([number, title, text]) => (
+                <div class="tech-layer">
+                  <span class="number">{number}</span>
+                  <strong>{title}</strong>
+                  <span>{text}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="tool-row">
+              {['SQL', 'Power BI', 'Tableau', 'Figma', 'JIRA'].map((tool) => <div class="tool">{tool}</div>)}
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ==================================================================
          09 / OUTCOMES
          ================================================================== -->
-    <section class="slide soft" id="outcomes">
-<div class="wrap ref-section"><div class="ref-outcome-top"><div><span class="ref-kicker" style="color:#12558d">Product Outcomes</span><h2 class="ref-title">Outcomes that connect product work<br>to <span class="grad">real business performance.</span></h2><p class="ref-sub">Measurable impact across adoption, efficiency, automation, compliance and cost optimization from my product work in fintech, healthcare and telecom.</p></div><div class="ref-outcome-note"><strong>Outcome lens</strong><p>Each outcome maps to a business goal and is measured through clear metrics across adoption, efficiency, automation, cost and impact.</p></div></div><div class="ref-outcome-cards"><article class="ref-outcome-card"><div class="ref-outcome-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2.5"></circle><path d="M3 21v-1a6 6 0 0 1 12 0v1m1-5a5 5 0 0 1 5 5"></path></svg></div><strong>40% → 75%</strong><h3>Doctor adoption</h3><small>AYU HEALTH • DOCONNECT</small><div class="ref-outcome-chart"><i style="height:18%"></i><i style="height:25%"></i><i style="height:32%"></i><i style="height:40%"></i><i style="height:49%"></i><i style="height:58%"></i><i style="height:66%"></i><i style="height:75%"></i><i style="height:82%"></i><i style="height:92%"></i></div><span class="ref-outcome-foot">↑ 88% &nbsp; Increase in adoption</span></article><article class="ref-outcome-card"><div class="ref-outcome-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V9m6 11V4m6 16v-7m6 7H2"></path><path d="m4 7 6-4 6 7 6-5"></path></svg></div><strong>10 → 2 days</strong><h3>Provider payout turnaround</h3><small>PHONEME / AYU HEALTH</small><div class="ref-outcome-chart"><i style="height:14%"></i><i style="height:20%"></i><i style="height:26%"></i><i style="height:32%"></i><i style="height:39%"></i><i style="height:46%"></i><i style="height:53%"></i><i style="height:60%"></i><i style="height:66%"></i><i style="height:74%"></i></div><span class="ref-outcome-foot">↓ 80% &nbsp; Turnaround time</span></article><article class="ref-outcome-card"><div class="ref-outcome-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l4 4v14H6z"></path><path d="M15 3v5h4M9 12h6m-6 4h6"></path></svg></div><strong>25%</strong><h3>Manual compliance effort reduction</h3><small>M2P FINTECH • AML / KYC</small><div class="ref-outcome-chart"><i style="height:16%"></i><i style="height:23%"></i><i style="height:29%"></i><i style="height:36%"></i><i style="height:44%"></i><i style="height:52%"></i><i style="height:59%"></i><i style="height:68%"></i><i style="height:74%"></i><i style="height:83%"></i></div><span class="ref-outcome-foot">↓ 25% &nbsp; Manual effort reduced</span></article><article class="ref-outcome-card"><div class="ref-outcome-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 2 2 2.5 3-.5.5 3 2.5 2-1 3 1 3-2.5 2-.5 3-3-.5L12 22l-2.5-2.5-3 .5-.5-3L3.5 15l1-3-1-3L6 7l.5-3 3 .5z"></path><circle cx="12" cy="12" r="3"></circle></svg></div><strong>20%</strong><h3>Manual reconciliation reduction</h3><small>M2P FINTECH • UPI COLLECTIONS</small><div class="ref-outcome-chart"><i style="height:18%"></i><i style="height:25%"></i><i style="height:32%"></i><i style="height:40%"></i><i style="height:49%"></i><i style="height:58%"></i><i style="height:66%"></i><i style="height:75%"></i><i style="height:82%"></i><i style="height:92%"></i></div><span class="ref-outcome-foot">↓ 20% &nbsp; Operations effort reduced</span></article><article class="ref-outcome-card"><div class="ref-outcome-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 15c5-9 10-11 16-12-1 6-3 11-12 16l-4-4z"></path><path d="m5 15-2 6 6-2"></path><circle cx="16" cy="7" r="2"></circle></svg></div><strong>30%</strong><h3>Manual claim processing reduction</h3><small>CLAIMS AUTOMATION</small><div class="ref-outcome-chart"><i style="height:18%"></i><i style="height:25%"></i><i style="height:32%"></i><i style="height:40%"></i><i style="height:49%"></i><i style="height:58%"></i><i style="height:66%"></i><i style="height:75%"></i><i style="height:82%"></i><i style="height:92%"></i></div><span class="ref-outcome-foot">↓ 30% &nbsp; Processing effort reduced</span></article><article class="ref-outcome-card"><div class="ref-outcome-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="7" ry="3"></ellipse><path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5m-14 7v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7"></path></svg></div><strong>25%</strong><h3>Telecom operating-cost reduction</h3><small>NOKIA NETWORKS</small><div class="ref-outcome-chart"><i style="height:18%"></i><i style="height:25%"></i><i style="height:32%"></i><i style="height:40%"></i><i style="height:49%"></i><i style="height:58%"></i><i style="height:66%"></i><i style="height:75%"></i><i style="height:82%"></i><i style="height:92%"></i></div><span class="ref-outcome-foot">↓ 25% &nbsp; Opex cost reduction</span></article></div><div class="ref-outcome-bottom"><div class="ref-framework"><h3>Outcome Framework</h3><p>I link product work to measurable outcomes across the full product lifecycle.</p><div class="ref-framework-flow"><span>Adoption</span><span>Engagement</span><span>Efficiency</span><span>Compliance</span><span>Business Impact</span></div></div><div class="ref-domain"><h3>Key Outcomes by Domain</h3><p>Representative impact from selected product initiatives.</p><div class="ref-domain-row"><div class="ref-domain-item"><span>Adoption & Engagement</span><div class="ref-domain-bar"><i style="width:60%"></i></div><b>+60%</b></div><div class="ref-domain-item"><span>Operational Efficiency</span><div class="ref-domain-bar"><i style="width:50%"></i></div><b>+35%</b></div><div class="ref-domain-item"><span>Compliance & Risk Reduction</span><div class="ref-domain-bar"><i style="width:36%"></i></div><b>+25%</b></div><div class="ref-domain-item"><span>Cost Optimization</span><div class="ref-domain-bar"><i style="width:36%"></i></div><b>+25%</b></div></div></div><div class="ref-impact"><h3>Business Impact</h3><p>Delivering value for customers, internal teams and end users.</p><div class="ref-impact-grid"><div class="ref-impact-item"><strong>Better Customer Experience</strong><span>Higher adoption and usage</span></div><div class="ref-impact-item"><strong>Lower Operational Cost</strong><span>Automation and efficiency</span></div><div class="ref-impact-item"><strong>Stronger Compliance Posture</strong><span>Reduced risk and audit effort</span></div><div class="ref-impact-item"><strong>Scalable Product Platforms</strong><span>Multi-tenant, configurable and integration-ready</span></div></div></div></div><div class="ref-outcome-legend"><strong>Outcome categories</strong><div class="ref-legend-item"><b>Adoption</b>Users, activation, engagement</div><div class="ref-legend-item"><b>Efficiency</b>Time, effort, productivity</div><div class="ref-legend-item"><b>Compliance</b>Risk, audit, regulatory</div><div class="ref-legend-item"><b>Cost</b>Opex, manual effort</div><div class="ref-legend-item"><b>Business Impact</b>Revenue, growth, customer value</div></div></div>
+    <section class="slide white" id="outcomes">
+      <div class="wrap">
+        <div class="outcomes-intro">
+          <div class="section-head">
+            <span class="eyebrow">Selected Outcomes</span>
+            <h2>Outcomes that connect product work to business performance.</h2>
+            <p>Selected outcomes represented across healthcare, compliance, payments, claims and telecom initiatives.</p>
+          </div>
+
+          <div class="outcomes-note">
+            <strong>How I use outcomes</strong>
+            <span>Adoption, turnaround, efficiency, automation and cost are treated as product signals that inform prioritization and iteration.</span>
+          </div>
+        </div>
+
+        <div class="outcomes-grid">
+          {outcomes.map(([metric, label, company, type]) => (
+            <article class="outcome-card">
+              <strong>{metric}</strong>
+              <h3>{label}</h3>
+              <span>{company} · {type}</span>
+            </article>
+          ))}
+        </div>
+
+        <div class="outcome-summary">
+          <div class="outcome-summary-item"><strong>Adoption</strong><span>Doctor adoption, provider journeys and user engagement.</span></div>
+          <div class="outcome-summary-item"><strong>Efficiency</strong><span>Turnaround time, reconciliation and manual effort.</span></div>
+          <div class="outcome-summary-item"><strong>Automation</strong><span>Rules, workflow automation and operational processing.</span></div>
+          <div class="outcome-summary-item"><strong>Business impact</strong><span>Cost optimization, productivity and service performance.</span></div>
+        </div>
+      </div>
     </section>
 
     <!-- ==================================================================
          10 / CONNECT
          ================================================================== -->
-    <section class="slide soft" id="contact">
-<div class="wrap ref-section ref-connect-wrap"><div class="ref-connect-main"><div class="ref-connect-copy"><span class="ref-kicker">Connect</span><h2 class="ref-connect-title">Building products where<br>business, technology and<br><span class="grad">outcomes meet.</span></h2><div class="ref-location"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z"></path><circle cx="12" cy="10" r="2.5"></circle></svg> Based in Noida, India <span class="sep">|</span> <span>Open to Product Management, Technical Product and Business Transformation opportunities.</span></div><p>My experience spans the journey from data and business analysis to 0 → 1 product development and enterprise platform management, with a focus on AI / GenAI, workflow automation and data-driven product decisions.</p><div class="ref-connect-focus"><div class="ref-focus-card"><div class="ref-focus-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="12" r="7"></circle><circle cx="10" cy="12" r="3"></circle><path d="m10 12 9-9m-4 0h4v4"></path></svg></div><strong>Product Strategy</strong><p>From discovery to scalable products.</p></div><div class="ref-focus-card"><div class="ref-focus-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 4h8v4h3v5h-3v4H8v-4H5V8h3z"></path><path d="M10 8h4m-4 4h4m-2-10v2m0 14v2"></path></svg></div><strong>AI & GenAI</strong><p>Intelligent products and automation.</p></div><div class="ref-focus-card"><div class="ref-focus-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 13a5 5 0 0 0 7.1.1l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1"></path><path d="M14 11a5 5 0 0 0-7.1-.1l-2 2A5 5 0 0 0 12 20l1.1-1.1"></path></svg></div><strong>Workflow Automation</strong><p>Efficient and scalable operations.</p></div><div class="ref-focus-card"><div class="ref-focus-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 8 4-8 4-8-4 8-4z"></path><path d="m4 12 8 4 8-4m-16 5 8 4 8-4"></path></svg></div><strong>Technical Product Management</strong><p>Platforms, integrations and enterprise systems.</p></div><div class="ref-focus-card"><div class="ref-focus-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V9m6 11V4m6 16v-7m6 7H2"></path><path d="m4 7 6-4 6 7 6-5"></path></svg></div><strong>Data & Analytics</strong><p>Insights that drive business outcomes.</p></div></div></div><div class="ref-connect-form"><span class="ref-connect-badge">LET'S CONNECT</span><h3>Have a product, platform or<br>transformation opportunity?</h3><p>I'm open to conversations around Product Management, Technical Product Management, Business Analysis and enterprise technology products.</p><form class="ref-mail-form" id="ref-contact-form"><div class="ref-form-row"><input class="ref-field" name="name" required placeholder="Your name *"><input class="ref-field" name="company" placeholder="Your company"></div><input class="ref-field" name="email" type="email" required placeholder="Your email *"><select class="ref-field" name="topic"><option value="Product Management opportunity">I'm reaching out for...</option><option>Product Management opportunity</option><option>Technical Product Management</option><option>Business Transformation</option><option>Enterprise Product / Platform</option><option>Collaboration / Consulting</option></select><textarea class="ref-field ref-message" name="message" maxlength="500" placeholder="Your message (optional)"></textarea><button class="ref-send" type="submit">Send Message &nbsp; →</button><div class="ref-mail-note">This will open your email client with the details filled in.</div></form></div></div><div class="ref-connect-bottom"><div><h4>Connect on professional platforms</h4><p>Let's connect and stay in touch on professional networks.</p><div class="ref-socials"><a class="ref-social" href="https://www.linkedin.com/in/manoj-pant-35129495/" target="_blank" rel="noreferrer"><b>LinkedIn</b><span>View profile →</span></a><a class="ref-social" href="https://github.com/mapant" target="_blank" rel="noreferrer"><b>GitHub</b><span>View projects →</span></a><a class="ref-social" href="#" aria-label="X / Twitter"><b>X (Twitter)</b><span>Follow updates →</span></a></div></div><div><h4>Open to opportunities</h4><p>Open to Product Management, Technical Product, Business Analysis and strategic roles.</p><div class="ref-opps"><span>● Full-time</span><span>● Contract / Consulting</span><span>● Remote / Hybrid</span></div></div><div><div class="ref-location-box"><span style="color:#ef3c7c"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span><div><h4>Based in Noida, India</h4><p>Available for opportunities across India and open to relocation for the right opportunity.</p></div></div><div class="ref-location-graphic"></div></div></div></div>
+    <section class="slide dark" id="contact">
+      <div class="wrap">
+        <div class="contact-grid">
+          <div>
+            <span class="eyebrow">Connect</span>
+            <h2 class="contact-title">Building products where business, technology and outcomes meet.</h2>
+            <p class="contact-copy">My experience spans the journey from data and business analysis to 0→1 product development and enterprise platform management, with a strong focus on AI / GenAI opportunities, workflow automation and data-driven product decisions.</p>
+
+            <div class="contact-focus">
+              {['Product Strategy', 'AI & GenAI', 'Workflow Automation', 'Technical Product Management', 'Data & Analytics'].map((item) => <span class="pill">{item}</span>)}
+            </div>
+
+            <div class="senior-signals" style="margin-top:22px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-width:900px;">
+              {seniorSignals.map(([number, title, text]) => (
+                <div style="padding:11px 12px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:rgba(255,255,255,.03);">
+                  <div style="display:flex;gap:9px;align-items:center;">
+                    <span style="color:var(--amber-bright);font-size:8px;font-weight:950;">{number}</span>
+                    <strong style="color:#fff;font-size:9px;line-height:1.1;white-space:nowrap;">{title}</strong>
+                  </div>
+                  <p style="margin:5px 0 0;color:#9fb8d0;font-size:7.5px;line-height:1.3;">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <span class="eyebrow">Connect & Download</span>
+            <a class="contact-link primary" href="/Manoj_Pant_Senior_Product_Manager_AI_10Yrs.pdf" download>↓&nbsp; Download Resume (PDF)</a>
+            <a class="contact-link" href="mailto:manoj.pant.pm@outlook.com">manoj.pant.pm@outlook.com</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/manoj-pant-35129495/" target="_blank" rel="noreferrer">LinkedIn Profile →</a>
+          </div>
+        </div>
+
+        <div class="contact-foot">
+          <span>© {new Date().getFullYear()} Manoj Pant</span>
+          <span>Senior Product Manager · Product Portfolio</span>
+        </div>
+      </div>
     </section>
   </main>
 
-    <script src="../scripts/navigation.js"></script>
-</PortfolioLayout>
+  </PortfolioLayout>
