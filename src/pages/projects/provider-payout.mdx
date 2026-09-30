@@ -1,19 +1,90 @@
----
-import "../../styles/case-study.scss";
-title: Provider Payout Automation
-company: Phoneme / Ayu Health
----
-<div class="case-study">
-  <a class="back-link" href="/#portfolio">← Back to portfolio</a>
-  <span class="case-kicker">04 · PHONEME / AYU HEALTH</span>
-  <h1>Provider Payout Automation</h1>
-  <p class="case-lead">Workflow automation for provider payout processing, approvals, calculations, exceptions and operational reporting.</p>
-  <div class="case-grid">
-    <article><span>Problem</span><h2>Manual payout hand-offs</h2><p>Provider payout processing involved multiple rules, approvals, calculations and operational hand-offs.</p></article>
-    <article><span>Product ownership</span><h2>Workflow and rules</h2><p>Designed workflow states, approval logic, exception handling, operational reporting and process automation.</p></article>
-    <article><span>Product lens</span><h2>Control without friction</h2><p>Structured the flow so repeatable cases could move faster while exceptions remained visible and controlled.</p></article>
-    <article><span>Outcome</span><h2>10 → 2 days</h2><p>Provider payout turnaround represented in the portfolio moved from 10 days to 2 days.</p></article>
-  </div>
-  <div class="case-section"><h2>Capability areas</h2><div class="tags"><span>Automation</span><span>Rules</span><span>Approvals</span><span>Exceptions</span><span>Reporting</span><span>Healthcare</span></div></div>
-  <div class="case-section"><h2>Product artefacts</h2><p>Process maps · workflow states · business rules · exception matrix · operational reports · UAT scenarios · rollout support</p></div>
-</div>
+import CaseStudyPage from '../../components/CaseStudyPage.astro';
+
+const data = {
+  index: '04 · PHONEME / AYU HEALTH',
+  title: 'Provider Payout Automation',
+  company: 'Phoneme / Ayu Health',
+  brand: 'PHONEME',
+  eyebrow: 'Healthcare operations · workflow automation',
+  theme: 'payout',
+  lead: 'Workflow automation for provider payout processing, approvals, calculations, exceptions and operational reporting — designed to reduce manual hand-offs while keeping control visible.',
+  metrics: [
+    { value: '10 → 2d', label: 'represented provider payout turnaround', tone: 'mint' },
+    { value: 'Rules', label: 'calculation and eligibility logic made explicit', tone: 'lav' },
+    { value: 'RBAC', label: 'approval ownership and controlled states', tone: 'blue' },
+    { value: 'Ops', label: 'exception and reporting visibility', tone: 'rose' }
+  ],
+  friction: [
+    'Payout processing involved repeated calculations, approvals and operational hand-offs.',
+    'Rules needed to be explicit enough for consistent calculation and review.',
+    'Exceptions required ownership and visibility instead of remaining in offline follow-up.',
+    'Operations needed reliable status and reporting across payout cycles.'
+  ],
+  personas: [
+    { role: 'Provider Operations', need: 'Initiate and monitor payout cases.', control: 'Queue ownership' },
+    { role: 'Finance', need: 'Validate calculations and payment readiness.', control: 'Financial approval' },
+    { role: 'Checker / Approver', need: 'Review exceptions and authorise payouts.', control: 'Maker-checker' },
+    { role: 'Provider', need: 'Receive correct and timely payout.', control: 'Payout status' },
+    { role: 'Support', need: 'Resolve payout questions and exceptions.', control: 'Case visibility' },
+    { role: 'Leadership', need: 'Track cycle time and payout health.', control: 'Operational metrics' }
+  ],
+  strategy: [
+    { title: 'Standardise payout states', text: 'Make every case move through an explicit lifecycle so status and ownership remain visible.', bullets: ['Initiated', 'Validated', 'Approved'] },
+    { title: 'Rules before automation', text: 'Define calculation and eligibility logic before automating the workflow around it.', bullets: ['Inputs', 'Rules', 'Outputs'] },
+    { title: 'Exceptions are first-class', text: 'Give failed validation, calculation mismatch and approval rejection an explicit path.', bullets: ['Exception queue', 'Reason', 'Rework'] },
+    { title: 'Operational reporting', text: 'Expose payout cycle health and bottlenecks to the teams responsible for the process.', bullets: ['Ageing', 'TAT', 'Volume'] }
+  ],
+  architecture: [
+    { title: 'Operations experience', items: ['Payout queue', 'Case detail', 'Approval workspace', 'Status dashboard'] },
+    { title: 'Workflow services', items: ['Eligibility', 'Calculation', 'Approval', 'Exception handling'] },
+    { title: 'Control layer', items: ['RBAC', 'Maker-checker', 'Audit trail', 'Override controls'] },
+    { title: 'Data layer', items: ['Provider master', 'Payout inputs', 'Rule results', 'Payment status'] },
+    { title: 'Connected systems', items: ['Provider data', 'Finance', 'Payment layer', 'Reporting'] }
+  ],
+  integrations: ['Provider master', 'Claims / service data', 'Finance system', 'Payment rail', 'Notification layer', 'Reporting'],
+  dataFlow: ['Collect inputs', 'Validate', 'Calculate', 'Review exception', 'Approve', 'Initiate payout', 'Reconcile'],
+  workflow: [
+    { title: 'Collect', text: 'Gather provider and service inputs' },
+    { title: 'Validate', text: 'Check eligibility and data completeness' },
+    { title: 'Calculate', text: 'Apply payout rules and produce result' },
+    { title: 'Review', text: 'Route exceptions and approvals' },
+    { title: 'Pay', text: 'Release approved payout' },
+    { title: 'Reconcile', text: 'Close cycle and report status' }
+  ],
+  exceptions: [
+    { title: 'Missing input', text: 'Hold the case and route to the responsible operations owner with the exact missing field.' },
+    { title: 'Calculation mismatch', text: 'Show rule inputs and calculation result so finance can validate before approval.' },
+    { title: 'Approval rejection', text: 'Return to rework with reason, ownership and complete history.' },
+    { title: 'Payment failure', text: 'Keep payout status open, surface the failure and support retry/reconciliation.' }
+  ],
+  artifacts: [
+    { type: 'UI reconstruction', title: 'Payout operations dashboard', text: 'A portfolio-safe dashboard concept showing cycle status, ageing, exceptions, approvals and payout readiness.' },
+    { type: 'Workflow artifact', title: 'Payout state machine', text: 'Defines the states, transitions, owners and exception routes needed for controlled automation.' },
+    { type: 'Rules artifact', title: 'Calculation specification', text: 'Translates business rules into explicit inputs, decision logic, outputs and validation scenarios.', code: 'INPUTS → eligibility → rule set\n→ calculation → tolerance check\n→ approval → payout instruction' }
+  ],
+  rollout: [
+    { title: 'Process discovery', text: 'Map the existing payout process, calculations, approvals and manual hand-offs.', bullets: ['Process map', 'Rules', 'Exceptions'] },
+    { title: 'Workflow build', text: 'Translate the process into states, roles, acceptance criteria and operational screens.', bullets: ['Prototype', 'Backlog', 'QA'] },
+    { title: 'UAT & controlled release', text: 'Validate representative payout cases and exception scenarios before rollout.', bullets: ['UAT cases', 'Reconciliation', 'Release'] },
+    { title: 'Operational adoption', text: 'Train operations and finance teams and use payout metrics to identify bottlenecks.', bullets: ['Training', 'Runbook', 'Metrics'] }
+  ],
+  outcomes: [
+    { value: '10 → 2d', label: 'represented reduction in provider payout turnaround' },
+    { value: 'Rules', label: 'repeatable calculation and eligibility logic' },
+    { value: 'Visible', label: 'exception ownership and payout state tracking' },
+    { value: 'Controlled', label: 'approval and reconciliation workflow' }
+  ],
+  lessons: [
+    'Automation creates more value when the underlying rules and ownership are made explicit first; otherwise it simply accelerates ambiguity.',
+    'Operational dashboards should focus on decisions and bottlenecks, not only totals, because the team needs to know what to act on next.'
+  ],
+  roadmap: [
+    { title: 'Provider self-service', text: 'Give providers clearer payout statements, status and exception explanations.' },
+    { title: 'Rules configuration', text: 'Move appropriate payout rules into controlled configuration with versioning and approvals.' },
+    { title: 'Predictive exception detection', text: 'Identify likely calculation or data issues before a payout reaches approval.' },
+    { title: 'Straight-through payout', text: 'Increase automation for low-risk, fully validated payout cases.' }
+  ],
+  capabilities: ['Workflow Automation', 'Business Rules', 'Approvals', 'Exceptions', 'Provider Operations', 'Reconciliation', 'Reporting', 'UAT']
+};
+
+<CaseStudyPage data={data} />
