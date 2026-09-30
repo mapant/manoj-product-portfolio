@@ -3,16 +3,16 @@ import { strategySteps } from '../../data/portfolio.js';
 ---
 <section class="slide soft" id="strategy" data-section>
   <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">04 · Product Strategy</span><h2>A repeatable path from problem to impact.</h2><p>Frame the opportunity, discover evidence, define the product, prioritize trade-offs, sequence delivery and close the loop with outcomes.</p></div>
     <div class="strategy-layout">
+      <article class="strategy-intro">
+        <span class="section-kicker">Product Strategy</span>
+        <h2>From problem framing to measurable product delivery.</h2>
+        <p>A practical strategy model keeps customer need, evidence, feasibility, AI / automation potential and measurable outcomes connected.</p>
+        <div class="strategy-outcomes"><span>Customer need & experience</span><span>Strategy & priorities</span><span>Execution & enablement</span><span>Measurement & outcomes</span></div>
+      </article>
       <div class="strategy-flow">
-        {strategySteps.map(([number, tag, title, text]) => <article class="strategy-step"><div class="step-top"><span>{number}</span><b>{tag}</b></div><h3>{title}</h3><p>{text}</p></article>)}
+        {strategySteps.map(([number, tag, title, text]) => <article class="strategy-step"><div class="step-top"><span>{number}</span><b>{tag}</b></div><h3>{title}</h3><p>{text}</p><small>PM focus · Evidence → decision → outcome</small></article>)}
       </div>
-      <aside class="strategy-panel">
-        <span class="mini-label">Prioritization lens</span><h3>Value × risk × feasibility</h3>
-        <div class="priority-matrix"><div>Customer<br /><b>Value</b></div><div>Business<br /><b>Value</b></div><div>Risk /<br /><b>Compliance</b></div><div>AI /<br /><b>Automation</b></div><div>Feasibility<br /><b>Technology</b></div><div>Effort<br /><b>Delivery</b></div></div>
-        <div class="strategy-outcome"><b>Outcome</b><span>A transparent, evidence-led roadmap that connects customer value to business impact.</span></div>
-      </aside>
     </div>
   </div></div>
 </section>
