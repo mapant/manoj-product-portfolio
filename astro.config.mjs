@@ -5,7 +5,8 @@ const unwrapInlineMdxScripts = {
   name: 'unwrap-inline-mdx-scripts',
   enforce: 'pre',
   transform(code, id) {
-    if (!id.endsWith('.mdx')) return null;
+    const file = id.split('?')[0];
+    if (!file.endsWith('.mdx')) return null;
 
     const start = '<script is:inline>{`';
     const end = '`}</script>';
@@ -13,7 +14,7 @@ const unwrapInlineMdxScripts = {
     if (!code.includes(start) || !code.includes(end)) return null;
 
     return {
-      code: code.replaceAll(start, '<script is:inline>').replaceAll(end, '</script>'),
+      code: code.replaceAll(start, '<script>').replaceAll(end, '</script>'),
       map: null,
     };
   },
