@@ -3,11 +3,15 @@ import { ecosystem } from '../../data/portfolio.js';
 ---
 <section class="slide soft" id="ecosystem" data-section>
   <div class="slide-canvas"><div class="canvas-inner">
-    <div class="section-head"><span class="section-kicker">02 · Product Ecosystem</span><h2>Product connects the enterprise system.</h2><p>Business, customer, product, technology, data, operations, automation, AI and compliance work as one operating model.</p></div>
     <div class="ecosystem-layout">
-      <article class="dark-story"><span class="story-index">PRODUCT ECOSYSTEM</span><h3>One product lens.<br />Multiple enterprise realities.</h3><p>I translate business goals into journeys, capabilities, workflows, data models, integrations and measurable outcomes.</p><div class="story-points"><span>Customer value</span><span>Business economics</span><span>Technology feasibility</span><span>Operational control</span></div></article>
+      <article class="dark-story">
+        <span class="story-index">PRODUCT ECOSYSTEM</span>
+        <h2>Product is the coordination layer between business, technology and operations.</h2>
+        <p>Enterprise products rarely succeed through a feature alone. They connect the user journey with workflows, data, integrations, controls, intelligence and operational readiness.</p>
+        <div class="story-points"><span>Customer and business problem → measurable outcome</span><span>Product journey and workflow across multiple systems</span><span>AI / GenAI opportunity in real business processes</span><span>Automation, data, operations and compliance readiness</span></div>
+      </article>
       <div class="ecosystem-grid">
-        {ecosystem.map(([title, text, tags], index) => <article class={`eco-card eco-${index + 1}`}><span class="card-number">0{index + 1}</span><h3>{title}</h3><p>{text}</p><small>{tags}</small></article>)}
+        {ecosystem.map(([title, text, tags], index) => <article class="eco-card"><span class="card-number">0{index + 1}</span><h3>{title}</h3><p>{text}</p><small>{tags}</small></article>)}
       </div>
     </div>
   </div></div>
