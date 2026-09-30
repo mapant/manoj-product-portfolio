@@ -1,44 +1,40 @@
 ---
 import { focusAreas, careerArc } from '../../data/portfolio.js';
 ---
-<section class="slide" id="overview" data-section>
-  <div class="slide-canvas">
-    <div class="canvas-inner overview-layout">
-      <div class="section-kicker">Senior Product Manager · Product Portfolio</div>
-      <div class="overview-grid">
-        <div>
-          <h1>Building products from complex problems to measurable impact.</h1>
-          <p class="lead">11+ years across telecom, healthcare, analytics and fintech, connecting product strategy, technical product management, workflow automation, AI / GenAI, data and enterprise platform delivery.</p>
-          <div class="focus-list" aria-label="Focus areas">
-            {focusAreas.map((item) => <span>{item}</span>)}
-          </div>
-          <div class="stats-grid">
-            <div><strong>11+</strong><span>Years experience</span></div>
-            <div><strong>12+</strong><span>Enterprise applications</span></div>
-            <div><strong>4</strong><span>Industry ecosystems</span></div>
-            <div><strong>0→1</strong><span>Product development</span></div>
-          </div>
-          <div class="career-strip">
-            {careerArc.map(([n, title, text]) => <div><b>{n}</b><strong>{title}</strong><span>{text}</span></div>)}
-          </div>
+<section class="slide overview-slide" id="overview" data-section>
+  <div class="slide-canvas"><div class="canvas-inner overview-layout">
+    <div class="section-kicker">Product Strategy · AI & GenAI · Enterprise Platforms</div>
+    <div class="overview-grid">
+      <div>
+        <h1>Building products<br />from complex problems<br /><span class="gradient-line">to measurable impact.</span></h1>
+        <p class="lead">Senior Product Manager with <strong>11+ years of experience</strong> across FinTech, Healthcare, Telecom and Enterprise IT — combining product strategy, business analysis, technology, data and execution to build scalable enterprise products.</p>
+        <div class="stats-grid">
+          <div><strong>11+</strong><span>Years experience</span></div>
+          <div><strong>12+</strong><span>Enterprise applications</span></div>
+          <div><strong>4</strong><span>Industry ecosystems</span></div>
+          <div><strong>0→1</strong><span>Product development</span></div>
         </div>
+        <div class="career-strip">
+          {careerArc.map(([n, title, text]) => <div><b>{n}</b><strong>{title}</strong><span>{text}</span></div>)}
+        </div>
+      </div>
 
-        <div class="operating-model" aria-label="Product Operating Model">
-          <div class="model-heading"><span>Product Operating Model</span><b>Strategy → Delivery → Adoption & Outcomes</b></div>
-          <div class="model-diagram">
-            <div class="model-center"><span>PRODUCT</span><strong>at the centre</strong><small>Customer value · business impact</small></div>
-            <div class="model-node node-business"><b>Business</b><span>Goals & economics</span></div>
-            <div class="model-node node-ai"><b>AI & GenAI</b><span>Intelligence & decisions</span></div>
-            <div class="model-node node-auto"><b>Automation</b><span>Workflow & controls</span></div>
-            <div class="model-node node-data"><b>Data</b><span>Signals & insight</span></div>
-          </div>
-          <div class="expertise-row">
-            <div><b>Product Strategy</b><span>Vision · roadmap · prioritization</span></div>
-            <div><b>Technical Product</b><span>APIs · DFD · ER · integrations</span></div>
-            <div><b>Data & Analytics</b><span>SQL · BI · KPI frameworks</span></div>
-          </div>
+      <div class="operating-model" aria-label="Product Operating Model">
+        <div class="model-heading"><span>Product Operating Model</span><b>Problem → Product → Outcome</b></div>
+        <div class="model-diagram">
+          <div class="model-center"><span>PRODUCT</span><strong>Manoj Pant</strong><small>Technical Product Manager</small></div>
+          <div class="model-node node-business"><b>Business</b><span>FinTech · Health Tech · Telecom</span></div>
+          <div class="model-node node-ai"><b>AI & GenAI</b><span>AI Strategy · Copilot · LLMs</span></div>
+          <div class="model-node node-auto"><b>Automation</b><span>API-First · Microservices · Cloud</span></div>
+          <div class="model-node node-data"><b>Data</b><span>SQL · Power BI · KPI frameworks</span></div>
+        </div>
+        <div class="expertise-row">
+          <div><b>Strategy</b><span>Vision · priorities · roadmap</span></div>
+          <div><b>Delivery</b><span>Build · integrate · deploy</span></div>
+          <div><b>Adoption & Outcomes</b><span>Scale · measure · impact</span></div>
         </div>
       </div>
     </div>
-  </div>
+    <div class="overview-focus"><b>Core expertise</b>{focusAreas.map((item) => <span>{item}</span>)}</div>
+  </div></div>
 </section>
