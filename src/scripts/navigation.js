@@ -34,6 +34,42 @@ function setupNavigation() {
   setActive('overview');
 }
 
+function setupCanvas() {
+  const viewport = document.querySelector('[data-portfolio-viewport]');
+  const canvases = [...document.querySelectorAll('.slide-canvas')];
+  if (!viewport || !canvases.length) return;
+
+  const designWidth = 1920;
+  const designHeight = 920;
+  const viewportWidth = viewport.clientWidth;
+  const viewportHeight = viewport.clientHeight;
+
+  if (!viewportWidth || !viewportHeight) return;
+
+  const scale = Math.min(
+    viewportWidth / designWidth,
+    viewportHeight / designHeight
+  );
+
+  canvases.forEach((canvas) => {
+    canvas.style.transform = `translate(-50%, -50%) scale(${scale})`;
+  });
+}
+
+function setupCanvasObserver() {
+  const viewport = document.querySelector('[data-portfolio-viewport]');
+  if (!viewport) return;
+
+  setupCanvas();
+
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(setupCanvas);
+    observer.observe(viewport);
+  } else {
+    window.addEventListener('resize', setupCanvas, { passive: true });
+  }
+}
+
 function setupContactForm() {
   const form = document.querySelector('#contact-form');
   if (!form) return;
@@ -54,4 +90,5 @@ function setupContactForm() {
 }
 
 setupNavigation();
+setupCanvasObserver();
 setupContactForm();
