@@ -4130,3 +4130,223 @@
       #overview .model-profile { width:220px; min-height:150px; }
     }
   
+/* ======================================================================
+   FINAL RESPONSIVE LAYOUT CONTRACT
+   Native CSS layout only — no canvas scaling, no nested page scroller.
+   Target reference viewport: 1920 × 1200 (16:10).
+   ====================================================================== */
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+main {
+  height: auto;
+  min-height: 0;
+  margin-top: 0;
+  padding-top: var(--header-h);
+  overflow: visible;
+  scroll-snap-type: none;
+}
+
+.slide {
+  width: 100%;
+  height: auto;
+  min-height: 100svh;
+  max-height: none;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+  padding: clamp(28px, 3vw, 48px) 0;
+}
+
+.slide > .wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
+  z-index: 1200;
+}
+
+.head {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+}
+
+#nav {
+  grid-template-columns: repeat(5, max-content);
+  grid-template-rows: repeat(2, 30px);
+}
+
+.portfolio-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+@media (max-width: 1500px) {
+  :root { --header-h: 104px; }
+
+  .head {
+    grid-template-columns: 250px minmax(0, 1fr) 210px;
+  }
+
+  #nav {
+    gap: 2px 12px;
+  }
+
+  #nav a {
+    font-size: 9.5px;
+  }
+
+  .brand-logo {
+    width: 72px;
+    height: 72px;
+    flex-basis: 72px;
+  }
+}
+
+@media (max-width: 1180px) {
+  :root { --header-h: 132px; }
+
+  header {
+    height: var(--header-h);
+  }
+
+  .head {
+    height: var(--header-h);
+    grid-template-columns: 205px minmax(0, 1fr) 190px;
+    gap: 10px;
+    padding-inline: 24px;
+  }
+
+  #nav {
+    grid-template-columns: repeat(5, minmax(0, max-content));
+    gap: 2px 8px;
+    justify-content: center;
+  }
+
+  #nav a {
+    font-size: 9px;
+    padding-inline: 3px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .portfolio-card {
+    min-height: 0;
+    height: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  :root { --header-h: 178px; }
+
+  html { scroll-padding-top: var(--header-h); }
+
+  header {
+    height: var(--header-h);
+  }
+
+  .head {
+    height: auto;
+    min-height: var(--header-h);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    padding: 12px 18px;
+    gap: 10px 14px;
+  }
+
+  .brand-logo {
+    width: 58px;
+    height: 58px;
+    flex-basis: 58px;
+  }
+
+  #nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: 34px 34px;
+    gap: 5px;
+    justify-content: stretch;
+  }
+
+  #nav a {
+    width: 100%;
+    height: 34px;
+    font-size: 9px;
+    padding-inline: 2px;
+    text-align: center;
+  }
+
+  .nav-cta {
+    justify-self: end;
+  }
+
+  .slide {
+    min-height: 100svh;
+    padding-block: 36px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  :root { --header-h: 238px; }
+
+  header {
+    height: var(--header-h);
+  }
+
+  .head {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    padding: 12px 14px;
+  }
+
+  .nav-cta {
+    justify-self: center;
+  }
+
+  #nav {
+    grid-column: 1;
+    grid-row: 2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(5, 34px);
+  }
+
+  #nav a {
+    font-size: 9px;
+  }
+
+  .slide {
+    min-height: auto;
+    padding-block: 34px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
