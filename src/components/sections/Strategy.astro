@@ -1,3 +1,26 @@
-<section class="slide soft" id="strategy">
-  <div class="slide-inner strategy-layout"><div><div class="section-title"><div class="eyebrow">04 · STRATEGY</div><h2>PRODUCT STRATEGY</h2><p>A repeatable operating rhythm from vision to evidence.</p></div><div class="strategy-cycle">{['FRAME','DISCOVER','DEFINE','PRIORITIZE','ROADMAP','DELIVER','LEARN & MEASURE'].map((s,i)=><div class={`cycle-step c${i+1}`}><b>0{i+1}</b><span>{s}</span></div>)}<div class="cycle-core">PRODUCT STRATEGY<br/><small>VISION · ROADMAP · EXECUTION · OUTCOMES</small></div></div></div><aside class="outcome-stack"><h3>STRATEGY OUTCOMES</h3>{['HIGHER CUSTOMER SATISFACTION','MEASURABLE BUSINESS IMPACT','FASTER TIME TO VALUE','SCALABLE & COMPLIANT GROWTH'].map((x,i)=><div class={`outcome-card oc${i}`}>{x}<span>0{i+1}</span></div>)}</aside></div><div class="section-footer">A REPEATABLE PRODUCT STRATEGY FOR ENTERPRISE IMPACT</div>
+---
+import { strategySteps } from '../../data/portfolio.js';
+---
+<section class="slide page strategy-page" id="strategy" aria-labelledby="strategy-title">
+  <div class="page-inner strategy-layout">
+    <article class="dark-story strategy-story">
+      <div class="eyebrow violet-line">PRODUCT STRATEGY</div>
+      <h2 id="strategy-title">From problem framing to <em>measurable product delivery.</em></h2>
+      <p>A practical product strategy that keeps customer need, business value, feasibility, AI opportunity, automation potential and measurable outcomes connected.</p>
+      <ul class="check-list"><li>Bridge customer needs with business outcomes</li><li>Data-informed, opportunity-driven prioritization</li><li>Scalable and compliant product roadmaps</li><li>Continuous learning and iteration for impact</li></ul>
+      <div class="strategy-art">
+        <div class="people-chip">♟ &nbsp; CUSTOMER NEED &amp; EXPERIENCE</div>
+        <div class="strategy-pyramid"><span>STRATEGY &amp; PRIORITIES</span><span>PRODUCT ROADMAP</span><span>EXECUTION &amp; ENABLEMENT</span><span>MEASUREMENT &amp; OUTCOMES</span></div>
+        <div class="strategy-side left"><b>Market &amp; Competition</b><b>Technology &amp; AI Opportunity</b><b>Data &amp; Insights</b></div><div class="strategy-side right"><b>Business Goals &amp; OKRs</b><b>Risk, Compliance &amp; Constraints</b><b>People, Process &amp; Operations</b></div>
+      </div>
+      <div class="story-caption">A REPEATABLE PRODUCT STRATEGY FOR ENTERPRISE IMPACT</div>
+    </article>
+    <div class="strategy-main">
+      <div class="strategy-orbit"><div class="wheel-ring"><span class="wheel-seg s1">♟<b>Customer<br/>Value</b></span><span class="wheel-seg s2">▥<b>Business<br/>Impact</b></span><span class="wheel-seg s3">⚙<b>Feasibility</b></span><span class="wheel-seg s4">🚀<b>Execution<br/>Readiness</b></span><span class="wheel-seg s5">▥<b>Measurable<br/>Outcomes</b></span><span class="wheel-seg s6">⟳<b>Continuous<br/>Learning</b></span><div class="wheel-core">⬡<strong>PRODUCT<br/>STRATEGY</strong><small>VISION → ROADMAP<br/>EXECUTION → OUTCOMES</small></div></div></div>
+      <div class="strategy-step-list">
+        {strategySteps.map(([n, stage, title, description, items, focus], i) => <article class:list={['strategy-step-card', `step-${i + 1}`]}><div class="step-head"><b>{n}</b><strong>{stage}</strong><span>{['◎','⌕','▤','▥','◫','🚀','▥'][i]}</span></div><h3>{title}</h3><p>{description}</p><ul>{items.map((item) => <li>{item}</li>)}</ul><div class="step-focus"><b>⚙ &nbsp; PM FOCUS</b><span>{focus}</span></div></article>)}
+      </div>
+      <div class="strategy-outcomes"><b>STRATEGY OUTCOMES</b><span>Higher customer satisfaction</span><span>Measurable business impact</span><span>Faster time to value</span><span>Scalable &amp; compliant growth</span></div>
+    </div>
+  </div>
 </section>

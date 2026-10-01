@@ -1,18 +1,18 @@
 ---
 import { navItems } from '../data/portfolio.js';
 ---
-<header class="site-header" id="site-header">
+<header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="#overview" aria-label="Manoj Pant portfolio home">
-      <img class="brand-avatar" src="https://avatars.githubusercontent.com/u/133200664?v=4" alt="Manoj Pant" />
+    <a class="brand" href="#overview" aria-label="Manoj Pant Product Portfolio">
+      <img class="brand-avatar" src="/profile/portrait.jpg" alt="Manoj Pant" />
       <span class="brand-copy"><strong>Manoj Pant</strong><small>SENIOR PRODUCT MANAGER</small></span>
     </a>
-    <nav class="main-nav" id="portfolio-nav" aria-label="Portfolio sections">
-      {navItems.map(([id, label]) => <a href={`#${id}`} data-nav-id={id}>{label}</a>)}
+    <nav id="nav" aria-label="Portfolio sections">
+      {navItems.map(([id, label]) => <a href={`#${id}`}>{label}</a>)}
     </nav>
-    <a class="header-cta" href="#portfolio"><span class="grid-icon">⊞</span> View Projects <span>→</span></a>
+    <a class="header-cta" href="#portfolio">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      View Projects <span aria-hidden="true">→</span>
+    </a>
   </div>
 </header>
-<script>
-const links=[...document.querySelectorAll('[data-nav-id]')];const sections=[...document.querySelectorAll('[data-section]')];const setActive=id=>links.forEach(a=>a.classList.toggle('active',a.dataset.navId===id));const observer=new IntersectionObserver(es=>{const e=es.filter(x=>x.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(e)setActive(e.target.id)},{rootMargin:'-25% 0px -55% 0px',threshold:[.15,.4,.7]});sections.forEach(s=>observer.observe(s));setActive('overview');
-</script>

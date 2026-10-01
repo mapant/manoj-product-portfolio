@@ -1,1 +1,26 @@
-<section class="slide soft" id="tech"><div class="slide-inner tech-layout"><div class="translation"><div class="eyebrow">08 · TECH &amp; DATA</div><h2>PM TRANSLATION LAYER</h2>{[['01','Business Intent','Value | KPIs | Constraints'],['02','Product & Journeys','Users | Flows | Moments'],['03','Data & Intelligence','Models | Metrics | Quality'],['04','Workflow & Rules','States | Controls | Automation'],['05','Technology','APIs | Services | Integrations'],['06','Outcome Evidence','Adoption | Efficiency | Impact']].map(([n,t,tags])=><div class="translation-row"><b>{n}</b><strong>{t}</strong><span>{tags}</span></div>)}</div><div class="tech-right"><div class="tech-chain">{['Business','Product','Intelligence','Workflow','Technology','Outcome'].map((x,i)=><><span>{x}</span>{i<5&&<i>→</i>}</>)}</div><div class="architecture"><aside>External Systems<br/><small>NPCI · CKYC · GST · CIBIL</small></aside><div><b>API LAYER</b><strong>PRODUCT SERVICES</strong><b>DATA LAYER</b></div><aside>Enterprise Data<br/><small>BI · Reporting · Audit</small></aside></div><div class="toolbox"><b>KEY TOOLS &amp; TECHNOLOGIES</b><div>{['SQL','Power BI','Tableau','Looker Studio','API','Excel','Figma','JIRA','APIs','DFD/ER','Data Mapping'].map(x=><span>{x}</span>)}</div></div></div></div></section>
+---
+import { techLayers } from '../../data/portfolio.js';
+---
+<section class="slide page tech-page" id="tech" aria-labelledby="tech-title">
+  <div class="page-inner tech-layout">
+    <div class="tech-heading"><div><div class="eyebrow"><i></i> TECH &amp; DATA</div><h2 id="tech-title">Where product meets <em>technology, AI and data.</em></h2><p>Technical product management grounded in enterprise architecture, APIs, workflows, analytics, integrations and delivery collaboration.</p></div><aside class="translation-note"><b>✦</b><span><strong>PM Translation Layer</strong><small>I translate business intent into product behavior and technical context — connecting customer needs, business outcomes and the systems that execute them.</small></span></aside></div>
+    <div class="tech-content">
+      <div class="tech-layers">
+        {techLayers.map(([n, title, details], i) => <article class:list={['tech-layer', `tech-tone-${i + 1}`]}><b>{n}</b><span class="tech-icon">{['◎','♟','♧','⚙','▤','▥'][i]}</span><div><strong>{title}</strong><small>{details}</small></div><i>→</i></article>)}
+      </div>
+      <div class="technology-model"><div class="tech-model-head"><span>PRODUCT TECHNOLOGY MODEL</span><small>FROM BUSINESS REQUIREMENTS TO REAL-WORLD IMPACT</small></div>
+        <div class="tech-model-chain">{[['Business','Goals, needs and constraints'],['Product','Journeys, features and experiences'],['Intelligence','(AI / GenAI) Decisioning and insights'],['Workflow & Automation','Rules, approvals and orchestration'],['Technology','(APIs & Data) Integrations, architecture and data'],['Outcome','Adoption, efficiency and business value']].map(([name, sub]) => <article><b>{name}</b><small>{sub}</small></article>)}</div>
+        <div class="tech-capability-grid">{[
+          ['Customer needs','Business goals','Regulatory needs','Operating model'],
+          ['User journeys','Capabilities','Requirements','Roadmap / GTM'],
+          ['AI decisioning','GenAI use cases','Document intelligence','Knowledge workflows'],
+          ['Rules engines','Approvals','Exception handling','Reconciliation'],
+          ['APIs & integrations','Modular platforms','DFD / ER models','Field mapping'],
+          ['Adoption & usage','Efficiency & cost','Risk & compliance','Business impact']
+        ].map((items) => <ul>{items.map((item) => <li>{item}</li>)}</ul>)}</div>
+        <div class="architecture-grid"><aside class="data-source"><b>Data Sources</b>{['Core Systems','External APIs','Partner Systems','Documents','Real-time Data'].map((x, i) => <span>{['▤','♧','♙','▧','▣'][i]} &nbsp; {x}</span>)}</aside><div class="system-architecture"><div class="external-systems">{['Web / Mobile Apps','Partner Systems','Banks / NBFCs','Regulatory Systems','3rd Party Services'].map((x) => <span>{x}</span>)}</div><div class="arch-layer api-layer"><b>♧ &nbsp; API Layer</b><span>(REST APIs, Integrations, Security &amp; Access Control)</span></div><div class="arch-layer"><b>⬡ &nbsp; Product Services</b><span>(Business Logic, Workflows, AI/GenAI, Rules &amp; Compliance)</span></div><div class="arch-layer data-layer"><b>▤ &nbsp; Data Layer</b><span>(SQL, Data Models, DFD, ER Models, Analytics)</span></div></div><aside class="output-impact"><b>Outputs &amp; Impact</b>{['Operational Efficiency','Regulatory Compliance','Better User Experience','Cost Optimization','Business Growth'].map((x,i)=><span>{['⚙','⬡','♟','▣','▥'][i]} &nbsp; {x}</span>)}</aside></div>
+        <div class="tools-strip"><b>KEY TOOLS &amp; TECHNOLOGIES</b><div>{['SQL','Power BI','Tableau','Looker Studio','Excel','Figma','JIRA','APIs','DFD / ER','Data Mapping'].map((x, i) => <span><b>{['▤','▥','▥','◉','▧','✿','◈','☁','♧','▦'][i]}</b>{x}</span>)}</div></div>
+      </div>
+    </div>
+  </div>
+</section>

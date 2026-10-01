@@ -1,1 +1,19 @@
-<section class="slide" id="scope"><div class="slide-inner"><div class="section-title"><div class="eyebrow">05 · PM SCOPE</div><h2>FROM IDEAS TO REAL-WORLD IMPACT</h2><p>Product management across discovery, design, architecture, delivery and adoption.</p></div><div class="scope-grid">{[['INSIGHTS',['01 Discover','02 Define']],['SOLUTION DESIGN',['03 Design','04 Architect']],['EXECUTION',['05 Automate','06 AI/GenAI']],['ADOPTION & IMPACT',['07 Deliver','08 Scale & Adopt']]].map(([lane,cards])=><div class="lane"><h3>{lane}</h3>{cards.map((c,i)=><article><strong>{c}</strong><b>KEY OUTPUTS:</b><span>{i===0?'Figma prototypes · BRD · Journey maps':i===1?'API specs · DFD/ER · Architecture':i===2?'Automation rules · AI use cases':'JIRA execution · UAT · Adoption metrics'}</span></article>)}</div>)}</div><div class="branch-flow"><span>IDEAS</span><i>→</i><span>REQUIREMENTS</span><i>→</i><span>PRODUCT DESIGN</span><i>→</i><span>BUILD &amp; INTEGRATE</span><i>→</i><span>IMPACT</span></div></div></section>
+---
+import { scopeCards } from '../../data/portfolio.js';
+---
+<section class="slide page scope-page" id="scope" aria-labelledby="scope-title">
+  <div class="page-inner scope-layout">
+    <article class="dark-story scope-story">
+      <div class="eyebrow amber-line">PM SCOPE</div>
+      <h2 id="scope-title">Product management across strategy, systems and execution.</h2>
+      <p>End-to-end ownership from problem discovery and requirements to solution design, build, deployment and continuous improvement, across multiple stakeholders, systems and regulated environments.</p>
+      <div class="scope-principles"><span>♟ <b>Business &amp; Customer</b><small>Needs &amp; Outcomes</small></span><span>◎ <b>Strategy &amp; Planning</b><small>Vision &amp; Roadmap</small></span></div>
+      <div class="scope-cycle"><div class="cycle-row"><b>01<br/>Discover</b><i>→</i><b>02<br/>Define</b><i>→</i><b>03<br/>Design</b><i>→</i><b>04<br/>Architect</b></div><strong>⬡<br/>Product<br/>Management</strong><div class="cycle-row"><b>05<br/>Automate</b><i>→</i><b>06<br/>AI / GenAI</b><i>→</i><b>07<br/>Deliver</b><i>→</i><b>Scale<br/>&amp; Adopt</b></div></div>
+      <div class="scope-principles bottom"><span>♟ <b>Cross-functional</b><small>Collaboration</small></span><span>⬡ <b>Regulated &amp;</b><small>Compliant Delivery</small></span><span>▥ <b>Data-Driven</b><small>Decisions</small></span><span>⟳ <b>Continuous</b><small>Improvement</small></span></div>
+      <div class="story-caption">FROM IDEAS AND REQUIREMENTS TO REAL-WORLD IMPACT</div>
+    </article>
+    <div class="scope-cards">
+      {scopeCards.map((card, i) => <article class:list={['scope-card', `tone-${['blue','purple','green','amber','pink','blue','purple','green'][i]}`]}><div class="scope-card-head"><b>{card.n}</b><div><h3>{card.title}</h3><p>{card.description}</p></div><small>{card.eyebrow}</small></div><ul>{card.items.map((item) => <li>{item}</li>)}</ul><div class="scope-output"><span>{['♟','▤','◉','⚙','⚙','✦','🚀','▥'][i]}</span><div><b>KEY OUTPUTS:</b><small>{card.output}</small></div></div></article>)}
+    </div>
+  </div>
+</section>

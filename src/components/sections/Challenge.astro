@@ -1,6 +1,22 @@
-<section class="slide" id="challenge">
-  <div class="slide-inner challenge-layout">
-    <div class="challenge-copy"><div class="eyebrow">03 · CHALLENGE</div><h2>THE CHALLENGE</h2><p>Complex enterprise products rarely have a single problem.</p><div class="challenge-core">PROBLEM FRAMING<br/>BEFORE SOLUTION DESIGN</div></div>
-    <div class="challenge-grid">{[['01','WORKFLOW','Fragmented processes'],['02','INTEGRATION','Integration dependency'],['03','DECISION','Decision complexity'],['04','DATA','Data ambiguity'],['05','AUTOMATION','Manual operations'],['06','ALIGNMENT','Enterprise alignment']].map(([n,t,d],i)=><article class="challenge-card"><div class="card-index">{n}</div><h3>{t}</h3><p>{d}</p><div class="response"><b>PM RESPONSE</b><div class="steps">{['Frame','Design','Deliver','Measure'].map((s,j)=><span class={j===i%4?'active':''}>{s}</span>)}</div></div></article>)}</div>
+---
+import { challengeCards } from '../../data/portfolio.js';
+---
+<section class="slide page challenge-page" id="challenge" aria-labelledby="challenge-title">
+  <div class="page-inner challenge-layout">
+    <article class="dark-story challenge-story">
+      <div class="eyebrow amber-line">THE CHALLENGE</div>
+      <h2 id="challenge-title">Complex enterprise products rarely have <em>a single problem.</em></h2>
+      <p>The hard part is usually the coordination: multiple stakeholders, systems, data sources, business rules, exceptions, regulatory requirements and operational hand-offs have to behave as one product experience.</p>
+      <ul class="check-list"><li>Customer and business problem → measurable outcome</li><li>Product journey and workflow across multiple systems</li><li>AI / GenAI opportunity in real business processes</li><li>Automation and integration behavior with enterprise platforms</li><li>Data, operations, compliance and support readiness</li></ul>
+      <div class="challenge-illustration">
+        <div class="people-chip">♧ &nbsp; Customer Need &amp; Experience</div>
+        <div class="challenge-stack"><span>⚙ &nbsp; Business Processes</span><span>⬡ &nbsp; Technology &amp; Integrations</span><span>▤ &nbsp; Data &amp; Intelligence</span><span>⬡ &nbsp; Compliance &amp; Risk</span></div>
+        <div class="stack-side left"><b>People &amp; Stakeholders</b><b>Business Rules</b><b>External Systems</b></div><div class="stack-side right"><b>Operational Readiness</b><b>Measurable Outcomes</b><b>Scalable Growth</b></div>
+      </div>
+      <div class="story-caption">PROBLEM FRAMING BEFORE SOLUTION DESIGN</div>
+    </article>
+    <div class="challenge-cards">
+      {challengeCards.map((card, i) => <article class:list={['challenge-card', `tone-${['blue','purple','amber','blue','purple','amber'][i]}`]}><div class="challenge-card-top"><b>{card.n}</b><small>{card.type}</small></div><h3>{card.title}</h3><p>{card.description}</p><ul>{card.points.map((point) => <li>{point}</li>)}</ul><div class="pm-response"><span class="gear">⚙</span><div><b>PM RESPONSE</b><strong>Frame → Design → Deliver → Measure</strong><small>{card.response}</small></div></div></article>)}
+    </div>
   </div>
 </section>

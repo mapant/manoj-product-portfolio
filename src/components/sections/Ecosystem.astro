@@ -1,10 +1,24 @@
-<section class="slide soft" id="ecosystem">
-  <div class="slide-inner">
-    <div class="section-title"><div class="eyebrow">02 · ECOSYSTEM</div><h2>PRODUCT ECOSYSTEM</h2><p>Product is the coordination layer between business, technology and operations.</p></div>
-    <div class="ecosystem-layout">
-      <div class="ecosystem-intro"><ul><li>Coordinates business intent, technology and operations.</li><li>Turns complex requirements into reusable workflows.</li><li>Identifies AI &amp; GenAI opportunities with measurable value.</li><li>Uses automation to remove repeatable manual work.</li><li>Embeds security, compliance and governance by design.</li></ul></div>
-      <div class="hub"><div class="hub-core">Product<br/><small>Ecosystem</small></div>{['Business','AI & GenAI','Customer','Product','Automation','Data','Operations','Compliance'].map((item,i)=><div class={`hub-node hn${i+1}`}><b>{item}</b><span>{['Intent • Value • KPIs','Assist • Predict • Generate','Journeys • Needs • Feedback','Roadmap • Features • Adoption','Rules • STP • Scale','Signals • Models • Quality','Process • Controls • Service','Risk • Audit • Policy'][i]}</span></div>)}</div>
+---
+import { ecosystemCards } from '../../data/portfolio.js';
+---
+<section class="slide page ecosystem-page" id="ecosystem" aria-labelledby="ecosystem-title">
+  <div class="page-inner ecosystem-layout">
+    <article class="dark-story ecosystem-story">
+      <div class="eyebrow amber-line">PRODUCT ECOSYSTEM</div>
+      <h2 id="ecosystem-title">Product is the coordination layer between business, technology and operations.</h2>
+      <p>My work spans enterprise products where a feature is only one part of the solution. The product has to connect the user journey with workflows, data, integrations, controls, intelligence and operational readiness.</p>
+      <ul class="check-list"><li>Customer and business problem → measurable outcome</li><li>Product journey and workflow across multiple systems</li><li>AI / GenAI opportunity in real business processes</li><li>Automation and integration behavior with enterprise platforms</li><li>Data, operations, compliance and support readiness</li></ul>
+      <div class="ecosystem-illustration" aria-label="Product ecosystem diagram">
+        <div class="eco-orbit"><span class="orbit-tag tag-top">♧<b>Customer<br/>Experience</b></span><span class="orbit-tag tag-left">▥<b>Business<br/>Goals</b></span><span class="orbit-tag tag-right">▤<b>Technology<br/>&amp; Data</b></span><span class="orbit-tag tag-bottom-left">⚙<b>Operations<br/>&amp; Support</b></span><span class="orbit-tag tag-bottom-right">⬡<b>Compliance<br/>&amp; Risk</b></span><span class="orbit-core">⬡<b>Product</b></span></div>
+      </div>
+      <div class="story-caption">ENTERPRISE PRODUCT THINKING — FROM PROBLEM FRAMING<br/>TO PRODUCTION READINESS</div>
+    </article>
+    <div class="ecosystem-panel">
+      <div class="ecosystem-cards">
+        {ecosystemCards.map(({ title, color, intro, bullets }) => <article class:list={['eco-card', `tone-${color}`]}><span class="eco-icon">{title === 'Business' ? '▦' : title === 'Customer' ? '♙' : title === 'Product' ? '⬡' : title === 'AI & GenAI' ? '♧' : title === 'Automation' ? '⚙' : title === 'Data' ? '▤' : title === 'Operations' ? '♧' : '⬡'}</span><h3>{title}</h3><p>{intro}</p><ul>{bullets.map((line) => <li>{line}</li>)}</ul></article>)}
+        <div class="eco-center"><span>⬡</span><b>Product<br/>Ecosystem</b></div>
+      </div>
+      <div class="ecosystem-proof"><div><b>♟</b><strong>100%</strong><small>CROSS FUNCTIONAL<br/>COLLABORATION</small></div><div><b>▤</b><strong>MULTI-SYSTEM</strong><small>INTEGRATIONS<br/>&amp; DATA FLOWS</small></div><div><b>⚙</b><strong>COMPLIANT</strong><small>AND SECURE<br/>BY DESIGN</small></div><div><b>◎</b><strong>MEASURABLE</strong><small>BUSINESS OUTCOMES<br/>AND USER IMPACT</small></div></div>
     </div>
-    <div class="dark-footer"><strong>ENTERPRISE PRODUCT THINKING FROM PROBLEM FRAMING TO PRODUCTION READINESS</strong><div class="footer-grid"><span>100% CROSS FUNCTIONAL COLLABORATION</span><span>MULTI-SYSTEM INTEGRATIONS &amp; DATA FLOWS</span><span>COMPLIANT AND SECURE BY DESIGN</span><span>MEASURABLE BUSINESS OUTCOMES AND USER IMPACT</span></div></div>
   </div>
 </section>

@@ -1,25 +1,34 @@
-<section class="slide" id="overview">
-  <div class="slide-inner overview-grid">
-    <div>
-      <div class="eyebrow">PRODUCT STRATEGY | AI &amp; GENAI | ENTERPRISE PLATFORMS</div>
-      <h1>Building products from complex problems to measurable impact.</h1>
-      <p class="hero-copy">Senior Product Manager with 10+ years of experience across FinTech, Healthcare, Telecom and Enterprise IT combining product strategy, business analysis, technology, data and execution to build scalable enterprise products.</p>
-      <div class="metric-strip"><div><strong>10+</strong><span>YEARS EXPERIENCE</span></div><div><strong>12+</strong><span>CORE EXPERTISE</span></div><div><strong>4</strong><span>0-1 ENTERPRISE APPLICATIONS</span></div></div>
-      <div class="card-grid four">
-        <article class="soft-card blue"><b>Analytics</b><span>SQL | Power BI | Tableau</span><small>KPI Reporting</small></article>
-        <article class="soft-card green"><b>Business Analysis</b><span>Requirements | Process Design</span><small>Stakeholder Discovery</small></article>
-        <article class="soft-card purple"><b>Technical Product</b><span>APIs | Workflows | Data Flows</span><small>Solution Collaboration</small></article>
-        <article class="soft-card orange"><b>Product Management</b><span>Strategy | Roadmap | Delivery</span><small>Adoption | Outcomes</small></article>
+---
+import { expertise } from '../../data/portfolio.js';
+---
+<section class="slide page overview-page" id="overview" aria-labelledby="overview-title">
+  <div class="page-inner overview-layout">
+    <div class="overview-copy">
+      <div class="eyebrow"><i></i> PRODUCT STRATEGY · AI &amp; GENAI · ENTERPRISE PLATFORMS</div>
+      <h1 id="overview-title">Building products<br/>from <em>complex problems</em><br/><em>to measurable impact.</em></h1>
+      <p class="overview-lead">Senior Product Manager with <strong>10+ years of experience</strong> across FinTech, Healthcare, Telecom and Enterprise IT — combining product strategy, business analysis, technology, data and execution to build scalable enterprise products.</p>
+      <div class="overview-stats">
+        <article class="stat stat-blue"><span class="icon">◇</span><strong>10+</strong><small>YEARS EXPERIENCE</small></article>
+        <article class="stat stat-green"><span class="icon">▤</span><strong>12+</strong><small>ENTERPRISE APPLICATIONS</small></article>
+        <article class="stat stat-amber"><span class="icon">♧</span><strong>4</strong><small>INDUSTRY ECOSYSTEMS</small></article>
+        <article class="stat stat-purple"><span class="icon">▥</span><strong>0 → 1</strong><small>PRODUCT DEVELOPMENT</small></article>
+      </div>
+      <h2 class="mini-heading">CORE EXPERTISE</h2>
+      <div class="expertise-grid">
+        {expertise.map(([title, text], i) => <article class:list={['expertise-card', `tone-${i + 1}`]}><span class="expertise-icon">{['↗', '▤', '⚙', '✳', '♧', '⌘'][i]}</span><strong>{title}</strong><span>{text}</span></article>)}
       </div>
     </div>
-    <div class="panel operating-model">
-      <div class="panel-label">PRODUCT OPERATING MODEL</div>
-      <div class="orbit">
-        <div class="orbit-line l1"></div><div class="orbit-line l2"></div><div class="orbit-line l3"></div><div class="orbit-line l4"></div>
-        <div class="orbit-core">Product</div>
-        <div class="orbit-node n1 blue">Business</div><div class="orbit-node n2 purple">AI &amp; GenAI</div><div class="orbit-node n3 orange">Automation</div><div class="orbit-node n4 green">Data</div>
+    <div class="operating-model">
+      <div class="model-heading"><span class="cube-icon">◇</span><strong>PRODUCT OPERATING MODEL</strong><small>PROBLEM&nbsp; → &nbsp;PRODUCT&nbsp; → &nbsp;OUTCOME</small></div>
+      <div class="model-stage">
+        <svg class="model-connectors" viewBox="0 0 600 560" preserveAspectRatio="none" aria-hidden="true"><path d="M145 105L270 245M455 105L330 245M145 440L270 315M455 440L330 315"/><circle cx="145" cy="105" r="5"/><circle cx="455" cy="105" r="5"/><circle cx="145" cy="440" r="5"/><circle cx="455" cy="440" r="5"/></svg>
+        <article class="model-card model-business"><span>▦</span><div><strong>Business</strong><small>FinTech | Health Tech | Telecom</small></div><i class="bars"></i></article>
+        <article class="model-card model-ai"><span>▧</span><div><strong>AI &amp; GenAI</strong><small>AI Strategy | Copilot | LLMs</small></div><i class="brain-art">◉</i></article>
+        <article class="model-card model-auto"><span>⚙</span><div><strong>Automation</strong><small>API-First | Microservices | Cloud</small></div><i class="cloud-art">☁</i></article>
+        <article class="model-card model-data"><span>▤</span><div><strong>Data</strong><small>SQL | Power BI | KPI Frameworks</small></div><i class="bars"></i></article>
+        <div class="model-product"><span class="cube-icon">◇</span><strong>Product</strong><small>Manoj Pant – Technical<br/>Product Manager</small></div>
       </div>
-      <div class="process-banner"><span>STRATEGY<br><small>Vision | Priorities | Roadmap</small></span><i>→</i><span>DELIVERY<br><small>Build | Integrate | Deploy</small></span><i>→</i><span>ADOPTION &amp; OUTCOMES<br><small>Scale | Measure | Impact</small></span></div>
+      <div class="operating-steps"><div><b>◎ &nbsp; STRATEGY</b><small>Vision · Priorities · Roadmap</small></div><div><b>⚙ &nbsp; DELIVERY</b><small>Build · Integrate · Deploy</small></div><div><b>↗ &nbsp; ADOPTION &amp; OUTCOMES</b><small>Scale · Measure · Impact</small></div></div>
     </div>
   </div>
 </section>

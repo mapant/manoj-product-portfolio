@@ -1,1 +1,22 @@
-<section class="slide soft" id="metrics"><div class="slide-inner metrics-layout"><div class="metrics-left"><div class="eyebrow">06 · PRODUCT METRICS</div><h2>PRODUCT METRICS</h2><div class="metric-flow">{['Users','Behavior','Efficiency','Business Impact'].map((x,i)=><div><b>{x}</b>{i<3&&<i>→</i>}</div>)}</div><div class="north-star">NORTH-STAR METRIC <strong>VALUE REALIZED</strong></div></div><div class="metric-categories">{['Adoption','Activation','Efficiency','Quality & Risk','AI & Automation','Business Impact'].map((x,i)=><article><b>0{i+1}</b><h3>{x}</h3><p>{['Are users returning and expanding?','Do users reach the first value moment?','How much time and effort is removed?','Are controls accurate and reliable?','What work is automated or augmented?','What measurable value reaches the business?'][i]}</p></article>)}</div><div class="stat-stack">{['78%|User Adoption','62%|Activation Rate','45%|Effort Reduction','90%|Process Accuracy','68%|STP Rate','32%|Cost Reduction'].map(x=>{const [a,b]=x.split('|');return <div><strong>{a}</strong><span>{b}</span></div>})}<div class="formula-box"><b>KEY METRIC FORMULAS</b><span>Adoption = Active Users ÷ Eligible Users</span><span>Activation = Activated Users ÷ New Users</span><span>STP = Straight-through Cases ÷ Total Cases</span></div></div></div></section>
+---
+import { metricGroups, metricFormulas } from '../../data/portfolio.js';
+---
+<section class="slide page metrics-page" id="metrics" aria-labelledby="metrics-title">
+  <div class="page-inner metrics-layout">
+    <article class="dark-story metrics-story">
+      <div class="eyebrow orange-line">PRODUCT METRICS</div>
+      <h2 id="metrics-title">Measure the product,<br/><em>not just the release.</em></h2>
+      <p>I use product metrics to connect activity to adoption, efficiency, quality, control and business impact. Metrics help measure outcomes across the entire product lifecycle, from user adoption and workflow behavior to operational efficiency and business value.</p>
+      <div class="metric-signals"><div><b>♟</b><strong>Users</strong><small>Who is using<br/>the product?</small></div><div><b>▥</b><strong>Behavior</strong><small>How are they<br/>using it?</small></div><div><b>⚙</b><strong>Efficiency</strong><small>Is it reducing<br/>effort?</small></div><div><b>◎</b><strong>Business Impact</strong><small>Is it creating<br/>measurable value?</small></div></div>
+      <div class="metric-chart" aria-label="Illustrative adoption, efficiency and business impact trend"><div class="chart-bars">{[20,27,36,45,55,67,73,84,92,100].map((v) => <i style={`--bar:${v}%`}></i>)}</div><svg viewBox="0 0 460 150" preserveAspectRatio="none" aria-hidden="true"><path d="M5 130 C65 120 60 100 105 112S150 80 200 87S270 60 305 58S360 28 455 16"/><path d="M5 138 C65 140 70 126 115 130S160 108 205 112S275 80 320 75S380 55 455 45"/><path d="M5 124 C65 105 90 118 130 90S180 88 225 75S300 76 340 40S390 20 455 10"/></svg><div class="chart-legend"><span>Adoption</span><span>Efficiency</span><span>Business Impact</span></div></div>
+      <div class="north-star"><div><b>✦ &nbsp; North-star metric</b><span>Adoption → Usage → Workflow Behavior → Operational Efficiency → Business Outcome</span></div><div><b>◎ &nbsp; Goal</b><span>Data-driven decisions for continuous improvement</span></div></div>
+    </article>
+    <div class="metrics-content">
+      <div class="metrics-grid">
+        {metricGroups.map((group) => <article class:list={['metric-card', `tone-${group.color}`]}><div class="metric-card-text"><div class="metric-title"><span class="metric-symbol">{['♟','🚀','⚙','⬡','▣','▥'][Number(group.n) - 1]}</span><div><h3><small>{group.n}</small> {group.title}</h3><p>{group.question}</p></div></div><ul>{group.items.map((item) => <li>{item}</li>)}</ul></div><div class="metric-gauge"><div><strong>{group.value}</strong></div><b>{group.label}</b><small>{group.change}</small></div></article>)}
+      </div>
+      <div class="formula-strip"><b>▦<small>KEY METRIC<br/>FORMULAS</small></b>{metricFormulas.map(([label, formula]) => <div><strong>{label}</strong><span>{formula}</span></div>)}</div>
+      <div class="metric-categories"><b>METRIC<br/>CATEGORIES</b><span>♟ <strong>Adoption &amp; Usage</strong><small>Users, activation, journeys</small></span><span>⚙ <strong>Operational Efficiency</strong><small>Time, effort, automation</small></span><span>⬡ <strong>Quality &amp; Risk</strong><small>Control, compliance, SLA</small></span><span>▥ <strong>Business Impact</strong><small>Cost, productivity, revenue</small></span><span>▣ <strong>AI &amp; Automation</strong><small>Intelligence, STP, accuracy</small></span></div>
+    </div>
+  </div>
+</section>
