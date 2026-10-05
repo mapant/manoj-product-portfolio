@@ -1,0 +1,387 @@
+---
+import ProjectShell from './ProjectShell.astro';
+import AyuHealthBrand from './AyuHealthBrand.astro';
+import '../styles/docconnect-case-study.scss';
+import '../styles/docconnect-overview-prototype.scss';
+
+const navSections: [string, string][] = [
+  ['overview', 'Overview'], ['ecosystem', 'Ecosystem'], ['challenge', 'Challenge'],
+  ['strategy', 'Strategy'], ['pm-scope', 'PM Scope'], ['product-metrics', 'Product Metrics'],
+  ['portfolio', 'Portfolio'], ['tech-data', 'Tech & Data'], ['outcomes', 'Outcomes'],
+  ['product-leadership', 'Connect'],
+];
+const pages = [
+  { id: 'overview', cls: 'dc-overview', ratio: '1.9521', number: '01', caption: 'A CONNECTED ECOSYSTEM FOR DOCTORS, PATIENTS AND HEALTHCARE SERVICES' },
+  { id: 'ecosystem', cls: 'dc-ecosystem', ratio: '2.2828', number: '02', caption: 'DOCTORS · PATIENTS · HOSPITALS · SERVICES' },
+  { id: 'challenge', cls: 'dc-challenge', ratio: '2.2852', number: '03', caption: 'OFFLINE DEPENDENCE · LIMITED VISIBILITY · FRAGMENTED EXPERIENCE' },
+  { id: 'strategy', cls: 'dc-strategy', ratio: '2.289', number: '04', caption: 'REFER → TRACK → ENGAGE → GROW' },
+  { id: 'pm-scope', cls: 'dc-scope', ratio: '1.9296', number: '05', caption: 'STRATEGY · DISCOVERY · DELIVERY · ADOPTION · MEASUREMENT' },
+  { id: 'product-metrics', cls: 'dc-metrics', ratio: '1.9498', number: '06', caption: 'ACQUISITION · ACTIVATION · ENGAGEMENT · JOURNEY VISIBILITY' },
+  { id: 'portfolio', cls: 'dc-portfolio', ratio: '1.943', number: '07', caption: 'REFERRALS · JOURNEY TRACKING · ENGAGEMENT · SERVICES' },
+  { id: 'tech-data', cls: 'dc-tech', ratio: '1.9498', number: '08', caption: 'MODULAR APPS · INTEGRATIONS · DATA · OPERATIONAL VISIBILITY' },
+  { id: 'outcomes', cls: 'dc-outcomes', ratio: '1.9397', number: '09', caption: 'DOCTOR ADOPTION · REFERRAL GROWTH · JOURNEY VISIBILITY' },
+  { id: 'product-leadership', cls: 'dc-leadership', ratio: '1.942', number: '10', caption: 'HEALTHTECH PRODUCTS · PARTNERSHIPS · SHARED IMPACT' },
+];
+const ecosystemNodes = [
+  { tone: 'blue', icon: 'R', title: 'Referral Doctors', bullets: ['Patient referrals', 'Patient tracking', 'Doctor referrals', 'Incentives & earnings', 'Access healthcare services'], position: 'dc-node-1' },
+  { tone: 'green', icon: 'P', title: 'Patients', bullets: ['OPD consultations', 'IPD admissions', 'Discharge journey', 'Ambulance services', 'Care journey updates'], position: 'dc-node-2' },
+  { tone: 'amber', icon: 'B', title: 'BDMs / Sales', bullets: ['Digital leads from doctors', 'Doctor relationships', 'Follow-up and support', 'Engagement with doctors'], position: 'dc-node-3' },
+  { tone: 'pink', icon: 'A', title: 'Ayu Hospitals / Operations', bullets: ['Patient handling', 'Hospital coordination', 'OPD / IPD updates', 'Discharge information', 'Patient journey tracking'], position: 'dc-node-4' },
+  { tone: 'violet', icon: 'G', title: 'Growth / Product', bullets: ['Referral acquisition', 'Engagement & notifications', 'Doctor-to-doctor network', 'Incentive programs', 'Funnel analytics (referrals, OPD, IPD)'], position: 'dc-node-5' },
+  { tone: 'sky', icon: 'E', title: 'External Services', bullets: ['WhatsApp (notifications)', 'Google Business (practice profile)', 'Ambulance partners', 'Other healthcare services'], position: 'dc-node-6' },
+];
+const ecosystemOutcomes = [
+  ['blue', 'Stronger doctor engagement', 'Digital tools and continuous value beyond onboarding.'],
+  ['violet', 'Transparent patient journeys', 'Real-time visibility from referral to discharge.'],
+  ['green', 'Network-driven growth', 'Doctor-to-doctor referrals and measurable funnel.'],
+  ['amber', 'Integrated services', 'Access to ambulance, Google Business and healthcare services.'],
+];
+const challenges = [
+  { tone: 'blue', number: '01', title: 'Offline dependence', description: 'Doctor relationships relied heavily on BDM-led and offline interactions, with limited digital touchpoints.', bullets: ['Manual coordination', 'Phone / WhatsApp communication', 'Lack of self-serve digital platform'] },
+  { tone: 'green', number: '02', title: 'Patient journey opacity', description: 'Referring doctors lacked a single place to understand what happened after a patient referral.', bullets: ['No real-time patient status', 'Limited updates on OPD / IPD', 'Unclear discharge and follow-up'] },
+  { tone: 'pink', number: '03', title: 'Limited digital engagement', description: 'There were limited recurring reasons for doctors to return to the platform and remain active.', bullets: ['Few ongoing engagement triggers', 'Limited visibility into outcomes', 'No integrated services or incentives'] },
+  { tone: 'amber', number: '04', title: 'Network growth dependency', description: 'Doctor acquisition relied heavily on direct BDM relationships instead of network-led, doctor-to-doctor growth.', bullets: ['Dependent on field teams', 'Limited organic doctor referrals', 'Slower and less scalable growth'] },
+];
+const fragmentation = [
+  ['Delayed patient updates', 'Referring doctors had to follow up manually for patient status.'],
+  ['Lower repeat engagement', 'Limited reasons for doctors to return to the platform after initial use.'],
+  ['Slower network growth', 'Doctor acquisition remained dependent on direct BDM relationships.'],
+  ['Underutilised potential', 'Strong doctor relationships did not fully translate into measurable patient and business outcomes.'],
+];
+const strategyCards = [
+  { tone: 'blue', title: 'Digitise the referral journey', description: 'Allow doctors to create patient leads digitally and follow their progress.', bullets: ['Simple, digital patient referral flow', 'Easy tracking of referred patients', 'Seamless doctor app experience'] },
+  { tone: 'green', title: 'Create continuous visibility', description: 'Expose patient progression through referral, OPD, IPD and discharge stages.', bullets: ['Real-time patient journey updates', 'OPD / IPD / discharge status', 'Clear and transparent tracking'] },
+  { tone: 'violet', title: 'Build engagement loops', description: 'Use notifications, incentives, patient updates and healthcare services to create repeat value.', bullets: ['Notifications and WhatsApp updates', 'Incentives and earnings for referrals', 'Practice services and healthcare utilities'] },
+  { tone: 'amber', title: 'Turn the network into a growth channel', description: 'Enable doctor-to-doctor referrals with measurable acquisition and business outcomes.', bullets: ['Doctor-to-doctor referral capability', 'Incentive programs for network growth', 'Measure referral-led acquisition and impact'] },
+];
+const phases = [
+  { tone: 'blue', title: 'Product Strategy', description: 'Defined product vision, target users, use cases and roadmap aligned with Ayu Health’s business objectives.', bullets: ['Product vision & positioning', 'Target user personas', 'Use case definition', 'Product roadmap', 'Success metrics'] },
+  { tone: 'green', title: 'Requirement Gathering', description: 'Engaged with doctors, BDMs, hospital teams and other stakeholders to capture needs and prioritise requirements.', bullets: ['Stakeholder interviews', 'User requirements', 'Requirement prioritisation', 'Feature backlog', 'Process mapping (As-Is & To-Be)'] },
+  { tone: 'violet', title: 'Product Design & Documentation', description: 'Created PRD, BRD, FRD, user flows, wireframes and process flows to translate requirements into a clear product backlog.', bullets: ['PRD / BRD / FRD', 'User flows & journey maps', 'Wireframes (Figma)', 'Process flows (DFD)', 'UI/UX input & design reviews', 'UAT scenarios'] },
+  { tone: 'pink', title: 'Development & Execution', description: 'Worked with engineering teams using Agile sprints to build, test and deploy the product in phases across web and mobile platforms.', bullets: ['Sprint planning & backlog grooming', 'Feature development', 'Testing & UAT support', 'Release planning & deployment', 'Issue tracking (JIRA)'] },
+  { tone: 'amber', title: 'GTM & Adoption', description: 'Planned pilot launch, enabled doctor onboarding and drove awareness and adoption through training, incentives and feedback loops.', bullets: ['Pilot plan & rollout', 'Doctor onboarding and training', 'Incentive programs', 'Communication assets', 'Adoption tracking and feedback'] },
+  { tone: 'sky', title: 'Monitoring & Continuous Improvement', description: 'Tracked usage, referrals and engagement, analysed feedback and iterated on the product to improve outcomes and plan for scale.', bullets: ['Usage & referral analytics', 'Feedback analysis', 'Feature enhancements', 'Performance tracking', 'Continuous improvement roadmap'] },
+];
+const metricCategories = [
+  ['blue', 'A', 'Acquisition', 'Doctors reached and app installs.'],
+  ['green', 'A', 'Activation', 'Signup, onboarding, first successful referral.'],
+  ['violet', 'E', 'Engagement', 'Active usage, repeat visits, notifications interaction.'],
+  ['amber', 'R', 'Referral Conversion', 'Doctors creating referrals and onboarding via network flow.'],
+  ['sky', 'J', 'Journey Visibility', 'Referral to OPD / IPD / discharge tracking availability.'],
+  ['pink', 'S', 'Service Adoption', 'Usage of incentives, Google Business, ambulance and related tools.'],
+];
+const metricTakeaways = [
+  ['Acquisition Health', 'Helps evaluate channel effectiveness and optimize doctor outreach.'],
+  ['Engagement Quality', 'Informs features, notifications and workflow improvements.'],
+  ['Referral Efficiency', 'Highlights funnel drop-offs and guides conversion improvements.'],
+  ['Visibility Coverage', 'Ensures better journey transparency across the care continuum.'],
+  ['Ecosystem Learning', 'Product and operational insights guide roadmap and partnerships.'],
+];
+const funnel = [
+  ['blue', '01', 'Reached Doctors'], ['green', '02', 'Installed App'], ['violet', '03', 'Registered / Logged In'], ['amber', '04', 'Completed Onboarding'], ['pink', '05', 'Created First Referral'],
+];
+const signals = [
+  ['Active doctors trend', 'Increasing over time'], ['Repeat usage', 'Recurring monthly and weekly activity'],
+  ['Notification engagement', 'Drives return visits'], ['Referral follow-up behavior', 'Sustained usage after first referral'],
+  ['Retention health', 'Monitored through repeat journey tracking and return actions'],
+];
+const workflowFeatures = [
+  ['blue', '↗', 'Reached Doctors'], ['green', '▤', 'Installed Tracking'], ['violet', '◎', 'Doctor Referrals'],
+  ['amber', '₹', 'Incentives & Earnings'], ['sky', 'G', 'Google Business'], ['pink', '+', 'Ambulance Booking'],
+];
+const operationalMetrics = ['Journey update timeliness', 'Referral-to-status visibility', 'Support responsiveness', 'Doctor satisfaction signals', 'Data completeness / tracking coverage', 'Operational coordination quality'];
+const modules = [
+  ['blue', '↗', 'Patient Referrals', 'Create, track and manage patient referrals.'],
+  ['green', '◷', 'Patient Tracking', 'Follow patient journey across OPD, IPD and discharge.'],
+  ['violet', '₹', 'Incentives & Earnings', 'Track incentives, earnings and referral performance.'],
+  ['amber', '◎', 'Doctor Network', 'Discover and collaborate with other doctors.'],
+  ['pink', '+', 'Ambulance Services', 'Book ambulance for patients directly from the app.'],
+  ['sky', 'G', 'Google Business', 'Manage practice profile and digital presence.'],
+];
+const uxHighlights = [
+  ['01', 'Mobile-first design', 'Optimised for on-the-go access with a clean and modern interface.'],
+  ['02', 'Quick actions', 'Refer patients, view updates and track earnings in a few taps.'],
+  ['03', 'Personalised dashboard', 'Relevant information and insights for each doctor.'],
+  ['04', 'Real-time notifications', 'Patient updates, referral status and incentives.'],
+];
+const journeySteps = [
+  ['blue', '01', 'Refer Patient', 'Create and share patient referrals.'], ['green', '02', 'Track Journey', 'Follow status across OPD, IPD and discharge.'],
+  ['violet', '03', 'Earn Incentives', 'Get rewarded for successful referrals.'], ['amber', '04', 'Grow Network', 'Connect with other doctors and collaborate.'],
+  ['pink', '05', 'Access Services', 'Book ambulance and other healthcare services.'],
+];
+const integrations = [
+  ['blue', 'G', 'Google Business', 'Manage practice profile, visibility and reviews.'],
+  ['pink', '+', 'Ambulance Booking', 'Integrate and support patient ambulance requests.'],
+  ['sky', '•••', 'Communication Services', 'Notifications, WhatsApp and in-app alerts for doctors and patients.'],
+  ['amber', '₹', 'Incentives & Earnings', 'Track referral rewards and earnings visibility for doctors.'],
+  ['violet', '↗', 'Analytics & Reporting', 'Adoption, referral and journey dashboards.'],
+  ['green', '✓', 'Security & Governance', 'Access control, permissions and audit visibility.'],
+];
+const techStack = [
+  ['◉', 'PostgreSQL', 'Relational database'], ['Py', 'Python', 'Scripting & automation'],
+  ['▥', 'Big Data', 'Data processing & analytics'], ['▮', 'Google Analytics', 'Web & user analytics'],
+  ['◌', 'Looker Studio', 'Dashboards & reporting'], ['▤', 'SQL Reporting', 'Reporting & query analysis'],
+  ['↔', 'REST APIs', 'Integration & services'], ['◇', 'JIRA', 'Project & sprint management'],
+  ['◈', 'Figma', 'UI/UX design & prototyping'], ['•', 'GitHub', 'Source control & collaboration'],
+];
+const outcomeMetrics = [
+  ['blue', '1,150+', 'Doctors installed / logged in'],
+  ['green', '400+', 'Monthly active users (MAU)'],
+  ['violet', '170+', 'Weekly active users (WAU)'],
+  ['pink', '27+', 'Doctor referrals in pilot'],
+  ['amber', '7', 'Newly onboarded doctors through referral flow'],
+];
+const adoption = [['120+', 'Pilot Start', '15%'], ['280+', 'Month 1', '30%'], ['520+', 'Month 2', '48%'], ['780+', 'Month 3', '67%'], ['980+', 'Month 4', '82%'], ['1,150+', 'Month 5', '96%']];
+const ecosystemValue = [
+  ['Doctors', 'Higher engagement, visibility and earnings opportunities'], ['Patients', 'Better coordinated care and improved patient experience'],
+  ['BDMs / Sales', 'Stronger doctor relationships and network growth'], ['Ayu Hospitals / Operations', 'Improved referral inflow and operational visibility'],
+  ['Growth / Product', 'Validated product model with clear path to scale'],
+];
+const leadershipCards = [
+  { tone: 'blue', icon: '↗', title: 'Build Similar Platforms', description: 'Discuss ideas or requirements for doctor engagement, referral platforms or patient journey solutions.', bullets: ['Product discovery & vision', 'Use case definition', 'Solution design and roadmap'] },
+  { tone: 'green', icon: '▮', title: 'Healthcare Product Consulting', description: 'Support in product strategy, feature prioritisation and go-to-market for digital health products.', bullets: ['Product strategy & positioning', 'Feature and roadmap planning', 'Market and user insights'] },
+  { tone: 'violet', icon: '◎', title: 'Data-Driven Healthcare Solutions', description: 'Leverage data and analytics to improve doctor and patient outcomes.', bullets: ['Data strategy and use cases', 'Metrics and outcome framework', 'Analytics-driven product decisions'] },
+  { tone: 'amber', icon: '⌁', title: 'Collaborations & Opportunities', description: 'Open to collaborations with healthcare organisations, startups and product teams.', bullets: ['Product partnerships', 'Advisory and consulting', 'Exploring new opportunities'] },
+];
+---
+
+<ProjectShell
+  title="Ayu DocConnect"
+  previous={{ title: 'Integrated Channels Suite', href: '/projects/integrated-channels' }}
+  next={{ title: 'Ayu Sales Intelligence & Field Force Optimization', href: '/projects/ayu-sales-intelligence' }}
+  navSections={navSections}
+  ctaText="View Projects"
+  ctaHref="/#projects"
+  showProjectFooter={false}
+  viewportFitPrototype={true}
+  profileImage="/profile/portrait.png"
+>
+  <main class="docconnect-case">
+    <!-- 01 · Overview -->
+    <section id="overview" class="case-page dc-overview" style={`--reference-ratio:${pages[0].ratio}`}>
+      <div class="case-page-inner">
+        <AyuHealthBrand className="dc-overview-brand" showDescriptor={true} />
+        <div class="dc-overview-main">
+          <div class="dc-overview-copy">
+            <div class="case-kicker"><i></i> Ayu DocConnect</div>
+            <h1><em>Ayu DocConnect</em> Turn doctor relationships into a connected digital care journey.</h1>
+            <p class="case-lede">Ayu DocConnect is a doctor engagement, referral and patient journey platform that brings referral doctors, patient journeys and healthcare services into one connected digital experience, enabling stronger collaboration and better patient care.</p>
+            <div class="dc-journey-strip"><span>Refer digitally</span><b>→</b><span>Track journeys</span><b>→</b><span>Stay engaged</span></div>
+          </div>
+          <div class="dc-hero-art">
+            <img class="dc-doctor-portrait" src="/ayu-docconnect/doctor-portrait.png" alt="Doctor using the Ayu DocConnect workspace" />
+            <div class="dc-device-card"><small>AYU DOCCONNECT</small><strong>Doctor workspace</strong><div class="dc-device-actions"><span>Refer<br/>patient</span><span>Track<br/>journey</span><span>Engage</span></div><div class="dc-care-line"><i></i><i></i><i></i><i></i></div><b>Referral <i>→</i> OPD <i>→</i> IPD <i>→</i> Discharge</b></div>
+            <div class="dc-hero-tag dc-tag-hospital"><b>Hospitals</b><span>Connected care</span></div>
+            <div class="dc-hero-tag dc-tag-patient"><b>Patients</b><span>Journey visibility</span></div>
+            <div class="dc-hero-tag dc-tag-doctor"><b>Referral doctors</b><span>Stronger relationships</span></div>
+          </div>
+        </div>
+        <div class="dc-value-row">
+          <article class="dc-value-card tone-blue"><span class="dc-symbol">↗</span><div><h2>Refer Digitally</h2><p>Enable referral doctors to refer patients easily and keep them within the Ayu Health network.</p></div></article>
+          <article class="dc-value-card tone-green"><span class="dc-symbol">▤</span><div><h2>Track Patient Journeys</h2><p>Provide real-time visibility across the patient journey from referral to discharge.</p></div></article>
+          <article class="dc-value-card tone-amber"><span class="dc-symbol">◎</span><div><h2>Stay Engaged with Ayu</h2><p>Deliver relevant information, updates and opportunities to strengthen long-term relationships with doctors.</p></div></article>
+        </div>
+        <div class="case-page-foot"><span>{pages[0].number}</span><i></i><b>{pages[0].caption}</b></div>
+      </div>
+    </section>
+
+    <!-- 02 · Product ecosystem -->
+    <section id="ecosystem" class="case-page dc-ecosystem" style={`--reference-ratio:${pages[1].ratio}`}>
+      <div class="case-page-inner">
+        <article class="dc-dark-story dc-eco-story">
+          <div class="case-kicker"><i></i> Product Ecosystem</div>
+          <h2>A connected ecosystem enabling <em>doctor engagement, patient care journeys and network growth.</em></h2>
+          <p>Ayu DocConnect brings together referral doctors, patients, hospitals, sales teams and external services into a single digital ecosystem — connecting referrals, care journeys, engagement, incentives and growth across the Ayu Health network.</p>
+          <ul class="dc-check-list"><li>End-to-end doctor and patient journey connectivity</li><li>Digital referrals and real-time journey visibility</li><li>Engagement, incentives and network-driven growth</li><li>Integration with healthcare services and external platforms</li></ul>
+          <div class="dc-eco-loop"><small>DOCTOR ECOSYSTEM</small><div><span><b>01</b>Engage<br/>doctors</span><i></i><span><b>02</b>Enable<br/>patient care</span><i></i><span><b>03</b>Grow<br/>network</span></div></div>
+        </article>
+        <div class="dc-ecosystem-content">
+          <div class="dc-network-map">
+            <svg viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true"><path d="M200 75 L500 300 L800 75 M200 300 L500 300 L800 300 M200 525 L500 300 L800 525"/><circle cx="500" cy="300" r="8"/></svg>
+            {ecosystemNodes.map(node => <article class:list={['dc-network-node', `tone-${node.tone}`, node.position]}><span class="dc-node-icon">{node.icon}</span><div><h3>{node.title}</h3><ul>{node.bullets.map(bullet => <li>{bullet}</li>)}</ul></div></article>)}
+            <div class="dc-network-hub"><span>A</span><strong>Ayu<br/>DocConnect</strong><small>Doctor Engagement &amp;<br/>Referral Platform</small></div>
+          </div>
+          <div class="dc-outcome-strip"><small>KEY ECOSYSTEM OUTCOMES</small><div>{ecosystemOutcomes.map(([tone, title, text]) => <article class={`tone-${tone}`}><b>{title}</b><span>{text}</span></article>)}</div></div>
+        </div>
+        <div class="case-page-foot"><span>{pages[1].number}</span><i></i><b>{pages[1].caption}</b></div>
+      </div>
+    </section>
+
+    <!-- 03 · The challenge -->
+    <section id="challenge" class="case-page dc-challenge" style={`--reference-ratio:${pages[2].ratio}`}>
+      <div class="case-page-inner">
+        <article class="dc-dark-story dc-challenge-story">
+          <div class="case-kicker"><i></i> The Challenge</div>
+          <h2>Doctor relationships existed, but the <em>journey was fragmented.</em></h2>
+          <p>Ayu Health had strong relationships with referral doctors, but the engagement, referral and patient journey were largely offline and fragmented across people, systems and touchpoints. Referring doctors lacked a single digital platform to refer patients, track progress and stay engaged with Ayu.</p>
+          <ul class="dc-check-list"><li>Limited digital engagement and visibility for doctors</li><li>Fragmented patient journey across multiple touchpoints</li><li>Heavy dependence on BDM-led, offline interactions</li><li>Network growth reliant on direct relationships</li></ul>
+          <div class="dc-fragmented-flow"><small>FROM FRAGMENTED INTERACTIONS …</small><div><span>Offline<br/>interactions</span><i></i><span>Multiple<br/>touchpoints</span><i></i><span>Limited<br/>visibility</span><i></i><span>Slower network<br/>growth</span></div></div>
+        </article>
+        <div class="dc-challenge-main">
+          <div class="dc-challenge-cards">{challenges.map(item => <article class={`dc-challenge-card tone-${item.tone}`}><span class="dc-challenge-number">{item.number}</span><small class="dc-challenge-label">THE FRICTION</small><h3>{item.title}</h3><p>{item.description}</p><ul>{item.bullets.map(bullet => <li>{bullet}</li>)}</ul></article>)}</div>
+          <div class="dc-challenge-photo"><img class="dc-challenge-doctor" src="/ayu-docconnect/doctor-portrait-challenge.png" alt="Doctor viewing a patient's referral journey"/><b class="dc-photo-title">DOCTOR<br/>ENGAGEMENT</b><b class="dc-photo-callout dc-photo-referred">Patient referred</b><b class="dc-photo-callout dc-photo-track">Track journey</b><b class="dc-photo-callout dc-photo-updates">OPD / IPD updates</b><b class="dc-photo-callout dc-photo-incentives">Earn incentives</b></div>
+          <div class="dc-impact-row"><small>IMPACT OF FRAGMENTATION</small><div>{fragmentation.map(([title, text]) => <article><b>{title}</b><span>{text}</span></article>)}</div></div>
+        </div>
+        <div class="case-page-foot"><span>{pages[2].number}</span><i></i><b>{pages[2].caption}</b></div>
+      </div>
+    </section>
+
+    <!-- 04 · Product strategy -->
+    <section id="strategy" class="case-page dc-strategy" style={`--reference-ratio:${pages[3].ratio}`}>
+      <div class="case-page-inner">
+        <article class="dc-dark-story dc-strategy-story">
+          <div class="case-kicker"><i></i> Product Strategy</div>
+          <h2>Turn referral activity into an <em>engagement and growth loop.</em></h2>
+          <p>A focused product strategy to digitise referrals, create continuous visibility, build engagement and scale through the doctor network.</p>
+          <ul class="dc-check-list"><li>Digitise the end-to-end referral journey</li><li>Create continuous visibility into patient progression</li><li>Build engagement loops with incentives and services</li><li>Enable doctor-to-doctor referrals for network growth</li></ul>
+          <div class="dc-strategy-outcomes"><small>STRATEGY OUTCOMES</small><div><span>More Doctor<br/>Referrals</span><span>Higher<br/>Engagement</span><span>Stronger<br/>Network</span><span>Measurable<br/>Impact</span></div></div>
+        </article>
+        <div class="dc-strategy-main">
+          <div class="dc-strategy-cards">{strategyCards.map((item, index) => <article class={`tone-${item.tone}`}><span class="dc-card-num">0{index + 1}</span><b>{item.title}</b><p>{item.description}</p><ul>{item.bullets.map(bullet => <li>{bullet}</li>)}</ul></article>)}</div>
+          <div class="dc-strategy-orbit"><div class="dc-orbit-center"><b>A</b><strong>AYU<br/>DOCCONNECT</strong><small>REFERRAL &amp;<br/>ENGAGEMENT LOOP</small></div><i class="orbit-dot dot-one">01</i><i class="orbit-dot dot-two">02</i><i class="orbit-dot dot-three">03</i><i class="orbit-dot dot-four">04</i><i class="dc-orbit-arrow arrow-one">›</i><i class="dc-orbit-arrow arrow-two">›</i><i class="dc-orbit-arrow arrow-three">›</i><i class="dc-orbit-arrow arrow-four">›</i></div>
+          <div class="dc-priorities"><small>KEY STRATEGIC PRIORITIES</small><div><span>Seamless doctor experience</span><span>Real-time journey visibility</span><span>Repeat engagement</span><span>Network-led growth</span><span>Measurable business outcomes</span></div></div>
+        </div>
+        <div class="case-page-foot"><span>{pages[3].number}</span><i></i><b>{pages[3].caption}</b></div>
+      </div>
+    </section>
+
+    <!-- 05 · Product management scope -->
+    <section id="pm-scope" class="case-page dc-scope" style={`--reference-ratio:${pages[4].ratio}`}>
+      <div class="case-page-inner">
+        <AyuHealthBrand className="dc-section-brand" showDescriptor={true} />
+        <article class="dc-dark-story dc-scope-story">
+          <div class="case-kicker"><i></i> Product Management Scope</div>
+          <h2>Drive end-to-end product execution to create <em>real impact.</em></h2>
+          <p>I drove the end-to-end product scope across discovery, definition, design, delivery, adoption and measurement to build Ayu DocConnect—a doctor engagement, referral and patient journey platform that strengthened doctor relationships, improved patient visibility and created measurable value across the Ayu Health ecosystem.</p>
+          <ul class="dc-check-list"><li>Aligned product vision with business goals</li><li>Worked closely with doctors, hospitals, operations and growth teams</li><li>Delivered a usable, scalable and measurable product</li><li>Drove adoption and continuous improvement</li></ul>
+        </article>
+        <div class="dc-scope-main">
+          <div class="dc-phase-track">{phases.map((phase, index) => <span class={`tone-${phase.tone}`}><b>0{index + 1}</b>{index < 5 && <i>⟶</i>}</span>)}</div>
+          <div class="dc-phase-grid">{phases.map((phase, index) => <article class={`dc-phase-card tone-${phase.tone}`}><div class="dc-phase-top"><b>0{index + 1}</b><span>{phase.title}</span></div><p>{phase.description}</p><small>KEY DELIVERABLES</small><ul>{phase.bullets.map(bullet => <li>{bullet}</li>)}</ul></article>)}</div>
+        </div>
+        <div class="dc-scope-result">
+          <i class="dc-scope-trophy" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h10v3h4v2c0 3.1-2.2 5.7-5.2 6.3A5 5 0 0 1 13 16v2h4v3H7v-3h4v-2a5 5 0 0 1-2.8-1.7C5.2 13.7 3 11.1 3 8V6h4V3Zm0 5H5c0 1.8 1.1 3.4 2.7 4.1A5 5 0 0 1 7 10V8Zm12 0h-2v2c0 .7-.2 1.4-.7 2.1A4.5 4.5 0 0 0 19 8Z"/></svg></i>
+          <div class="dc-scope-impact-copy"><b>IMPACT THROUGH<br/>PRODUCT LEADERSHIP</b><span>Delivered a usable, scalable and measurable doctor engagement and patient journey platform from concept to adoption.</span></div>
+          <div class="dc-scope-benefits">{['Better alignment across stakeholders', 'Faster time to value', 'Higher adoption', 'Strong foundation for future scale'].map((benefit, index) => <article><i aria-hidden="true"><svg viewBox="0 0 24 24">{index === 0 && <path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 2c-2.7 0-6 1.3-6 3v2h12v-2c0-1.7-3.3-3-6-3Zm8 0c-.4 0-.9 0-1.4.1 1.4.8 2.4 1.8 2.4 2.9v2h5v-2c0-1.7-3.3-3-6-3Z"/>}{index === 1 && <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 5v5.4l3.3 2-.9 1.5-4.4-2.7V7h2Z"/>}{index === 2 && <path d="M4 19h16v2H2V3h2v16Zm3-2V9h3v8H7Zm5 0V5h3v12h-3Zm5 0v-6h3v6h-3Z"/>}{index === 3 && <path d="M12 2 14 4l3-.2 1.1 2.8 2.6 1.4-.8 2.9 1.4 2.6-2 2.2.2 3-2.8 1.1-1.4 2.6-2.9-.8-2.6 1.4-2.2-2-3 .2L5.5 18l-2.6-1.4.8-2.9-1.4-2.6 2-2.2-.2-3 2.8-1.1 1.4-2.6 2.9.8L12 2Zm0 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/>}</svg></i><span>{benefit}</span></article>)}</div>
+        </div>
+        <div class="case-page-foot"><span>{pages[4].number}</span><i></i><b>{pages[4].caption}</b></div>
+      </div>
+    </section>
+
+    <!-- 06 · Product metrics -->
+    <section id="product-metrics" class="case-page dc-metrics" style={`--reference-ratio:${pages[5].ratio}`}>
+      <div class="case-page-inner">
+        <AyuHealthBrand className="dc-section-brand" showDescriptor={true} />
+        <article class="dc-dark-story dc-metrics-story">
+          <div class="case-kicker"><i></i> Product Metrics</div>
+          <h2>Measuring the product signals that drive <em>adoption, engagement and journey visibility.</em></h2>
+          <p>Ayu DocConnect was managed through a balanced product metrics framework covering acquisition, activation, engagement, referral conversion, patient journey visibility, service adoption and operational responsiveness.</p>
+          <ul class="dc-check-list"><li>Doctor acquisition and activation</li><li>Repeat usage and engagement depth</li><li>Referral journey conversion</li><li>Patient journey visibility</li><li>Feature and service adoption</li></ul>
+          <div class="dc-north-star"><small>NORTH STAR</small><b>Active doctors creating and tracking patient referrals through a connected digital journey.</b></div>
+        </article>
+        <div class="dc-metrics-main">
+          <section class="dc-metric-framework"><header><h3>Metric Framework</h3><p>Core product metric categories used to measure, evaluate and improve Ayu DocConnect.</p></header><div>{metricCategories.map(([tone, icon, title, description]) => <article class={`tone-${tone}`}><b>{icon}</b><strong>{title}</strong><span>{description}</span></article>)}</div></section>
+          <div class="dc-metric-middle">
+            <section class="dc-metric-panel dc-acquisition"><h3>Doctor Acquisition &amp; Activation Funnel</h3><div class="dc-funnel-steps">{funnel.map(([tone, number, label]) => <article class={`tone-${tone}`}><b>{number}</b><span>{label}</span></article>)}</div><small>Used to identify drop-offs in onboarding and improve first-value delivery.</small></section>
+            <section class="dc-metric-panel dc-signals"><h3>Engagement &amp; Retention Signals</h3>{signals.map(([label, detail], index) => <article><b>{label}</b><i class={`dc-spark spark-${index + 1}`}></i><small>{detail}</small></article>)}</section>
+          </div>
+          <div class="dc-metric-bottom">
+            <section class="dc-metric-panel dc-feature-adoption"><h3>Feature &amp; Workflow Adoption</h3><div>{workflowFeatures.map(([tone, icon, label]) => <article class={`tone-${tone}`}><b>{icon}</b><span>{label}</span><i></i></article>)}</div><small>Adoption tracked to understand which workflows create repeat value for doctors.</small></section>
+            <section class="dc-metric-panel dc-experience"><h3>Operational &amp; Experience Metrics</h3><div>{operationalMetrics.map((item, index) => <article><b>{['◷', '◉', '◌', '★', '▤', '⚙'][index]}</b><span>{item}</span></article>)}</div><small>Combined product and operational signals helped prioritise enhancements across doctor workflows and patient journey transparency.</small></section>
+          </div>
+        </div>
+        <div class="dc-metric-takeaways">
+          <b>Key Takeaways for<br/>Product Decision-Making</b>
+          {metricTakeaways.map(([title, description], index) => <article class={`tone-${['blue', 'green', 'violet', 'amber', 'pink'][index]}`}>
+            <i aria-hidden="true"><svg viewBox="0 0 24 24">
+              {index === 0 && <path d="M3 20h18v2H1V2h2v18Zm3-2v-7h3v7H6Zm5 0V5h3v13h-3Zm5 0v-9h3v9h-3Z"/>}
+              {index === 1 && <path d="M5 2h12l4 4v16H5V2Zm2 2v16h12V7h-3V4H7Zm2 5h8v2H9V9Zm0 4h8v2H9v-2Zm0 4h6v2H9v-2Z"/>}
+              {index === 2 && <path d="M2 3 22 2l-7 20-4-8-9-4 20-8-14 10 4 2 4-11L2 3Z"/>}
+              {index === 3 && <path d="M12 4C6 4 2 12 2 12s4 8 10 8 10-8 10-8-4-8-10-8Zm0 13a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>}
+              {index === 4 && <path d="M12 2 14 4l3-.2 1.1 2.8 2.6 1.4-.8 2.9 1.4 2.6-2 2.2.2 3-2.8 1.1-1.4 2.6-2.9-.8-2.6 1.4-2.2-2-3 .2L5.5 18l-2.6-1.4.8-2.9-1.4-2.6 2-2.2-.2-3 2.8-1.1 1.4-2.6 2.9.8L12 2Zm0 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/>}
+            </svg></i>
+            <span><strong>{title}</strong><small>{description}</small></span>
+          </article>)}
+        </div>
+        <div class="case-page-foot"><span>{pages[5].number}</span><i></i><b>{pages[5].caption}</b></div>
+      </div>
+    </section>
+
+    <!-- 07 · Portfolio -->
+    <section id="portfolio" class="case-page dc-portfolio" style={`--reference-ratio:${pages[6].ratio}`}>
+      <div class="case-page-inner">
+        <article class="dc-dark-story dc-portfolio-story">
+          <div class="case-kicker"><i></i> 07 / Portfolio</div>
+          <h2>A connected product experience for <em>doctors.</em></h2>
+          <p>Ayu DocConnect brings together essential tools and services into a single, easy-to-use platform, enabling doctors to manage patient referrals, track journeys, earn incentives and access integrated healthcare services.</p>
+          <ul class="dc-check-list"><li>Designed for real-world clinical workflows</li><li>Simple, intuitive and mobile-first experience</li><li>Integrated with key healthcare services</li><li>Built to drive engagement, referrals and network growth</li></ul>
+          <div class="dc-portfolio-image"><div class="dc-doctor-small"><span>DOCTOR WORKSPACE</span><b>Refer · Track · Engage</b></div><i>+</i><div class="dc-phone-shape"><b>A</b><span></span><span></span><span></span></div></div>
+        </article>
+        <div class="dc-portfolio-main">
+        <section class="dc-module-section"><header><h3>Key product modules</h3><p>A unified platform with multiple capabilities to support doctors across the entire patient engagement journey.</p></header><div class="dc-modules">{modules.map(([tone, icon, title, description]) => <article class={`tone-${tone}`}><b>{icon}</b><h4>{title}</h4><p>{description}</p></article>)}</div></section>
+          <div class="dc-product-showcase">
+            <section class="dc-app-previews"><header><h3>Doctor app experience</h3><span>ILLUSTRATIVE PORTFOLIO RECONSTRUCTION</span></header><div class="dc-phone-row">
+              <div class="dc-phone dc-phone-home"><i class="dc-phone-island"></i><small>GOOD MORNING</small><b>Doctor workspace</b><span class="dc-doctor-avatar">DR</span><div class="dc-phone-tiles"><span>Refer patient</span><span>My patients</span><span>My earnings</span><span>Doctor network</span><span>Ambulance services</span><span>Google Business</span></div><footer>Recent activity<i></i><i></i></footer></div>
+              <div class="dc-phone"><i class="dc-phone-island"></i><small>MY PATIENTS</small><b>Journey status</b><div class="dc-tabs"><span>Active</span><span>Completed</span></div><div class="dc-patient-row"><i></i><span>Referral received<small>OPD follow-up</small></span><b>In progress</b></div><div class="dc-patient-row"><i></i><span>Journey update<small>Admission status</small></span><b>Updated</b></div><div class="dc-patient-row"><i></i><span>Follow-up<small>Discharge journey</small></span><b>Upcoming</b></div></div>
+              <div class="dc-phone"><i class="dc-phone-island"></i><small>MY EARNINGS</small><b>Referral activity</b><div class="dc-earnings-card"><span>Overview</span><strong>Referral rewards</strong><i></i></div><div class="dc-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="dc-phone-caption">Referral · service · history</span></div>
+            </div></section>
+            <section class="dc-ux-highlights"><header><h3>User experience highlights</h3><p>A clean, intuitive and mobile-first experience designed for busy doctors.</p></header><div>{uxHighlights.map(([number, title, text]) => <article><b>{number}</b><strong>{title}</strong><span>{text}</span></article>)}</div></section>
+          </div>
+          <section class="dc-doctor-journey"><header><h3>Doctor Journey on Ayu DocConnect</h3><p>A seamless end-to-end experience from referral to follow-up and engagement.</p></header><div>{journeySteps.map(([tone, number, title, text], index) => <article class={`tone-${tone}`}><b>{number}</b><strong>{title}</strong><span>{text}</span>{index < 4 && <i>→</i>}</article>)}</div></section>
+        </div>
+        <div class="case-page-foot"><span>{pages[6].number}</span><i></i><b>{pages[6].caption}</b></div>
+      </div>
+    </section>
+
+    <!-- 08 · Tech & data -->
+    <section id="tech-data" class="case-page dc-tech" style={`--reference-ratio:${pages[7].ratio}`}>
+      <div class="case-page-inner">
+        <article class="dc-dark-story dc-tech-story">
+          <div class="case-kicker"><i></i> Tech &amp; Data</div>
+          <h2>Modern, scalable and secure <em>Technology backbone.</em></h2>
+          <p>Ayu DocConnect uses a modular, integration-ready platform to support doctor engagement, patient referrals, patient journey visibility, service integrations, analytics and reporting across the Ayu Health ecosystem.</p>
+          <ul class="dc-check-list"><li>Modular and integration-ready product architecture</li><li>Referral and patient-journey data capture</li><li>Google Analytics and Looker Studio reporting</li><li>Operational visibility across doctor and service workflows</li><li>Secure, role-based and scalable foundation</li></ul>
+          <div class="dc-platform-foundation"><small>PLATFORM FOUNDATION</small><div><span>Modular<br/>apps</span><i>→</i><span>API-ready<br/>services</span><i>→</i><span>Secure &amp;<br/>compliant</span><i>→</i><span>Analytics<br/>&amp; growth</span></div></div>
+        </article>
+        <section class="dc-architecture-panel"><header><h3>System Architecture</h3><p>Connected product layers for doctor and patient workflows.</p></header><div class="dc-architecture-layers">
+          <article class="layer-user"><b>User Layer</b><div><span>Doctors<small>Mobile App</small></span><span>Patients<small>Referral Journey</small></span><span>Ayu Health<small>Operations</small></span><span>Healthcare Partners</span></div></article><i>↓　↔　↓</i>
+          <article class="layer-app"><b>Application Layer</b><div><span>Ayu DocConnect<small>Web &amp; Mobile</small></span><em>↔</em><span>Backend Services<small>API Layer</small></span><em>↔</em><span>Business Logic<small>Referral / Journey Workflows</small></span></div></article><i>↓　↔　↓</i>
+          <article class="layer-data"><b>Data Layer</b><div><span>Application Database<small>Doctor, Patient, Referral, Engagement Data</small></span><span>Analytics &amp; Reporting<small>Google Analytics, Looker Studio, SQL Reporting</small></span><span>Event &amp; Activity Logs<small>Usage and workflow tracking</small></span></div></article><i>↓</i>
+          <article class="layer-integrations"><b>External Integrations</b><div><span>Google Business</span><span>Ambulance Services</span><span>Notification Services<small>SMS / Push / WhatsApp</small></span><span>Incentive &amp; Earnings Services</span></div></article>
+        </div></section>
+        <section class="dc-integrations-panel"><header><h3>Key Integrations</h3></header><div>{integrations.map(([tone, icon, title, description]) => <article class={`tone-${tone}`}><b>{icon}</b><span><strong>{title}</strong><small>{description}</small></span></article>)}</div></section>
+        <section class="dc-tech-stack"><h3>Technology Stack</h3><div>{techStack.map(([icon, name, description]) => <article><b aria-hidden="true">{icon}</b><span><strong>{name}</strong><small>{description}</small></span></article>)}</div></section>
+        <div class="case-page-foot"><span>{pages[7].number}</span><i></i><b>{pages[7].caption}</b></div>
+      </div>
+    </section>
+
+    <!-- 09 · Outcomes -->
+    <section id="outcomes" class="case-page dc-outcomes" style={`--reference-ratio:${pages[8].ratio}`}>
+      <div class="case-page-inner">
+        <div class="dc-outcomes-heading"><AyuHealthBrand className="dc-outcomes-brand" showDescriptor={true}/><div class="dc-outcomes-art"><strong>Connected<br/>Doctors<br/>Stronger<br/>Care Journeys</strong><div><article><b>Higher Engagement</b><span>Active and returning doctor users</span></article><article><b>More Referrals</b><span>Expanding network of doctors</span></article><article><b>Better Patient Outcomes</b><span>Greater visibility and continuity of care</span></article></div></div><h2><em>Real impact</em> across doctors, patients and the healthcare ecosystem.</h2><p>Ayu DocConnect has enabled stronger doctor engagement, better visibility into patient journeys and a growing referral network — delivering measurable outcomes across the Ayu Health ecosystem.</p></div>
+        <div class="dc-outcome-banner"><b>Key Outcomes<br/><small>(Pilot Phase)</small></b>{outcomeMetrics.map(([tone, value, label], index) => <article class={`tone-${tone}`}><i aria-hidden="true"><svg viewBox="0 0 24 24">{index === 0 && <path d="M8 3v5a4 4 0 0 0 8 0V3M6 3h4M14 3h4M12 12v3a5 5 0 0 0 10 0v-1M20 14h2M7 8a2 2 0 1 1-4 0V6h4v2Z"/>}{index === 1 && <path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm8-1a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2 20v-2c0-2.6 3.1-4 7-4s7 1.4 7 4v2H2Zm13-5c3.7-.2 7 1.1 7 3v2h-5v-2c0-1.2-.7-2.2-2-3Z"/>}{index === 2 && <path d="M3 20h18v2H1V2h2v18Zm3-2v-7h3v7H6Zm5 0V5h3v13h-3Zm5 0v-9h3v9h-3Z"/>}{index === 3 && <path d="M2 3 22 2l-7 20-4-8-9-4 20-8-14 10 4 2 4-11L2 3Z"/>}{index === 4 && <path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM2 20v-2c0-2.6 3.1-4 7-4s7 1.4 7 4v2H2Zm17-9v3h3v2h-3v3h-2v-3h-3v-2h3v-3h2Z"/>}</svg></i><div><strong>{value}</strong><span>{label}</span></div></article>)}</div>
+        <div class="dc-outcomes-panels">
+          <article><header><b>Doctor Adoption &amp; Engagement</b><span>Growing and active doctor network</span></header><div class="dc-adoption-chart"><div>{adoption.map(([value, month, height]) => <article><b>{value}</b><i style={`--bar:${height}`}></i><span>{month}</span></article>)}</div></div><ul><li>Strong initial adoption in pilot phase</li><li>Active monthly and weekly usage</li><li>Incentives and notifications driving recurring engagement</li></ul></article>
+          <article><header><b>Referral Growth</b><span>Meaningful referral activity leading to network expansion</span></header><div class="dc-referral-pair"><article><strong>27+</strong><span>Doctor referrals<br/>in pilot</span></article><article><strong>7</strong><span>Newly onboarded doctors through referral flow</span></article></div><ul><li>Increasing doctor-to-doctor referrals</li><li>Higher conversion to new doctor onboarding</li><li>Expanding referral network across specialties</li></ul></article>
+          <article><header><b>Patient Journey Visibility</b><span>End-to-end visibility from referral to discharge</span></header><div class="dc-journey-stages"><span>Referral</span><i>→</i><span>OPD</span><i>→</i><span>IPD</span><i>→</i><span>Discharge</span></div><ul><li>Real-time patient journey tracking</li><li>Better transparency for referral doctors</li><li>Fewer follow-up gaps</li><li>Improved continuity of care across services</li></ul></article>
+          <article class="dc-ecosystem-impact"><header><b>Ecosystem Value</b><span>Positive impact across all key stakeholders</span></header><div>{ecosystemValue.map(([name, value]) => <article><b>{name}</b><span>{value}</span></article>)}</div></article>
+        </div>
+        <div class="dc-key-takeaway"><b>KEY TAKEAWAY</b><span>Ayu DocConnect has proven its ability to engage doctors, drive referral growth and improve patient journey visibility, creating long-term value for the Ayu Health ecosystem.</span><div><i>Stronger doctor relationships</i><i>More referrals and network growth</i><i>Better patient journeys and outcomes</i></div></div>
+        <div class="case-page-foot"><span>{pages[8].number}</span><i></i><b>{pages[8].caption}</b></div>
+      </div>
+    </section>
+
+    <!-- 10 · Product leadership -->
+    <section id="product-leadership" class="case-page dc-leadership" style={`--reference-ratio:${pages[9].ratio}`}>
+      <div class="case-page-inner">
+        <div class="dc-leadership-hero"><div><div class="case-kicker"><i></i> Product Leadership</div><h2>Let’s build impactful healthcare products <em>together.</em></h2><p>I’m always open to discussing ideas, opportunities and collaborations around doctor engagement, patient journey platforms, digital health solutions and broader healthcare product innovation.</p></div>
+          <div class="dc-collaboration-map"><div class="dc-collab-center">IDEAS<br/>&amp; IMPACT</div><span class="collab-one">Healthtech<br/>Products</span><span class="collab-two">Product Strategy<br/>&amp; Advisory</span><span class="collab-three">Digital Health<br/>Solutions</span><span class="collab-four">Doctor &amp; Patient<br/>Engagement Platforms</span><span class="collab-five">Healthcare Data<br/>&amp; Analytics</span><span class="collab-six">Collaborations<br/>&amp; Partnerships</span></div>
+        </div>
+        <div class="dc-leadership-cards">{leadershipCards.map(item => <article class={`tone-${item.tone}`}><span class="dc-leadership-symbol">{item.icon}</span><h3>{item.title}</h3><p>{item.description}</p><ul>{item.bullets.map(bullet => <li>{bullet}</li>)}</ul></article>)}</div>
+        <div class="dc-connect-banner"><span class="dc-connect-icon">•••</span><div><small>LET’S CONNECT</small><h3>Have a healthcare product idea or looking to build something similar?</h3><p>I’d be happy to discuss your requirements, explore ideas or exchange perspectives on building impactful healthcare products.</p></div><div class="dc-connect-pillars"><span><b>Explore ideas</b><small>Product conversations and use cases</small></span><span><b>Share perspectives</b><small>Learn from each other’s experiences</small></span><span><b>Create impact</b><small>Build meaningful products together</small></span></div></div>
+        <nav class="dc-case-navigation" aria-label="Project navigation"><a href="/projects/integrated-channels"><small>PREVIOUS PROJECT</small><b>← Integrated Channels Suite</b></a><a href="/#projects">Return to Product Portfolio</a><a href="/projects/ayu-sales-intelligence"><small>NEXT PROJECT</small><b>Ayu Sales Intelligence &amp; Field Force Optimization →</b></a></nav>
+        <div class="case-page-foot"><span>{pages[9].number}</span><i></i><b>{pages[9].caption}</b></div>
+      </div>
+    </section>
+  </main>
+</ProjectShell>

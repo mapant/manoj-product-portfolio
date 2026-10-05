@@ -1,0 +1,17 @@
+---
+interface Props {
+  className?: string;
+  showDescriptor?: boolean;
+}
+
+const { className = 'dc-overview-brand', showDescriptor = false } = Astro.props;
+---
+
+<div class={className}>
+  <svg class="dc-brand-logo" viewBox="0 0 250 44" role="img" aria-label="Ayu Health">
+    <path d="M14 2h14v12h12v14H28v14H14V28H2V14h12z" fill="#14b9cd" />
+    <path d="M14 2h14v12h12v14H14z" fill="#ff9d35" />
+    <text x="54" y="32" fill="#102a5c" font-family="Arial, sans-serif" font-size="29" font-weight="800" letter-spacing="-1.5">Ayu Health</text>
+  </svg>
+  {showDescriptor && <span class="dc-brand-descriptor"><strong>Ayu DocConnect</strong><small>Doctor Engagement, Referral &amp; Patient Journey Platform</small></span>}
+</div>

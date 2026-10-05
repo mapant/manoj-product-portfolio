@@ -3,7 +3,7 @@ import { products } from '../../data/portfolio.js';
 ---
 <section class="slide page portfolio-page" id="portfolio" aria-labelledby="portfolio-title">
   <div class="page-inner portfolio-layout">
-    <div class="section-intro"><div><div class="eyebrow"><i></i> SELECTED PRODUCT PORTFOLIO</div><h2 id="portfolio-title">Real products. Real impact. <em>Across domains and platforms.</em></h2><p>Five representative case studies from my product journey. Each project highlights the problem, my ownership, solution, key metrics and the impact created.</p></div><aside class="lens-note"><b>◎</b><span><strong>Portfolio lens</strong><small>Problem → Ownership → Solution → Execution → Outcome. Click to explore detailed case study for each product.</small></span></aside></div>
+    <div class="section-intro"><div><div class="eyebrow"><i></i> SELECTED PRODUCT PORTFOLIO</div><h2 id="portfolio-title">Real products. Real impact. <em>Across domains and platforms.</em></h2><p>Four representative product case studies across FinTech, HealthTech and Telecom.</p></div><aside class="lens-note"><b>◎</b><span><strong>Portfolio lens</strong><small>Problem → Ownership → Solution → Execution → Outcome. Click to explore detailed case study for each product.</small></span></aside></div>
     <div class="portfolio-cards">
       {products.map((product, i) => <article class:list={['product-card', `product-${product.tint}`]}>
         <div class="product-art"><div class="product-card-meta"><b>{product.number}</b><small>{product.company}</small></div><h3>{product.title}</h3><p>{product.short}</p><div class:list={['product-illustration', `art-${i + 1}`]} aria-hidden="true"><div class="device device-back"></div><div class="device device-front"><span></span><span></span><span></span><span></span></div><b>{['⬡','⬡','▣','₹','▥'][i]}</b></div></div>
@@ -14,3 +14,13 @@ import { products } from '../../data/portfolio.js';
     </div>
   </div>
 </section>
+
+<style>
+  .portfolio-page .portfolio-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  @media (max-width: 1150px) and (min-width: 861px) {
+    .portfolio-page .portfolio-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 860px) {
+    .portfolio-page .portfolio-cards { grid-template-columns: 1fr; }
+  }
+</style>

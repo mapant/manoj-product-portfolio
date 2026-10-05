@@ -1,0 +1,72 @@
+﻿---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import '../styles/project-case-study.scss';
+
+interface LinkItem { title: string; href: string; }
+type SectionLink = [string, string];
+interface Props {
+  title: string;
+  previous: LinkItem;
+  next: LinkItem;
+  navSections?: SectionLink[];
+  ctaText?: string;
+  ctaHref?: string;
+  showProjectFooter?: boolean;
+  viewportFitPrototype?: boolean;
+  profileImage?: string;
+}
+const {
+  title,
+  previous,
+  next,
+  navSections,
+  ctaText = 'Portfolio',
+  ctaHref = '/',
+  showProjectFooter = true,
+  viewportFitPrototype = false,
+  profileImage = '/profile/portrait.jpg',
+} = Astro.props as Props;
+const defaultSections: SectionLink[] = [
+  ['overview', 'Overview'], ['ecosystem', 'Ecosystem'], ['challenge', 'Challenge'],
+  ['strategy', 'Strategy'], ['pm-scope', 'PM Scope'], ['architecture', 'Architecture'],
+  ['delivery', 'Delivery'], ['product-explorer', 'Product Explorer'], ['impact', 'Impact'],
+  ['leadership', 'Product Leadership'],
+];
+const sections = navSections ?? defaultSections;
+const ctaAriaLabel = ctaText === 'Portfolio' ? 'Return to portfolio' : ctaText;
+---
+
+<SiteLayout title={`${title} | Product Case Study | Manoj Pant`}>
+  <div class:list={['project-shell', viewportFitPrototype && 'viewport-fit-prototype']}>
+    <header class="project-header">
+      <div class="project-header-inner">
+        <a class="project-brand" href="/" aria-label="Manoj Pant Product Portfolio">
+          <img src={profileImage} alt="Manoj Pant" />
+          <span><strong>Manoj Pant</strong><small>SENIOR PRODUCT MANAGER</small></span>
+        </a>
+        <nav id="project-nav" aria-label="Case study sections">
+          {sections.map(([id, label]) => <a href={`#${id}`}>{label}</a>)}
+        </nav>
+        <a class="project-cta" href={ctaHref} aria-label={ctaAriaLabel}>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          {ctaText} <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </header>
+    <slot />
+    {showProjectFooter && <footer class="project-site-footer">
+      <a href={previous.href}><span>PREVIOUS CASE STUDY</span><strong>&larr; {previous.title}</strong></a>
+      <a class="footer-home" href="/">Return to Product Portfolio</a>
+      <a href={next.href}><span>NEXT CASE STUDY</span><strong>{next.title} &rarr;</strong></a>
+    </footer>}
+  </div>
+  <script>
+    const links = [...document.querySelectorAll<HTMLAnchorElement>('#project-nav a')];
+    const targets = links.map(link => document.querySelector<HTMLElement>(link.hash)).filter((target): target is HTMLElement => !!target);
+    const observer = new IntersectionObserver(entries => {
+      const active = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (active) links.forEach(link => link.classList.toggle('active', link.hash === `#${active.target.id}`));
+    }, { rootMargin: '-18% 0px -58% 0px', threshold: [0, .15, .35, .6] });
+    targets.forEach(target => observer.observe(target));
+  </script>
+</SiteLayout>

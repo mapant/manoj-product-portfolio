@@ -134,3 +134,68 @@ p { margin-bottom: 0; }
 @media (min-width: 861px) { .connect-scene { margin-left: 0; } }
 @media (min-width: 861px) { .metrics-story .metric-chart { flex: 1; height: auto; min-height: 155px; } }
 @media (max-width: 860px) { .metrics-story .metric-chart { flex: none; height: 180px; } }
+
+/* Overview only: fit its unchanged 16:10 composition below the sticky header.
+   Descendant cqw lengths use the fitted Overview frame as their shared scale. */
+.slide.page.overview-page {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  aspect-ratio: auto;
+  overflow: visible;
+  margin-inline: 0;
+  container-type: inline-size;
+}
+.slide.page.overview-page::before { background-size: .972cqw .972cqw; }
+.overview-page > .page-inner { height: auto; min-height: 0; padding: 2.1cqw; }
+.overview-page .overview-layout { grid-template-columns: minmax(0,1.04fr) minmax(0,.96fr); gap: 2.1cqw; align-items: center; }
+.overview-page .overview-copy { display: block; min-width: 0; }
+.overview-page .eyebrow { gap: .83cqw; font-size: .8cqw; }
+.overview-page .eyebrow i { width: 2.64cqw; height: .28cqw; }
+.overview-page .overview-copy > .eyebrow { margin-bottom: 1.39cqw; }
+.overview-page .overview-copy h1 { margin: 0 0 .97cqw; font-size: 4.15cqw; }
+.overview-page .overview-lead { max-width: 50.7cqw; font-size: 1.23cqw; }
+.overview-page .overview-stats { grid-template-columns: repeat(4,minmax(0,1fr)); gap: .694cqw; margin-top: 1.39cqw; }
+.overview-page .stat { min-height: 7.64cqw; padding: .83cqw .97cqw; border-top-width: .21cqw; border-radius: 1.04cqw; }
+.overview-page .stat .icon { width: 2.08cqw; height: 2.08cqw; margin-bottom: .35cqw; border-radius: .63cqw; font-size: 1.39cqw; }
+.overview-page .stat strong { font-size: 2.2cqw; }
+.overview-page .stat small { margin-top: .42cqw; font-size: .7cqw; }
+.overview-page .mini-heading { margin: 1.25cqw 0 .7cqw; font-size: .95cqw; }
+.overview-page .expertise-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: .625cqw; }
+.overview-page .expertise-card { min-height: 5.7cqw; grid-template-columns: 2.36cqw 1fr; column-gap: .56cqw; padding: .625cqw .76cqw; border-radius: .97cqw; }
+.overview-page .expertise-icon { width: 2.15cqw; height: 2.15cqw; border-radius: .63cqw; font-size: 1.18cqw; }
+.overview-page .expertise-card strong { font-size: .85cqw; }
+.overview-page .expertise-card>span:last-child { font-size: .73cqw; }
+.overview-page .operating-model { align-self: stretch; min-height: 0; padding: 1.5cqw; border-radius: 1.67cqw; }
+.overview-page .model-heading { gap: .83cqw; padding-bottom: .69cqw; }
+.overview-page .cube-icon { font-size: 2.15cqw; }
+.overview-page .model-heading strong { font-size: 1.32cqw; }
+.overview-page .model-heading small { padding: .49cqw .83cqw; font-size: .7cqw; }
+.overview-page .model-stage { flex: 1; min-height: 0; grid-template-rows: 1fr 1fr; gap: 30% 6%; padding: 3% 1%; }
+.overview-page .model-card { height: 62%; min-height: 0; gap: .69cqw; padding: .83cqw; border-radius: 1.18cqw; }
+.overview-page .model-card>span { width: 2.43cqw; height: 2.43cqw; border-radius: .63cqw; font-size: 1.46cqw; }
+.overview-page .model-card strong { margin: .28cqw 0; font-size: 1.04cqw; }
+.overview-page .model-card small { font-size: .76cqw; }
+.overview-page .bars { right: .69cqw; bottom: .56cqw; width: 3.06cqw; height: 2.22cqw; }
+.overview-page .brain-art,.overview-page .cloud-art { right: .83cqw; bottom: .56cqw; font-size: 3.33cqw; }
+.overview-page .model-product { width: 41%; min-height: 26%; padding: .97cqw; border-width: .14cqw; border-radius: 1.46cqw; }
+.overview-page .model-product .cube-icon { width: 3.26cqw; height: 3.26cqw; margin-bottom: .35cqw; border-radius: 1.04cqw; }
+.overview-page .model-product strong { font-size: 1.6cqw; }
+.overview-page .model-product small { margin-top: .21cqw; font-size: .9cqw; }
+.overview-page .operating-steps { min-height: 4.86cqw; border-radius: 1.11cqw; }
+.overview-page .operating-steps div { padding: .69cqw .9cqw; }
+.overview-page .operating-steps b { font-size: .83cqw; }
+.overview-page .operating-steps small { margin-top: .28cqw; font-size: .67cqw; }
+
+/* Main portfolio Overview prototype: preserve the two-row header at every zoom. */
+.portfolio-root.viewport-fit-prototype { --header-h: 8vw; }
+.portfolio-root.viewport-fit-prototype .site-header { height: 8vw; container-type: inline-size; }
+.portfolio-root.viewport-fit-prototype .header-inner { max-width: none; padding: .78cqw 2.5cqw; grid-template-columns: minmax(0,.95fr) minmax(0,1.55fr) minmax(0,.65fr); gap: 1.4cqw; }
+.portfolio-root.viewport-fit-prototype .brand { gap: 1.1cqw; }
+.portfolio-root.viewport-fit-prototype .brand-avatar { width: 6.1cqw; height: 6.1cqw; border-width: .234cqw; }
+.portfolio-root.viewport-fit-prototype .brand-copy strong { font-size: 1.7cqw; }
+.portfolio-root.viewport-fit-prototype .brand-copy small { margin-top: .39cqw; font-size: .72cqw; }
+.portfolio-root.viewport-fit-prototype #nav { grid-template-columns: repeat(5,minmax(0,1fr)); grid-template-rows: repeat(2,minmax(2.5cqw,1fr)); gap: .08cqw .55cqw; }
+.portfolio-root.viewport-fit-prototype #nav a { min-height: 2.65cqw; padding: 0 .9cqw; border-radius: .94cqw; font-size: .86cqw; }
+.portfolio-root.viewport-fit-prototype .header-cta { height: 5cqw; gap: .94cqw; padding-inline: 1.4cqw; border-radius: 1.4cqw; font-size: 1.25cqw; }
+.portfolio-root.viewport-fit-prototype .header-cta svg { width: 1.875cqw; height: 1.875cqw; }

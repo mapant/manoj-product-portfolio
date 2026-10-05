@@ -1,0 +1,511 @@
+/* Ayu Overview composition dimensions follow the section container width. */
+.docconnect-case .dc-overview .case-page-inner {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: clamp(1.1111cqw, 1.6356cqw, 2cqw);
+}
+.docconnect-case .dc-overview-brand {
+  display: flex;
+  align-items: center;
+  gap: 1.5556cqw;
+  min-width: 0;
+}
+.docconnect-case .dc-overview-brand svg {
+  width: clamp(16.1111cqw, 22.7556cqw, 22.2222cqw);
+  height: clamp(3.7778cqw, 4.9778cqw, 5.1111cqw);
+  flex: none;
+  overflow: visible;
+}
+.docconnect-case .dc-overview-brand > span {
+  display: flex;
+  align-items: center;
+  gap: 1cqw;
+  color: #285582;
+  font-size: clamp(0.8889cqw, 1.024cqw, 1.2222cqw);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.docconnect-case .dc-overview-brand > span i {
+  width: 0.1111cqw;
+  height: 2.6667cqw;
+  background: #a9c7e7;
+}
+.docconnect-case .dc-overview-main {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(1.3333cqw, 2.1333cqw, 2.4444cqw);
+}
+.docconnect-case .dc-overview-copy {
+  position: relative;
+  z-index: 2;
+  padding: 0.5556cqw 0;
+}
+.docconnect-case .dc-overview-copy h1 {
+  max-width: 73.3333cqw;
+  margin: 0.8889cqw 0 1.1111cqw;
+  color: #0b2853;
+  font-size: clamp(3.3333cqw, 3.84cqw, 4.2222cqw);
+  line-height: 1;
+  letter-spacing: -0.052em;
+  font-weight: 900;
+}
+.docconnect-case .dc-overview-copy h1 em {
+  display: block;
+}
+.docconnect-case .dc-overview-copy h1 em {
+  color: transparent;
+  background: linear-gradient(100deg, #087ff0 4%, #5737eb 62%, #a322ee);
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-style: normal;
+}
+.docconnect-case .dc-overview-copy .case-lede {
+  max-width: 77.7778cqw;
+  font-size: clamp(1.2222cqw, 1.28cqw, 1.4444cqw);
+  line-height: 1.42;
+}
+.docconnect-case .dc-overview .dc-hero-art {
+  position: relative;
+  height: 100%;
+  min-height: 35.5556cqw;
+  overflow: hidden;
+  border-radius: 3.1111cqw;
+  background: radial-gradient(ellipse at 51% 42%, #dff1ff 0 25%, transparent 55%), linear-gradient(135deg, #edf7ff, #deecff 56%, #f8fbff);
+  isolation: isolate;
+}
+.docconnect-case .dc-overview .dc-hero-art::before,
+.docconnect-case .dc-overview .dc-hero-art::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  border-radius: 50%;
+  border: 0.1111cqw solid rgba(172, 211, 255, 0.5647058824);
+}
+.docconnect-case .dc-overview .dc-hero-art::before {
+  width: 65%;
+  aspect-ratio: 1;
+  left: 18%;
+  top: 4%;
+  box-shadow: 0 0 0 2.2222cqw rgba(217, 234, 255, 0.4392156863), 0 0 0 4.8889cqw rgba(232, 242, 255, 0.5333333333);
+}
+.docconnect-case .dc-overview .dc-hero-art::after {
+  width: 43%;
+  height: 60%;
+  right: -14%;
+  bottom: -17%;
+  background: linear-gradient(140deg, #c9e7ff, #efe2ff);
+  transform: rotate(-22deg);
+}
+.docconnect-case .dc-overview .dc-doctor-portrait {
+  position: absolute;
+  z-index: 1;
+  left: -3%;
+  bottom: -3%;
+  width: 75%;
+  height: 106%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 1.5556cqw 1.7778cqw rgba(19, 54, 90, 0.1411764706));
+}
+.docconnect-case .dc-overview .dc-device-card {
+  position: absolute;
+  z-index: 2;
+  top: 15%;
+  right: 5%;
+  width: 43%;
+  padding: clamp(1.3333cqw, 1.8489cqw, 2.2222cqw);
+  border: 0.1111cqw solid #d7e9ff;
+  border-radius: 2cqw;
+  background: rgba(255, 255, 255, 0.9411764706);
+  box-shadow: 0 1.6667cqw 4.2222cqw rgba(23, 69, 117, 0.1254901961);
+}
+.docconnect-case .dc-overview .dc-device-card > small {
+  display: block;
+  color: var(--ayu-blue);
+  font-size: clamp(0.6667cqw, 0.8107cqw, 0.8889cqw);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+.docconnect-case .dc-overview .dc-device-card > strong {
+  display: block;
+  margin: 0.5556cqw 0 1.3333cqw;
+  font-size: clamp(1.4444cqw, 1.8489cqw, 2.1111cqw);
+}
+.docconnect-case .dc-overview .dc-device-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6667cqw;
+}
+.docconnect-case .dc-overview .dc-device-actions span {
+  min-height: 5.5556cqw;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  color: #1456a2;
+  border: 0.1111cqw solid #d9e9fa;
+  border-radius: 1.1111cqw;
+  background: #f3f8ff;
+  font-size: clamp(0.7778cqw, 0.9244cqw, 1cqw);
+  font-weight: 800;
+  text-align: center;
+}
+.docconnect-case .dc-overview .dc-device-actions span:first-child {
+  color: #087cf0;
+  background: #edf6ff;
+}
+.docconnect-case .dc-overview .dc-device-actions span:nth-child(2) {
+  color: #009d82;
+  background: #edfbf7;
+}
+.docconnect-case .dc-overview .dc-care-line {
+  height: 2.4444cqw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.8889cqw 0.8889cqw 0.3333cqw;
+}
+.docconnect-case .dc-overview .dc-care-line i {
+  width: 1.2222cqw;
+  height: 1.2222cqw;
+  border: 0.3333cqw solid white;
+  border-radius: 50%;
+  background: var(--ayu-blue);
+  box-shadow: 0 0 0 0.2222cqw #9ac9ff;
+}
+.docconnect-case .dc-overview .dc-care-line i:nth-child(2) {
+  background: #00af92;
+  box-shadow: 0 0 0 0.2222cqw #a7ead9;
+}
+.docconnect-case .dc-overview .dc-care-line i:nth-child(3) {
+  background: #832df3;
+  box-shadow: 0 0 0 0.2222cqw #dac3ff;
+}
+.docconnect-case .dc-overview .dc-care-line i:nth-child(4) {
+  background: #f49105;
+  box-shadow: 0 0 0 0.2222cqw #ffdfaa;
+}
+.docconnect-case .dc-overview .dc-device-card > b {
+  display: block;
+  color: #355d84;
+  font-size: clamp(0.6667cqw, 0.8249cqw, 1cqw);
+  text-align: center;
+}
+.docconnect-case .dc-overview .dc-device-card > b i {
+  color: var(--ayu-blue);
+  font-style: normal;
+}
+.docconnect-case .dc-overview .dc-hero-tag {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  gap: 0.2222cqw;
+  padding: 0.8889cqw 1.1111cqw;
+  border: 0.1111cqw solid #d9e8fb;
+  border-radius: 1.1111cqw;
+  background: rgba(255, 255, 255, 0.9294117647);
+  box-shadow: 0 0.7778cqw 1.8889cqw rgba(36, 71, 104, 0.0901960784);
+}
+.docconnect-case .dc-overview .dc-hero-tag b {
+  font-size: clamp(0.7778cqw, 0.9671cqw, 1.1111cqw);
+}
+.docconnect-case .dc-overview .dc-hero-tag span {
+  color: #67819e;
+  font-size: clamp(0.6667cqw, 0.8107cqw, 0.8889cqw);
+}
+.docconnect-case .dc-overview .dc-tag-hospital {
+  top: 6%;
+  right: 2%;
+}
+.docconnect-case .dc-overview .dc-tag-patient {
+  right: 2%;
+  bottom: 23%;
+}
+.docconnect-case .dc-overview .dc-tag-doctor {
+  left: 3%;
+  bottom: 5%;
+}
+.docconnect-case .dc-overview .dc-value-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1111cqw;
+  padding: clamp(1cqw, 1.4222cqw, 1.5556cqw);
+  border: 0.1111cqw solid #ffffff;
+  border-radius: 1.8889cqw;
+  background: rgba(255, 255, 255, 0.8705882353);
+  box-shadow: 0 0.8889cqw 2.7778cqw rgba(20, 77, 132, 0.062745098);
+}
+.docconnect-case .dc-overview .dc-value-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1.3333cqw;
+  min-width: 0;
+  padding: 0.8889cqw 1.3333cqw;
+}
+.docconnect-case .dc-overview .dc-value-card:not(:last-child) {
+  border-right: 0.1111cqw solid #d9e7f6;
+}
+.docconnect-case .dc-overview .dc-symbol {
+  width: clamp(4.2222cqw, 6.4cqw, 7.1111cqw);
+  height: clamp(4.2222cqw, 6.4cqw, 7.1111cqw);
+  display: grid;
+  place-items: center;
+  color: var(--tone);
+  border-radius: 50%;
+  background: var(--tone-pale);
+  font-size: clamp(1.8889cqw, 2.8444cqw, 3.1111cqw);
+}
+.docconnect-case .dc-overview .dc-value-card h2 {
+  margin: 0 0 0.4444cqw;
+  color: var(--tone);
+  font-size: clamp(1.3333cqw, 1.6356cqw, 1.8889cqw);
+  line-height: 1.1;
+}
+.docconnect-case .dc-overview .dc-value-card p {
+  margin: 0;
+  color: var(--ayu-copy);
+  font-size: clamp(0.8889cqw, 1.1093cqw, 1.2222cqw);
+  line-height: 1.35;
+}
+.docconnect-case .dc-overview .case-page-foot {
+  margin-top: 0;
+}
+
+/* Overview root, header, and shared typography sizing. */
+.project-shell.viewport-fit-prototype .project-header { height: 8vw; }
+.project-shell.viewport-fit-prototype .project-header-inner {
+  width: 100%;
+  max-width: none;
+  padding: .78cqw 2.5cqw;
+  grid-template-columns: minmax(0,.95fr) minmax(0,1.55fr) minmax(0,.65fr);
+  gap: 1.4cqw;
+}
+.project-shell.viewport-fit-prototype .project-brand { gap: 1.1cqw; }
+.project-shell.viewport-fit-prototype .project-brand img { width: 6.1cqw; height: 6.1cqw; border-width: .234cqw; }
+.project-shell.viewport-fit-prototype .project-brand strong { font-size: 1.7cqw; }
+.project-shell.viewport-fit-prototype .project-brand small { margin-top: .39cqw; font-size: .72cqw; }
+.project-shell.viewport-fit-prototype #project-nav { grid-template-columns: repeat(5,minmax(0,1fr)); grid-template-rows: repeat(2,minmax(2.5cqw,1fr)); gap: .08cqw .55cqw; }
+.project-shell.viewport-fit-prototype #project-nav a { min-height: 2.65cqw; padding: 0 .9cqw; border-radius: .94cqw; font-size: .86cqw; }
+.project-shell.viewport-fit-prototype .project-cta { height: 5cqw; gap: .94cqw; padding-inline: 1.4cqw; border-radius: 1.4cqw; font-size: 1.25cqw; }
+.project-shell.viewport-fit-prototype .project-cta svg { width: 1.875cqw; height: 1.875cqw; }
+
+.docconnect-case .dc-overview {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  height: auto;
+  aspect-ratio: auto;
+  margin-inline: 0;
+  overflow: visible;
+}
+.docconnect-case .dc-overview::before { background-size: 1.5556cqw 1.5556cqw; }
+.docconnect-case .dc-overview .case-page-inner {
+  height: auto;
+  min-height: 0;
+  grid-template-rows: auto auto auto;
+  padding: clamp(2.4444cqw,2.9867cqw,3.7778cqw);
+  font-size: 1.5556cqw;
+}
+.docconnect-case .dc-overview .case-kicker {
+  gap: 1.1111cqw;
+  font-size: clamp(1cqw,1.1378cqw,1.4444cqw);
+}
+.docconnect-case .dc-overview .case-kicker > i { width: 3.7778cqw; height: .4444cqw; }
+.docconnect-case .dc-overview .case-lede { max-width: 85.5556cqw; }
+.docconnect-case .dc-overview .case-page-foot {
+  gap: 1cqw;
+  margin-top: 0;
+  padding-top: 1cqw;
+  font-size: clamp(.7778cqw,.8818cqw,1cqw);
+}
+.docconnect-case .dc-overview .case-page-foot > i { width: 3.1111cqw; height: .1111cqw; }
+.docconnect-case .dc-overview .case-page-foot > b { font-weight: 800; text-align: right; }
+.docconnect-case .dc-overview .dc-hero-art { height: 35.5556cqw; min-height: 35.5556cqw; }
+
+/* Fit Ayu's native section compositions inside the available desktop viewport. */
+.project-shell.viewport-fit-prototype .docconnect-case .case-page {
+  width: min(100%, calc((100dvh - var(--header-h)) * var(--reference-ratio)));
+  min-width: 0;
+  max-width: none;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: var(--reference-ratio);
+  margin-inline: auto;
+  overflow: hidden;
+}
+.project-shell.viewport-fit-prototype .docconnect-case .case-page-inner {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+@media (max-width: 760px) {
+  .project-shell.viewport-fit-prototype .docconnect-case .case-page {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+    overflow: visible;
+  }
+}
+
+/* Keep the Overview composition at the same page scale as the other Ayu sections.
+   Its earlier cqw-only sizes grew with the full viewport width and pushed the
+   existing content below the visible page. */
+.docconnect-case .dc-overview .case-page-inner {
+  gap: clamp(10px, .8vw, 20px);
+  padding: clamp(20px, 2vw, 38px);
+  font-size: 1.12cqw;
+}
+@media (min-width: 761px) {
+  .docconnect-case .dc-overview {
+    height: calc(100dvh - var(--header-h));
+    min-height: 0;
+  }
+  .docconnect-case .dc-overview .case-page-inner {
+    height: 100%;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+  .docconnect-case .dc-overview-main,
+  .docconnect-case .dc-overview .dc-hero-art {
+    min-height: 0;
+  }
+  .docconnect-case .dc-overview .dc-hero-art {
+    height: 100%;
+  }
+}
+
+@media (min-width: 761px) {
+  .project-shell.viewport-fit-prototype .docconnect-case .case-page-inner {
+    padding: clamp(10px, 1.2cqw, 20px);
+  }
+}
+.docconnect-case .dc-overview-brand svg {
+  width: clamp(220px, 16vw, 300px);
+  height: clamp(40px, 3.1vw, 58px);
+}
+.docconnect-case .dc-overview-main {
+  gap: clamp(12px, 1.2vw, 24px);
+}
+.docconnect-case .dc-overview-copy h1 {
+  max-width: clamp(480px, 36vw, 820px);
+  margin: 12px 0 16px;
+  font-size: clamp(40px, 3vw, 56px);
+}
+.docconnect-case .dc-overview-copy .case-lede {
+  max-width: 720px;
+  font-size: clamp(15px, 1vw, 18px);
+}
+.docconnect-case .dc-overview .dc-hero-art {
+  height: clamp(220px, min(25.5vw, calc(100dvh - 8vw - 225px)), 485px);
+  min-height: 0;
+  border-radius: 2.24cqw;
+}
+.docconnect-case .dc-overview .dc-hero-art::before,
+.docconnect-case .dc-overview .dc-hero-art::after {
+  border-width: .08cqw;
+}
+.docconnect-case .dc-overview .dc-hero-art::before {
+  box-shadow: 0 0 0 1.6cqw rgba(217, 234, 255, .4392), 0 0 0 3.52cqw rgba(232, 242, 255, .5333);
+}
+.docconnect-case .dc-overview .dc-doctor-portrait {
+  filter: drop-shadow(0 1.12cqw 1.28cqw rgba(19, 54, 90, .1412));
+}
+.docconnect-case .dc-overview .dc-device-card {
+  padding: clamp(.96cqw, 1.3312cqw, 1.6cqw);
+  border-width: .08cqw;
+  border-radius: 1.44cqw;
+  box-shadow: 0 1.2cqw 3.04cqw rgba(23, 69, 117, .1255);
+}
+.docconnect-case .dc-overview .dc-device-card > small {
+  font-size: clamp(.48cqw, .5837cqw, .64cqw);
+}
+.docconnect-case .dc-overview .dc-device-card > strong {
+  margin: .4cqw 0 .96cqw;
+  font-size: clamp(1.04cqw, 1.3312cqw, 1.52cqw);
+}
+.docconnect-case .dc-overview .dc-device-actions {
+  gap: .48cqw;
+}
+.docconnect-case .dc-overview .dc-device-actions span {
+  min-height: 4cqw;
+  border-width: .08cqw;
+  border-radius: .8cqw;
+  font-size: clamp(.56cqw, .6656cqw, .72cqw);
+}
+.docconnect-case .dc-overview .dc-care-line {
+  height: 1.76cqw;
+  margin: .64cqw .64cqw .24cqw;
+}
+.docconnect-case .dc-overview .dc-care-line i {
+  width: .88cqw;
+  height: .88cqw;
+  border-width: .24cqw;
+  box-shadow: 0 0 0 .16cqw #9ac9ff;
+}
+.docconnect-case .dc-overview .dc-care-line i:nth-child(2) { box-shadow: 0 0 0 .16cqw #a7ead9; }
+.docconnect-case .dc-overview .dc-care-line i:nth-child(3) { box-shadow: 0 0 0 .16cqw #dac3ff; }
+.docconnect-case .dc-overview .dc-care-line i:nth-child(4) { box-shadow: 0 0 0 .16cqw #ffdfaa; }
+.docconnect-case .dc-overview .dc-device-card > b {
+  font-size: clamp(.48cqw, .5939cqw, .72cqw);
+}
+.docconnect-case .dc-overview .dc-hero-tag {
+  gap: .16cqw;
+  padding: .64cqw .8cqw;
+  border-width: .08cqw;
+  border-radius: .8cqw;
+  box-shadow: 0 .56cqw 1.36cqw rgba(36, 71, 104, .0902);
+}
+.docconnect-case .dc-overview .dc-hero-tag b {
+  font-size: clamp(.56cqw, .6963cqw, .8cqw);
+}
+.docconnect-case .dc-overview .dc-hero-tag span {
+  font-size: clamp(.48cqw, .5837cqw, .64cqw);
+}
+.docconnect-case .dc-overview .dc-value-row {
+  gap: .8cqw;
+  padding: 1.024cqw;
+  border-width: .08cqw;
+  border-radius: 1.36cqw;
+  box-shadow: 0 .64cqw 2cqw rgba(20, 77, 132, .0627);
+}
+.docconnect-case .dc-overview .dc-value-card {
+  gap: .96cqw;
+  padding: .64cqw .96cqw;
+}
+.docconnect-case .dc-overview .dc-value-card:not(:last-child) {
+  border-right-width: .08cqw;
+}
+.docconnect-case .dc-overview .dc-symbol {
+  width: clamp(3.04cqw, 4.608cqw, 5.12cqw);
+  height: clamp(3.04cqw, 4.608cqw, 5.12cqw);
+  font-size: clamp(1.36cqw, 2.048cqw, 2.24cqw);
+}
+.docconnect-case .dc-overview .dc-value-card h2 {
+  margin-bottom: .32cqw;
+  font-size: clamp(1.04cqw, 1.1776cqw, 1.36cqw);
+}
+.docconnect-case .dc-overview .dc-value-card p {
+  font-size: clamp(12px, .7987cqw, .88cqw);
+}
+
+@media (min-width: 761px) {
+  .docconnect-case .dc-overview {
+    height: calc(100dvh - var(--header-h));
+    min-height: 0;
+  }
+  .docconnect-case .dc-overview .case-page-inner {
+    height: 100%;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+  .docconnect-case .dc-overview-main,
+  .docconnect-case .dc-overview .dc-hero-art {
+    min-height: 0;
+  }
+  .docconnect-case .dc-overview .dc-hero-art {
+    height: 100%;
+  }
+}
