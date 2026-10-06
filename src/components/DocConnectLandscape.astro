@@ -1,0 +1,41 @@
+---
+interface Props { class?: string }
+const { class: className = '' } = Astro.props;
+const idPrefix = `dc-landscape-${className.trim().split(/\s+/)[0] || 'scene'}`;
+---
+
+<svg
+  class:list={['dc-landscape-scene', className]}
+  viewBox="0 0 1200 280"
+  preserveAspectRatio="xMidYMid slice"
+  aria-hidden="true"
+>
+  <defs>
+    <linearGradient id={`${idPrefix}-sky`} x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102d61" />
+      <stop offset=".54" stop-color="#174779" />
+      <stop offset="1" stop-color="#312e79" />
+    </linearGradient>
+    <radialGradient id={`${idPrefix}-sunset`} cx="77%" cy="28%" r="43%">
+      <stop offset="0" stop-color="#ffd78a" stop-opacity=".9" />
+      <stop offset=".22" stop-color="#ffb36a" stop-opacity=".42" />
+      <stop offset="1" stop-color="#ff9a68" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id={`${idPrefix}-trail`} x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#80ecff" stop-opacity="0" />
+      <stop offset=".35" stop-color="#51d7ff" />
+      <stop offset="1" stop-color="#27aaff" />
+    </linearGradient>
+    <filter id={`${idPrefix}-glow`} x="-40%" y="-100%" width="180%" height="300%">
+      <feGaussianBlur stdDeviation="7" />
+    </filter>
+  </defs>
+  <rect width="1200" height="280" fill={`url(#${idPrefix}-sky)`} />
+  <rect width="1200" height="280" fill={`url(#${idPrefix}-sunset)`} />
+  <circle cx="920" cy="52" r="29" fill="#ffdfaa" opacity=".68" />
+  <path d="M0 159C79 139 106 96 181 99c57 2 70 44 128 37 57-7 73-58 137-64 61-6 83 44 143 50 55 6 78-36 139-41 70-6 94 53 153 49 65-4 90-53 154-52 54 1 82 42 141 45 45 2 81-17 124-31v188H0Z" fill="#334b77" opacity=".8" />
+  <path d="M0 188c79-8 121-56 193-47 50 6 65 47 121 51 67 5 91-54 160-55 62-1 82 46 144 53 68 8 92-48 163-49 64-1 88 47 151 52 73 6 110-45 177-41 39 2 61 27 91 38v110H0Z" fill="#243f70" opacity=".86" />
+  <path d="M0 219c92-30 146-13 211-2 70 11 111-35 179-36 71-1 114 40 186 36 66-4 95-34 165-32 69 2 115 38 183 37 87-2 131-45 199-36 30 4 52 14 77 25v69H0Z" fill="#142f5c" opacity=".92" />
+  <path d="M822 285c76-25 168-23 177-50 8-24-136-30-137-59-1-25 108-21 126-46 12-17-21-34-44-48" fill="none" stroke="#62d8ff" stroke-width="24" opacity=".36" filter={`url(#${idPrefix}-glow)`} />
+  <path d="M822 285c76-25 168-23 177-50 8-24-136-30-137-59-1-25 108-21 126-46 12-17-21-34-44-48" fill="none" stroke={`url(#${idPrefix}-trail)`} stroke-width="7" opacity=".92" />
+</svg>

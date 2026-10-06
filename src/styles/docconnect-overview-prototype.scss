@@ -325,16 +325,19 @@
 .docconnect-case .dc-overview .case-page-foot > b { font-weight: 800; text-align: right; }
 .docconnect-case .dc-overview .dc-hero-art { height: 35.5556cqw; min-height: 35.5556cqw; }
 
-/* Fit Ayu's native section compositions inside the available desktop viewport. */
-.project-shell.viewport-fit-prototype .docconnect-case .case-page {
-  width: min(100%, calc((100dvh - var(--header-h)) * var(--reference-ratio)));
-  min-width: 0;
-  max-width: none;
-  height: auto;
-  min-height: 0;
-  aspect-ratio: var(--reference-ratio);
-  margin-inline: auto;
-  overflow: hidden;
+/* Fill the available browser canvas; do not constrain these landscape layouts
+   to a narrower ratio-derived width. */
+@media (min-width: 761px) {
+  .project-shell.viewport-fit-prototype .docconnect-case .case-page {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: calc(100dvh - var(--header-h));
+    min-height: 0;
+    aspect-ratio: auto;
+    margin: 0;
+    overflow: hidden;
+  }
 }
 .project-shell.viewport-fit-prototype .docconnect-case .case-page-inner {
   width: 100%;

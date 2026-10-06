@@ -13,6 +13,7 @@
   color: var(--ayu-ink);
   background: #edf5ff;
 }
+.docconnect-case .dc-icon { display:block; width:1em; height:1em; flex:none; overflow:visible; }
 .docconnect-case .tone-blue { --tone: #087cf0; --tone-pale: #eaf4ff; --tone-line: #b9d7ff; }
 .docconnect-case .tone-green { --tone: #00a987; --tone-pale: #e9faf5; --tone-line: #b8eee0; }
 .docconnect-case .tone-violet { --tone: #812df1; --tone-pale: #f4edff; --tone-line: #ddc9ff; }
@@ -61,7 +62,10 @@
 .dc-care-line i:nth-child(2) { background:#00af92; box-shadow:0 0 0 2px #a7ead9; }.dc-care-line i:nth-child(3) { background:#832df3; box-shadow:0 0 0 2px #dac3ff; }.dc-care-line i:nth-child(4) { background:#f49105; box-shadow:0 0 0 2px #ffdfaa; }
 .dc-device-card>b { display:block; color:#355d84; font-size:clamp(6px,.58cqw,9px); text-align:center; }
 .dc-device-card>b i { color:var(--ayu-blue); font-style:normal; }
-.dc-hero-tag { position:absolute; z-index:3; display:grid; gap:2px; padding:8px 10px; border:1px solid #d9e8fb; border-radius:10px; background:#ffffffed; box-shadow:0 7px 17px #24476817; }
+.dc-hero-tag { position:absolute; z-index:3; display:grid; grid-template-columns:auto 1fr; align-items:center; gap:7px; padding:8px 10px; border:1px solid #d9e8fb; border-radius:10px; background:#ffffffed; box-shadow:0 7px 17px #24476817; }
+.dc-hero-tag>.dc-icon { width:1.7em; height:1.7em; color:var(--ayu-blue); }
+.dc-tag-patient>.dc-icon { color:var(--ayu-violet); }
+.dc-tag-doctor>.dc-icon { color:var(--ayu-blue); }
 .dc-hero-tag b { font-size:clamp(7px,.68cqw,10px); }.dc-hero-tag span { color:#67819e; font-size:clamp(6px,.57cqw,8px); }
 .dc-tag-hospital { top:6%; right:2%; }.dc-tag-patient { right:2%; bottom:23%; }.dc-tag-doctor { left:3%; bottom:5%; }
 .dc-value-row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; padding:clamp(9px,1cqw,14px); border:1px solid #ffffff; border-radius:17px; background:#ffffffde; box-shadow:0 8px 25px #144d8410; }
