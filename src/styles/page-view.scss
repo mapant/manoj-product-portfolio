@@ -1,0 +1,629 @@
+/* Match the viewport-sized desktop page frame used by Ayu DocConnect.
+   This stylesheet changes the outer frame only; section content stays in
+   each route's existing components and stylesheets. */
+$page-header-height: clamp(72px, 6.2vw, 120px);
+
+html:has(.portfolio-root.viewport-fit-prototype),
+html:has(.ics-case),
+html:has(.ayu-sales-case),
+html:has(.nokia-case) {
+  scroll-padding-top: $page-header-height;
+}
+
+@media (min-width: 761px) {
+  .portfolio-root.viewport-fit-prototype {
+    --header-h: #{$page-header-height};
+  }
+
+  .portfolio-root.viewport-fit-prototype .site-header {
+    height: var(--header-h);
+    container-type: inline-size;
+  }
+
+  .portfolio-root.viewport-fit-prototype .header-inner {
+    max-width: none;
+    padding: .35cqw 2.5cqw;
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.55fr) minmax(0, .65fr);
+    gap: 1.4cqw;
+  }
+
+  .portfolio-root.viewport-fit-prototype .brand { gap: 1.1cqw; }
+  .portfolio-root.viewport-fit-prototype .brand-avatar {
+    width: 5.3cqw;
+    height: 5.3cqw;
+    border-width: .234cqw;
+  }
+  .portfolio-root.viewport-fit-prototype .brand-copy strong { font-size: 1.7cqw; }
+  .portfolio-root.viewport-fit-prototype .brand-copy small {
+    margin-top: .39cqw;
+    font-size: .72cqw;
+  }
+  .portfolio-root.viewport-fit-prototype #nav {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(2.25cqw, 1fr));
+    gap: .08cqw .55cqw;
+  }
+  .portfolio-root.viewport-fit-prototype #nav a {
+    min-height: 2.3cqw;
+    padding: 0 .9cqw;
+    border-radius: .94cqw;
+    font-size: .86cqw;
+  }
+  .portfolio-root.viewport-fit-prototype .header-cta {
+    height: 4.2cqw;
+    gap: .94cqw;
+    padding-inline: 1.4cqw;
+    border-radius: 1.4cqw;
+    font-size: 1.25cqw;
+  }
+  .portfolio-root.viewport-fit-prototype .header-cta svg {
+    width: 1.875cqw;
+    height: 1.875cqw;
+  }
+
+  .portfolio-root.viewport-fit-prototype main > .slide.page {
+    width: 100%;
+    max-width: none;
+    height: calc(100dvh - var(--header-h));
+    min-height: 0;
+    aspect-ratio: auto;
+    margin: 0;
+    overflow: hidden;
+    container-type: size;
+  }
+
+  .portfolio-root.viewport-fit-prototype main > .slide.page > .page-inner {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    min-width: 0;
+    padding: clamp(12px, 1.1vw, 20px);
+  }
+
+  .portfolio-root.viewport-fit-prototype .page-inner.overview-layout,
+  .portfolio-root.viewport-fit-prototype .page-inner.ecosystem-layout,
+  .portfolio-root.viewport-fit-prototype .page-inner.challenge-layout,
+  .portfolio-root.viewport-fit-prototype .page-inner.strategy-layout,
+  .portfolio-root.viewport-fit-prototype .page-inner.scope-layout,
+  .portfolio-root.viewport-fit-prototype .page-inner.metrics-layout,
+  .portfolio-root.viewport-fit-prototype .page-inner.connect-layout {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .portfolio-root.viewport-fit-prototype .page-inner.overview-layout > *,
+  .portfolio-root.viewport-fit-prototype .page-inner.ecosystem-layout > *,
+  .portfolio-root.viewport-fit-prototype .page-inner.challenge-layout > *,
+  .portfolio-root.viewport-fit-prototype .page-inner.strategy-layout > *,
+  .portfolio-root.viewport-fit-prototype .page-inner.scope-layout > *,
+  .portfolio-root.viewport-fit-prototype .page-inner.metrics-layout > * {
+    min-height: 0;
+  }
+
+  .portfolio-root.viewport-fit-prototype .page-inner.overview-layout {
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .portfolio-root.viewport-fit-prototype .overview-copy {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .portfolio-root.viewport-fit-prototype .overview-copy > .eyebrow { margin-bottom: .65cqw; }
+  .portfolio-root.viewport-fit-prototype .overview-copy h1 { margin-bottom: .5cqw; }
+  .portfolio-root.viewport-fit-prototype .overview-lead { line-height: 1.35; }
+  .portfolio-root.viewport-fit-prototype .overview-stats { margin-top: .75cqw; }
+  .portfolio-root.viewport-fit-prototype .stat { min-height: 5.8cqw; padding: .55cqw .75cqw; }
+  .portfolio-root.viewport-fit-prototype .stat .icon { width: 1.8cqw; height: 1.8cqw; margin-bottom: .2cqw; }
+  .portfolio-root.viewport-fit-prototype .mini-heading { margin: .65cqw 0 .45cqw; }
+  .portfolio-root.viewport-fit-prototype .expertise-grid { gap: .45cqw; }
+  .portfolio-root.viewport-fit-prototype .expertise-card { min-height: 4.55cqw; grid-template-columns: 1.85cqw 1fr; column-gap: .42cqw; padding: .45cqw .55cqw; }
+  .portfolio-root.viewport-fit-prototype .expertise-icon { width: 1.7cqw; height: 1.7cqw; }
+
+  .portfolio-root.viewport-fit-prototype .dark-story {
+    padding: clamp(14px, 1.45vw, 22px);
+  }
+
+  .portfolio-root.viewport-fit-prototype .ecosystem-story .check-list,
+  .portfolio-root.viewport-fit-prototype .challenge-story .check-list,
+  .portfolio-root.viewport-fit-prototype .strategy-story .check-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 10px;
+    margin: 8px 0;
+  }
+
+  .portfolio-root.viewport-fit-prototype .ecosystem-story .eco-orbit {
+    min-height: 0;
+    height: min(100%, 14cqw);
+  }
+
+  .portfolio-root.viewport-fit-prototype .ecosystem-panel,
+  .portfolio-root.viewport-fit-prototype .ecosystem-cards,
+  .portfolio-root.viewport-fit-prototype .challenge-cards,
+  .portfolio-root.viewport-fit-prototype .strategy-main,
+  .portfolio-root.viewport-fit-prototype .scope-cards,
+  .portfolio-root.viewport-fit-prototype .metrics-content {
+    min-height: 0;
+    height: 100%;
+  }
+
+  .portfolio-root.viewport-fit-prototype .challenge-story .challenge-illustration {
+    min-height: 170px;
+    padding-block: 0;
+  }
+
+  .portfolio-root.viewport-fit-prototype .challenge-cards {
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
+
+  .portfolio-root.viewport-fit-prototype .challenge-card {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    align-content: start;
+    gap: 3px 7px;
+    padding: 7px;
+  }
+
+  .portfolio-root.viewport-fit-prototype .challenge-card-top { grid-column: 1; grid-row: 1; justify-content: flex-start; gap: 5px; }
+  .portfolio-root.viewport-fit-prototype .challenge-card h3 { grid-column: 2; grid-row: 1; margin: 0; }
+  .portfolio-root.viewport-fit-prototype .challenge-card > p { grid-column: 1; grid-row: 2; max-width: none; margin: 0; }
+  .portfolio-root.viewport-fit-prototype .challenge-card ul { grid-column: 2; grid-row: 2; align-content: start; gap: 1px; margin: 0; }
+  .portfolio-root.viewport-fit-prototype .pm-response { grid-column: 1 / -1; grid-row: 3; margin: 0; padding: 4px 6px; gap: 6px; }
+  .portfolio-root.viewport-fit-prototype .pm-response .gear { width: 21px; height: 21px; font-size: 14px; }
+
+  .portfolio-root.viewport-fit-prototype .strategy-story .strategy-art {
+    min-height: 145px;
+    padding-block: 0;
+  }
+
+  .portfolio-root.viewport-fit-prototype .strategy-step-card {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    align-content: start;
+    gap: 3px 6px;
+    padding: 6px;
+  }
+
+  .portfolio-root.viewport-fit-prototype .strategy-step-card .step-head { grid-column: 1; grid-row: 1; min-width: 0; gap: 4px; }
+  .portfolio-root.viewport-fit-prototype .strategy-step-card h3 { grid-column: 2; grid-row: 1; align-self: center; margin: 0; }
+  .portfolio-root.viewport-fit-prototype .strategy-step-card > p { grid-column: 1; grid-row: 2; margin: 0; }
+  .portfolio-root.viewport-fit-prototype .strategy-step-card ul { grid-column: 2; grid-row: 2; align-content: start; margin: 0; padding-left: 11px; }
+  .portfolio-root.viewport-fit-prototype .strategy-step-card .step-focus { grid-column: 1 / -1; grid-row: 3; margin: 0; padding: 3px 5px; }
+
+  .portfolio-root.viewport-fit-prototype .scope-story .scope-cycle {
+    min-height: 0;
+  }
+
+  .portfolio-root.viewport-fit-prototype .scope-card {
+    position: relative;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: 26px minmax(0, 1fr) auto;
+    gap: 3px 7px;
+    padding: 5px;
+  }
+
+  .portfolio-root.viewport-fit-prototype .scope-card-head,
+  .portfolio-root.viewport-fit-prototype .scope-card-head > div { display: contents; }
+  .portfolio-root.viewport-fit-prototype .scope-card-head > b { grid-column: 1; grid-row: 1; width: 24px; height: 24px; font-size: 12px; }
+  .portfolio-root.viewport-fit-prototype .scope-card-head h3 { grid-column: 2; grid-row: 1; align-self: center; margin: 0; }
+  .portfolio-root.viewport-fit-prototype .scope-card-head > small { position: absolute; top: 5px; right: 6px; max-width: 42%; text-align: right; line-height: 1.05; }
+  .portfolio-root.viewport-fit-prototype .scope-card-head h3 { padding-right: 1.6cqw; }
+  .portfolio-root.viewport-fit-prototype .scope-card-head p { grid-column: 1; grid-row: 2; margin: 0; }
+  .portfolio-root.viewport-fit-prototype .scope-card ul { grid-column: 2; grid-row: 2; align-content: start; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 4px; margin: 0; }
+  .portfolio-root.viewport-fit-prototype .scope-output { grid-column: 1 / -1; grid-row: 3; min-height: 0; margin: 0; padding: 3px 5px; gap: 5px; }
+  .portfolio-root.viewport-fit-prototype .scope-output > span { font-size: 15px; }
+
+  .portfolio-root.viewport-fit-prototype .metrics-story .metric-chart {
+    height: 105px;
+    min-height: 0;
+  }
+
+  .portfolio-root.viewport-fit-prototype .metrics-grid {
+    min-height: 0;
+  }
+
+  .portfolio-root.viewport-fit-prototype .tech-layers { min-height: 0; gap: .5cqw; }
+  .portfolio-root.viewport-fit-prototype .tech-layer { padding: .45cqw; }
+  .portfolio-root.viewport-fit-prototype .outcome-bottom > article { min-height: 0; padding: 8px; }
+  .portfolio-root.viewport-fit-prototype .outcome-bottom h3 { margin-bottom: 3px; }
+  .portfolio-root.viewport-fit-prototype .outcome-bottom p { margin-bottom: 5px; }
+  .portfolio-root.viewport-fit-prototype .domain-bar { margin: 5px 0; }
+  .portfolio-root.viewport-fit-prototype .impact-grid > div { padding: 5px; }
+
+  .portfolio-root.viewport-fit-prototype .contact-card { padding: 1.05cqw; }
+  .portfolio-root.viewport-fit-prototype .contact-card h3 { margin: 6px 0 4px; }
+  .portfolio-root.viewport-fit-prototype .contact-card > p { margin-bottom: 6px; }
+  .portfolio-root.viewport-fit-prototype .contact-card form { gap: 4px; }
+  .portfolio-root.viewport-fit-prototype .contact-card label { min-height: 32px; }
+  .portfolio-root.viewport-fit-prototype .message-field { height: 54px; }
+  .portfolio-root.viewport-fit-prototype .message-field textarea { height: 38px; }
+  .portfolio-root.viewport-fit-prototype .contact-card button { min-height: 36px; }
+
+  .portfolio-root.viewport-fit-prototype .page-inner > .tech-heading,
+  .portfolio-root.viewport-fit-prototype .page-inner > .tech-content,
+  .portfolio-root.viewport-fit-prototype .page-inner > .outcomes-intro,
+  .portfolio-root.viewport-fit-prototype .page-inner > .outcome-metrics,
+  .portfolio-root.viewport-fit-prototype .page-inner > .outcome-bottom,
+  .portfolio-root.viewport-fit-prototype .page-inner > .outcome-categories,
+  .portfolio-root.viewport-fit-prototype .page-inner > .connect-top,
+  .portfolio-root.viewport-fit-prototype .page-inner > .connect-bottom {
+    min-height: 0;
+  }
+
+  .project-shell:has(.ics-case),
+  .project-shell:has(.ayu-sales-case),
+  .project-shell:has(.nokia-case) {
+    --header-h: #{$page-header-height};
+  }
+
+  .project-shell:has(.ics-case) .project-header,
+  .project-shell:has(.ayu-sales-case) .project-header,
+  .project-shell:has(.nokia-case) .project-header {
+    height: var(--header-h);
+  }
+
+  .project-shell:has(.ics-case) .project-header-inner,
+  .project-shell:has(.ayu-sales-case) .project-header-inner,
+  .project-shell:has(.nokia-case) .project-header-inner {
+    max-width: none;
+    padding: .35cqw 2.5cqw;
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.55fr) minmax(0, .65fr);
+    gap: 1.4cqw;
+  }
+
+  .project-shell:has(.ics-case) .project-brand,
+  .project-shell:has(.ayu-sales-case) .project-brand,
+  .project-shell:has(.nokia-case) .project-brand { gap: 1.1cqw; }
+
+  .project-shell:has(.ics-case) .project-brand img,
+  .project-shell:has(.ayu-sales-case) .project-brand img,
+  .project-shell:has(.nokia-case) .project-brand img {
+    width: 5.3cqw;
+    height: 5.3cqw;
+    border-width: .234cqw;
+  }
+
+  .project-shell:has(.ics-case) .project-brand strong,
+  .project-shell:has(.ayu-sales-case) .project-brand strong,
+  .project-shell:has(.nokia-case) .project-brand strong { font-size: 1.7cqw; }
+
+  .project-shell:has(.ics-case) .project-brand small,
+  .project-shell:has(.ayu-sales-case) .project-brand small,
+  .project-shell:has(.nokia-case) .project-brand small {
+    margin-top: .39cqw;
+    font-size: .72cqw;
+  }
+
+  .project-shell:has(.ics-case) #project-nav,
+  .project-shell:has(.ayu-sales-case) #project-nav,
+  .project-shell:has(.nokia-case) #project-nav {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(2.25cqw, 1fr));
+    gap: .08cqw .55cqw;
+  }
+
+  .project-shell:has(.ics-case) #project-nav a,
+  .project-shell:has(.ayu-sales-case) #project-nav a,
+  .project-shell:has(.nokia-case) #project-nav a {
+    min-height: 2.3cqw;
+    padding: 0 .9cqw;
+    border-radius: .94cqw;
+    font-size: .86cqw;
+  }
+
+  .project-shell:has(.ics-case) .project-cta,
+  .project-shell:has(.ayu-sales-case) .project-cta,
+  .project-shell:has(.nokia-case) .project-cta {
+    height: 4.2cqw;
+    gap: .94cqw;
+    padding-inline: 1.4cqw;
+    border-radius: 1.4cqw;
+    font-size: 1.25cqw;
+  }
+
+  .project-shell:has(.ics-case) .project-cta svg,
+  .project-shell:has(.ayu-sales-case) .project-cta svg,
+  .project-shell:has(.nokia-case) .project-cta svg {
+    width: 1.875cqw;
+    height: 1.875cqw;
+  }
+
+  .project-shell:has(.ics-case) .case-page,
+  .project-shell:has(.ayu-sales-case) .case-page,
+  .project-shell:has(.nokia-case) .case-page {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    height: calc(100dvh - var(--header-h));
+    min-height: 0;
+    aspect-ratio: auto;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .project-shell:has(.ics-case) .case-page-inner,
+  .project-shell:has(.ayu-sales-case) .case-page-inner,
+  .project-shell:has(.nokia-case) .case-page-inner {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding: clamp(14px, 1.45vw, 28px);
+  }
+
+  .project-shell:has(.ics-case) .ics-section {
+    min-height: 0;
+    height: calc(100dvh - var(--header-h));
+    padding: clamp(14px, 1.45vw, 28px);
+    overflow: hidden;
+  }
+
+  .project-shell:has(.ics-case) .ics-inner { max-width: none; }
+
+  .project-shell:has(.ics-case) .project-site-footer,
+  .project-shell:has(.ayu-sales-case) .project-site-footer,
+  .project-shell:has(.nokia-case) .project-site-footer {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Keep dense portfolio narratives and their existing diagrams visible in the
+   viewport-sized sections. These rules only change card placement. */
+@media (min-width: 761px) {
+  .portfolio-root.viewport-fit-prototype .ecosystem-story .eco-orbit {
+    min-height: 0;
+    height: min(100%, 14cqw);
+  }
+  .portfolio-root.viewport-fit-prototype .orbit-tag {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 4px;
+    height: 36%;
+    padding: 2px 4px;
+  }
+  .portfolio-root.viewport-fit-prototype .orbit-tag b { text-align: left; }
+  .portfolio-root.viewport-fit-prototype .orbit-core {
+    width: auto;
+    height: 48%;
+    aspect-ratio: 1;
+    font-size: 18px;
+  }
+
+  .portfolio-root.viewport-fit-prototype .ecosystem-cards {
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
+  .portfolio-root.viewport-fit-prototype .eco-card {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 1fr);
+    align-content: start;
+    gap: 3px 7px;
+    padding: 6px;
+  }
+  .portfolio-root.viewport-fit-prototype .eco-card .eco-icon { grid-column: 1; grid-row: 1; }
+  .portfolio-root.viewport-fit-prototype .eco-card h3 { grid-column: 2; grid-row: 1; align-self: center; margin: 0; }
+  .portfolio-root.viewport-fit-prototype .eco-card p { grid-column: 1 / -1; grid-row: 2; min-height: 0; margin: 0; }
+  .portfolio-root.viewport-fit-prototype .eco-card ul { grid-column: 1 / -1; grid-row: 3; align-content: start; gap: 2px; }
+  .portfolio-root.viewport-fit-prototype .eco-center {
+    width: auto;
+    height: calc((100% - 20px) / 3);
+    aspect-ratio: 1;
+  }
+
+  .portfolio-root.viewport-fit-prototype .strategy-main {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr)) auto;
+    gap: 5px;
+  }
+
+  .portfolio-root.viewport-fit-prototype .strategy-step-list { display: contents; }
+  .portfolio-root.viewport-fit-prototype .strategy-step-card {
+    grid-area: auto;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+  }
+  .portfolio-root.viewport-fit-prototype .strategy-step-card .step-head { grid-column: 1; grid-row: 1; }
+  .portfolio-root.viewport-fit-prototype .strategy-step-card h3 { grid-column: 1; grid-row: 2; }
+  .portfolio-root.viewport-fit-prototype .strategy-step-card > p { grid-column: 1; grid-row: 3; }
+  .portfolio-root.viewport-fit-prototype .strategy-step-card ul {
+    grid-column: 1;
+    grid-row: 4;
+    align-self: start;
+    margin-top: 0;
+    padding-left: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px 8px;
+  }
+  .portfolio-root.viewport-fit-prototype .strategy-step-card .step-focus { grid-column: 1; grid-row: 5; }
+  .portfolio-root.viewport-fit-prototype .strategy-orbit {
+    position: relative;
+    inset: auto;
+    grid-column: 4;
+    grid-row: 2;
+    place-self: center;
+    width: 88%;
+    aspect-ratio: 1;
+    transform: none;
+  }
+  .portfolio-root.viewport-fit-prototype .strategy-outcomes { grid-column: 1 / -1; grid-row: 3; margin: 0; }
+
+  .portfolio-root.viewport-fit-prototype .scope-cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+  .portfolio-root.viewport-fit-prototype .scope-card {
+    grid-template-columns: 24px minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    gap: 4px 6px;
+  }
+  .portfolio-root.viewport-fit-prototype .scope-card-head,
+  .portfolio-root.viewport-fit-prototype .scope-card-head > div { display: contents; }
+  .portfolio-root.viewport-fit-prototype .scope-card-head > b { grid-column: 1; grid-row: 1; }
+  .portfolio-root.viewport-fit-prototype .scope-card-head h3 { grid-column: 2; grid-row: 1; padding-right: 0; }
+  .portfolio-root.viewport-fit-prototype .scope-card-head > small { top: 4px; right: 5px; }
+  .portfolio-root.viewport-fit-prototype .scope-card-head p { grid-column: 1 / -1; grid-row: 2; }
+  .portfolio-root.viewport-fit-prototype .scope-card ul {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3px 8px;
+  }
+  .portfolio-root.viewport-fit-prototype .scope-output { grid-column: 1 / -1; grid-row: 4; }
+
+  .portfolio-root.viewport-fit-prototype .outcome-bottom { height: 35%; }
+  .portfolio-root.viewport-fit-prototype .outcome-bottom > article { min-height: 0; height: 100%; }
+}
+
+@media (min-width: 761px) {
+  /* The integrated-channel page keeps its original content and reflows only
+     the denser sections so each section stays within the shared page frame. */
+  .project-shell:has(.ics-case) .ics-metrics .ics-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: clamp(6px, .55cqw, 10px);
+    height: 100%;
+    min-height: 0;
+  }
+
+  .project-shell:has(.ics-case) .ics-metrics .ics-section-heading {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+
+  .project-shell:has(.ics-case) .ics-metrics .ics-metric-layout {
+    grid-column: 1;
+    grid-row: 2;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .project-shell:has(.ics-case) .ics-metrics .ics-metric-panel,
+  .project-shell:has(.ics-case) .ics-metrics .ics-framework-grid,
+  .project-shell:has(.ics-case) .ics-metrics .ics-health-grid {
+    min-height: 0;
+  }
+
+  .project-shell:has(.ics-case) .ics-metrics .ics-priority-lens {
+    grid-column: 2;
+    grid-row: 2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: start;
+    min-height: 0;
+    margin: 0;
+  }
+
+  .project-shell:has(.ics-case) .ics-metrics .ics-priority-lens > div { grid-column: 1 / -1; }
+  .project-shell:has(.ics-case) .ics-metrics .ics-usecase-metric { grid-column: 1 / -1; grid-row: 3; margin: 0; }
+
+  .project-shell:has(.ics-case) .ics-portfolio .ics-inner {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto minmax(0, 1fr);
+    gap: clamp(5px, .45cqw, 9px);
+    height: 100%;
+    min-height: 0;
+  }
+
+  .project-shell:has(.ics-case) .ics-portfolio .ics-section-heading,
+  .project-shell:has(.ics-case) .ics-portfolio .ics-explorer-tools { grid-column: 1 / -1; margin: 0; }
+  .project-shell:has(.ics-case) .ics-portfolio .ics-section-heading { grid-row: 1; }
+  .project-shell:has(.ics-case) .ics-portfolio .ics-explorer-tools { grid-row: 2; }
+  .project-shell:has(.ics-case) .ics-portfolio .ics-product-phase {
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    margin: 0;
+    padding: clamp(6px, .55cqw, 10px);
+  }
+  .project-shell:has(.ics-case) .ics-portfolio .ics-product-phase:nth-of-type(3) { grid-column: 1; grid-row: 3; }
+  .project-shell:has(.ics-case) .ics-portfolio .ics-product-phase:nth-of-type(4) { grid-column: 2; grid-row: 3; }
+  .project-shell:has(.ics-case) .ics-portfolio .ics-phase-heading { min-height: 0; margin-bottom: 5px; }
+  .project-shell:has(.ics-case) .ics-portfolio .ics-app-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    height: calc(100% - 36px);
+    min-height: 0;
+  }
+  .project-shell:has(.ics-case) .ics-portfolio .ics-app-card { height: 100%; min-height: 0; padding: 6px; }
+
+  .project-shell:has(.ics-case) .ics-leadership .ics-section-heading { margin: 0; }
+  .project-shell:has(.ics-case) .ics-leadership .ics-competency-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    min-height: 0;
+  }
+  .project-shell:has(.ics-case) .ics-leadership .ics-competency-grid article { min-height: 0; padding: 5px 6px; }
+  .project-shell:has(.ics-case) .ics-leadership .ics-learnings-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1fr);
+    min-height: 0;
+    margin: 0;
+  }
+  .project-shell:has(.ics-case) .ics-leadership .ics-learnings-grid article { min-width: 0; min-height: 0; padding: 6px 6px 6px 22px; }
+  .project-shell:has(.ics-case) .ics-leadership .ics-learnings-grid i { top: 6px; left: 6px; }
+  .project-shell:has(.ics-case) .ics-leadership .ics-star { min-height: 0; margin: 0; padding: 6px; }
+  .project-shell:has(.ics-case) .ics-leadership .ics-star > div { gap: 4px; margin-top: 4px; }
+  .project-shell:has(.ics-case) .ics-leadership .ics-connect-banner { min-height: 0; margin: 0; padding: 8px; }
+  .project-shell:has(.ics-case) .ics-leadership .ics-project-navigation { min-height: 0; margin: 0; }
+
+  .project-shell:has(.ics-case) .ics-leadership .ics-inner {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+    align-content: space-between;
+    gap: clamp(4px, .35cqw, 7px);
+  }
+  .project-shell:has(.ics-case) .ics-leadership .ics-section-heading,
+  .project-shell:has(.ics-case) .ics-leadership .ics-competency-grid,
+  .project-shell:has(.ics-case) .ics-leadership .ics-learnings-grid { grid-column: 1 / -1; }
+  .project-shell:has(.ics-case) .ics-leadership .ics-section-heading { grid-row: 1; }
+  .project-shell:has(.ics-case) .ics-leadership .ics-competency-grid { grid-row: 2; }
+  .project-shell:has(.ics-case) .ics-leadership .ics-learnings-grid { grid-row: 3; }
+  .project-shell:has(.ics-case) .ics-leadership .ics-star { grid-column: 1 / 3; grid-row: 4; }
+  .project-shell:has(.ics-case) .ics-leadership .ics-connect-banner { grid-column: 3 / -1; grid-row: 4; }
+  .project-shell:has(.ics-case) .ics-leadership .ics-project-navigation { grid-column: 1 / -1; grid-row: 5; }
+
+  /* The architecture and integration narrative is taller than one viewport
+     at this width. Preserve its authored card layout and let the document
+     continue naturally instead of cropping the lower layers. */
+  .project-shell:has(.ics-case) .ics-tech {
+    height: auto;
+    min-height: calc(100dvh - var(--header-h));
+    overflow: visible;
+  }
+  .project-shell:has(.ics-case) .ics-tech .ics-inner {
+    display: block;
+    height: auto;
+    min-height: 0;
+  }
+
+  /* This section carries three separate layers of detailed PM evidence.
+     Keep every item in the normal document flow so none of it is clipped. */
+  .project-shell:has(.ics-case) .ics-scope {
+    height: auto;
+    min-height: calc(100dvh - var(--header-h));
+    overflow: visible;
+  }
+  .project-shell:has(.ics-case) .ics-scope .ics-inner { height: auto; min-height: 0; }
+
+  .project-shell:has(.nokia-case) #product-explorer .command-body { grid-template-rows: minmax(0, 1fr); min-height: 0; }
+  .project-shell:has(.nokia-case) #product-explorer .command-body > * { min-height: 0; }
+  .project-shell:has(.nokia-case) #product-explorer .spatial-panel {
+    height: 100%;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+  .project-shell:has(.nokia-case) #product-explorer .spatial-panel svg { height: 100%; min-height: 0; }
+  .project-shell:has(.nokia-case) #product-explorer .cost-driver-panel { height: 100%; min-height: 0; gap: 8px; }
+}
