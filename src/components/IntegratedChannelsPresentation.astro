@@ -1,0 +1,400 @@
+---
+interface AppItem {
+  id: string;
+  name: string;
+  category: string;
+  color: string;
+  purpose: string;
+  capabilities: string[];
+}
+interface Props { apps: AppItem[]; }
+const { apps } = Astro.props;
+
+const displayName: Record<string, string> = {
+  'los-lms': 'LOS / LMS',
+  'aml-kyc': 'AML / KYC',
+  'dms-ckyc': 'DMS & CKYC',
+};
+const displayCategory: Record<string, string> = {
+  audit: 'Governance & control',
+  fam: 'Financial asset management',
+  gst: 'Tax compliance & reporting',
+  'los-lms': 'Loan origination & loan management',
+  cms: 'Payments & Cards',
+  shares: 'Shares management & investor servicing',
+  'pm-schemes': 'Government schemes & subsidy processing',
+  cibil: 'Credit bureau integration',
+  reconciliation: 'Transaction & account reconciliation',
+  'aml-kyc': 'Compliance screening & due diligence',
+  treasury: 'Treasury operations & liquidity',
+  'dms-ckyc': 'Document management & CKYC workflow',
+};
+const cardDescriptions: Record<string, string> = {
+  audit: 'Internal and external audit management with workflow tracking, evidence, findings and audit reporting.',
+  fam: 'Fixed Asset Management for tracking, depreciation, asset lifecycle and compliance reporting.',
+  gst: 'GST compliance, return filing support, input/output tax management and reconciliation.',
+  'los-lms': 'Loan origination and management across applications, underwriting, approvals, disbursal and servicing.',
+  cms: 'Payments & Cards management, including customer payments, card operations and related workflows.',
+  shares: 'Shares and investor servicing with transaction tracking and portfolio reporting.',
+  'pm-schemes': 'Government scheme management, including eligibility, disbursement tracking and compliance reporting.',
+  cibil: 'Credit bureau integration for report fetching, validation and risk assessment in lending workflows.',
+  reconciliation: 'Transaction and account reconciliation across sources with matching rules and exception handling.',
+  'aml-kyc': 'Customer due diligence, KYC verification, AML screening and regulatory reporting.',
+  treasury: 'Treasury operations for liquidity, fund transfers, reporting and investment tracking.',
+  'dms-ckyc': 'Document management and CKYC workflows for identity validation and secure document storage.',
+};
+const appGlyph: Record<string, string> = {
+  audit: '⌕', fam: '▥', gst: '%', 'los-lms': '⌂', cms: '▰', shares: '↗',
+  'pm-schemes': '₹', cibil: '◉', reconciliation: '⟳', 'aml-kyc': '⬟',
+  treasury: '▤', 'dms-ckyc': '▧',
+};
+const overviewPillars = [
+  ['◈', 'Modular Banking Operations', 'Deploy 12 specialized applications across lending, payments, compliance and other core banking functions.', 'blue'],
+  ['☷', 'Configurable Workflows', 'Flexible workflows tailored to regulatory requirements and institution-specific processes.', 'green'],
+  ['⬡', 'Compliance & Control', 'Built-in controls, auditability and regulatory alignment for secure banking operations.', 'amber'],
+];
+const challenges = [
+  ['Complex Existing Banking Landscape', 'Multiple legacy and third-party systems across lending, payments, compliance and operations with limited standardisation.', 'blue', '▱'],
+  ['Manual and Inefficient Processes', 'High manual effort, longer turnaround times and operational inefficiencies across onboarding, compliance and reconciliation.', 'red', '▤'],
+  ['Evolving Regulatory Requirements', 'Frequent changes in RBI, FIU, CKYC, AML, GST and audit requirements required continuous adaptation and validation.', 'green', '⬡'],
+  ['Institution-Specific Needs', 'Different business models, policies and workflows across banks and NBFCs required a configurable, flexible solution.', 'violet', '♧'],
+  ['Integration Complexity', 'Core banking systems, payment networks, CKYC, GST, credit bureaus and other external financial services had to connect.', 'amber', '▥'],
+  ['Migration & Implementation Complexity', 'Legacy data migration, data validation and go-live support across institutions had to minimise business disruption.', 'blue', '▤'],
+];
+const challengeThemes = [
+  ['Operational Efficiency', 'Reduce manual effort and streamline banking operations.', 'blue', '⚙'],
+  ['Regulatory Compliance', 'Enable faster adaptation to changing regulatory requirements.', 'green', '⬡'],
+  ['Institutional Flexibility', 'Support bank- and NBFC-specific workflows and business rules.', 'amber', '▥'],
+  ['Scalable Growth', 'Create a platform that scales across institutions and product lines.', 'violet', '↗'],
+];
+const strategyPillars = [
+  ['01', 'Standardise the suite foundation', 'Create common product patterns, roles, controls and reporting foundations across the digital banking suite.', 'Shared services · role models · common controls', 'blue', '▱'],
+  ['02', 'Design for configurable regulatory journeys', 'Support bank-specific and NBFC-specific workflows through configurable rules, institution-level requirements and compliance-ready product design.', 'RBI / FIU readiness · configurable rules · auditability', 'green', '⬡'],
+  ['03', 'Strengthen ecosystem integration', 'Connect the suite with external and internal banking systems to support seamless operations, data flow and workflow orchestration.', 'CBS · CKYC · GSTN · bureau / payment integrations', 'amber', '↗'],
+  ['04', 'Scale modular deployment and adoption', 'Allow applications to be deployed independently or as part of the full suite, with structured rollout, migration, UAT readiness and client adoption.', 'Phased rollout · migration readiness · client adoption', 'violet', '▮'],
+];
+const strategicPriorities = [
+  ['Platform consistency', '⚙', 'blue'], ['Regulatory configurability', '⬡', 'green'],
+  ['Integration readiness', '↗', 'sky'], ['Independent deployment', '▱', 'pink'],
+  ['Operational scalability', '▮', 'violet'],
+];
+const responsibilities = [
+  ['Client & Regulatory Discovery', 'Understand bank/NBFC requirements, existing workflows, dependencies, business needs and regulatory context.', 'blue', '⌕'],
+  ['Product Strategy & Roadmap', 'Define vision, prioritise roadmap and align product direction with business goals.', 'pink', '◎'],
+  ['Requirements Management', 'Drive BRD, FRD, FSD, user stories and acceptance criteria.', 'blue', '▤'],
+  ['Solution Design & Integration', 'Define API specifications, integrations and system workflows.', 'violet', '⌘'],
+  ['Agile Delivery & Stakeholder Management', 'Work with engineering, UX, QA and business stakeholders through Agile ceremonies.', 'blue', '♧'],
+  ['Testing & Release Governance', 'Oversee SIT, UAT, VAPT, compliance checks and production releases.', 'green', '✓'],
+  ['Migration & Deployment Support', 'Plan data migration, customer onboarding and go-live readiness.', 'sky', '☁'],
+  ['Training, Documentation & Adoption', 'Prepare user manuals, conduct training and support post-deployment adoption.', 'blue', '▣'],
+];
+const deliverables = [
+  'BRD, FRD, FSD and user stories', 'API specifications and integration documents',
+  'Figma wireframes and user journey maps', 'DFD, ER diagrams and architecture flows',
+  'Test scenarios, UAT plans and release documents', 'Migration and deployment plans',
+  'Training material and user manuals',
+];
+const tools = [
+  ['Jira / Confluence', 'Backlog, documentation, Agile delivery', 'jira'],
+  ['Figma', 'Wireframes, journeys, product design', 'figma'],
+  ['Draw.io / Lucidchart', 'DFD, ER diagrams, system architecture', 'diagram'],
+  ['Postman', 'API design, testing and integration validation', 'postman'],
+];
+const deliveryStages = [
+  ['Discover', 'Customer needs, market and regulatory context', 'pink'],
+  ['Define', 'Product strategy, roadmap and business case', 'blue'],
+  ['Specify', 'BRD, FRD, FSD, API specs and designs', 'green'],
+  ['Build', 'Agile delivery with engineering and cross-functional teams', 'violet'],
+  ['Validate', 'SIT, UAT, VAPT and compliance checks', 'amber'],
+  ['Deploy', 'Data migration, customer onboarding and go-live', 'blue'],
+  ['Enable', 'Training, user manuals and change management', 'violet'],
+  ['Support', 'Post-deployment support and continuous feedback', 'green'],
+];
+const metricCards = [
+  ['Adoption Rate', 'Active usage across client institutions and applications.', 'blue', '♧'],
+  ['Transaction Success Rate', 'Successful completion of critical banking workflows.', 'green', '▤'],
+  ['Exception Rate', 'Volume of cases requiring manual review or intervention.', 'violet', '△'],
+  ['STP Rate', 'Straight-through processing across configurable workflows.', 'amber', '⚙'],
+  ['API Success Rate', 'Reliability of the platform and external integrations.', 'sky', '⌘'],
+  ['Reconciliation Accuracy', 'Match quality across transactions, books and reports.', 'pink', '▥'],
+];
+const useCases = [
+  ['LOS / LMS onboarding', 'Application completion, drop-off visibility and approval workflow completion.', 'Improves onboarding readiness and workflow clarity.', 'blue', '♙'],
+  ['AML / KYC operations', 'Screening completion, alert handling timeliness and manual review load.', 'Strengthens compliance operations and control visibility.', 'green', '⬡'],
+  ['Reconciliation workflows', 'Auto-match rate, exception ageing and resolution cycle time.', 'Improves financial control and exception management.', 'violet', '▤'],
+  ['API / integration journeys', 'API success rate, failure trend visibility and dependency monitoring.', 'Improves integration reliability across client environments.', 'amber', '⌘'],
+];
+const frameworks = [
+  ['RICE', 'Used for opportunity scoring and roadmap sequencing.', 'blue', '▮'],
+  ['MoSCoW', 'Used for release scope alignment.', 'green', '☷'],
+  ['Impact vs Effort', 'Used for quick decision framing.', 'violet', '◎'],
+  ['WSJF', 'Used for sequencing dependencies, urgency and value.', 'amber', '▱'],
+];
+const decisionLenses = [
+  ['Risk Reduction', 'Evaluated operational, compliance and integration risks across releases.', 'blue', '⬡'],
+  ['Customer / Business Impact', 'Assessed value for bank and NBFC customers across core workflows.', 'green', '♧'],
+  ['Dependency-based Prioritisation', 'Considered cross-platform and external dependencies for sequencing.', 'violet', '↗'],
+  ['Regulatory / Criticality-based Prioritisation', 'Prioritised regulatory, statutory and mission-critical capabilities.', 'pink', '▤'],
+];
+const portfolioHighlights = [
+  ['End-to-end Coverage', 'From origination to disbursement, payments, compliance, operations and financial control.', 'blue', '◎'],
+  ['Modular Deployment', 'Deploy individual applications or the complete suite based on institution requirements.', 'sky', '✣'],
+  ['Multi-Channel Support', 'Web, mobile, API and partner integrations (CBS, UPI, CKYC, GSTN) and other external systems.', 'green', '♧'],
+  ['Regulatory Ready', 'Built to meet RBI, FIU and other regulatory requirements with auditability and controls.', 'amber', '⬡'],
+];
+const portfolioValues = [
+  ['Launch Faster', 'Pre-built and configurable applications reduce time-to-market.', 'pink', '▮'],
+  ['Operate Efficiently', 'Standardised workflows and automation reduce manual effort.', 'green', '⚙'],
+  ['Stay Compliant', 'Built-in controls for RBI, FIU, KYC/CKYC, AML, GST and audit.', 'violet', '♧'],
+  ['Better Customer Experience', 'Seamless, consistent and omnichannel journeys.', 'amber', '♡'],
+];
+const architectureLayers = [
+  ['USER LAYER', 'Multiple user groups accessing banking services and operations.', [
+    ['Banks / NBFCs', 'Configure and deploy as per business needs', 'blue', '⌂'],
+    ['Operations teams', 'Manage day-to-day banking operations', 'green', '♧'],
+    ['Business users', 'Branch, back office and support teams', 'violet', '♙'],
+    ['Customers / Channels', 'End customers across digital and assisted channels', 'pink', '♧'],
+  ]],
+  ['APPLICATION LAYER', 'Core platform modules and shared capabilities delivering banking workflows.', [
+    ['Integrated Channels Suite', 'Modular banking applications', 'blue', '▦'],
+    ['Shared services', 'Common services and master data', 'green', '⚙'],
+    ['Workflow & rules', 'Business rules, approvals and configurations', 'violet', '⌘'],
+    ['Notifications / control layer', 'Alerts, monitoring and operational control', 'pink', '▣'],
+  ]],
+  ['DATA & REPORTING LAYER', 'Unified data foundation for operations, compliance and insights.', [
+    ['SQL database', 'Centralised and structured data', 'violet', '▥'],
+    ['MIS / dashboards', 'Operational and management reporting', 'sky', '▮'],
+    ['Audit trail', 'Transaction and process audit logs', 'pink', '▤'],
+    ['Operational reporting', 'Regulatory, statutory and business reports', 'amber', '◴'],
+  ]],
+  ['EXTERNAL / INTEGRATION LAYER', 'Secure integrations with banking systems, networks and regulatory platforms.', [
+    ['CBS / Bank systems', 'Account, workflow and transaction integration', 'blue', '⌂'],
+    ['NPCI / UPI / AEPS', 'Payment and network connectivity', 'green', '↗'],
+    ['ATM / Switch', 'Channel integrations and routing', 'violet', '▣'],
+    ['CIBIL / CKYC / GST', 'Bureau, KYC and statutory interfaces', 'pink', '▤'],
+  ]],
+];
+const integrations = [
+  ['CBS / Bank systems', 'Account, workflow and transaction orchestration.', 'blue', '⌂'],
+  ['NPCI / UPI / AEPS', 'Payment and network connectivity.', 'green', '↗'],
+  ['ATM / Switch', 'Channel integrations and routing.', 'violet', '▣'],
+  ['CIBIL / CKYC / GST', 'Bureau, KYC and statutory interfaces.', 'pink', '▤'],
+  ['RuPay / Visa / Mastercard', 'Card ecosystem connectivity.', 'amber', '▰'],
+  ['Security & governance', 'QA, UAT, VAPT and control readiness.', 'sky', '⬡'],
+];
+const technologies = ['Frappe Framework', '.NET Core', 'SQL', 'Mixpanel', 'Amplitude', 'Figma', 'draw.io', 'Visio', 'Lucidchart', 'Canva', 'JIRA'];
+const outcomeMetrics = [
+  ['12', 'Applications', 'Delivered as one configurable digital banking suite.', 'blue', '▱'],
+  ['100+', 'Deployments', 'Adopted across bank and NBFC environments.', 'violet', '♧'],
+  ['25%', 'Lower Manual Effort', 'Reduced operational effort through automation and standardised workflows.', 'green', '▮'],
+  ['Faster', 'Client Rollout', 'Implementation-ready product patterns improved go-live readiness.', 'amber', 'ϟ'],
+  ['Stronger', 'Compliance Control', 'Built-in controls supported RBI, FIU, CKYC, GST and audit needs.', 'violet', '⬡'],
+];
+const institutionImpacts = [
+  ['Operational consistency', 'Standardised processes across lending, compliance, reconciliation, treasury, documentation and scheme modules.', 'blue', '⚙'],
+  ['Integration readiness', 'Smoother connectivity with core banking and external systems across diverse environments.', 'green', '⌘'],
+  ['Deployment flexibility', 'Modules could be rolled out independently or as a suite to match priorities and scale progressively.', 'violet', '⬡'],
+  ['User adoption', 'Stronger usability for operations, compliance and business teams, leading to higher engagement across institutions.', 'amber', '♧'],
+];
+const businessOutcomes = [
+  ['Improved control environment', 'Stronger oversight, standardised processes and reduced operational risk.', 'blue', '⬡'],
+  ['Better implementation governance', 'Structured rollout approach with reusable product patterns and accelerators.', 'green', '▮'],
+  ['Higher process transparency', 'End-to-end visibility across critical banking operations and compliance workflows.', 'violet', '◉'],
+  ['More scalable product foundation', 'Modular architecture enabled continued expansion across new business needs.', 'amber', '▱'],
+  ['Enhanced collaboration across teams', 'Better alignment across product, engineering and client teams, driving faster execution.', 'pink', '♧'],
+];
+const leadershipCompetencies = [
+  ['Product Strategy & Vision', 'Identify opportunities and define a scalable roadmap.', 'pink', '◎'],
+  ['Customer & Client Collaboration', 'Work closely with banks, NBFCs and partners to solve real needs.', 'blue', '♧'],
+  ['Cross-Functional Leadership', 'Align product, engineering, compliance and delivery teams.', 'green', '⚙'],
+  ['Regulatory & Compliance Alignment', 'Embed RBI, FIU, CKYC, AML, GST and audit requirements.', 'violet', '⌂'],
+  ['Data-Driven Decision Making', 'Use product analytics to prioritise and measure impact.', 'amber', '▮'],
+  ['Scalable Execution', 'Drive modular architecture, faster releases and wider adoption across clients.', 'pink', '↗'],
+];
+const capabilities = [
+  ['Build What Matters', 'Focus on high-value use cases that solve real client problems in lending, payments, compliance and operations.', ['Market and client research', 'Opportunity assessment', 'Product vision and roadmap'], 'blue', '◈'],
+  ['Enable High-Performing Teams', 'Create clarity, foster collaboration and drive ownership across cross-functional teams.', ['Agile product delivery', 'Stakeholder alignment', 'Knowledge sharing and enablement'], 'green', '♧'],
+  ['Leverage Data & Insights', 'Use data and user feedback to validate hypotheses, prioritise features and measure product impact.', ['User behaviour analysis', 'Mixpanel & Amplitude insights', 'Data-driven prioritisation'], 'violet', '▮'],
+  ['Drive Adoption & Scale', 'Partner with clients and internal teams to ensure successful deployment and continuous growth.', ['Client demos and feedback', 'Pilots to production', 'Support rollout across 100+ bank deployments'], 'amber', '↗'],
+];
+const connectWays = [
+  ['Discuss Ideas', 'Explore use cases and possibilities.', '◎'],
+  ['Exchange Perspectives', 'Learn from each other’s experiences.', '♧'],
+  ['Create Impact Together', 'Build scalable, compliant and customer-centric fintech products.', '↗'],
+];
+---
+
+<main class="ics-case" aria-label="Integrated Channels Suite case study">
+  <section class="ics-section ics-overview" id="overview" aria-labelledby="ics-overview-title">
+    <div class="ics-page ics-overview-page">
+      <div class="ics-overview-copy">
+        <p class="ics-kicker">DIGITAL BANKING PLATFORM</p>
+        <h1 id="ics-overview-title">Integrated<br />Channels Suite</h1>
+        <h2>A configurable digital platform<br />for banks and NBFCs.</h2>
+        <i class="ics-gradient-rule" aria-hidden="true"></i>
+        <p class="ics-overview-lede">Integrated Channels Suite is a multi-application banking platform that brings together lending, payments, customer servicing, compliance and other core banking operations. It includes 12 specialized applications that can be deployed individually or as a unified suite, configured to meet each institution’s regulatory and business requirements.</p>
+      </div>
+      <div class="ics-overview-visual" aria-label="Banking platform workspace for desktop and mobile">
+        <div class="ics-entity-row">
+          <div><span class="ics-icon tone-blue">⌂</span><b>Banks</b><small>Public | Private | Cooperative</small></div>
+          <div><span class="ics-icon tone-violet">▥</span><b>NBFCs</b><small>Lending | Housing | Microfinance</small></div>
+          <div><span class="ics-icon tone-green">⬡</span><b>Compliance Ready</b><small>RBI, FIU, CKYC, AML, GST and audit requirements</small></div>
+        </div>
+        <div class="ics-workspace-scene">
+          <article class="ics-callout ics-callout-workflow"><span class="ics-icon tone-blue">⚙</span><b>Configurable<br />Workflows</b><small>Adapt to regulatory and institution-specific requirements.</small></article>
+          <article class="ics-callout ics-callout-modular"><span class="ics-icon tone-violet">▱</span><b>Modular<br />Deployment</b><small>Deploy individual applications or as a unified suite.</small></article>
+          <div class="ics-laptop">
+            <div class="ics-laptop-screen">
+              <aside><b>◈</b><strong>Integrated<br />Channels</strong><span>⌂ Home</span><span>▦ Applications</span><span>♧ Customers</span><span>▤ Transactions</span><span>⬡ Compliance</span><span>▮ Reports</span></aside>
+              <div class="ics-dashboard">
+                <div class="ics-searchbar">⌕ <span>Search customer, account or transaction...</span><b>●　?　MP</b></div>
+                <h3>Banking Overview</h3>
+                <div class="ics-quick-stats"><span>♧<b>Customers</b></span><span>▰<b>Accounts</b></span><span>▥<b>Loans</b></span><span>↗<b>Payments</b></span></div>
+                <div class="ics-dashboard-panels"><article><b>Application Activity</b><div class="ics-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article><article><b>Operational Status</b><div class="ics-donut"></div><small>● Applications Online<br />● Under Maintenance<br />● Scheduled</small></article></div>
+              </div>
+            </div>
+            <div class="ics-laptop-base"></div>
+          </div>
+          <div class="ics-phone"><div class="ics-phone-top">◈ Integrated Channels　☰</div><b>Quick Actions</b><div class="ics-phone-actions"><span>♧<small>Customer</small></span><span>▰<small>Loan</small></span><span>↗<small>Payment</small></span><span>⬡<small>Compliance</small></span><span>▤<small>Reports</small></span><span>···<small>More</small></span></div><b>Recent Activities</b><p>🔵 Loan Application<br /><small>In Progress</small></p><p>🟢 Payment Processed<br /><small>Successful</small></p><p>◉ CKYC Validation<br /><small>Completed</small></p></div>
+        </div>
+      </div>
+      <div class="ics-overview-pillars">
+        {overviewPillars.map(([icon, title, text, tone]) => <article class={`tone-${tone}`}><span class="ics-icon">{icon}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="ics-section ics-ecosystem" id="ecosystem" aria-labelledby="ics-ecosystem-title">
+    <div class="ics-page ics-ecosystem-page">
+      <aside class="ics-dark-panel ics-ecosystem-story">
+        <p class="ics-kicker">DIGITAL BANKING ECOSYSTEM</p>
+        <h2 id="ics-ecosystem-title">A connected product ecosystem for <em>banks</em> and <em>NBFCs.</em></h2>
+        <i class="ics-gradient-rule" aria-hidden="true"></i>
+        <p>Brings together 12 configurable banking applications on a common platform with shared controls, reporting, and institution-specific workflows.</p>
+        <article><span class="ics-icon tone-blue">▱</span><div><b>12 specialised applications</b><small>Core banking, compliance, operations and customer functions.</small></div></article>
+        <article><span class="ics-icon tone-green">⚙</span><div><b>Common platform controls</b><small>Unified user management, security, audit, reporting and monitoring.</small></div></article>
+        <article><span class="ics-icon tone-violet">☷</span><div><b>Configurable institution workflows</b><small>Tailored to bank or NBFC business processes and regulatory needs.</small></div></article>
+      </aside>
+      <div class="ics-ecosystem-board" aria-label="The twelve connected Integrated Channels Suite applications">
+        <svg class="ics-ecosystem-connectors" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke-width="5"><path d="M500 350 C420 230 260 130 145 85" stroke="#8b36ed"/><path d="M500 350 C500 190 500 130 500 85" stroke="#087ff0"/><path d="M500 350 C580 230 740 130 855 85" stroke="#00a986"/><path d="M500 350 C700 270 800 210 855 210" stroke="#e72c82"/><path d="M500 350 C720 350 790 350 855 350" stroke="#087ff0"/><path d="M500 350 C700 440 800 490 855 490" stroke="#8139ed"/><path d="M500 350 C580 500 740 580 855 615" stroke="#ff9400"/><path d="M500 350 C500 520 500 580 500 615" stroke="#ed2580"/><path d="M500 350 C420 500 260 580 145 615" stroke="#087ff0"/><path d="M500 350 C300 440 200 490 145 490" stroke="#00a986"/><path d="M500 350 C280 350 210 350 145 350" stroke="#ff9400"/><path d="M500 350 C300 270 200 210 145 210" stroke="#8139ed"/></g></svg>
+        {apps.map((app, index) => <button class:list={['ics-eco-node', `ics-node-${index + 1}`]} type="button" data-open={app.id} style={`--app-tone:${app.color}`} aria-label={`Open ${displayName[app.id] ?? app.name} product workspace`}><span class="ics-icon">{appGlyph[app.id]}</span><span class="ics-eco-text"><small>{String(index + 1).padStart(2, '0')}</small><b>{displayName[app.id] ?? app.name}</b><em>{displayCategory[app.id] ?? app.category}</em></span></button>)}
+        <div class="ics-ecosystem-hub"><span>⌂</span><b>Integrated<br />Channels Suite</b><small>12 applications · shared platform · configurable workflows</small></div>
+        <p class="ics-ecosystem-note">Applications could be accessed individually from the suite to open their dedicated workflows and product details.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ics-section ics-challenge" id="challenge" aria-labelledby="ics-challenge-title">
+    <div class="ics-page ics-challenge-page">
+      <div class="ics-challenge-copy">
+        <p class="ics-kicker">THE CHALLENGE</p>
+        <h2 id="ics-challenge-title">Why a Unified Platform was <em>Needed?</em></h2>
+        <p>Banks and NBFCs were operating with multiple standalone systems across lending, payments, compliance and operations, leading to inefficiencies, higher operational effort and slower time-to-market.</p>
+        <p>Evolving regulatory requirements, integration with core banking systems and the need for a configurable, institution-ready solution created a strong need for a unified digital banking platform.</p>
+      </div>
+      <div class="ics-challenge-cards">
+        {challenges.map(([title, text, tone, icon]) => <article class={`ics-challenge-card tone-${tone}`}><span class="ics-icon">{icon}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}
+      </div>
+      <aside class="ics-impact-panel">
+        <div class="ics-bank-visual" aria-label="Banking district illustration">
+          <svg viewBox="0 0 500 280" role="img" aria-label="Bank building among city towers"><defs><linearGradient id="bankGlass" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#84c9ff"/><stop offset=".48" stop-color="#116fc6"/><stop offset="1" stop-color="#073264"/></linearGradient></defs><path fill="#8fcaf1" d="M0 190 90 110l60 44 87-119 74 89 72-55 117 72v139H0z"/><path fill="#d1e8f8" d="M0 228 80 160l73 39 95-113 64 79 65-41 123 71v91H0z"/><path fill="url(#bankGlass)" d="M206 19h192v245H206z"/><path fill="#063d75" d="M314 19h84v245h-84z"/><g stroke="#bfe6ff" stroke-width="4" opacity=".8"><path d="M230 23v238M258 23v238M286 23v238M314 23v238M342 23v238M370 23v238M208 60h188M208 100h188M208 140h188M208 180h188M208 220h188"/></g><text x="231" y="143" fill="#fff" font-family="Arial,sans-serif" font-size="42" font-weight="800" transform="rotate(-12 231 143)">BANK</text></svg>
+        </div>
+        <div class="ics-impact-copy"><h3>Business Impact</h3><p>These challenges created operational, compliance and growth constraints for banks and NBFCs, highlighting the need for a unified, configurable and integration-ready digital banking platform.</p>
+          <article><span class="ics-icon tone-blue">◷</span><div><b>Slower Time-to-Market</b><small>New products and regulatory changes took longer to implement.</small></div></article>
+          <article><span class="ics-icon tone-green">₹</span><div><b>Higher Operational Costs</b><small>Manual processes and multiple systems increased operational effort and cost.</small></div></article>
+          <article><span class="ics-icon tone-violet">▮</span><div><b>Limited Scalability</b><small>Fragmented architecture made it difficult to scale across more institutions and products.</small></div></article>
+        </div>
+      </aside>
+      <div class="ics-challenge-themes"><p class="ics-kicker">KEY CHALLENGE THEMES</p>{challengeThemes.map(([title, text, tone, icon]) => <article class={`tone-${tone}`}><span class="ics-icon">{icon}</span><div><b>{title}</b><small>{text}</small></div></article>)}</div>
+    </div>
+  </section>
+
+  <section class="ics-section ics-strategy" id="strategy" aria-labelledby="ics-strategy-title">
+    <div class="ics-page ics-strategy-page">
+      <aside class="ics-dark-panel ics-strategy-story">
+        <p class="ics-kicker">PRODUCT STRATEGY</p>
+        <h2 id="ics-strategy-title">A modular banking strategy designed for <em>scale, compliance</em> and configurable delivery.</h2>
+        <p>The strategy focused on turning a broad banking product landscape into one configurable digital banking suite for banks and NBFCs — standardising shared platform capabilities, enabling institution-specific workflows, and supporting regulatory readiness across implementations.</p>
+        <ul><li>Standardise shared product foundations across the suite</li><li>Enable configurable workflows for bank and NBFC needs</li><li>Embed regulatory and audit readiness into product design</li><li>Support modular deployment and scalable client delivery</li></ul>
+        <div class="ics-strategy-outcomes"><small>STRATEGY OUTCOMES</small><div><b>▱ Modular platform</b><b>⬡ Compliance readiness</b><b>☷ Configurable workflows</b><b>▮ Scalable delivery</b></div></div>
+      </aside>
+      <div class="ics-strategy-diagram">
+        <svg viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke-width="4"><path d="M500 300 C420 210 305 135 180 80" stroke="#087ff0"/><path d="M500 300 C610 210 700 135 830 80" stroke="#00a986"/><path d="M500 300 C405 395 300 465 180 520" stroke="#ff9300"/><path d="M500 300 C605 395 715 465 830 520" stroke="#8b35ec"/></g></svg>
+        {strategyPillars.map(([number, title, text, tags, tone, icon]) => <article class={`ics-strategy-card ics-strategy-card-${number} tone-${tone}`}><span class="ics-icon">{icon}</span><div><small>{number}</small><h3>{title}</h3><p>{text}</p></div><b class="ics-strategy-tags">{tags}</b></article>)}
+        <div class="ics-strategy-hub"><span>⌂</span><b>Integrated<br />Channels Strategy</b><small>standardise · configure · integrate · scale</small></div>
+        <div class="ics-priority-strip"><p class="ics-kicker">KEY STRATEGIC PRIORITIES</p>{strategicPriorities.map(([title, icon, tone]) => <article class={`tone-${tone}`}><span class="ics-icon">{icon}</span><b>{title}</b></article>)}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ics-section ics-scope" id="pm-scope" aria-labelledby="ics-scope-title">
+    <div class="ics-page ics-scope-page">
+      <div class="ics-scope-layout">
+        <div class="ics-scope-copy"><p class="ics-kicker">PM SCOPE</p><h2 id="ics-scope-title">My Product Management <em>Scope</em></h2><p>End-to-end product management responsibilities to design, build and deliver the Integrated Channels Suite across 12 banking applications. Focus on client needs, regulatory requirements and business goals while working with cross-functional teams from discovery to deployment and adoption.</p></div>
+        <div class="ics-scope-center">
+          <div class="ics-scope-responsibilities"><div class="ics-subhead"><span class="ics-icon tone-violet">♙</span><h3>Key Responsibilities</h3></div><div class="ics-responsibility-grid">{responsibilities.map(([title, text, tone, icon]) => <article class={`tone-${tone}`}><b><span>{icon}</span>{title}</b><p>{text}</p></article>)}</div></div>
+          <div class="ics-scope-support"><article class="ics-deliverables"><div class="ics-subhead"><span class="ics-icon tone-green">▤</span><h3>Key Deliverables</h3></div><ul>{deliverables.map(item => <li>{item}</li>)}</ul></article><article class="ics-tools"><div class="ics-subhead"><span class="ics-icon tone-blue">⚒</span><h3>Tools &amp; Methodologies</h3></div>{tools.map(([title, text, brand]) => <div class="ics-tool"><span class={`ics-tool-icon ${brand}`}>{brand === 'figma' ? '◉' : brand === 'jira' ? '▦' : brand === 'postman' ? '◒' : '⌘'}</span><span><b>{title}</b><small>{text}</small></span></div>)}</article></div>
+        </div>
+        <aside class="ics-pm-impact"><div class="ics-pm-illustration"><svg viewBox="0 0 400 260" role="img" aria-label="Product manager reviewing a banking workflow on a laptop"><defs><linearGradient id="tablet" x1="0" x2="1"><stop stop-color="#f4f9ff"/><stop offset="1" stop-color="#cce3fb"/></linearGradient></defs><rect width="400" height="260" fill="#dcebf8"/><path fill="#a8bed1" d="M0 205h400v55H0z"/><path fill="#43566b" d="M202 24h173v144H202z"/><rect x="212" y="34" width="153" height="123" rx="5" fill="url(#tablet)"/><g fill="#fff" stroke="#72aee9" stroke-width="3"><rect x="230" y="48" width="45" height="30" rx="5"/><rect x="222" y="94" width="52" height="34" rx="5"/><rect x="284" y="94" width="62" height="34" rx="5"/><rect x="280" y="48" width="64" height="30" rx="5"/></g><g fill="#087ff0"><circle cx="252" cy="60" r="5"/><circle cx="245" cy="106" r="5"/><circle cx="315" cy="106" r="5"/><circle cx="310" cy="60" r="5"/></g><g stroke="#1583e0" stroke-width="3" fill="none"><path d="M252 79v8h-13v7M310 79v8h5v7"/><path d="M274 111h10"/></g><path fill="#667d93" d="M192 170h190l-18 15H210z"/><path fill="#23384b" d="M0 235q90-95 180-10l28 35H0z"/><path fill="#efd7c2" d="M54 203q48-28 91 5l34 28-18 16-47-29-38 17-31-16z"/></svg></div><div class="ics-pm-impact-copy"><h3>PM Impact</h3><article><span class="ics-icon tone-green">◎</span><div><b>Customer Centric</b><small>Translate client and regulatory needs into scalable product solutions.</small></div></article><article><span class="ics-icon tone-violet">⚙</span><div><b>Cross-Functional Leadership</b><small>Align teams across product, engineering, compliance and business.</small></div></article><article><span class="ics-icon tone-blue">▮</span><div><b>Delivery Focused</b><small>Drive end-to-end delivery with quality, compliance and adoption.</small></div></article></div></aside>
+      </div>
+      <div class="ics-delivery-process"><div class="ics-process-heading"><span class="ics-icon tone-blue">⌘</span><h3>End-to-End Product Management Process</h3></div><div>{deliveryStages.map(([title, text, tone], index) => <article class={`tone-${tone}`}><b><i>{index + 1}</i>{title}</b><small>{text}</small></article>)}</div></div>
+    </div>
+  </section>
+
+  <section class="ics-section ics-metrics" id="product-metrics" aria-labelledby="ics-metrics-title">
+    <div class="ics-page ics-metrics-page">
+      <aside class="ics-dark-panel ics-metrics-story"><p class="ics-kicker">PRODUCT METRICS</p><h2 id="ics-metrics-title">Measuring the product signals that drive <em>adoption, reliability and operational efficiency.</em></h2><p>For Integrated Channels Suite, product measurement focused on adoption across banks and NBFCs, workflow reliability, straight-through processing, integration quality and control visibility across configurable banking applications.</p><ul><li>Adoption and usage health</li><li>Transaction and workflow reliability</li><li>Exception and manual intervention tracking</li><li>API and integration performance</li><li>Reconciliation and control accuracy</li></ul><article class="ics-north-star"><small>NORTH STAR</small><b>Successful completion of critical banking workflows with minimal exceptions, reliable integrations and strong operational control.</b></article></aside>
+      <div class="ics-metrics-content">
+        <section class="ics-metric-framework"><div class="ics-panel-title"><h3>Metric Framework</h3><p>Core product metric categories used to measure, evaluate and improve the platform.</p></div><div class="ics-metric-cards">{metricCards.map(([title, text, tone, icon]) => <article class={`tone-${tone}`}><span class="ics-icon">{icon}</span><h4>{title}</h4><p>{text}</p><i></i></article>)}</div></section>
+        <div class="ics-metrics-mid"><section class="ics-usecase-panel"><div class="ics-panel-title"><h3>Banking Use Case Measurement Framework</h3><p>Key use cases and the metrics used to measure product value.</p></div><div class="ics-usecase-grid">{useCases.map(([title, metrics, impact, tone, icon]) => <article class={`tone-${tone}`}><div><span class="ics-icon">{icon}</span><b>{title}</b></div><strong>METRICS</strong><p>{metrics}</p><strong>IMPACT</strong><p>{impact}</p></article>)}</div></section>
+          <section class="ics-framework-panel"><div class="ics-panel-title"><h3>Prioritisation Frameworks</h3><p>Methods used to evaluate opportunities and prioritise roadmap items.</p></div><div class="ics-framework-cards">{frameworks.map(([title, text, tone, icon]) => <article class={`tone-${tone}`}><span class="ics-icon">{icon}</span><div><b>{title}</b><p>{text}</p></div></article>)}</div></section></div>
+        <section class="ics-decision-panel"><div class="ics-panel-title"><h3>Product Decision-Making</h3><p>Key lenses used to evaluate, prioritise and decide on product investments for a regulated fintech platform.</p></div><div class="ics-decision-grid">{decisionLenses.map(([title, text, tone, icon]) => <article class={`tone-${tone}`}><span class="ics-icon">{icon}</span><div><b>{title}</b><p>{text}</p></div></article>)}</div></section>
+      </div>
+    </div>
+  </section>
+
+  <section class="ics-section ics-portfolio" id="portfolio" aria-labelledby="ics-portfolio-title">
+    <div class="ics-page ics-portfolio-page">
+      <aside class="ics-dark-panel ics-portfolio-story"><p class="ics-kicker">INTEGRATED CHANNELS SUITE</p><h2 id="ics-portfolio-title">Product<br /><em>Portfolio</em></h2><p>A unified suite of 12 banking applications designed for banks and NBFCs to digitize, comply and operate efficiently.</p><p>The Integrated Channels Suite (ICS) enables institutions to launch and scale a complete digital banking ecosystem with configurable, modular and integration-ready applications. Each application can be deployed independently or as a unified platform based on client needs.</p><article><span class="ics-icon tone-blue">⌂</span><div><b>Complete Coverage</b><small>12 banking applications across the lending, payments, compliance and financial control value chain.</small></div></article><article><span class="ics-icon tone-blue">⬡</span><div><b>Modular &amp; Interoperable</b><small>Deploy individual modules or the complete suite with shared data and common workflows.</small></div></article><article><span class="ics-icon tone-blue">⚙</span><div><b>Configurable for Institutions</b><small>Adaptable to bank and NBFC requirements with flexible business rules and workflows.</small></div></article><article><span class="ics-icon tone-blue">⬡</span><div><b>Built for Compliance</b><small>Designed to meet RBI, FIU and other regulatory requirements with auditability and controls.</small></div></article></aside>
+      <div class="ics-portfolio-main"><section class="ics-portfolio-intro"><span class="ics-icon tone-blue">▦</span><div><h3>12 Banking Applications</h3><p>Each application addresses a specific business function while working together as an integrated platform to deliver a seamless and compliant banking experience.</p></div></section>
+        <div class="ics-app-tools"><label class="ics-search-label" for="ics-search">Search applications</label><input id="ics-search" type="search" placeholder="⌕  Search applications" /><div class="ics-filters" id="ics-filters" aria-label="Filter applications"><button class="filter active" type="button" data-filter="All">All 12</button><button class="filter" type="button" data-filter="Lending">Lending</button><button class="filter" type="button" data-filter="Payments & Cards">Payments</button><button class="filter" type="button" data-filter="Compliance">Compliance</button><button class="filter" type="button" data-filter="Financial Control">Financial Control</button><button class="filter" type="button" data-filter="Governance">Governance</button><button class="filter" type="button" data-filter="Operations">Operations</button></div></div>
+        <div class="ics-app-grid">{apps.map((app, index) => <button class="ics-app-card" type="button" data-cat={app.category} data-open={app.id} data-search={`${app.name} ${app.category} ${app.purpose} ${app.capabilities.join(' ')}`} style={`--app-tone:${app.color}`}><span class="ics-app-number">{String(index + 1).padStart(2, '0')}</span><span class="ics-app-icon">{appGlyph[app.id]}</span><span class="ics-app-copy"><b>{displayName[app.id] ?? app.name}</b><small>{cardDescriptions[app.id] ?? app.purpose}</small></span><span class="ics-app-cta">View Details <i>→</i> Product Workspace <b>↗</b></span></button>)}</div>
+        <p class="ics-explorer-empty" id="ics-empty" hidden>No products match this search.</p>
+      </div>
+      <aside class="ics-portfolio-support"><article class="ics-platform-card"><span class="ics-icon tone-blue">↗</span><div><b>One Integrated Platform</b><small>Shared data, common workflows and seamless interoperability across all 12 applications.</small></div></article><section><h3>Portfolio Highlights</h3>{portfolioHighlights.map(([title, text, tone, icon]) => <article class={`tone-${tone}`}><span class="ics-icon">{icon}</span><div><b>{title}</b><small>{text}</small></div></article>)}</section><section><h3>Key Value Across the Portfolio</h3>{portfolioValues.map(([title, text, tone, icon]) => <article class={`ics-value-item tone-${tone}`}><span class="ics-icon">{icon}</span><div><b>{title}</b><small>{text}</small></div></article>)}</section></aside>
+    </div>
+  </section>
+
+  <section class="ics-section ics-tech" id="tech-data" aria-labelledby="ics-tech-title">
+    <div class="ics-page ics-tech-page">
+      <aside class="ics-dark-panel ics-tech-story"><p class="ics-kicker">INTEGRATED CHANNELS SUITE</p><h2 id="ics-tech-title">A scalable, integration-ready digital banking technology backbone.</h2><i class="ics-gradient-rule" aria-hidden="true"></i><p>The Integrated Channels Suite was designed as a configurable digital banking platform supporting multiple banking workflows, shared services, regulatory integrations and reporting for banks and NBFCs.</p><ul><li>Configurable platform architecture for bank-specific workflows</li><li>API-led integration with core banking and external interfaces</li><li>Shared data and reporting foundation across modules</li><li>Compliance, testing and release readiness built into delivery</li><li>Deployment and migration readiness for client implementation</li></ul><section><small>PLATFORM FOUNDATION</small><div><b>◈ Modular architecture</b><b>⌘ API integrations</b><b>⬡ Regulatory compliance</b><b>▮ Reporting &amp; analytics</b></div></section></aside>
+      <div class="ics-architecture-panel"><div class="ics-panel-title"><div><h3>System architecture</h3><p>Connected product layers for banking workflows, integrations and operational control.</p></div><span>Scalable · Secure · Integration-ready</span></div><div class="ics-architecture-layers">{architectureLayers.map(([title, summary, items], index) => <section class={`ics-architecture-layer layer-${index + 1}`}><div class="ics-layer-label"><b>{title}</b><small>{summary}</small></div><div class="ics-layer-items">{items.map(([name, text, tone, icon]) => <article class={`tone-${tone}`}><span>{icon}</span><b>{name}</b><small>{text}</small></article>)}</div></section>)}</div></div>
+      <aside class="ics-integrations-panel"><div class="ics-panel-title"><div><h3>Key integrations</h3><p>Critical banking and regulatory integrations powering the platform.</p></div></div>{integrations.map(([title, text, tone, icon]) => <article class={`tone-${tone}`}><span class="ics-icon">{icon}</span><div><b>{title}</b><small>{text}</small></div><i>›</i></article>)}</aside>
+      <div class="ics-technology-panel"><div><h3>Technology stack</h3><p>Proven and purpose-fit technologies for rapid delivery, integration and reporting.</p></div><div>{technologies.map((technology, index) => <span class={`tech-${index + 1}`}><i>{['F','.N','▥','◉','A','◉','⌘','V','✣','C','◆'][index]}</i><b>{technology}</b></span>)}</div><small>Delivery supported by structured QA / UAT / VAPT and deployment readiness practices.</small></div>
+    </div>
+  </section>
+
+  <section class="ics-section ics-outcomes" id="outcomes" aria-labelledby="ics-outcomes-title">
+    <div class="ics-page ics-outcomes-page">
+      <aside class="ics-dark-panel ics-outcomes-story"><p class="ics-kicker">INTEGRATED CHANNELS SUITE</p><h2 id="ics-outcomes-title">Key Outcomes</h2><h3>Enterprise impact delivered across banks and NBFCs</h3><p>The suite helped institutions modernize lending, compliance, reconciliation, treasury, documentation and scheme workflows through a configurable, modular digital banking platform.</p><article><span class="ics-icon tone-blue">⚙</span><div><b>Operational efficiency</b><small>Reduced manual dependency through workflow automation and standardisation.</small></div></article><article><span class="ics-icon tone-green">⬡</span><div><b>Regulatory confidence</b><small>Stronger controls, audit trails and submission readiness.</small></div></article><article><span class="ics-icon tone-violet">♧</span><div><b>Implementation readiness</b><small>Easier rollout across varied institution environments.</small></div></article><article><span class="ics-icon tone-amber">▮</span><div><b>Scalable adoption</b><small>Modular application expansion across banking operations.</small></div></article></aside>
+      <div class="ics-outcomes-main"><div class="ics-outcome-metrics">{outcomeMetrics.map(([value, title, text, tone, icon]) => <article class={`tone-${tone}`}><span class="ics-icon">{icon}</span><b class="ics-outcome-value">{value}</b><strong>{title}</strong><small>{text}</small></article>)}</div>
+        <section class="ics-institution-impact"><div class="ics-panel-title"><h3>Portfolio Impact Across Institutions</h3><p>Delivered measurable value across diverse bank and NBFC environments.</p></div><div>{institutionImpacts.map(([title, text, tone, icon]) => <article class={`tone-${tone}`}><span class="ics-icon">{icon}</span><div><b>{title}</b><small>{text}</small></div></article>)}</div></section>
+        <section class="ics-business-outcomes"><div class="ics-panel-title"><h3>Strategic Business Outcomes</h3><p>Long-term value created through a unified and configurable product platform.</p></div><div>{businessOutcomes.map(([title, text, tone, icon]) => <article class={`tone-${tone}`}><span class="ics-icon">{icon}</span><b>{title}</b><small>{text}</small></article>)}</div></section>
+        <div class="ics-outcome-takeaway"><span>🏆</span><i></i><b>A unified, configurable banking platform helped institutions scale operations, strengthen controls and accelerate digital execution.</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ics-section ics-leadership" id="product-leadership" aria-labelledby="ics-leadership-title">
+    <div class="ics-page ics-leadership-page">
+      <div class="ics-leadership-top"><div class="ics-leadership-copy"><p class="ics-kicker">INTEGRATED CHANNELS SUITE</p><h2 id="ics-leadership-title">Product Leadership</h2><h3>Building scalable fintech products through vision, collaboration and execution.</h3><p>Led the Integrated Channels Suite from problem discovery to scaled adoption, aligning business goals, client needs, regulatory requirements and technology to deliver a unified, compliant and high-impact digital banking platform for banks and NBFCs.</p></div>
+        <div class="ics-leadership-map"><svg viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke-dasharray="4 8" stroke-width="3"><path d="M500 250 170 55" stroke="#ea3886"/><path d="M500 250 170 245" stroke="#087ff0"/><path d="M500 250 170 445" stroke="#00ae88"/><path d="M500 250 830 55" stroke="#7d35ed"/><path d="M500 250 830 245" stroke="#ff9900"/><path d="M500 250 830 445" stroke="#ed3884"/></g></svg>
+          {leadershipCompetencies.map(([title, text, tone, icon], index) => <article class={`ics-competency competency-${index + 1} tone-${tone}`}><span class="ics-icon">{icon}</span><div><b>{title}</b><small>{text}</small>{index === 4 && <em>◉ Mixpanel　◉ Amplitude</em>}</div></article>)}
+          <div class="ics-leadership-hub"><span>♙</span><b>Product<br />Leadership</b><small>From Ideas to<br />Industry Impact</small></div>
+        </div></div>
+      <div class="ics-capability-grid">{capabilities.map(([title, text, bullets, tone, icon]) => <article class={`tone-${tone}`}><span class="ics-icon">{icon}</span><div><b>{title}</b><p>{text}</p><ul>{bullets.map(item => <li>{item}</li>)}</ul></div></article>)}</div>
+      <div class="ics-connect-banner"><div class="ics-connect-intro"><span>▢</span><div><small>LET’S CONNECT</small><h3>Have a fintech product idea or looking to digitise your banking operations?</h3><p>I’d be happy to discuss opportunities, share experiences or explore how similar solutions can be built for your organisation.</p></div></div><div class="ics-connect-ways">{connectWays.map(([title, text, icon]) => <article><span>{icon}</span><b>{title}</b><small>{text}</small></article>)}</div><em>Turning<br />Ideas into Scalable<br />Fintech Products</em></div>
+      <nav class="ics-project-navigation" aria-label="Adjacent project navigation"><a href="/projects/telecom-cost-optimization"><small>PREVIOUS PROJECT</small><b>← Telecom Analytics &amp; Cost Optimization</b></a><a class="ics-return" href="/#portfolio">Return to Product Portfolio</a><a href="/projects/ayu-docconnect"><small>NEXT PROJECT</small><b>Ayu DocConnect →</b></a></nav>
+    </div>
+  </section>
+</main>

@@ -1,8 +1,8 @@
 ---
 import ProjectShell from './ProjectShell.astro';
+import IntegratedChannelsPresentation from './IntegratedChannelsPresentation.astro';
 import '../styles/docconnect-overview-prototype.scss';
 import '../styles/integrated-channels-case-study.scss';
-import '../styles/page-view.scss';
 
 const navSections = [
   ['overview', 'Overview'], ['ecosystem', 'Ecosystem'], ['challenge', 'Challenge'],
@@ -13,13 +13,6 @@ const navSections = [
 
 const APPS=[{"id": "audit", "name": "Audit", "category": "Governance & Control", "color": "#b7a6ff", "purpose": "Internal, compliance, statutory and operations audit management.", "problem": "Structured planning, evidence, observations, ownership, closure and management visibility.", "capabilities": ["Internal Audit", "Compliance Audit", "Statutory Audit", "Operations Audit", "Findings & action tracking", "Audit reporting"], "users": ["Auditor", "Audit Manager", "Business Owner", "Approver", "Leadership"], "integrations": ["Source / core systems", "Document repository", "Reporting layer"], "workflow": ["Audit plan", "Scope & evidence", "Observation", "Action owner", "Closure", "Management view"], "reports": ["Audit status", "Open findings", "Closure ageing", "Management report"], "pm": ["Discovery & requirement elicitation", "Workflow and role design", "BRD / FRD / FSD", "Acceptance criteria", "Reporting requirements", "UAT & client demo"], "api": "/api/v1/audit/findings", "error": "Finding cannot be closed until mandatory evidence and owner response are captured.", "learning": "Control-heavy products require explicit ownership, evidence and exception paths—not only happy-path screens."}, {"id": "fam", "name": "FAM", "category": "Financial Control", "color": "#8bd8c5", "purpose": "Fixed Assets Management for physical assets across the institution.", "problem": "A structured asset register with lifecycle visibility, categorisation, assignment, tracking and depreciation.", "capabilities": ["Asset registration", "Asset categorisation", "Assignment / tracking", "Depreciation", "Asset history", "Operational reporting"], "users": ["Asset Manager", "Branch / Operations", "Finance", "Approver", "Auditor"], "integrations": ["Finance / accounting data", "GST-related information", "Document repository"], "workflow": ["Register asset", "Classify", "Assign", "Track", "Depreciate", "Report"], "reports": ["Asset register", "Depreciation", "Asset movement", "Category-wise inventory"], "pm": ["Domain modelling", "Data-field definition", "Validation rules", "Role matrix", "Report specification", "Client feedback"], "api": "/api/v1/assets/{asset_id}", "error": "Asset assignment blocked: destination branch and custodian are required.", "learning": "Operational modules become reliable when master data, lifecycle state and ownership are designed together."}, {"id": "gst", "name": "GST", "category": "Financial Control", "color": "#ffd39a", "purpose": "GST-related purchase, calculation, warranty, insurance and reporting workflows.", "problem": "Tax and purchase information needs traceability from source transaction through calculation and reporting.", "capabilities": ["Purchase capture", "GST calculation", "Warranty tracking", "Insurance tracking", "GSTR1B-related extraction", "Reporting"], "users": ["Finance User", "Operations User", "Approver", "Auditor"], "integrations": ["GST portal / external source where applicable", "Finance systems", "FAM"], "workflow": ["Purchase", "Capture tax data", "Validate", "Track warranty / insurance", "Extract", "Report"], "reports": ["GST summary", "Purchase register", "Warranty ageing", "Insurance register"], "pm": ["Requirement elicitation", "Integration mapping", "Validation rules", "Report design", "UAT scenarios"], "api": "/api/v1/gst/transactions", "error": "Tax calculation requires valid tax category and transaction jurisdiction.", "learning": "Financial-control products need traceability from the originating transaction to the reporting output."}, {"id": "los-lms", "name": "LOS–LMS", "category": "Lending & Credit", "color": "#83b9ff", "purpose": "Loan origination and loan management workflows across multiple loan products.", "problem": "Different loan products need common lending controls while retaining product-specific configuration and approval flows.", "capabilities": ["Vehicle loans", "Education loans", "Gold loans", "Staff loans", "Personal loans", "Home loans", "Maker-checker-sanctioner", "Disbursement", "Repayment schedule configuration"], "users": ["Maker", "Checker", "Sanctioner", "Credit", "Operations", "Admin"], "integrations": ["CIBIL", "DMS & CKYC", "Core banking / bank systems", "Payment / collection systems"], "workflow": ["Application", "Checks", "Credit decision", "Sanction", "Disbursement", "Repayment"], "reports": ["Application funnel", "Approval status", "Disbursement status", "Workflow ageing"], "pm": ["Product strategy", "Journey & workflow design", "API / integration requirements", "Business rules", "UAT scenario design", "Client demos"], "api": "/api/v1/loans/applications", "error": "Sanction action unavailable: checker approval is pending.", "learning": "A reusable lending platform needs configurable product rules without losing the controls that make credit workflows auditable."}, {"id": "cms", "name": "CMS", "category": "Payments & Cards", "color": "#ff9fc5", "purpose": "Card management covering personalised and instant cards across major card networks.", "problem": "Card operations require network-aware product configuration, issuance workflows and operational visibility.", "capabilities": ["Personalised cards", "Instant cards", "Card product setup", "RuPay", "Visa", "Mastercard", "NBIN-related issuance context", "Operational reporting"], "users": ["Card Operations", "Maker", "Checker", "Branch User", "Admin"], "integrations": ["NPCI / card ecosystem", "RuPay", "Visa", "Mastercard", "Core banking"], "workflow": ["Request", "Validate", "Network route", "Issue", "Track", "Report"], "reports": ["Issuance status", "Card product summary", "Pending actions", "Operations dashboard"], "pm": ["Integration readiness", "Configuration design", "Exception handling", "API requirements", "Client demos", "UAT"], "api": "/api/v1/cards/requests", "error": "Card request cannot progress: network/product mapping is incomplete.", "learning": "Network-dependent products need configuration, dependency visibility and failure handling as first-class product concerns."}, {"id": "shares", "name": "Shares", "category": "Financial Control", "color": "#a7d8ff", "purpose": "Share and portfolio management with dividend calculation and governance reporting.", "problem": "Share operations need controlled updates, calculations, approvals and reliable management outputs.", "capabilities": ["Share management", "Portfolio management", "Dividend calculation", "Maker-checker", "Board meeting reports", "Operational reporting"], "users": ["Share Manager", "Maker", "Checker", "Finance", "Management"], "integrations": ["Core / finance data", "Document repository", "Reporting layer"], "workflow": ["Capture holding", "Validate", "Calculate", "Approve", "Report", "Board view"], "reports": ["Portfolio summary", "Dividend report", "Shareholding report", "Board meeting pack"], "pm": ["Business-rule mapping", "Workflow controls", "Report specification", "Data validation", "UAT"], "api": "/api/v1/shares/portfolio", "error": "Dividend calculation requires an approved shareholding snapshot.", "learning": "When outputs feed governance forums, calculation integrity and approval lineage become product features."}, {"id": "pm-schemes", "name": "PM Schemes", "category": "Operations", "color": "#9fe3a9", "purpose": "Management of government-launched schemes through configurable operational workflows.", "problem": "Scheme processes evolve and need configurable operational journeys, controls and reporting.", "capabilities": ["Scheme master", "Eligibility / workflow configuration", "Operational tracking", "Status monitoring", "Reports", "User controls"], "users": ["Scheme Operations", "Maker", "Checker", "Branch User", "Admin"], "integrations": ["Bank systems", "Customer / account data", "Reporting layer"], "workflow": ["Scheme setup", "Capture", "Validate", "Process", "Track", "Report"], "reports": ["Scheme status", "Application / beneficiary view", "Pending actions", "Management summary"], "pm": ["Configuration strategy", "Workflow design", "Stakeholder alignment", "Training", "Feedback-driven enhancement"], "api": "/api/v1/schemes", "error": "Scheme processing blocked: mandatory scheme parameters are incomplete.", "learning": "Configuration reduces the need to rebuild the product every time an operational programme changes."}, {"id": "cibil", "name": "CIBIL", "category": "Lending & Credit", "color": "#86c8ff", "purpose": "Credit-information retrieval through API connectivity for lending workflows.", "problem": "Credit decisions depend on timely external credit information and a reliable exception path when the dependency fails.", "capabilities": ["Credit information request", "API connectivity", "Response capture", "Status tracking", "Exception handling", "LOS hand-off"], "users": ["Credit User", "Maker", "Operations", "Admin"], "integrations": ["CIBIL API", "LOS–LMS", "Customer / application data"], "workflow": ["Loan application", "Request credit info", "API response", "Validate", "Attach to decision", "Continue"], "reports": ["Request status", "Response success / failure", "Pending requests", "Credit workflow view"], "pm": ["API requirement definition", "Failure-state design", "Integration testing", "UAT", "Operational readiness"], "api": "/api/v1/credit/cibil/request", "error": "Credit bureau response unavailable. Retry and manual exception handling are required.", "learning": "An integration is not complete when the happy-path API works; timeout, retry, status and recovery are product requirements."}, {"id": "reconciliation", "name": "Reconciliation", "category": "Payments & Cards", "color": "#f4c78e", "purpose": "Transaction reconciliation across AEPS, UPI, Switch, ATM and other transaction streams.", "problem": "Identify matched and unmatched records, manage exceptions and close reconciliation cycles.", "capabilities": ["Transaction ingestion", "Matching / reconciliation", "Exception identification", "Status tracking", "Operational reporting", "Settlement-oriented views"], "users": ["Reconciliation User", "Operations", "Maker", "Checker", "Finance"], "integrations": ["AEPS", "UPI", "Switch", "ATM", "Bank transaction systems"], "workflow": ["Ingest", "Normalise", "Match", "Exception", "Resolve", "Close"], "reports": ["Matched / unmatched", "Exception ageing", "Stream-wise summary", "Daily reconciliation"], "pm": ["Data-flow mapping", "Exception design", "Operational dashboards", "Integration readiness", "UAT"], "api": "/api/v1/reconciliation/transactions", "error": "Record remains unreconciled: source reference and settlement amount differ.", "learning": "Reconciliation is fundamentally an exception-management product; the unresolved queue is as important as the matched count."}, {"id": "aml-kyc", "name": "AML–KYC", "category": "Compliance", "color": "#ffb2a6", "purpose": "Transaction monitoring, rule-based flagging and compliance reporting.", "problem": "Compliance teams need to identify relevant activity, investigate exceptions and produce required reporting with traceability.", "capabilities": ["Transaction monitoring", "Rule-based flagging", "Risk / alert workflow", "CTR reporting", "STR reporting", "NTR reporting", "KYC controls", "Compliance dashboards"], "users": ["Compliance User", "AML Analyst", "Maker", "Checker", "Compliance Manager"], "integrations": ["Transaction sources", "KYC / CKYC", "Bank systems", "Reporting interfaces"], "workflow": ["Transaction", "Rules", "Alert", "Review", "Decision", "Report"], "reports": ["Alerts", "Case ageing", "CTR", "STR", "NTR", "Compliance summary"], "pm": ["Regulatory requirement translation", "Rule / workflow design", "Reporting", "Stakeholder governance", "UAT", "Operational training"], "api": "/api/v1/aml/alerts", "error": "Alert cannot be closed: review disposition and mandatory evidence are missing.", "learning": "Compliance products need traceability: why something was flagged, who reviewed it, what evidence was used and what was reported."}, {"id": "treasury", "name": "Treasury", "category": "Financial Control", "color": "#9ed7ff", "purpose": "Treasury operational workflows supporting BOD and EOD activities.", "problem": "Time-bound treasury activities need clear state transitions, dependencies, controls and closure visibility.", "capabilities": ["BOD activities", "EOD activities", "Operational checklist", "Status tracking", "Exception visibility", "Reporting"], "users": ["Treasury User", "Maker", "Checker", "Treasury Manager", "Admin"], "integrations": ["Core banking / finance systems", "Transaction data", "Reporting layer"], "workflow": ["BOD start", "Validate inputs", "Execute", "Check", "EOD close", "Report"], "reports": ["BOD checklist", "EOD status", "Pending actions", "Treasury summary"], "pm": ["Operational workflow design", "Dependency mapping", "Exception paths", "Release readiness", "Client feedback"], "api": "/api/v1/treasury/eod", "error": "EOD close blocked: a mandatory reconciliation / validation task is still open.", "learning": "Time-bound operational products need strong guardrails before a cycle can be closed."}, {"id": "dms-ckyc", "name": "DMS & CKYC", "category": "Compliance", "color": "#c2b0ff", "purpose": "Document management and CKYC workflows covering OVD, verification, secure storage and CKYC retrieval.", "problem": "KYC processes require complete customer information, authentic documents, controlled access and reliable retrieval.", "capabilities": ["OVD capture", "Customer information", "Document authenticity verification", "Secure storage", "CKYC number retrieval", "Document status"], "users": ["KYC User", "Maker", "Checker", "Compliance", "Admin"], "integrations": ["CKYC", "Customer / account systems", "LOS–LMS", "Document services"], "workflow": ["Capture", "Validate", "Verify", "Store", "Retrieve CKYC", "Share status"], "reports": ["KYC status", "Document completeness", "Verification exceptions", "CKYC lookup status"], "pm": ["Data model", "API integration", "Security considerations", "Edge-case design", "UAT", "Training"], "api": "/api/v1/ckyc/search", "error": "Document rejected: authenticity or mandatory metadata validation failed.", "learning": "Document products need lifecycle, metadata, permissions and verification—not simply file upload."}];
 
-const filters = ['All', 'Lending', 'Payments & Cards', 'Compliance', 'Financial Control', 'Governance', 'Operations'];
-const outcomePrinciples = [
-  ['Standardise', 'Reusable platform patterns'],
-  ['Configure', 'Institution-specific workflows'],
-  ['Integrate', 'Existing financial ecosystem'],
-  ['Adopt', 'Migration, deployment & enablement'],
-];
 ---
 
 <ProjectShell
@@ -32,377 +25,7 @@ const outcomePrinciples = [
   showProjectFooter={false}
   viewportFitPrototype={true}
 >
-  <main class="ics-case">
-    <section class="ics-section ics-overview" id="overview" aria-labelledby="ics-overview-title">
-      <div class="ics-inner">
-        <div class="ics-section-kicker"><i></i><span>DIGITAL BANKING PLATFORM · END-TO-END PRODUCT OWNERSHIP</span><b>M2P FINTECH</b></div>
-        <div class="ics-overview-main">
-          <div class="ics-overview-copy">
-            <p class="ics-overline">Product case study · Banks &amp; NBFCs</p>
-            <h1 id="ics-overview-title">Integrated Channels Suite</h1>
-            <p class="ics-lede">I led product management for a digital banking platform for banks and NBFCs, built from scratch as a reusable 12-application suite, bringing together lending, cards, payments, reconciliation, compliance, treasury, audit, assets, GST, shares, government schemes, credit bureau connectivity and document/KYC workflows - while supporting configurable journeys, controls, integrations and implementation at client sites.</p>
-            <div class="ics-overview-actions"><a href="#challenge">Start the case study <span aria-hidden="true">↓</span></a><a href="#portfolio">Explore the products <span aria-hidden="true">↗</span></a><a href="#tech-data">See ecosystem architecture</a></div>
-          </div>
-          <aside class="ics-glance" aria-label="Product at a glance">
-            <div class="ics-glance-title"><img src="/profile/m2p-logo.svg" alt="M2P Fintech" /><div><small>M2P FINTECH · PRODUCT CASE STUDY</small><h2>Product at a glance</h2></div></div>
-            <div class="ics-glance-list">
-              <article><b>12 connected applications</b><p>Reusable banking workflows across lending, payments, compliance and financial control.</p></article>
-              <article><b>Built from scratch</b><p>Common platform patterns with configurable institution-specific workflows.</p></article>
-              <article><b>Integration-ready</b><p>Designed to coexist with existing bank systems, payment rails and external services.</p></article>
-              <article><b>Implementation-aware</b><p>Product ownership extended through validation, migration, deployment, training and support readiness.</p></article>
-            </div>
-          </aside>
-        </div>
-        <div class="ics-stat-grid" aria-label="Project evidence">
-          <article class="ics-stat tone-blue"><strong>12</strong><b>applications built from scratch</b></article>
-          <article class="ics-stat tone-violet"><strong>6 + 6</strong><b>two-phase product build</b></article>
-          <article class="ics-stat tone-green"><strong>100+</strong><b>bank deployments · project claim</b></article>
-          <article class="ics-stat tone-pink"><strong>25%</strong><b>manual AML/KYC compliance effort reduction</b></article>
-        </div>
-        <p class="ics-confidentiality">Confidential bank screenshots and proprietary production data are intentionally excluded. Product screens, reports, workflows, API examples and architecture visuals are original portfolio-safe reconstructions.</p>
-      </div>
-    </section>
-
-    <section class="ics-section ics-ecosystem" id="ecosystem" aria-labelledby="ics-ecosystem-title">
-      <div class="ics-inner">
-        <div class="ics-section-heading">
-          <div><p class="ics-overline">02 · Product ecosystem</p><h2 id="ics-ecosystem-title">Integrated Channels · Product Ecosystem</h2></div>
-          <p>A digital banking platform for banks and NBFCs, built from scratch as a reusable 12-application suite. It standardises shared product patterns, controls and reporting while supporting institution-specific workflows, integrations with existing bank systems and operational readiness for implementation at client sites.</p>
-        </div>
-        <div class="ics-ecosystem-layout">
-          <aside class="ics-dark-panel ics-ecosystem-story">
-            <span class="ics-overline">M2P FINTECH · INTEGRATED CHANNELS</span>
-            <h3>One product foundation across twelve banking domains.</h3>
-            <p>The suite connects domain applications through common platform patterns and configurable workflows.</p>
-            <div class="ics-ecosystem-pillars">
-              <span><b>12 applications</b><small>Product domains across the suite</small></span>
-              <span><b>Common platform patterns</b><small>Shared controls and reporting</small></span>
-              <span><b>Configurable workflows</b><small>Institution-specific journeys</small></span>
-            </div>
-          </aside>
-          <div class="ics-ecosystem-board" aria-label="Twelve connected Integrated Channels Suite applications">
-            <svg class="ics-ecosystem-lines" aria-hidden="true" viewBox="0 0 1000 600" preserveAspectRatio="none">
-              <g fill="none" stroke="#8eb8e8" stroke-dasharray="7 7" stroke-width="2">
-                <line x1="500" y1="300" x2="125" y2="75"/><line x1="500" y1="300" x2="375" y2="75"/><line x1="500" y1="300" x2="625" y2="75"/><line x1="500" y1="300" x2="875" y2="75"/>
-                <line x1="500" y1="300" x2="125" y2="225"/><line x1="500" y1="300" x2="875" y2="225"/><line x1="500" y1="300" x2="125" y2="375"/><line x1="500" y1="300" x2="875" y2="375"/>
-                <line x1="500" y1="300" x2="125" y2="525"/><line x1="500" y1="300" x2="375" y2="525"/><line x1="500" y1="300" x2="625" y2="525"/><line x1="500" y1="300" x2="875" y2="525"/>
-              </g>
-            </svg>
-            {APPS.map((app, index) => <a class:list={['ics-eco-node', `ics-node-${index + 1}`]} href="#portfolio" data-open={app.id} style={`--app-tone:${app.color}`} aria-label={`Open ${app.name} product workspace`}><i>{String(index + 1).padStart(2, '0')}</i><span><b>{app.name}</b><small>{app.category}</small></span></a>)}
-            <div class="ics-ecosystem-hub"><small>M2P FINTECH · PRODUCT ECOSYSTEM</small><strong>Integrated Channels<br/>Suite</strong><span>12 applications · common platform patterns · configurable workflows</span></div>
-          </div>
-        </div>
-        <p class="ics-section-note">Click any application to open its detailed Product Workspace.</p>
-      </div>
-    </section>
-
-    <section class="ics-section ics-challenge" id="challenge" aria-labelledby="ics-challenge-title">
-      <div class="ics-inner">
-        <div class="ics-section-heading">
-          <div><p class="ics-overline">01 · Product context</p><h2 id="ics-challenge-title">The problem was bigger than building 12 applications</h2></div>
-          <p>Banks already operated within complex technology environments. The product therefore had to support domain-specific workflows while remaining configurable, integration-ready, migration-aware, controlled and implementable at client sites.</p>
-        </div>
-        <div class="ics-challenge-grid">
-          <article class="ics-dark-panel ics-challenge-story">
-            <span class="ics-overline">The product challenge</span>
-            <h3>One platform had to serve very different banking jobs.</h3>
-            <p>Lending, AML, cards, reconciliation, treasury and audit do not share the same users or workflows. The product challenge was to find the reusable platform patterns without flattening the domain complexity.</p>
-            <ul>
-              <li>Existing bank applications meant coexistence and integration mattered from day one.</li>
-              <li>Client-specific workflows required configuration rather than a rigid one-size-fits-all product.</li>
-              <li>Regulated processes required roles, validations, approvals, evidence, traceability and reporting.</li>
-              <li>Legacy data required field mapping, transformation, validation and post-migration checks.</li>
-              <li>Deployment success required training, documentation and L1/L2 support readiness.</li>
-            </ul>
-          </article>
-          <article class="ics-product-thesis">
-            <span class="ics-overline">Product thesis</span>
-            <h3>Standardise the platform. Configure the institution. Integrate the ecosystem.</h3>
-            <p>The suite was approached as a common product foundation with modular domain applications—not as 12 disconnected projects.</p>
-            <div class="ics-thesis-flow">
-              <div><b>Standardise</b><span>Roles, controls, workflow patterns, reporting conventions.</span></div>
-              <div><b>Configure</b><span>Institution-specific business rules and journeys.</span></div>
-              <div><b>Integrate</b><span>Bank systems, payment rails and external services.</span></div>
-              <div><b>Adopt</b><span>Migration, deployment, training and support.</span></div>
-            </div>
-          </article>
-        </div>
-        <div class="ics-response-grid">
-          <article class="tone-blue"><b>Configure</b><span>Institution-specific journeys without rebuilding the product.</span></article>
-          <article class="tone-green"><b>Integrate</b><span>Existing bank systems, payment rails and external services.</span></article>
-          <article class="tone-pink"><b>Control</b><span>Roles, validations, approvals, evidence and traceability.</span></article>
-          <article class="tone-amber"><b>Implement</b><span>Migration, deployment, training and support readiness.</span></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="ics-section ics-strategy" id="strategy" aria-labelledby="ics-strategy-title">
-      <div class="ics-inner">
-        <div class="ics-section-heading">
-          <div><p class="ics-overline">04 · Product strategy</p><h2 id="ics-strategy-title">From application list to a reusable banking product ecosystem</h2></div>
-          <p>The strategy connected platform architecture, domain product design, implementation realities and client adoption. Each decision was intended to reduce repeated effort while preserving the flexibility banks needed.</p>
-        </div>
-        <div class="ics-strategy-grid">
-          <article style="--tone:#9b8cf5"><i>01</i><h3>Common platform foundation</h3><p>Define reusable roles, permissions, workflow states, validations, reporting patterns and auditability before multiplying application complexity.</p></article>
-          <article style="--tone:#73cbb4"><i>02</i><h3>Configurable institution model</h3><p>Separate reusable product behaviour from bank-specific configuration so workflows can adapt without turning every implementation into a new product.</p></article>
-          <article style="--tone:#7eb5ed"><i>03</i><h3>Integration-first product design</h3><p>Identify systems of record, API contracts, authentication, failures, retries, reconciliation and hand-offs while journeys are being designed.</p></article>
-          <article style="--tone:#efb785"><i>04</i><h3>Controls by design</h3><p>Translate business and regulatory requirements into roles, maker-checker patterns, approval states, validations, evidence and reports.</p></article>
-          <article style="--tone:#f49dbd"><i>05</i><h3>Migration-aware product design</h3><p>Treat existing data as part of the product problem: assess, map, transform, validate, migrate and verify after migration.</p></article>
-          <article style="--tone:#9dcbed"><i>06</i><h3>Two-phase roadmap</h3><p>Develop the first six applications during the initial six months, then select and build the remaining six using the foundation and learnings from phase one.</p></article>
-          <article style="--tone:#a8d7a8"><i>07</i><h3>Feedback-led refinement</h3><p>Use progressive product demos, bank feedback, QA and UAT to refine workflows, reports, exceptions and implementation readiness.</p></article>
-          <article style="--tone:#b6a7f0"><i>08</i><h3>Adoption as product outcome</h3><p>Carry product ownership through manuals, training, L1/L2 enablement, deployment readiness, production feedback and enhancement backlog.</p></article>
-        </div>
-        <div class="ics-decision-framework"><b>Decision framework used across applications</b><div>{['Problem', 'User / Role', 'Journey', 'Business Rule', 'Data', 'Integration', 'Exception', 'Report', 'Outcome'].map((item) => <span>{item}</span>)}</div></div>
-      </div>
-    </section>
-
-    <section class="ics-section ics-scope" id="pm-scope" aria-labelledby="ics-scope-title">
-      <div class="ics-inner">
-        <div class="ics-section-heading">
-          <div><p class="ics-overline">05 · Product management scope</p><h2 id="ics-scope-title">End-to-end product leadership across strategy, build and adoption</h2></div>
-          <p>The work extended beyond backlog management. It connected business discovery, product definition, technical solutioning, engineering execution, client validation, implementation and post-release enablement.</p>
-        </div>
-        <div class="ics-ownership-grid">
-          <article><span class="ics-pill">Strategy</span><h3>Vision, roadmap &amp; prioritisation</h3><p>Shaped the suite direction and phased roadmap.</p><ul><li>Product vision</li><li>6+6 sequencing</li><li>Dependencies</li><li>Prioritisation</li></ul></article>
-          <article><span class="ics-pill">Discovery</span><h3>Problem &amp; requirement discovery</h3><p>Worked with SMEs, banks and compliance teams before development.</p><ul><li>Elicitation</li><li>Process mapping</li><li>Use cases</li><li>Edge cases</li></ul></article>
-          <article><span class="ics-pill">Definition</span><h3>Product documentation</h3><p>Converted needs into executable product artefacts.</p><ul><li>BRD / FRD / FSD</li><li>API specs</li><li>Acceptance criteria</li><li>User manuals</li></ul></article>
-          <article><span class="ics-pill">Design</span><h3>UX &amp; solution design</h3><p>Made workflows and architecture understandable across teams.</p><ul><li>Figma</li><li>DFD</li><li>ER mapping</li><li>Architecture diagrams</li></ul></article>
-          <article><span class="ics-pill">Delivery</span><h3>Agile product execution</h3><p>Led backlog and sprint execution with engineering.</p><ul><li>Epics / stories</li><li>Refinement</li><li>2-week sprints</li><li>Daily sessions</li></ul></article>
-          <article><span class="ics-pill">Quality</span><h3>Validation &amp; release readiness</h3><p>Connected product intent to QA and client acceptance.</p><ul><li>Feature testing</li><li>Edge cases</li><li>UAT</li><li>VAPT readiness</li></ul></article>
-          <article><span class="ics-pill">Implementation</span><h3>Migration &amp; deployment</h3><p>Supported implementation at bank/client sites.</p><ul><li>Field mapping</li><li>Migration validation</li><li>Integration readiness</li><li>Production checks</li></ul></article>
-          <article><span class="ics-pill">Adoption</span><h3>Training &amp; support enablement</h3><p>Prepared teams to operate and support the product.</p><ul><li>Core-team training</li><li>Manuals / FAQs</li><li>L1/L2 enablement</li><li>Feedback backlog</li></ul></article>
-        </div>
-        <div class="ics-scope-evidence">
-          <article><b>12 applications</b><span>End-to-end product ownership across the suite</span></article>
-          <article><b>6 + 6 phases</b><span>Sequenced delivery across two build phases</span></article>
-          <article><b>100+ deployments*</b><span>Portfolio/project claim supplied for this case study</span></article>
-          <article><b>25% AML/KYC</b><span>Stated manual compliance effort reduction</span></article>
-        </div>
-
-        <div class="ics-subsection-heading"><span class="ics-overline">Product operating model</span><h3>From zero-to-one foundation to implementation and adoption</h3><p>All 12 applications were built from scratch. The first six were developed during the initial six months; the remaining six were selected and built after month six.</p></div>
-        <div class="ics-timeline">
-          <article><b>01 · DISCOVER</b><h4>Domain &amp; client discovery</h4><p>Understand processes, users, compliance requirements, existing systems and desired outcomes.</p><ul><li>SME / bank discussions</li><li>Use cases</li><li>Problem definition</li></ul></article>
-          <article class="is-phase"><b>02 · MONTHS 0–6</b><h4>Foundation + first six</h4><p>Build the common product foundation and first six applications from scratch.</p><ul><li>UX / architecture</li><li>Backlog / sprints</li><li>Progressive demos</li></ul></article>
-          <article><b>03 · VALIDATE</b><h4>Learn &amp; harden</h4><p>Use QA, demos, feedback and UAT to strengthen common patterns and implementation readiness.</p><ul><li>Edge cases</li><li>Reports</li><li>Integration behaviour</li></ul></article>
-          <article class="is-phase"><b>04 · AFTER MONTH 6</b><h4>Remaining six</h4><p>Select and build the remaining applications using the foundation and lessons from phase one.</p><ul><li>Reuse patterns</li><li>New domains</li><li>Client validation</li></ul></article>
-          <article><b>05 · IMPLEMENT</b><h4>Secure, migrate &amp; deploy</h4><p>Prepare integration, migration, environments and production deployment.</p><ul><li>Field mapping</li><li>Integration readiness</li><li>Bank-site deployment</li></ul></article>
-          <article><b>06 · ADOPT</b><h4>Train, support &amp; improve</h4><p>Enable core users and L1/L2 teams and feed production learning into the roadmap.</p><ul><li>Manuals</li><li>Training</li><li>Enhancement backlog</li></ul></article>
-        </div>
-
-        <div class="ics-subsection-heading"><span class="ics-overline">05A · Implementation readiness</span><h3>From implementation discovery to production and adoption readiness</h3><p>The delivery work extended beyond software build: integration readiness, data transition, quality validation, deployment preparation, core-user enablement, support readiness and leadership visibility.</p></div>
-        <div class="ics-readiness-grid">
-          <article><span>Requirements</span><h4>Implementation discovery</h4><p>Understand current applications, source data, client-specific workflow and infrastructure dependencies.</p><ul><li>As-is / to-be</li><li>Gap analysis</li><li>Dependency map</li></ul></article>
-          <article><span>Integration</span><h4>Interface readiness</h4><p>Confirm upstream/downstream systems, API contracts, auth, failure paths and test connectivity.</p><ul><li>API mapping</li><li>Error states</li><li>Reconciliation</li></ul></article>
-          <article><span>Migration</span><h4>Data transition</h4><p>Assess, map, transform, validate, migrate and perform post-migration checks.</p><ul><li>Field mapping</li><li>Validation</li><li>Reconciliation</li></ul></article>
-          <article><span>Quality</span><h4>QA → UAT → VAPT</h4><p>Validate feature behaviour, edge cases, client acceptance and security readiness before production.</p><ul><li>Acceptance criteria</li><li>UAT scenarios</li><li>VAPT readiness</li></ul></article>
-          <article><span>Deployment</span><h4>Production readiness</h4><p>Coordinate environment, configuration, integrations, migration and bank-site/on-prem deployment.</p><ul><li>Readiness checklist</li><li>Production validation</li><li>Issue tracking</li></ul></article>
-          <article><span>Adoption</span><h4>Core-user enablement</h4><p>Use demos, manuals, use cases and FAQs to help bank teams operate the platform.</p><ul><li>Training</li><li>User manuals</li><li>Product demos</li></ul></article>
-          <article><span>Support</span><h4>L1/L2 readiness</h4><p>Train support teams on use cases, common issues, query handling, impact and possible downtime.</p><ul><li>Triage</li><li>Common issues</li><li>Escalation context</li></ul></article>
-          <article><span>Governance</span><h4>Leadership visibility</h4><p>Provide progress, timeline, feedback, risk, dependency and readiness updates to senior stakeholders.</p><ul><li>Roadmap status</li><li>Risks / blockers</li><li>Client feedback</li></ul></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="ics-section ics-metrics" id="product-metrics" aria-labelledby="ics-metrics-title">
-      <div class="ics-inner">
-        <div class="ics-section-heading">
-          <div><p class="ics-overline">06 · Product metrics</p><h2 id="ics-metrics-title">Prioritisation frameworks and product metrics used in regulated digital banking</h2></div>
-          <p>These tools reflect realistic product-management practice for fintech and digital banking platforms, where decisions must balance customer value, regulatory criticality, implementation constraints and operational risk.</p>
-        </div>
-        <div class="ics-metric-layout">
-          <section class="ics-metric-panel ics-framework-panel" aria-label="Prioritisation frameworks">
-            <h3>Prioritisation frameworks</h3>
-            <div class="ics-framework-grid">
-              <article><b>RICE</b><p>Prioritise regulated features by reach, impact, confidence and effort, particularly when deciding between onboarding improvements, AML controls, reconciliation workflows, or API enhancements across multiple bank implementations.</p></article>
-              <article><b>MoSCoW</b><p>Separate must-have compliance and customer-critical workflows from should-have improvements so releases remain aligned to legal obligations, service continuity and migration readiness.</p></article>
-              <article><b>Impact vs. Effort</b><p>Use this to sequence reusable platform capabilities such as workflow configuration, document upload, exception handling, and reporting dashboards across the product suite.</p></article>
-              <article><b>WSJF</b><p>Apply weighted short-job-first thinking where business urgency, regulatory dependency and customer friction are combined into a single prioritisation view for roadmap decisions.</p></article>
-            </div>
-          </section>
-          <section class="ics-metric-panel ics-health-panel" aria-label="Product metrics">
-            <h3>Product metrics</h3>
-            <div class="ics-health-grid">
-              <article><b>Adoption Rate</b><p>Track percent of bank users or teams actively using a workflow after deployment.</p></article>
-              <article><b>Transaction Success Rate</b><p>Measure successful completion of payments, lending actions, reconciliations, and operational flows.</p></article>
-              <article><b>Exception Rate</b><p>Identify failed or manually worked cases requiring intervention across integrations and operational functions.</p></article>
-              <article><b>STP Rate</b><p>Monitor straight-through processing for credit, payment, and compliance case handling.</p></article>
-              <article><b>API Success Rate</b><p>Track the success of external calls to CBS, payment rails, credit bureaus and compliance services.</p></article>
-              <article><b>Reconciliation Accuracy</b><p>Measure the percent of transaction records matching without manual adjustment or defect escalation.</p></article>
-            </div>
-          </section>
-        </div>
-        <div class="ics-usecase-metric"><span>PRODUCT → USE CASE → METRIC → IMPACT</span><p><b>Loan origination:</b> Application completion rate and turnaround time → reduced processing delays and better credit operations.</p></div>
-        <section class="ics-priority-lens" aria-label="Portfolio-relevant decision lens">
-          <div><span class="ics-overline">Portfolio-relevant decision lens</span><h3>Prioritisation across risk, impact and dependencies</h3></div>
-          <article><b>Risk Reduction</b><p>Prioritise controls, alerting, validation and exception handling where compliance exposure and operational risk are highest.</p></article>
-          <article><b>Customer / Business Impact</b><p>Weight improvements by effect on user experience, clearances, turnaround time and operational efficiency for banks, NBFCs and support teams.</p></article>
-          <article><b>Dependency-based prioritisation</b><p>Sequence work according to external dependencies, data migration readiness, integration contracts and downstream approvals that can block delivery.</p></article>
-          <article><b>Regulatory / Criticality-based prioritisation</b><p>Promote compliance, AML, KYC, audit and control functionalities ahead of low-risk enhancements when criticality and legal obligations justify it.</p></article>
-        </section>
-      </div>
-    </section>
-
-    <section class="ics-section ics-portfolio" id="portfolio" aria-labelledby="ics-portfolio-title">
-      <div class="ics-inner">
-        <div class="ics-section-heading">
-          <div><p class="ics-overline">07 · Product portfolio</p><h2 id="ics-portfolio-title">Explore the banking applications</h2></div>
-          <p>The main case study stays readable. Every product opens an in-depth workspace with its purpose, problem, users, capabilities, workflow, integration landscape, sample reporting, API thinking, exception design and PM contribution.</p>
-        </div>
-        <div class="ics-explorer-tools">
-          <label for="search">Search products</label><input id="search" type="search" placeholder="Search products" />
-          <div class="ics-filters" id="ics-filters" aria-label="Filter products">{filters.map((filter, index) => <button class:list={['filter', index === 0 && 'active']} type="button" data-filter={filter}>{filter === 'All' ? 'All 12' : filter}</button>)}</div>
-        </div>
-        <div class="ics-product-phase">
-          <div class="ics-phase-heading"><span>01</span><div><h3>First six applications</h3><p>Foundation + first six · initial six months</p></div></div>
-          <div class="ics-app-grid" id="ics-phase-one">
-            {APPS.slice(0, 6).map((app, index) => <button class="app-card ics-app-card" type="button" data-phase="one" data-cat={app.category} data-open={app.id} data-search={`${app.name} ${app.category} ${app.purpose} ${app.capabilities.join(' ')}`} style={`--app:${app.color}`}>
-              <div class="ics-app-top"><span>{String(index + 1).padStart(2, '0')}</span><small>{app.category}</small><i aria-hidden="true">↗</i></div><h4>{app.name}</h4><p>{app.purpose}</p><div class="ics-app-tags">{app.capabilities.slice(0, 3).map((capability) => <span>{capability}</span>)}</div><div class="ics-app-foot"><span>Open product workspace</span><b>Explore →</b></div>
-            </button>)}
-          </div>
-        </div>
-        <div class="ics-product-phase">
-          <div class="ics-phase-heading"><span>02</span><div><h3>Continue exploring the suite</h3><p>Six additional banking applications complete the second half of the product portfolio.</p></div></div>
-          <div class="ics-app-grid" id="ics-phase-two">
-            {APPS.slice(6).map((app, index) => <button class="app-card ics-app-card" type="button" data-phase="two" data-cat={app.category} data-open={app.id} data-search={`${app.name} ${app.category} ${app.purpose} ${app.capabilities.join(' ')}`} style={`--app:${app.color}`}>
-              <div class="ics-app-top"><span>{String(index + 7).padStart(2, '0')}</span><small>{app.category}</small><i aria-hidden="true">↗</i></div><h4>{app.name}</h4><p>{app.purpose}</p><div class="ics-app-tags">{app.capabilities.slice(0, 3).map((capability) => <span>{capability}</span>)}</div><div class="ics-app-foot"><span>Open product workspace</span><b>Explore →</b></div>
-            </button>)}
-          </div>
-        </div>
-        <p class="ics-explorer-empty" id="empty" hidden>No products match this search.</p>
-      </div>
-    </section>
-
-    <section class="ics-section ics-tech" id="tech-data" aria-labelledby="ics-tech-title">
-      <div class="ics-inner">
-        <div class="ics-section-heading">
-          <div><p class="ics-overline">08 · Product architecture &amp; technology</p><h2 id="ics-tech-title">Technology mapped to the banking problem it solved</h2></div>
-          <p>The architecture is presented as a product system: experience and workflow, domain applications, integration contracts, data/reporting and cross-cutting controls.</p>
-        </div>
-        <div class="ics-arch-summary"><b>Bank users</b><span>↔</span><b>Integrated Channels Suite</b><span>↔</span><b>Bank systems, payment rails &amp; external services</b></div>
-        <div class="ics-architecture">
-          <article class="ics-architecture-panel">
-            <div class="ics-panel-heading"><span class="ics-overline">Conceptual platform architecture</span><h3>How users, the suite and the fintech ecosystem connect</h3></div>
-            <div class="ics-arch-map">
-              <div class="ics-arch-column"><h4>Bank users</h4><div class="ics-arch-side"><span>Branch · Operations</span><span>Credit</span><span>Compliance</span><span>Finance</span><span>Management</span></div></div>
-              <div class="ics-arch-arrow" aria-hidden="true">→</div>
-              <div class="ics-arch-column ics-platform-column"><h4>Integrated Channels Suite</h4><div class="ics-arch-stack">
-                <article><b>Experience &amp; workflow layer</b><span>Frappe forms · roles · permissions · workflow states · configuration</span></article>
-                <article><b>12 domain applications</b><span>LOS–LMS · CMS · Reconciliation · AML–KYC · Treasury · Audit · FAM · GST · Shares · PM Schemes · CIBIL · DMS &amp; CKYC</span></article>
-                <article><b>API / integration layer</b><span>Contracts · validation · status · errors · retries · hand-offs</span></article>
-                <article><b>Data &amp; reporting layer</b><span>SQL · reports · migration · Power BI / management views</span></article>
-                <article><b>Cross-cutting controls</b><span>Maker-checker · auditability · QA · UAT · VAPT · deployment readiness</span></article>
-              </div></div>
-              <div class="ics-arch-arrow" aria-hidden="true">→</div>
-              <div class="ics-arch-column"><h4>Fintech ecosystem</h4><div class="ics-arch-side"><span>CBS / bank systems</span><span>NPCI · UPI · AEPS</span><span>ATM / Switch</span><span>CIBIL · CKYC · GST</span><span>RuPay · Visa · Mastercard</span><span>Other client systems</span></div></div>
-            </div>
-            <p class="ics-arch-note">Conceptual portfolio architecture, not a reproduction of confidential client architecture.</p>
-          </article>
-          <article class="ics-architecture-panel ics-stack-panel">
-            <div class="ics-panel-heading"><span class="ics-overline">Stack by product requirement</span><h3>Tools were selected and used within specific product responsibilities</h3></div>
-            <div class="ics-stack-groups">
-              <section><h4>Software &amp; Tech Stack</h4>
-                <div><b>Platform &amp; Core Engineering</b><span>Frappe Framework · .NET Core</span></div>
-                <div><b>Data &amp; Analytics</b><span>SQL · Power BI</span></div>
-                <div><b>Design &amp; Prototyping</b><span>Figma</span></div>
-                <div><b>Documentation &amp; Diagramming</b><span>draw.io · Visio · Lucidchart · Canva</span></div>
-                <div><b>Delivery &amp; Project Management</b><span>JIRA</span></div>
-              </section>
-              <section><h4>Product Deliverables &amp; Methodologies</h4>
-                <div><b>Architecture &amp; System Design</b><span>Modular applications · Configurable workflows · DFD · ER mapping · Architecture diagrams</span></div>
-                <div><b>API &amp; Integration</b><span>API-first · REST/API connectivity · API specifications · Integration mapping</span></div>
-                <div><b>Agile &amp; Requirements</b><span>Scrum · Kanban · Use cases · Epics · Stories · Acceptance criteria</span></div>
-                <div><b>Quality &amp; Security</b><span>QA · UAT · Edge cases · VAPT readiness</span></div>
-                <div><b>Implementation &amp; Deployment</b><span>Data migration · On-prem / bank-site · Production validation</span></div>
-              </section>
-            </div>
-          </article>
-        </div>
-        <div class="ics-integration-panel">
-          <div class="ics-integration-heading"><span class="ics-overline">Integration approach</span><h3>Systems are not treated as generic API boxes</h3><p>Detailed view of the integration boundary, connected systems and API lifecycle.</p></div>
-          <div class="ics-integration-flow">
-            <div><h4>Internal product domains</h4><span>Branch / Operations</span><span>Lending / Credit</span><span>Compliance</span><span>Finance / Treasury</span><span>Management</span></div>
-            <b aria-hidden="true">→</b>
-            <div class="ics-integration-boundary"><small>API / integration boundary</small><h4>Integrated Channels Suite</h4><p>Domain workflows + controls + reports + configuration</p><strong>Contracts · authentication · request/response · validation · status · error handling · retry/recovery · reconciliation · operational ownership</strong></div>
-            <b aria-hidden="true">→</b>
-            <div><h4>Connected systems &amp; rails</h4><span>CBS / internal bank systems</span><span>NPCI · UPI · AEPS · ATM / Switch</span><span>CIBIL · CKYC · GST</span><span>RuPay · Visa · Mastercard</span><span>Other client / third-party systems</span></div>
-          </div>
-          <div class="ics-api-lifecycle">
-            <article><b>01 · Discover</b><span>System of record and business dependency.</span></article>
-            <article><b>02 · Contract</b><span>Fields, request, response, status and ownership.</span></article>
-            <article><b>03 · Validate</b><span>Mandatory data and business rules.</span></article>
-            <article><b>04 · Fail safely</b><span>Timeout, duplicate, rejection and retry.</span></article>
-            <article><b>05 · Reconcile</b><span>Reference, amount/status and exceptions.</span></article>
-            <article><b>06 · Observe</b><span>Reports, audit trail and operational ownership.</span></article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ics-section ics-outcomes" id="outcomes" aria-labelledby="ics-outcomes-title">
-      <div class="ics-inner">
-        <div class="ics-section-heading">
-          <div><p class="ics-overline">09 · Outcomes &amp; evidence</p><h2 id="ics-outcomes-title">Product Outcome and Impact</h2></div>
-          <p>Impact is presented using the project evidence provided, supported by concrete product, integration, implementation and adoption outcomes rather than fabricated KPIs.</p>
-        </div>
-        <div class="ics-outcome-metrics">
-          <article class="tone-blue"><strong>12</strong><b>Applications built from scratch</b><span>One reusable suite spanning multiple banking domains.</span></article>
-          <article class="tone-violet"><strong>6 + 6</strong><b>Two-phase product build</b><span>First six in the initial six months, then the remaining six.</span></article>
-          <article class="tone-green"><strong>100+</strong><b>Bank deployments</b><span>Portfolio / project claim supplied for this case study.</span></article>
-          <article class="tone-pink"><strong>25%</strong><b>AML/KYC manual effort reduction</b><span>Stated automation outcome for the compliance workflow.</span></article>
-        </div>
-        <div class="ics-outcome-grid">
-          <article><span>Product development</span><h3>Reusable platform patterns</h3><p>Common roles, workflow states, validations, reporting conventions and controls were designed so multiple domain applications could share a product foundation without becoming identical.</p></article>
-          <article><span>Regulatory &amp; controls</span><h3>Traceability built into workflows</h3><p>AML/KYC, audit and other regulated journeys were designed around ownership, approvals, evidence, exception handling and reporting needs.</p></article>
-          <article><span>Integration</span><h3>Existing ecosystem accounted for</h3><p>Integration design considered CBS / bank systems, NPCI, UPI, AEPS, ATM / Switch, CIBIL, CKYC, GST and card-network dependencies.</p></article>
-          <article><span>Data migration</span><h3>Migration treated as product work</h3><p>Implementation readiness included field mapping, transformation, validation, migration and post-migration checks rather than treating data movement as a separate afterthought.</p></article>
-          <article><span>Deployment</span><h3>Bank-site readiness</h3><p>Product ownership continued into environment readiness, integration checks, production validation and deployment at bank / client sites.</p></article>
-          <article><span>User adoption</span><h3>Enablement beyond release</h3><p>Core-team training, user manuals, FAQs and L1/L2 support enablement extended the product lifecycle into operational adoption and enhancement feedback.</p></article>
-        </div>
-        <div class="ics-outcome-principles">{outcomePrinciples.map(([title, description]) => <div><b>{title}</b><span>{description}</span></div>)}</div>
-      </div>
-    </section>
-
-    <section class="ics-section ics-leadership" id="product-leadership" aria-labelledby="ics-leadership-title">
-      <div class="ics-inner">
-        <div class="ics-section-heading">
-          <div><p class="ics-overline">10 · Product leadership</p><h2 id="ics-leadership-title">Competencies demonstrated and lessons carried forward</h2></div>
-          <p>The case study demonstrates strategic product thinking, technical depth, enterprise execution, stakeholder leadership and adoption ownership.</p>
-        </div>
-        <div class="ics-competency-grid">
-          <article><b>Product vision &amp; strategy</b><span>Platform direction across 12 domains.</span></article>
-          <article><b>Roadmap &amp; prioritisation</b><span>Two-phase sequencing and dependencies.</span></article>
-          <article><b>Enterprise discovery</b><span>SMEs, banks, compliance and operations.</span></article>
-          <article><b>Requirements leadership</b><span>BRD, FRD, FSD, use cases, acceptance.</span></article>
-          <article><b>Technical product management</b><span>Architecture, DFD, ER, API and integrations.</span></article>
-          <article><b>UX / prototyping</b><span>Figma and journey communication.</span></article>
-          <article><b>Agile product delivery</b><span>Epics, stories, refinement and sprints.</span></article>
-          <article><b>Quality ownership</b><span>QA, UAT, edge cases and VAPT readiness.</span></article>
-          <article><b>Implementation leadership</b><span>Migration, deployment and production readiness.</span></article>
-          <article><b>Stakeholder management</b><span>Client, engineering, QA, compliance, leadership.</span></article>
-          <article><b>Adoption &amp; enablement</b><span>Training, manuals and L1/L2 support.</span></article>
-          <article><b>Outcome orientation</b><span>Connect product decisions to operational effect.</span></article>
-        </div>
-        <div class="ics-learnings-grid">
-          <article><i>01</i><h3>Platform thinking creates leverage</h3><p>Reusable roles, workflows, controls and reporting patterns can accelerate multiple domain products while preserving configurability.</p></article>
-          <article><i>02</i><h3>Integration is part of the UX</h3><p>Timeouts, invalid data, duplicates, retries, failure ownership and recovery paths must be designed as product behaviour.</p></article>
-          <article><i>03</i><h3>Controls are product features</h3><p>In regulated workflows, who acted, under which role, with what evidence and what output is central to the product.</p></article>
-          <article><i>04</i><h3>Enterprise UX is clarity</h3><p>Users need to see current state, owner, next action, exception reason and downstream effect without ambiguity.</p></article>
-          <article><i>05</i><h3>Implementation belongs in product</h3><p>A feature is not truly successful if migration, integration, deployment, training or support prevents adoption.</p></article>
-          <article><i>06</i><h3>Senior PM impact is cross-system</h3><p>End-to-end ownership connects strategy, technology, teams, client constraints, quality, release and measurable outcomes.</p></article>
-        </div>
-        <div class="ics-star"><span class="ics-overline">STAR case-study narrative</span><div><article><b>Situation</b><span>12 banking domains, existing systems and regulated workflows.</span></article><article><b>Task</b><span>Build a configurable suite from scratch across two phases.</span></article><article><b>Action</b><span>Strategy through design, build, QA/UAT, migration and adoption.</span></article><article><b>Result</b><span>12 applications, 6+6 phases, 100+ deployment claim and AML/KYC impact.</span></article></div><p>STAR is used as a portfolio/interview communication structure, not represented as the organisation's formal methodology.</p></div>
-        <div class="ics-connect-banner">
-          <div><span class="ics-overline">Connect</span><h3>Building similar regulated digital banking products?</h3><p>A digital banking platform for banks and NBFCs needs more than application screens: the product must define the workflow, controls and integration model, then carry those decisions through migration, deployment, training, support and adoption.</p><a href="mailto:manoj.pant.pm@outlook.com">Interested in building similar regulated digital banking products? Let's discuss the challenge →</a></div>
-          <aside><b>Portfolio-safe reconstruction</b><span>Confidential client information excluded. Product-space references: RBI / NPCI / CKYC / CIBIL / GST / Frappe official documentation.</span><div class="ics-source-links"><a href="https://www.rbi.org.in/" rel="noopener" target="_blank">RBI</a><a href="https://www.npci.org.in/product/upi" rel="noopener" target="_blank">NPCI / UPI</a><a href="https://www.cibil.com/" rel="noopener" target="_blank">CIBIL</a><a href="https://www.gst.gov.in/" rel="noopener" target="_blank">GST</a><a href="https://frappe.io/framework" rel="noopener" target="_blank">Frappe Framework</a></div></aside>
-        </div>
-        <nav class="ics-project-navigation" aria-label="Adjacent project navigation">
-          <a href="/projects/telecom-cost-optimization"><small>PREVIOUS PROJECT</small><b>← Telecom Analytics &amp; Cost Optimization</b></a>
-          <a class="ics-return" href="/#portfolio">Return to Product Portfolio</a>
-          <a href="/projects/ayu-docconnect"><small>NEXT PROJECT</small><b>Ayu DocConnect →</b></a>
-        </nav>
-      </div>
-    </section>
-  </main>
+  <IntegratedChannelsPresentation apps={APPS} />
 
   <div aria-hidden="true" class="ics-modal-backdrop" id="backdrop">
     <aside class="ics-modal" role="dialog" aria-modal="true" aria-labelledby="dname">
@@ -416,9 +39,11 @@ const outcomePrinciples = [
     const esc = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
     const backdrop = document.getElementById('backdrop');
     const closeButton = document.getElementById('close');
-    const search = document.getElementById('search');
+    const search = document.getElementById('ics-search');
+    const emptyState = document.getElementById('ics-empty');
     const filters = [...document.querySelectorAll('#ics-filters .filter')];
     let activeFilter = 'All';
+    let returnHash = '#portfolio';
 
     function showApp(id, push = true) {
       const app = APPS.find(item => item.id === id);
@@ -441,14 +66,17 @@ const outcomePrinciples = [
       backdrop.classList.add('is-open');
       backdrop.setAttribute('aria-hidden','false');
       document.body.classList.add('ics-modal-open');
-      if (push) history.replaceState({app:id}, '', `${location.pathname}#app/${id}`);
+      if (push) {
+        returnHash = location.hash && !location.hash.startsWith('#app/') ? location.hash : '#portfolio';
+        history.replaceState({app:id}, '', `${location.pathname}#app/${id}`);
+      }
     }
 
     function closeApp(push = true) {
       backdrop.classList.remove('is-open');
       backdrop.setAttribute('aria-hidden','true');
       document.body.classList.remove('ics-modal-open');
-      if (push && location.hash.startsWith('#app/')) history.replaceState({}, '', `${location.pathname}#portfolio`);
+      if (push && location.hash.startsWith('#app/')) history.replaceState({}, '', `${location.pathname}${returnHash}`);
     }
 
     function matchesFilter(app) {
@@ -467,7 +95,7 @@ const outcomePrinciples = [
         card.hidden = !show;
         if (show) visible++;
       });
-      document.getElementById('empty').hidden = visible > 0;
+      if (emptyState) emptyState.hidden = visible > 0;
     }
 
     document.querySelectorAll('[data-open]').forEach(node => node.addEventListener('click', event => { event.preventDefault(); showApp(node.dataset.open); }));
