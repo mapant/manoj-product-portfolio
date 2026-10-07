@@ -39,10 +39,6 @@ const APPS=[{"id": "audit", "name": "Audit", "category": "Governance & Control",
     const esc = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
     const backdrop = document.getElementById('backdrop');
     const closeButton = document.getElementById('close');
-    const search = document.getElementById('ics-search');
-    const emptyState = document.getElementById('ics-empty');
-    const filters = [...document.querySelectorAll('#ics-filters .filter')];
-    let activeFilter = 'All';
     let returnHash = '#portfolio';
 
     function showApp(id, push = true) {
@@ -79,33 +75,7 @@ const APPS=[{"id": "audit", "name": "Audit", "category": "Governance & Control",
       if (push && location.hash.startsWith('#app/')) history.replaceState({}, '', `${location.pathname}${returnHash}`);
     }
 
-    function matchesFilter(app) {
-      if (activeFilter === 'All') return true;
-      if (activeFilter === 'Lending') return app.category.includes('Lending');
-      if (activeFilter === 'Governance') return app.category.includes('Governance');
-      return app.category === activeFilter;
-    }
-
-    function applyFilters() {
-      const query = (search?.value || '').toLowerCase().trim();
-      let visible = 0;
-      document.querySelectorAll('.ics-app-card').forEach(card => {
-        const app = APPS.find(item => item.id === card.dataset.open);
-        const show = app && matchesFilter(app) && (!query || card.dataset.search.toLowerCase().includes(query));
-        card.hidden = !show;
-        if (show) visible++;
-      });
-      if (emptyState) emptyState.hidden = visible > 0;
-    }
-
     document.querySelectorAll('[data-open]').forEach(node => node.addEventListener('click', event => { event.preventDefault(); showApp(node.dataset.open); }));
-    search?.addEventListener('input', applyFilters);
-    filters.forEach(button => button.addEventListener('click', () => {
-      filters.forEach(item => item.classList.remove('active'));
-      button.classList.add('active');
-      activeFilter = button.dataset.filter;
-      applyFilters();
-    }));
     closeButton?.addEventListener('click', () => closeApp());
     backdrop?.addEventListener('click', event => { if (event.target === backdrop) closeApp(); });
     document.addEventListener('keydown', event => { if (event.key === 'Escape') closeApp(); });

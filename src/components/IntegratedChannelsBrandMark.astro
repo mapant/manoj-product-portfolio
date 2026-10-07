@@ -1,0 +1,53 @@
+---
+interface Props { name: string; }
+const { name } = Astro.props;
+const brandClass = `ics-brand-mark ics-brand-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+---
+
+<svg class={brandClass} viewBox="0 0 32 32" aria-hidden="true">
+  {name === 'figma' ? <>
+    <path fill="#f24e1e" d="M11 2h5v10h-5a5 5 0 0 1 0-10Z" />
+    <path fill="#ff7262" d="M16 2h5a5 5 0 0 1 0 10h-5Z" />
+    <path fill="#a259ff" d="M11 12h5v10h-5a5 5 0 0 1 0-10Z" />
+    <circle fill="#1abcfe" cx="21" cy="17" r="5" />
+    <path fill="#0acf83" d="M11 22h5v5a5 5 0 1 1-5-5Z" />
+  </> : name === 'jira' ? <>
+    <path fill="#2684ff" d="M16 2 30 16 16 30 2 16Z" />
+    <path fill="#fff" d="M16 8 22 14 16 20 10 14Z" opacity=".92" />
+  </> : name === 'postman' ? <>
+    <circle fill="#ff6c37" cx="16" cy="16" r="14" />
+    <path fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" d="m8 20 6-6 4 2 6-6M11 11l3 3" />
+    <circle fill="#fff" cx="8" cy="20" r="1.6" /><circle fill="#fff" cx="24" cy="10" r="1.6" />
+  </> : name === 'drawio' || name === 'diagram' ? <>
+    <path fill="none" stroke="#f58a1f" stroke-width="2.2" d="M8 22 16 9l8 13M8 22h16" />
+    <circle fill="#f58a1f" cx="8" cy="22" r="4" /><circle fill="#f58a1f" cx="16" cy="8" r="4" /><circle fill="#f58a1f" cx="24" cy="22" r="4" />
+  </> : name === 'visio' ? <>
+    <path fill="#3957a5" d="M4 6h8l5 13 5-13h7L18 27h-5Z" />
+    <path fill="#7693d7" d="M3 4h6l7 17-4 5Z" />
+  </> : name === 'lucidchart' ? <>
+    <path fill="none" stroke="#e94891" stroke-width="2.2" d="M8 8 16 16 24 8M8 24l8-8 8 8" />
+    <circle fill="#e94891" cx="8" cy="8" r="4" /><circle fill="#e94891" cx="16" cy="16" r="4" /><circle fill="#e94891" cx="24" cy="8" r="4" /><circle fill="#e94891" cx="8" cy="24" r="4" /><circle fill="#e94891" cx="24" cy="24" r="4" />
+  </> : name === 'canva' ? <>
+    <circle fill="#00c4cc" cx="16" cy="16" r="14" />
+    <path fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" d="M21 10a8 8 0 1 0 0 12" />
+  </> : name === 'sql' ? <>
+    <ellipse fill="#2285e8" cx="16" cy="7" rx="11" ry="4" />
+    <path fill="#1670ca" d="M5 7v17c0 2.2 4.9 4 11 4s11-1.8 11-4V7c0 2.2-4.9 4-11 4S5 9.2 5 7Z" />
+    <path fill="none" stroke="#9bd0ff" stroke-width="1.4" d="M5 13c0 2.2 4.9 4 11 4s11-1.8 11-4M5 19c0 2.2 4.9 4 11 4s11-1.8 11-4" />
+  </> : name === 'mixpanel' ? <>
+    <path fill="#08ae72" d="m16 2 3 4 5-1 1 5 5 2-2 5 2 5-5 2-1 5-5-1-3 4-3-4-5 1-1-5-5-2 2-5-2-5 5-2 1-5 5 1Z" />
+    <circle fill="#fff" cx="16" cy="16" r="5" />
+  </> : name === 'amplitude' ? <>
+    <circle fill="#4b8df8" cx="16" cy="16" r="14" />
+    <path fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M6 17h5l3-7 4 12 3-6h5" />
+  </> : name === 'dotnet' ? <>
+    <path fill="#6b4bd4" d="M16 2 30 10v12l-14 8L2 22V10Z" />
+    <path fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" d="M9 21V11l8 10V11m3 10h4m-4-5h3m-3-5h4" />
+  </> : name === 'frappe' ? <>
+    <rect fill="#f26a55" x="3" y="3" width="26" height="26" rx="6" />
+    <path fill="none" stroke="#fff" stroke-width="3" stroke-linecap="square" d="M11 23V9h11M11 15h8" />
+  </> : name === 'postman' ? <circle fill="#f15a29" cx="16" cy="16" r="14" /> : <>
+    <circle fill="#173a67" cx="16" cy="16" r="13" />
+    <path fill="none" stroke="#fff" stroke-width="2" d="M9 11h14M9 16h14M9 21h14" />
+  </>}
+</svg>
