@@ -1,0 +1,62 @@
+---
+import Icon from './SalesIntelligenceIcon.astro';
+import Story from './SalesIntelligenceStory.astro';
+import Phone from './SalesIntelligencePhone.astro';
+import Map from './SalesIntelligenceMap.astro';
+const capabilities = [
+  ['prospects','01','blue','people','Prospect Intelligence & Assignment','Discover doctor and non-doctor prospects, filter attributes and manage system-assigned or self-created prospects.'],
+  ['beat-plan','02','green','calendar','Beat Plan & Visit Prioritisation','Create rules-driven visit plans using performance, interest, recency and locality signals.'],
+  ['visits','03','orange','pair','Agent & Prospect Visit Management','Record field visits, update prospect status and support onboarding from the visit workflow.'],
+  ['travel','04','violet','pin','Location & Travel Intelligence','Capture visit locations, timestamps and travel history, with manager access to current location.'],
+  ['agent-movement','05','pink','pair','Referral-Agent Movement','Enable admins and managers to reassign single, multiple or all referral agents between BDMs.'],
+  ['insights','06','cyan','bars','Sales Insights & MIS','Review daily activity and reports covering visits, onboarding, conversion, leads, IPDs and GMV.'],
+  ['verification','07','green','shield','Agent Lifecycle & Verification','Manage agent status, doctor registration proof and clinic verification, including rejected-detail corrections.'],
+];
+const layers = [
+  ['blue','USER LAYER',[['people','BDMs / Sales Agents',''],['person','Managers / TLs',''],['pair','Sales Admins',''],['bars','Product / Business','']]],
+  ['green','EXPERIENCE LAYER',[['mobile','Offline Sales App','Field execution'],['monitor','Manager / Admin Web Views','Oversight and allocation']]],
+  ['violet','WORKFLOW LAYER',[['person','Prospects',''],['calendar','Beat Plans',''],['pin','Visits',''],['send','Agent Movement',''],['map','Location Tracking',''],['check','Verification','']]],
+  ['orange','DATA & INTELLIGENCE LAYER',[['file','Prospect Attributes',''],['pin','Pincode / Lat-long',''],['database','Visit Records',''],['pair','Agent Performance',''],['pair','Leads / IPDs / GMV',''],['bars','MIS / Reporting','']]],
+  ['pink','INTEGRATION & ENGAGEMENT LAYER',[['map','Maps / Location',''],['share','API-driven Prospect Assignment',''],['chat','Notifications / WhatsApp',''],['bars','GA / Mixpanel','']]],
+];
+const locationData = [
+  ['blue','pin','Visit points','Locations captured during field visits'],
+  ['violet','clock','Timestamps','Time associated with captured points'],
+  ['green','travel-history','Travel history','Daily movement timeline'],
+  ['orange','distance','Daily distance','Calculated distance for past dates'],
+  ['pink','pin','Current location','On-demand map viewing'],
+];
+const detailLabels: Record<string, string[]> = {
+  prospects:['Assigned prospects','Interested prospects','New prospects'],
+  'beat-plan':['Prior IPDs','Recent leads','Newly onboarded doctors','Interested prospects','Inactive doctors'],
+  visits:['Created','Visited','Onboarded','Leads / IPDs / GMV'],
+  travel:locationData.map(([, ,title,copy]) => `${title} — ${copy}`),
+  'agent-movement':['Sales Admins','Managers / TLs','BDMs / Sales Agents'],
+  insights:['Unique visits per BDM','Distance travelled per visit','Created → onboarded conversion','Leads, IPDs & GMV after conversion'],
+  verification:['Agent status','Doctor registration proof','Clinic verification','Rejected-detail corrections'],
+};
+---
+<section class="case-page asi-portfolio" id="portfolio"><div class="asi-inner asi-portfolio-grid">
+  <Story kicker="PRODUCT CAPABILITIES" title="One workspace for" highlight="smarter field execution." copy="The Offline Sales App brings prospect discovery, visit planning, agent management, travel visibility and sales insights into a connected field-sales experience." checks={['Discover and prioritise prospects','Plan and record field visits','Manage referral-agent relationships','Review activity and business signals']} miniTitle="FIELD SALES WORKSPACE" mini={[['people','My Prospects'],['calendar','My Agents'],['pin','My Travel'],['bars','Daily Insights']]}/>
+  <div class="asi-workspace-phones"><Phone/><Phone mode="prospects"/><p>Field Sales App · Workspace preview</p></div>
+  <div class="asi-capabilities"><header class="asi-content-heading"><h2>Explore the Product Workspaces</h2><p>Seven capabilities supporting day-to-day field sales.</p></header><div>{capabilities.map(([id,number,tone,icon,title,copy]) => <button type="button" class={`asi-capability asi-tone-${tone}`} data-asi-workspace={id}><span class="asi-bubble"><Icon name={icon}/></span><div><b>{number}</b><h3>{title}</h3><p>{copy}</p></div><Icon name="chevron"/></button>)}</div></div>
+  <div class="asi-field-workflow"><b>THE FIELD WORKFLOW</b>{[['blue','search','Discover'],['green','calendar','Plan'],['violet','pin','Visit'],['orange','people','Manage'],['pink','bars','Review']].map(([tone,icon,title],i) => <><span class={`asi-tone-${tone}`}><i class="asi-bubble"><Icon name={icon}/></i><strong>{title}</strong></span>{i<4 && <Icon name="arrow"/>}</>)}</div>
+</div></section>
+<section class="case-page asi-tech" id="tech-data"><div class="asi-inner asi-tech-grid">
+  <Story kicker="TECH & DATA" title="Connect field workflows," highlight="data and operational visibility." copy="The Offline Sales App connects field execution with manager and admin views, decision rules, location services and analytics." checks={['Shared field aid management experiences','Rules-driven planning and allocation','Location and visit data capture','Connected reporting and engagement']} miniTitle="PRODUCT FOUNDATION" mini={[['person','Experience'],['gear','Workflows'],['bars','Intelligence']]}/>
+  <div class="asi-platform"><header class="asi-content-heading"><h2>How the Platform Connects</h2><p>Experience, workflows, data and supporting services.</p></header><div class="asi-layers">{layers.map(([tone,label,nodes],i) => <><article class={`asi-layer asi-layer-${i} asi-tone-${tone}`}><h3>{label}</h3><div>{(nodes as string[][]).map(([icon,title,copy]) => <span><i class="asi-bubble"><Icon name={icon}/></i><div><strong>{title}</strong>{copy && <small>{copy}</small>}</div></span>)}</div></article>{i<4 && <svg class={`asi-layer-link asi-tone-${tone}`} viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21V3m-5 5 5-5 5 5M16 3v18m-5-5 5 5 5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>}</>)}</div></div>
+  <aside class="asi-location-panel"><h2>Location &amp; Travel Data</h2><Map/><div>{locationData.map(([tone,icon,title,copy]) => <article class={`asi-tone-${tone}`}><span class="asi-bubble"><Icon name={icon}/></span><div><h3>{title}</h3><p>{copy}</p></div></article>)}</div></aside>
+  <div class="asi-data-strip">{[['activity','FIELD ACTIVITY'],['database','STRUCTURED DATA'],['bars','BUSINESS VISIBILITY']].map(([icon,title],i) => <><span><i class="asi-bubble"><Icon name={icon}/></i><strong>{title}</strong></span>{i<2 && <Icon name="arrow"/>}</>)}</div>
+</div></section>
+{capabilities.map(([id,,tone,icon,title,copy]) => <dialog id={`asi-workspace-${id}`} class={`asi-workspace-dialog asi-tone-${tone}`} aria-labelledby={`asi-workspace-title-${id}`}><button class="asi-dialog-close" type="button" data-asi-close aria-label="Close workspace"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"/></svg></button><header><span class="asi-bubble"><Icon name={icon}/></span><h2 id={`asi-workspace-title-${id}`}>{title}</h2></header><p>{copy}</p>{id==='travel' && <Map/>}<div class="asi-workspace-details">{detailLabels[id].map(text => <span><Icon name="check"/>{text}</span>)}</div></dialog>)}
+<script>
+  const workspaceButtons = document.querySelectorAll<HTMLButtonElement>('[data-asi-workspace]');
+  workspaceButtons.forEach(button => button.addEventListener('click', () => {
+    const dialog = document.getElementById(`asi-workspace-${button.dataset.asiWorkspace}`);
+    if (dialog instanceof HTMLDialogElement && !dialog.open) dialog.showModal();
+  }));
+  document.querySelectorAll<HTMLDialogElement>('.asi-workspace-dialog').forEach(dialog => {
+    dialog.querySelector('[data-asi-close]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => { if (event.target === dialog) { const b = dialog.getBoundingClientRect(); if (event.clientX < b.left || event.clientX > b.right || event.clientY < b.top || event.clientY > b.bottom) dialog.close(); } });
+  });
+</script>

@@ -1,0 +1,20 @@
+---
+import Icon from './SalesIntelligenceIcon.astro';
+import Map from './SalesIntelligenceMap.astro';
+interface Props { mode?: string; class?: string; hero?: boolean; }
+const { mode = 'home', class: className = '', hero = false } = Astro.props;
+const menu = [
+  ['people', 'My Prospects', 'Discover and manage doctor and agent prospects', 'prospects', 'blue'],
+  ['calendar', 'My Visit Plan', 'Today’s planned visits and priorities', 'beat-plan', 'green'],
+  ['agents', 'My Agents', 'Manage referral agents in your area', 'agent-movement', 'orange'],
+  ['pin', 'My Travel', 'View your route and track field activity', 'travel', 'violet'],
+  ...(!hero && mode !== 'field' ? [['bars', 'Daily Insights', '', 'insights', 'violet']] : []),
+];
+---
+<div class:list={['asi-phone', `asi-phone-${mode}`, className]}>
+  <i class="asi-notch"></i><div class="asi-phone-screen">
+    <div class="asi-phone-title">{hero ? <span class="asi-small-brand"><i></i>Ayu Health</span> : mode === 'prospects' ? <><Icon name="arrow" class="asi-back"/>My Prospects</> : <><span class="asi-small-mark"></span>{mode === 'map' || mode === 'field' ? 'Field Sales' : 'Offline Sales App'}</>}<Icon name={mode === 'prospects' ? 'search' : 'bell'}/></div>
+    {mode === 'map' ? <Map /> : mode === 'prospects' ? <div class="asi-phone-prospects">{[['Assigned prospects', 'blue'], ['Interested prospects', 'green'], ['New prospects', 'orange']].map(([label, tone], i) => <article class={`asi-tone-${tone}`}><div><span class="asi-bubble"><Icon name="person"/></span><strong>{label}</strong><Icon name="chevron"/></div><i></i><i></i><button type="button" data-asi-workspace={i === 2 ? 'visits' : 'prospects'}>{i === 2 ? 'Record visit' : 'View details'}</button></article>)}</div> : <div class="asi-phone-menu">{menu.map(([icon, title, copy, target, tone]) => <button type="button" class={`asi-tone-${tone}`} data-asi-workspace={target}><span class="asi-bubble"><Icon name={icon}/></span><span><strong>{title}</strong>{hero && <small>{copy}</small>}</span><Icon name="chevron"/></button>)}</div>}
+    {!hero && mode !== 'map' && mode !== 'field' && <div class="asi-phone-bottom">{['home','file','pin','person'].map((icon, i) => <button type="button" aria-label={['My Prospects','My Visit Plan','My Travel','My Agents'][i]} data-asi-workspace={['prospects','beat-plan','travel','agent-movement'][i]}><Icon name={icon}/></button>)}</div>}
+  </div>
+</div>

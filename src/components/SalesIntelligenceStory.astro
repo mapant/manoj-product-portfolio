@@ -1,0 +1,21 @@
+---
+import Icon from './SalesIntelligenceIcon.astro';
+interface Props { kicker: string; title: string; highlight: string; after?: string; afterHighlight?: string; copy?: string; checks?: string[]; miniTitle?: string; mini?: [string, string][]; class?: string; }
+const { kicker, title, highlight, after = '', afterHighlight = '', copy, checks = [], miniTitle, mini = [], class: className = '' } = Astro.props;
+---
+<aside class:list={['asi-story', className]}>
+  <div class="asi-kicker"><i></i>{kicker}</div>
+  <h2>{title} <em>{highlight}</em>{after && <> {after}</>}{afterHighlight && <> <em class="asi-highlight-violet">{afterHighlight}</em></>}</h2>
+  {copy && <p class="asi-story-copy">{copy}</p>}
+  {checks.length > 0 && <ul class="asi-checks">{checks.map(text => <li><span><Icon name="check" /></span>{text}</li>)}</ul>}
+  <slot />
+  {mini.length > 0 && <div class="asi-story-mini">{miniTitle && <b>{miniTitle}</b>}<div>{mini.map(([icon, text], i) => <article><span class:list={['asi-bubble', `asi-mini-${i}`]}>{/^\d$/.test(icon) ? icon : <Icon name={icon} />}</span><strong>{text}</strong></article>)}</div></div>}
+  <svg class="asi-waves" viewBox="0 0 500 160" preserveAspectRatio="none" aria-hidden="true">
+    <defs><linearGradient id={`asi-wave-${kicker.replaceAll(' ', '-')}`}><stop stop-color="#00bfff"/><stop offset=".35" stop-color="#087fff"/><stop offset=".72" stop-color="#6542ff"/><stop offset="1" stop-color="#d522ff"/></linearGradient><linearGradient id={`asi-wave-light-${kicker.replaceAll(' ', '-')}`}><stop stop-color="#20dfff"/><stop offset=".5" stop-color="#70d9ff"/><stop offset="1" stop-color="#db53ff"/></linearGradient><filter id={`asi-wave-glow-${kicker.replaceAll(' ', '-')}`} x="-10%" y="-40%" width="120%" height="180%"><feGaussianBlur stdDeviation="3"/></filter></defs>
+    <path d="M0 1C110 7 138 106 268 87S405 13 500 30V160H0Z" fill={`url(#asi-wave-${kicker.replaceAll(' ', '-')})`} opacity=".55"/>
+    <path d="M0 153C106 44 181 46 286 96s145 70 214 23V160H0Z" fill="#029bf6" opacity=".35"/>
+    {Array.from({length:30},(_,i)=><path d={`M0 ${7+i*4.7}C110 ${13+i*2.3} 152 ${107-i*.25} 267 ${87+i*.2}S407 ${27+i*2.6} 500 ${30+i*3.1}`} fill="none" stroke={`url(#asi-wave-light-${kicker.replaceAll(' ', '-')})`} stroke-width=".6" opacity={.17+i*.007}/>)}
+    <path d="M0 2C110 7 138 106 268 87S405 13 500 30" fill="none" stroke={`url(#asi-wave-light-${kicker.replaceAll(' ', '-')})`} stroke-width="6" opacity=".7" filter={`url(#asi-wave-glow-${kicker.replaceAll(' ', '-')})`}/>
+    <path d="M0 2C110 7 138 106 268 87S405 13 500 30" fill="none" stroke={`url(#asi-wave-light-${kicker.replaceAll(' ', '-')})`} stroke-width="1.5"/>
+  </svg>
+</aside>

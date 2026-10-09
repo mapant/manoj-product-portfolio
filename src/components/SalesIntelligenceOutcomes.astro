@@ -1,0 +1,52 @@
+---
+import Icon from './SalesIntelligenceIcon.astro';
+import Story from './SalesIntelligenceStory.astro';
+const pilot = [
+  ['blue','pair','+60%','Unique doctor-agent visits','BDM A · increase during pilot'],
+  ['violet','pair','+166%','Unique doctor-agent visits','BDM B · increase during pilot'],
+  ['green','pin','−18%','Distance travelled per visit','BDM A · reduction during pilot'],
+  ['orange','pin','−15%','Distance travelled per visit','BDM B · reduction during pilot'],
+];
+const impact = [
+  ['blue','calendar','Structured Visit Planning','Daily and weekly plans organised visits within a locality. Visit frequency reflected leads, IPDs, onboarding recency, interest and inactivity.'],
+  ['green','target','Priority-Doctor Coverage','Planning focused field effort on lead/IPD-giving doctors and interested prospects, rather than relying only on familiar relationships.'],
+  ['violet','people','Centralised Agent Reassignment','Admins and managers could move single, multiple or all referral agents between BDMs, replacing individual phone-number searches and edits.'],
+  ['orange','bars','Manager Visibility','Visit points, timestamps and travel history supported field-activity review, with on-demand current-location viewing.'],
+];
+const value = [
+  ['blue','clock','Better Use of Field Time','The pilot combined wider unique coverage with lower travel distance per visit—a stronger basis for productive field execution.'],
+  ['green','gear','Clearer Operational Control','Admin-led reassignment and visible visit history gave teams clearer ownership and oversight of field workflows.'],
+  ['orange','bulb','More Informed Product Decisions','Visit, onboarding and post-conversion Lead/IPD/GMV reporting connected execution signals with business review.'],
+];
+const leadership = [
+  ['green','file-gear','Field-first Product Strategy','Translate prospect quality, visit planning and travel friction into clear product priorities. Keep decisions connected to how BDMs work in the field.'],
+  ['blue','bars','Data-driven Decision Making','Use leads, IPDs, recency, interest and location signals to guide prioritisation. Define measurement before evaluating impact.'],
+  ['orange','gear','Workflow & Algorithm Design','Turn business logic into visit-frequency rules, allocation workflows and territory mapping. Make assumptions and exceptions explicit.'],
+  ['violet','people','Cross-functional Leadership','Coordinate business, sales, analytics, product, engineering and QA inputs around shared workflow requirements and release readiness.'],
+  ['green','pie','Business & Sales Analytics','Connect visit effort, onboarding conversion and post-conversion business signals. Specify MIS and event requirements that support review.'],
+  ['violet','refresh','Rollout, Adoption & Improvement','Support phased releases, guidance and field-team adoption. Use feedback and usage signals to refine workflows after rollout.'],
+];
+---
+<section class="case-page asi-outcomes" id="outcomes"><div class="asi-inner asi-outcomes-grid">
+  <Story kicker="PRODUCT OUTCOMES" title="Better coverage." highlight="More efficient field execution." copy="The Beat Plan manual pilot showed that structured visit planning could increase unique doctor-agent coverage while reducing distance travelled per visit." class="asi-outcomes-story">
+    <div class="asi-outcome-features">{[['blue','calendar','Focused field planning','Daily visit priorities organised around doctor context, business signals and locality.'],['green','pin','Efficient coverage','More unique doctor agents visited with less travel distance per visit in the pilot.'],['violet','bars','Operational visibility','Visit records, location history and MIS made field activity easier to review.']].map(([tone,icon,title,copy]) => <article class={`asi-tone-${tone}`}><span class="asi-bubble"><Icon name={icon}/></span><div><h3>{title}</h3><p>{copy}</p></div></article>)}</div>
+  </Story>
+  <div class="asi-outcomes-content">
+    <div class="asi-pilot"><h2>BEAT PLAN MANUAL PILOT · TWO BDMS · BENGALURU</h2><div>{pilot.map(([tone,icon,number,title,copy]) => <article class={`asi-tone-${tone}`}><span class="asi-bubble"><Icon name={icon}/></span><strong>{number}</strong><h3>{title}</h3><p>{copy}</p></article>)}</div></div>
+    <div class="asi-operational-impact"><header><h2>Operational Impact Across Field Sales</h2><p>How the product changed planning, coordination and review.</p></header><div>{impact.map(([tone,icon,title,copy]) => <article class={`asi-tone-${tone}`}><span class="asi-bubble"><Icon name={icon}/></span><div><h3>{title}</h3><p>{copy}</p></div></article>)}</div></div>
+    <div class="asi-business-value"><h2>Business Value of the Product Changes</h2><div>{value.map(([tone,icon,title,copy]) => <article class={`asi-tone-${tone}`}><span class="asi-bubble"><Icon name={icon}/></span><div><h3>{title}</h3><p>{copy}</p></div></article>)}</div></div>
+    <div class="asi-pilot-summary"><span class="asi-bubble"><Icon name="trophy"/></span><p>Structured planning delivered measurable coverage and travel-efficiency gains in the two-BDM pilot.</p></div>
+  </div>
+</div></section>
+<section class="case-page asi-leadership" id="product-leadership"><div class="asi-inner asi-leadership-grid">
+  <Story kicker="PRODUCT LEADERSHIP" title="Turn real field problems into" highlight="actionable product decisions." copy="This project demonstrates how I connect field context, decision rules, cross-functional execution and analytics to build practical sales workflows.">
+    <div class="asi-leadership-principles">{[['blue','target','Start with the operating problem'],['violet','bars','Translate signals into decisions'],['violet','people','Connect delivery with measurement']].map(([tone,icon,text]) => <article class={`asi-tone-${tone}`}><span class="asi-bubble"><Icon name={icon}/></span><h3>{text}</h3></article>)}</div>
+    <p class="asi-leadership-signature">Sales Intelligence &amp; Field Force Optimization</p>
+  </Story>
+  <div class="asi-leadership-content"><header class="asi-content-heading"><h2>Leadership Demonstrated Through the Work</h2><p>Practical capabilities grounded in field-sales product delivery.</p></header>
+    <div class="asi-leadership-cards">{leadership.map(([tone,icon,title,copy]) => <article class={`asi-tone-${tone}`}><span class="asi-bubble"><Icon name={icon}/></span><div><h3>{title}</h3><p>{copy}</p></div></article>)}</div>
+    <div class="asi-leadership-themes">{[['blue','problem-pin','Solve Real Field Problems'],['green','database','Turn Data into Action'],['violet','people','Enable High-performing Sales Teams'],['orange','bars','Scale Measurable Execution']].map(([tone,icon,text]) => <article class={`asi-tone-${tone}`}><span class="asi-bubble"><Icon name={icon}/></span><strong>{text}</strong></article>)}</div>
+    <div class="asi-connect"><span class="asi-bubble"><Icon name="conversation"/></span><div><h2>Let’s build practical, measurable products.</h2><p>Open to product roles and conversations around sales platforms, operational workflows and data-informed product decisions.</p></div><a href="/#connect">Let’s Connect <Icon name="arrow"/></a></div>
+  </div>
+  <nav class="asi-project-navigation" aria-label="Project navigation"><a href="/projects/ayu-docconnect"><Icon name="arrow"/><span><small>PREVIOUS PROJECT</small><strong>Ayu DocConnect</strong></span></a><a href="/">Return to Product Portfolio</a><a href="/projects/telecom-cost-optimization"><small>NEXT PROJECT</small><strong>Telecom Analytics &amp;<br/>Cost Optimization</strong><Icon name="arrow"/></a></nav>
+</div></section>

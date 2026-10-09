@@ -7,7 +7,7 @@ const idPrefix = `dc-landscape-${className.trim().split(/\s+/)[0] || 'scene'}`;
 <svg
   class:list={['dc-landscape-scene', className]}
   viewBox="0 0 1200 280"
-  preserveAspectRatio="xMidYMid slice"
+  preserveAspectRatio="xMaxYMin slice"
   aria-hidden="true"
 >
   <defs>
@@ -38,4 +38,7 @@ const idPrefix = `dc-landscape-${className.trim().split(/\s+/)[0] || 'scene'}`;
   <path d="M0 219c92-30 146-13 211-2 70 11 111-35 179-36 71-1 114 40 186 36 66-4 95-34 165-32 69 2 115 38 183 37 87-2 131-45 199-36 30 4 52 14 77 25v69H0Z" fill="#142f5c" opacity=".92" />
   <path d="M822 285c76-25 168-23 177-50 8-24-136-30-137-59-1-25 108-21 126-46 12-17-21-34-44-48" fill="none" stroke="#62d8ff" stroke-width="24" opacity=".36" filter={`url(#${idPrefix}-glow)`} />
   <path d="M822 285c76-25 168-23 177-50 8-24-136-30-137-59-1-25 108-21 126-46 12-17-21-34-44-48" fill="none" stroke={`url(#${idPrefix}-trail)`} stroke-width="7" opacity=".92" />
+  <image href="/ayu-docconnect/mountain-light-trail.png" width="1200" height="280" preserveAspectRatio="xMaxYMin slice"/>
+  <defs><linearGradient id={`${idPrefix}-photo-fade`}><stop stop-color="#00132d"/><stop offset=".42" stop-color="#00132d" stop-opacity=".15"/><stop offset="1" stop-color="#00132d" stop-opacity="0"/></linearGradient></defs>
+  <rect width="1200" height="280" fill={`url(#${idPrefix}-photo-fade)`}/>
 </svg>

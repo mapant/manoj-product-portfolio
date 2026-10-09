@@ -1,0 +1,29 @@
+---
+interface Props { class?: string; variant?: 'field' | 'hero'; }
+const { class: className = '', variant = 'field' } = Astro.props;
+const id = `asi-map-${variant}`;
+const streets = [
+  'M-10 29 293 98','M-10 64 297 133','M-10 99 311 168','M-10 135 317 204','M-10 169 308 239','M-10 205 291 275',
+  'M28-10 3 280','M69-10 44 280','M110-10 85 280','M151-10 126 280','M192-10 167 280','M233-10 208 280','M274-10 249 280',
+  'M360-10 357 96 400 113','M351 146 400 159','M350 184 400 198','M352 223 400 237',
+];
+const pins: [number,number,string][] = variant === 'hero'
+  ? [[237,44,'blue'],[342,104,'orange'],[105,237,'violet']]
+  : [[74,40,'blue'],[145,112,'blue'],[215,176,'orange'],[292,232,'green'],[310,63,'red']];
+---
+<svg class:list={['asi-map-art', className]} viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Map showing field visit locations connected by a travel route">
+  <defs>
+    <pattern id={`${id}-blocks`} width="43" height="38" patternTransform="rotate(14)" patternUnits="userSpaceOnUse"><rect width="43" height="38" fill="#e9eceb"/><path d="M0 0H43M0 0V38M20 0V38M0 19H43" stroke="#fafcfa" stroke-width="2.4"/><path d="M3 3h13v12H3Zm21 19h15v14H24Z" fill="#e0e5e3"/></pattern>
+    <filter id={`${id}-shadow`} x="-50%" y="-40%" width="200%" height="210%"><feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#30547b" flood-opacity=".24"/></filter>
+    {Object.entries({blue:['#269dff','#0077f6'],orange:['#ffbc3b','#ff8700'],green:['#24d3a2','#00ae83'],red:['#ff718b','#ff2855'],violet:['#a847ff','#721cf4']}).map(([tone,[light,dark]])=><linearGradient id={`${id}-${tone}`} x2="65%" y2="100%"><stop stop-color={light}/><stop offset="1" stop-color={dark}/></linearGradient>)}
+  </defs>
+  <rect width="400" height="280" rx="15" fill={`url(#${id}-blocks)`}/>
+  <g fill="#d6e9db"><path d="m10 5 42 10-8 41-36-8Z"/><path d="m158 12 32 7-5 28-35-8Z"/><path d="m230 61 45 12-5 28-41-7Z"/><path d="m50 121 25 7-4 25-29-7Z"/><path d="m176 153 38 12-7 24-33-10Z"/><path d="m256 211 32 7-7 32-30-9Z"/><path d="m354 18 35-1 4 37-37 1Z"/><path d="m350 179 30 9-8 34-22-8Z"/></g>
+  <g fill="none" stroke="#fff" stroke-width="3.3" stroke-linecap="round">{streets.map(d=><path d={d}/>)}<path d="M125-5C164 36 109 77 133 118s68 61 42 108-11 52-11 52M193-5c-18 75 14 95 4 133s-63 75-59 157"/><path d="M0 89C71 121 76 53 143 68s97 90 152 68M-5 208c81-7 86-82 145-55s80 48 132 12"/></g>
+  <path d="M344-10C327 66 312 97 317 153s37 82-3 147" fill="none" stroke="#9bdcf7" stroke-width="26"/>
+  <path d="M-10 241 410 98M-10 240 112 178 244 156 410 98M33-10 86 77 224 285" fill="none" stroke="#fff" stroke-width="8"/>
+  <path d="M-10 241 112 178 244 156 410 98M33-10 86 77 224 285" fill="none" stroke="#f3d68c" stroke-width="2.2"/>
+  <path d={variant==='hero'?'M237 64C235 103 159 102 100 158s6 76 15 99':'M74 60C82 92 113 94 145 133L215 197 292 252 310 83'} fill="none" stroke="#0877f4" stroke-width={variant==='hero'?'5':'3.8'} stroke-dasharray="8 7" stroke-linecap="round" stroke-linejoin="round"/>
+  {variant==='hero'&&<g transform="translate(100 158)"><circle r="39" fill="#2da3ff15" stroke="#148bff33" stroke-width="2"/><circle r="28" fill="none" stroke="#1d92ff55" stroke-width="2"/><circle r="16" fill="#078bff" stroke="white" stroke-width="3"/><circle r="11" fill="none" stroke="#a4e5ff" stroke-width="2"/></g>}
+  {pins.map(([x,y,tone])=><g transform={`translate(${x} ${y})`} filter={`url(#${id}-shadow)`}><path d="M0 19S-14 0-14-9a14 14 0 1 1 28 0C14 0 0 19 0 19Z" fill={`url(#${id}-${tone})`} stroke="white" stroke-width="1.5"/><circle cy="-9" r="5.2" fill="white"/><path d="M-9-15q4-6 11-3" fill="none" stroke="white" stroke-width="1.4" opacity=".5"/></g>)}
+</svg>

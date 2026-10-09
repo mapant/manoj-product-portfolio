@@ -1,0 +1,41 @@
+---
+import Icon from './SalesIntelligenceIcon.astro';
+import Story from './SalesIntelligenceStory.astro';
+const responsibilities = [
+  ['pink','target','Product Strategy','Define business problems and field-productivity objectives.'],
+  ['blue','file','Requirement Gathering','Translate BDM, manager and admin needs into personas, stories and rules.'],
+  ['green','share','Product Design & Documentation','Specify workflows, algorithm assumptions and territory mapping.'],
+  ['orange','people','Development & Execution','Coordinate clarifications, QA / UAT and feature releases.'],
+  ['violet','megaphone','GTM & Adoption','Support phased rollout, training and adoption.'],
+  ['blue','bars','Monitoring & Continuous Improvement','Define measurement and use field feedback to guide improvements.'],
+];
+const metrics = [
+  ['blue','people','Prospect Quality & Acquisition',[['file','Prospect status distribution'],['pin','Prospects onboarded by BDM / city'],['bars','Leads, IPDs & GMV after conversion']]],
+  ['green','pin','Field Coverage',[['people','Unique doctor & prospect visits per BDM'],['target','Visits to lead / IPD-giving doctors'],['people','Visits to interested / high-potential prospects']]],
+  ['orange','gear','Visit Efficiency',[['pin','Distance travelled per visit'],['calendar','Visits before prospect onboarding'],['bars','Total visits vs prospects onboarded']]],
+  ['violet','funnel','Conversion',[['refresh','Created → onboarded conversion'],['person','Onboarding by BDM / city'],['bars','Post-conversion leads, IPDs & GMV']]],
+  ['pink','bars','Field Productivity',[['people','Unique visits per BDM'],['target','Coverage of priority doctors / prospects'],['file','Visit effort relative to onboarding']]],
+  ['cyan','cube','Product Adoption / Usage',[['cursor','Tracked feature interactions'],['people','Beat-plan event tracking'],['bars','Workflow usage through GA / Mixpanel']]],
+];
+---
+<section class="case-page asi-scope" id="pm-scope"><div class="asi-inner asi-scope-grid">
+  <Story kicker="MY PRODUCT MANAGEMENT SCOPE" title="Turning field needs into clear" highlight="product decisions and delivery." copy="My contribution connected field-sales problems with requirements, workflow definitions, delivery coordination, adoption support and product measurement." checks={['Business problems and user workflows','Requirements and decision rules','Validation and rollout coordination','Analytics and continuous improvement']}/>
+  <div class="asi-scope-main">
+    <h2 class="asi-scope-title"><span class="asi-bubble"><Icon name="bars"/></span>Sales Intelligence &amp; Field Force Optimization</h2>
+    <div class="asi-responsibilities"><h3><span class="asi-bubble asi-tone-violet"><Icon name="person"/></span>Key Responsibilities</h3><div>{responsibilities.map(([tone,icon,title,copy]) => <article class={`asi-tone-${tone}`}><span class="asi-bubble"><Icon name={icon as string}/></span><div><h4>{title}</h4><p>{copy}</p></div></article>)}</div></div>
+    <div class="asi-deliverables">{[
+      ['green','file','Key Deliverables',['BRDs & workflow definitions','Personas & user stories','Acceptance criteria & business rules','Beat-plan algorithm assumptions','Pincode / territory mapping']],
+      ['violet','tools','Measurement & Rollout',['Analytics / MIS requirements','GA / Mixpanel event requirements','QA / UAT coordination','Feature rollout & release guidance','Training & adoption support']],
+    ].map(([tone,icon,title,items]) => <article class={`asi-tone-${tone}`}><h3><span class="asi-bubble"><Icon name={icon as string}/></span>{title}</h3><ul>{(items as string[]).map(text => <li><span><Icon name="check"/></span>{text}</li>)}</ul></article>)}</div>
+  </div>
+  <div class="asi-contribution"><img src="/ayu-sales-intelligence/product-planning-desk.png" alt="Product planning desk with workflow diagrams and a territory map"/><aside><h3>Product Contribution</h3>{[['green','pin','Field-first Decisions','Connect requirements to practical sales workflows.'],['violet','gear','Clear Execution Rules','Clarify priorities, handoffs and business logic.'],['blue','bars','Measureable Delivery','Link field activity to reporting and review.']].map(([tone,icon,title,copy]) => <article class={`asi-tone-${tone}`}><span class="asi-bubble"><Icon name={icon}/></span><div><h4>{title}</h4><p>{copy}</p></div></article>)}</aside></div>
+  <div class="asi-pm-process"><span class="asi-bubble"><Icon name="network"/></span><div><b>PRODUCT MANAGEMENT PROCESS</b><div>{['Frame','Define','Specify','Validate','Enable','Measure'].map((text,i) => <strong class={`asi-tone-${['pink','blue','green','orange','violet','blue'][i]}`}>{text}</strong>)}</div></div></div>
+</div></section>
+<section class="case-page asi-metrics" id="product-metrics"><div class="asi-inner asi-two-columns">
+  <Story kicker="PRODUCT METRICS" title="Measure prospect quality," highlight="field efficiency" after="and" afterHighlight="product usage." copy="A measurement framework connecting prospect acquisition, visit execution, onboarding conversion and field-sales performance." checks={['Track coverage and visit efficiency','Understand prospect conversion','Monitor post-onboarding business signals','Use events and MIS to guide decisions']} miniTitle="MEASUREMENT LENS" mini={[['people','Coverage'],['gear','Efficiency'],['bars','Conversion']]}/>
+  <div class="asi-metrics-content"><header class="asi-content-heading"><h2>Field Sales Measurement Framework</h2><p>Signals used to evaluate product performance and guide improvement.</p></header>
+    <div class="asi-metric-cards">{metrics.map(([tone,icon,title,items]) => <article class={`asi-tone-${tone}`}><h3><span class="asi-bubble"><Icon name={icon as string}/></span>{title}</h3><ul>{(items as string[][]).map(([itemIcon,text]) => <li><span class="asi-bubble"><Icon name={itemIcon}/></span>{text}</li>)}</ul></article>)}</div>
+    <div class="asi-measurement-journey"><h3>Prospect Measurement Journey</h3><div>{[['blue','file','Created'],['blue','people','Visited'],['green','check','Onboarded'],['violet','bars','Leads / IPDs / GMV']].map(([tone,icon,title],i) => <><span class={`asi-tone-${tone}`}><i class="asi-bubble"><Icon name={icon}/></i><strong>{title}</strong></span>{i<3 && <Icon name="arrow" class="asi-journey-arrow"/>}</>)}</div><p>Created-to-onboarded conversion · Visits before onboarding · Business signals after conversion</p></div>
+    <div class="asi-instrumentation"><h3>Measurement Instrumentation</h3><div>{[['bars','GA / Mixpanel','Specified events for feature usage'],['database','Live MIS','Visit, prospect and onboarding reporting'],['pin','BDM / City Views','Compare coverage and conversion signals']].map(([icon,title,copy]) => <article><span class="asi-bubble"><Icon name={icon}/></span><div><h4>{title}</h4><p>{copy}</p></div></article>)}</div></div>
+  </div>
+</div></section>

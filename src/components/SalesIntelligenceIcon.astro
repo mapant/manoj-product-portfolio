@@ -1,0 +1,85 @@
+---
+interface Props { name: string; class?: string; }
+const { name, class: className = '' } = Astro.props;
+const paths: Record<string, string[]> = {
+  focus: ['M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z','M12 1v6','M12 17v6','M1 12h6','M17 12h6','M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z'],
+  conversation: ['M12 3c6 0 10 3.8 10 8.5S18 20 12 20H9l-6 3 2-6A8 8 0 0 1 2 11.5C2 6.8 6 3 12 3Z'],
+  agents: ['M8 10a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z','M18 9a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z','M1 22v-3a7 7 0 0 1 14 0v3','M14 12a7 7 0 0 1 9 7v3'],
+  'travel-history': ['M4 22c8 1 10-2 10-5M7 17S2 11 2 7a5 5 0 0 1 10 0c0 4-5 10-5 10Z','M7 7h.01','M18 23s-4-5-4-8a4 4 0 0 1 8 0c0 3-4 8-4 8Z','M18 15h.01'],
+  distance: ['m5 20 4-7 6 3 5-12','M5 22a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z','M9 15a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z','M15 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z','M20 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z'],
+  people: ['M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z','M16 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z','M10 21v-3a6 6 0 0 1 12 0v3Z','M2 21v-3a5 5 0 0 1 6-5'],
+  person: ['M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z','M4 21v-2a8 8 0 0 1 16 0v2Z'],
+  doctor: ['M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z','M4 21v-2a8 8 0 0 1 16 0v2','M12 15v6','M9 18h6'],
+  pin: ['M12 22S4 13 4 8a8 8 0 0 1 16 0c0 5-8 14-8 14Z','M12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z'],
+  calendar: ['M4 5h16v16H4Z','M4 10h16','M8 2v6','M16 2v6','M8 14h1','M14 14h1','M8 18h1','M14 18h1'],
+  bars: ['M3 12h4v9H3Z','M10 7h4v14h-4Z','M17 2h4v19h-4Z'],
+  search: ['M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z','m15 15 6 6'],
+  check: ['m5 12 4 4L19 6'], arrow: ['M3 12h18','m15 6 6 6-6 6'], chevron: ['m9 5 7 7-7 7'],
+  bell: ['M6 9a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9Z','M10 21h4'],
+  file: ['M5 2h10l4 4v16H5Z','M14 2v6h5','M8 11h8','M8 15h8','M8 19h6'],
+  target: ['M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z','M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z','m12 12 8-8','M16 3h5v5'],
+  eye: ['M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z','M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z'],
+  gear: ['M10 2h4l1 3 3-1 3 3-1 3 2 1v4l-3 1 1 3-3 3-3-1-1 2h-4l-1-3-3 1-3-3 1-3-2-1v-4l3-1-1-3 3-3 3 1Z','M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z'],
+  network: ['M12 7v5','M5 18v-6h14v6','M12 18v-6','M12 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z','M5 22a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z','M12 22a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z','M19 22a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z'],
+  chat: ['M3 4h18v12H9l-6 5Z','M7 8h10','M7 12h7'],
+  refresh: ['M3 10a9 9 0 0 1 16-5l2 2','M21 3v4h-4','M21 14A9 9 0 0 1 5 19l-2-2','M3 21v-4h4'],
+  shield: ['M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z','m8 12 3 3 5-6'],
+  map: ['M2 5 8 2l8 3 6-3v17l-6 3-8-3-6 3Z','M8 2v17','M16 5v17'],
+  database: ['M3 6c0-2 4-3 9-3s9 1 9 3-4 3-9 3-9-1-9-3Z','M3 6v6c0 2 4 3 9 3s9-1 9-3V6','M3 12v6c0 2 4 3 9 3s9-1 9-3v-6'],
+  clock: ['M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z','M12 6v6l4 3'],
+  heart: ['M12 21 3 12a6 6 0 0 1 9-8 6 6 0 0 1 9 8Z'],
+  mobile: ['M6 2h12v20H6Z','M10 5h4','M11 19h2'], monitor: ['M2 3h20v14H2Z','M12 17v4','M7 21h10'],
+  funnel: ['M2 3h20L14 12v9l-4-2v-7Z'], cube: ['M12 2 2 7v10l10 5 10-5V7Z','M2 7l10 5 10-5','M12 12v10'],
+  cursor: ['M4 2v19l5-6 4 7 4-2-4-7h8Z'],
+  share: ['M8 10 16 5','M8 14l8 5','M5 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z','M19 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z','M19 23a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z'],
+  megaphone: ['M3 9v6h5l11 5V4L8 9Z','M7 15l2 7h4l-2-6','M22 9v6'],
+  tools: ['m4 3 6 6-3 3-6-6 1-4Z','m9 13 10 9 3-3-9-10','M15 2a6 6 0 0 0-5 8L2 18a3 3 0 0 0 4 4l8-8a6 6 0 0 0 8-5l-5 3-4-4Z'],
+  bulb: ['M8 17a8 8 0 1 1 8 0v2H8Z','M9 22h6'],
+  trophy: ['M7 2h10v8a5 5 0 0 1-10 0Z','M7 4H2v3a5 5 0 0 0 5 5','M17 4h5v3a5 5 0 0 1-5 5','M12 15v6','M7 22h10'],
+  pie: ['M11 2v11h11A11 11 0 1 1 11 2Z','M14 2v8h8a9 9 0 0 0-8-8Z'],
+  home: ['M2 11 12 2l10 9','M5 9v13h14V9','M9 22v-8h6v8'], upload: ['M5 17v5h14v-5','M12 17V2','m6 8 6-6 6 6'],
+  route: ['M4 20h7a4 4 0 0 0 0-8H6a4 4 0 0 1 0-8h10','M16 8s-4-4-4-6a4 4 0 1 1 8 0c0 2-4 6-4 6Z'],
+  activity: ['M15 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z','m7 9 5-2 4 4 4 1','m12 7-3 7 5 3 2 5','m9 14-3 6H2'],
+};
+// Filled silhouettes and cut-outs follow the final Sales Intelligence artwork.
+const solid: Record<string, string[]> = {
+  'priority-list': ['M4 2h16a3 3 0 0 1 0 6H4a3 3 0 0 1 0-6Zm0 8h12a3 3 0 0 1 0 6H4a3 3 0 0 1 0-6Zm0 8h16a3 3 0 0 1 0 6H4a3 3 0 0 1 0-6Z'],
+  'check-circle': ['M12 1a11 11 0 1 1 0 22 11 11 0 0 1 0-22ZM6 12l4 4 8-9-1.5-1.3-6.6 7.6L7.4 10.6Z'],
+  pair: ['M7 11a3.8 3.8 0 1 0 0-7.6 3.8 3.8 0 0 0 0 7.6Zm10-1a4.4 4.4 0 1 0 0-8.8 4.4 4.4 0 0 0 0 8.8ZM1 22v-3a6 6 0 0 1 12 0v3Zm13 0v-3c0-2-.7-3.8-2-5a7 7 0 0 1 12 5v3Z'],
+  send: ['M1 9 23 1l-8 22-5-9 9-9-11 8Z'],
+  share: ['M7 9 17 4l1 2L8 11Zm1 5 10 5-1 2L7 16ZM5 17a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14-8a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0 15a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z'],
+  tools: ['M3 2 9 7 6 10 1 4Zm4 9 3-3 13 12-3 3ZM18 1a6 6 0 0 0-7 8L1 19a3 3 0 0 0 4 4L15 13a6 6 0 0 0 8-7l-5 3-3-3Z'],
+  people: ['M12 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM5 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm14 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM5.5 21v-3.5a6.5 6.5 0 0 1 13 0V21ZM1 20v-3a5 5 0 0 1 5-5c-1.5 1.6-2 3.3-2 5v3Zm19 0v-3c0-1.7-.5-3.4-2-5a5 5 0 0 1 5 5v3Z'],
+  person: ['M12 11a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4ZM4 22v-2.5a8 8 0 0 1 16 0V22Z'],
+  pin: ['M12 23C10 20 4 13.2 4 8a8 8 0 1 1 16 0c0 5.2-6 12-8 15ZM12 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z'],
+  bars: ['M3 13h3a1 1 0 0 1 1 1v7H3Zm7-6h3a1 1 0 0 1 1 1v13h-4Zm7-5h3a1 1 0 0 1 1 1v18h-4Z'],
+  calendar: ['M4 4h2V1h2v3h8V1h2v3h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 5v11h16V9Zm3 3h3v3H7Zm7 0h3v3h-3ZM7 17h3v2H7Zm7 0h3v2h-3Z'],
+  file: ['M5 1h10l5 5v16H5Zm9 1v5h5ZM8 10v1.6h9V10Zm0 4v1.6h9V14Zm0 4v1.6h7V18Z'],
+  gear: ['M9.5 1h5l.6 3 2 .8 2.6-1.6 3 3-1.6 2.6.8 2 3 .6v5l-3 .6-.8 2 1.6 2.6-3 3-2.6-1.6-2 .8-.6 3h-5l-.6-3-2-.8-2.6 1.6-3-3 1.6-2.6-.8-2-3-.6v-5l3-.6.8-2-1.6-2.6 3-3 2.6 1.6 2-.8Zm2.5 6a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z'],
+  shield: ['M12 1 21 4v7c0 6-5 10-9 12-4-2-9-6-9-12V4Zm-5 10 4 4 7-8-1.5-1.3-5.7 6.6-2.4-2.6Z'],
+  chat: ['M12 2c6 0 10 3.8 10 8.5S18 19 12 19H8l-6 4 2-7.2A8 8 0 0 1 2 10.5C2 5.8 6 2 12 2ZM7 9a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm5 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm5 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z'],
+  bell: ['M12 2a6 6 0 0 1 6 6v6l3 4H3l3-4V8a6 6 0 0 1 6-6ZM9.5 20h5a2.5 2.5 0 0 1-5 0Z'],
+  database: ['M3 5c0-2 4-3.5 9-3.5S21 3 21 5s-4 3.5-9 3.5S3 7 3 5Zm0 3c2 1.5 5.5 2 9 2s7-.5 9-2v4c0 2-4 3.5-9 3.5S3 14 3 12Zm0 7c2 1.5 5.5 2 9 2s7-.5 9-2v4c0 2-4 3.5-9 3.5S3 21 3 19Z'],
+  mobile: ['M7 1h10a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2Zm0 3v15h10V4Zm4 17a1 1 0 1 0 2 0 1 1 0 0 0-2 0Z'],
+  monitor: ['M3 2h18a2 2 0 0 1 2 2v13H1V4a2 2 0 0 1 2-2Zm0 2v10h18V4Zm7 14h4v3h5v2H5v-2h5Z'],
+  map: ['M1 4 8 1v19l-7 3ZM10 1l6 3v19l-6-3Zm8 3 5-3v19l-5 3Z'],
+  heart: ['M12 22 3 13C-3 6 6-2 12 5c6-7 15 1 9 8Z'],
+  funnel: ['M2 2h20v3l-8 8v8l-4 2V13L2 5Z'],
+  refresh: ['M4 4a10 10 0 0 1 15 1l3-3v8h-8l3-3a7 7 0 0 0-11 0ZM20 20a10 10 0 0 1-15-1l-3 3v-8h8l-3 3a7 7 0 0 0 11 0Z'],
+  pie: ['M11 1v12l8.5 8.5A11.5 11.5 0 1 1 11 1Zm2 0a11 11 0 0 1 10 10H13Zm1 12h9a11 11 0 0 1-2 7Z'],
+  cube: ['M12 1 1 7l11 6 11-6ZM1 9v10l10 5V14Zm12 5v10l10-5V9Z'],
+  trophy: ['M6 1h12v3h5v3a6 6 0 0 1-6 6 6 6 0 0 1-4 3v4h5v3H6v-3h5v-4a6 6 0 0 1-4-3 6 6 0 0 1-6-6V4h5Zm0 5H3v1a4 4 0 0 0 3 4Zm12 0v5a4 4 0 0 0 3-4V6Z'],
+  bulb: ['M12 1a8 8 0 0 1 5 14c-1.5 1.2-2 2-2 3H9c0-1-.5-1.8-2-3a8 8 0 0 1 5-14ZM9 20h6v2H9Zm1 3h4v1h-4Z'],
+  eye: ['M1 12C4 7 8 4 12 4s8 3 11 8c-3 5-7 8-11 8S4 17 1 12Zm11-5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z'],
+  megaphone: ['M2 9h5L20 3v18L7 15H2Zm5 7 2 7h4l-2-6Zm15-9h2v10h-2Z'],
+};
+const filled = Boolean(solid[name]);
+---
+<svg class:list={['asi-icon', className]} data-asi-icon={name} viewBox={name === 'gear' ? '-2 -1 28 28' : '0 0 24 24'} fill={filled ? 'currentColor' : 'none'} stroke={filled ? 'none' : 'currentColor'} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  {name === 'doctor' ? <g stroke="none"><circle cx="12" cy="8" r="5" fill="#eeb790"/><path d="M7 8V5a5 5 0 0 1 10 0v4l-2-4-5-1-1 4Z" fill="#163951"/><path d="M2 23v-4c0-5 20-5 20 0v4" fill="#fff"/><path d="m9 14 3 8 3-8v9H9Z" fill="#087dff"/><path d="M6 15v4a2 2 0 0 0 4 0v-3m8-1v4" fill="none" stroke="#164c6e" stroke-width="1"/><circle cx="18" cy="20" r="1.5" fill="#164c6e"/></g>
+    : name === 'route' ? <><path d="M17 3H9a4 4 0 0 0 0 8h5a4 4 0 0 1 0 8H4" stroke-dasharray="2.5 2.5"/><path d="M18 12s-5-5-5-8a5 5 0 1 1 10 0c0 3-5 8-5 8Z" fill="currentColor" stroke="none"/><circle cx="18" cy="4" r="1.8" fill="white" stroke="none"/></>
+    : name === 'prospect-search' ? <><g fill="currentColor" stroke="none">{solid.people.map(d=><path d={d}/>)}</g><circle cx="16" cy="16" r="5" fill="var(--pale,#e3f2ff)" stroke-width="2.4"/><path d="m20 20 3 3" stroke-width="3"/></>
+    : name === 'file-gear' ? <><g fill="currentColor" stroke="none">{solid.file.map(d=><path d={d} fill-rule="evenodd"/>)}</g><circle cx="18" cy="18" r="6" fill="var(--pale,#d7faed)" stroke="none"/><path d="M17 13h2l.4 1.5 1.4.8 1.5-.2.8 1.8-1.1 1.1v1.6l1.1 1.1-.8 1.8-1.5-.2-1.4.8L19 24h-2l-.4-1.5-1.4-.8-1.5.2-.8-1.8 1.1-1.1v-1.6L12.9 16.3l.8-1.8 1.5.2 1.4-.8Z" transform="translate(0 -1.5)" fill="currentColor" stroke="none"/><circle cx="18" cy="17" r="2.2" fill="var(--pale,#d7faed)" stroke="none"/></>
+    : name === 'problem-pin' ? <><path d="M12 23C10 20 4 13 4 8a8 8 0 1 1 16 0c0 5-6 12-8 15Z" fill="currentColor" stroke="none"/><path d="M9 6a3 3 0 1 1 4 3c-1 .4-1 1-1 2" stroke="var(--pale,#e3f2ff)"/><circle cx="12" cy="14" r="1" fill="var(--pale,#e3f2ff)" stroke="none"/></>
+    : (solid[name] ?? paths[name] ?? paths.file).map(d => <path d={d} fill-rule={['calendar','file','gear','pin','shield','chat','mobile','monitor','check-circle','eye'].includes(name) ? 'evenodd' : 'nonzero'}/>)}
+</svg>

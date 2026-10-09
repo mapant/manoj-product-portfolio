@@ -1,0 +1,80 @@
+---
+import Icon from './SalesIntelligenceIcon.astro';
+import Story from './SalesIntelligenceStory.astro';
+import Phone from './SalesIntelligencePhone.astro';
+import Map from './SalesIntelligenceMap.astro';
+import Illustration from './SalesIntelligenceIllustration.astro';
+import Management from './SalesIntelligenceManagement.astro';
+import Workspaces from './SalesIntelligenceWorkspaces.astro';
+import Outcomes from './SalesIntelligenceOutcomes.astro';
+const challenges = [
+  ['blue','discovery','Poor prospect discovery','Limited prospect information and selection criteria restricted discovery beyond existing BDM relationships.'],
+  ['green','planning','Unstructured visit planning','BDMs lacked a daily schedule for visiting doctors within a specific locality.'],
+  ['orange','travel','Excess travel','Visits across wider areas increased distance travelled and weakened field efficiency.'],
+  ['violet','reassignment','Manual agent reassignment','Agents were searched by phone number and reassigned individually through the sales app.'],
+  ['pink','visibility','Limited manager visibility','Managers had no way to view sales agents’ real-time location and travel history.'],
+  ['cyan','verification','Verification friction','Missing proof uploads and unclear rejection steps blocked visit recording for unverified clinics.'],
+];
+const strategy = [
+  ['1','blue','intelligence','Build data-led prospect intelligence','Use prospect attributes and fitment signals to expand discovery beyond existing relationships.'],
+  ['2','green','priority','Prioritise the right doctors & agents','Focus effort using leads, IPDs, onboarding recency, interest and inactivity signals.'],
+  ['3','violet','beat-plan','Create rules-driven beat plans','Vary visit frequency by doctor context and organise visits within a locality.'],
+  ['6','cyan','optimise','Measure & continuously optimise','Review visit coverage, distance per visit and conversion signals to refine execution.'],
+  ['5','pink','allocation','Centralise allocation & territory controls','Move reassignment to admins and managers, supported by pincode-based mapping.'],
+  ['4','orange','territory','Enable location-aware execution','Use location context to guide nearby visits and make field movement visible.'],
+];
+const values = [
+  ['blue', 'prospect-search', 'Prospect Intelligence', 'Discover and prioritise the right doctors and referral agents using data-driven insights.'],
+  ['green', 'route', 'Smart Visit Planning', 'Algorithm-driven beat plans to focus on high-potential prospects and optimise field time.'],
+  ['orange', 'pin', 'Field Visibility', 'Location-aware execution with real-time tracking and activity capture for greater accountability.'],
+  ['violet', 'bars', 'Sales Intelligence', 'Actionable insights for BDMs and managers to measure performance and drive continuous growth.'],
+];
+const actors = [
+  ['prospects', 'green', '0', 'Doctor & Non-doctor Prospects', 'Potential referral partners identified and engaged by field teams.'],
+  ['referrals', 'orange', '1', 'Referral Agents', 'Existing partners who share patient leads and coordinate with sales teams.'],
+  ['bdms', 'blue', '2', 'BDMs / Sales Agents', 'Discover prospects, plan visits, engage partners and record field activity.'],
+  ['managers', 'violet', '3', 'Sales Managers & TLs', 'Review field activity, guide teams and monitor performance.'],
+  ['admins', 'pink', '4', 'Sales Admins', 'Manage agent allocation, verification and territory records.'],
+  ['analytics', 'green', '5', 'Product / Business / Analytics Teams', 'Provide prospect data, analyse field performance and guide improvements.'],
+];
+---
+<section class="case-page asi-overview" id="overview"><div class="asi-inner">
+  <div class="asi-hero-photo"><img src="/ayu-sales-intelligence/field-sales-hospital.png" alt="Field sales representative using a phone outside a hospital"/></div>
+  <div class="asi-hero-copy">
+    <div class="asi-brand"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M14 0h14v14h14v14H28v14H14V28H0V14h14Z" fill="#0db9cd"/><path d="M14 0h14v14h14v14H14Z" fill="#ff9d27"/></svg><div><strong>Ayu Health</strong><small>Add Ayu to Your Life!</small></div></div>
+    <h1>Sales Intelligence &amp;<br/><em>Field Force Optimization</em></h1>
+    <h2>Right Prospects. Smarter Visits. Measurable Field Execution.</h2>
+    <p>A field-sales operating and intelligence solution that helps BDMs and sales teams identify the right doctors and referral agents, plan and execute field visits efficiently, and gives managers real-time visibility and actionable insights to drive network growth and business outcomes.</p>
+  </div>
+  <div class="asi-hero-devices"><Phone hero/><div class="asi-hero-map"><Map variant="hero"/></div>{[['blue','doctor','Visit Doctor','Orthopedist','HSR Layout'],['orange','person','Meet Agent','Referral Agent','Koramangala'],['violet','person','New Prospect','Physician','BTM Layout']].map(([tone,icon,title,role,place],i) => <div class:list={['asi-visit-tag',`asi-tag-${i}`,`asi-tone-${tone}`]}><span class="asi-bubble"><Icon name={icon}/></span><div><strong>{title}</strong><small>{role}<br/>{place}</small></div>{i===0 && <span class="asi-done"><Icon name="check"/></span>}</div>)}</div>
+  <div class="asi-values">{values.map(([tone,icon,title,copy]) => <article class={`asi-tone-${tone}`}><span class="asi-bubble"><Icon name={icon}/></span><div><h3>{title}</h3><p>{copy}</p></div></article>)}</div>
+</div></section>
+<section class="case-page asi-ecosystem" id="ecosystem"><div class="asi-inner asi-two-columns">
+  <Story kicker="PRODUCT ECOSYSTEM" title="A connected ecosystem enabling" highlight="smarter field execution, prospect engagement and sales intelligence." copy="Sales Intelligence & Field Force Optimization connects BDMs, prospects, referral agents, managers, admins and analytics teams through one shared field-sales platform." checks={['End-to-end field execution visibility','Structured prospect and referral workflows','Manager, admin and analytics collaboration','Connected maps, communication and MIS']} mini={[['1','Discover prospects'],['2','Execute visits'],['3','Drive growth']]} class="asi-ecosystem-story"/>
+  <div class="asi-ecosystem-diagram">
+    <svg class="asi-ecosystem-lines" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true"><defs>{['green','blue','orange','violet','pink'].map(tone => <marker id={`asi-arrow-${tone}`} markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="m1 1 5 3-5 3" fill="none" stroke={`var(--asi-${tone})`} stroke-width="2"/></marker>)}</defs><g fill="none" stroke-width="2.8" stroke-dasharray="8 5" stroke-linecap="round"><path d="M90 100V175Q90 190 110 190H205V230Q205 255 225 255H260" stroke="var(--asi-green)" marker-end="url(#asi-arrow-green)"/><path d="M370 75H390Q410 75 410 100V175" stroke="var(--asi-green)" marker-end="url(#asi-arrow-green)"/><path d="M650 80H600Q550 80 550 130V175" stroke="var(--asi-orange)" marker-end="url(#asi-arrow-orange)"/><path d="M570 232Q610 232 610 200V80H650" stroke="var(--asi-orange)" marker-end="url(#asi-arrow-orange)"/><path d="M205 330H260" stroke="var(--asi-blue)" marker-end="url(#asi-arrow-blue)"/><path d="M280 350H235" stroke="var(--asi-green)" marker-end="url(#asi-arrow-green)"/><path d="M555 330H675" stroke="var(--asi-blue)" marker-end="url(#asi-arrow-blue)"/><path d="M725 380H555" stroke="var(--asi-violet)" marker-end="url(#asi-arrow-violet)"/><path d="M190 560H225Q250 560 250 520V465Q250 445 260 445" stroke="var(--asi-pink)" marker-end="url(#asi-arrow-pink)"/><path d="M300 480H280Q270 480 270 530V540Q270 560 235 560" stroke="var(--asi-pink)" marker-end="url(#asi-arrow-pink)"/><path d="M570 455H605Q630 455 630 500V540Q630 560 675 560" stroke="var(--asi-green)" marker-end="url(#asi-arrow-green)"/><path d="M705 530H670Q655 530 655 500V475Q655 455 575 455" stroke="var(--asi-green)" marker-end="url(#asi-arrow-green)"/><path d="M426 550V529" stroke="var(--asi-blue)" marker-end="url(#asi-arrow-blue)"/><path d="M442 525V550" stroke="var(--asi-blue)" marker-end="url(#asi-arrow-blue)"/></g></svg>
+    {actors.map(([pos,tone,photo,title,copy]) => <article class:list={['asi-actor',`asi-actor-${pos}`,`asi-tone-${tone}`]}><span class={`asi-portrait asi-portrait-${photo}`} role="img" aria-label={title}></span><div><h3>{title}</h3><p>{copy}</p></div></article>)}
+    <div class="asi-ecosystem-hub"><div class="asi-ecosystem-phones"><Phone mode="field"/><Phone mode="map"/></div><div class="asi-hub-label"><strong>Offline Sales App</strong><span>(Field Sales Platform)</span></div><p>Plan · Execute · Track · Grow</p></div>
+    {['Discover & Prioritise','Engage & Convert','Visits & Updates','Plans & Insights','Activity & Visibility','Guidance & Feedback','Allocation & Verification','Data & Insights'].map((label,i) => <b class={`asi-connector-label asi-connector-${i}`}>{label}</b>)}
+    <div class="asi-support"><div>{[['pin','Maps & Location'],['chat','Communication'],['bars','Analytics & MIS']].map(([icon,text],i) => <span class={`asi-tone-${['blue','green','violet'][i]}`}><i class="asi-bubble"><Icon name={icon}/></i>{text}</span>)}</div><p>Supporting Services &amp; Integrations</p></div>
+  </div>
+</div></section>
+<section class="case-page asi-challenge" id="challenge"><div class="asi-inner asi-two-columns">
+  <Story kicker="THE CHALLENGE" title="Field effort was high." highlight="Focus and visibility" after="were missing." copy="Prospect discovery relied on existing relationships. BDMs lacked structured daily visit plans, while manual reassignment and verification gaps added friction to field execution." checks={['Limited prospect information and selection criteria','Unplanned visits across wider areas','Manual referral-agent reassignment','Limited visibility into field movement']} miniTitle="FROM FRAGMENTED FIELD EXECUTION" mini={[['file','Manual effort'],['pin','Scattered visits'],['eye','Limited visibility'],['bars','Inefficient coverage']]}/>
+  <div class="asi-challenge-content">
+    <div class="asi-quality-gap"><b>PROSPECT QUALITY GAP</b><div><strong>~14,420</strong><span>doctors onboarded</span></div><div><strong>85%</strong><span>had not shared a patient lead</span></div><small>Source: Prospects BRD ·<br/>baseline recorded up to 15 June</small></div>
+    <div class="asi-six-cards">{challenges.map(([tone,art,title,copy]) => <article class={`asi-tone-${tone}`}><Illustration name={art}/><h3>{title}</h3><p>{copy}</p></article>)}</div>
+    <div class="asi-impact-strip"><b>BUSINESS IMPACT</b>{[['pink','bars','Inefficient field productivity'],['blue','pin','Poor territory utilisation'],['orange','share','Slower network expansion'],['violet','shield','Weak visibility & accountability']].map(([tone,icon,text]) => <span class={`asi-tone-${tone}`}><i class="asi-bubble"><Icon name={icon}/></i><strong>{text}</strong></span>)}</div>
+  </div>
+</div></section>
+<section class="case-page asi-strategy" id="strategy"><div class="asi-inner asi-two-columns">
+  <Story kicker="PRODUCT STRATEGY" title="Turn field activity into" highlight="focused, measurable execution." copy="Use prospect and performance data to guide who to visit, how often to visit, where to focus and how to improve field execution." checks={['Prioritise potential and business signals','Match visit frequency to doctor context','Coordinate execution within territories','Use measurement to refine decisions']} miniTitle="STRATEGIC INTENT" mini={[['focus','Focus effort'],['pin','Improve coverage'],['bars','Learn & refine']]}/>
+  <div class="asi-strategy-content">
+    <div class="asi-six-cards asi-strategy-cards">{strategy.map(([number,tone,art,title,copy]) => <article class={`asi-tone-${tone}`}><span class="asi-step-number">{number}</span><Illustration name={art}/><h3>{title}</h3><p>{copy}</p>{number!=='6' && <span class={`asi-step-arrow asi-step-arrow-${number}`}><Icon name="arrow"/></span>}</article>)}</div>
+    <div class="asi-frequency"><b>WHAT INFORMED VISIT FREQUENCY</b><div>{[['blue','file','Prior IPDs'],['green','people','Recent leads'],['violet','person','Newly onboarded doctors'],['orange','heart','Interested prospects'],['blue','clock','Inactive doctors']].map(([tone,icon,text]) => <span class={`asi-tone-${tone}`}><i class="asi-bubble"><Icon name={icon}/></i>{text}</span>)}</div></div>
+    <div class="asi-thesis"><b>THE PRODUCT THESIS</b><div>{[['blue','focus','Right prospect'],['green','priority-list','Right priority'],['violet','calendar','Right visit'],['pink','pin','Right territory'],['orange','bars','Measurable execution']].map(([tone,icon,text]) => <span class={`asi-tone-${tone}`}><Icon name={icon}/><strong>{text}</strong></span>)}</div></div>
+  </div>
+</div></section>
+<Management />
+<Workspaces />
+<Outcomes />
