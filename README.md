@@ -1,101 +1,156 @@
 <div align="center">
 
 # 👋 Manoj Pant
+
 ## Senior Product Manager
 
-### Building scalable products across **FinTech • HealthTech • Sales Intelligence • Telecom Analytics**
+### Product Strategy • Enterprise Platforms • AI/GenAI • FinTech • HealthTech • Telecom • Data & Analytics
 
-[![Portfolio](https://img.shields.io/badge/🌐_LIVE_PORTFOLIO-mapant.github.io-00AEEF?style=for-the-badge)](https://mapant.github.io/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Manoj_Pant-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/manoj-pant-35129495/)
-[![GitHub](https://img.shields.io/badge/GitHub-mapant-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mapant)
-[![Email](https://img.shields.io/badge/Email-Connect-7C3AED?style=for-the-badge&logo=microsoftoutlook&logoColor=white)](mailto:manoj.pant.pm@outlook.com)
+[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-00AEEF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mapant.github.io/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/manoj-pant-35129495/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mapant)
+[![Email](https://img.shields.io/badge/Email-7C3AED?style=for-the-badge&logo=microsoftoutlook&logoColor=white)](mailto:manoj.pant.pm@outlook.com)
+
+<br/>
+
+> ### **Turning complex business problems into scalable products, measurable outcomes and long-term product value.**
 
 </div>
 
 ---
 
+# ✨ About Me
+
+I am a **Senior Product Manager with 10+ years of experience across FinTech, HealthTech, Telecom and Enterprise IT**, with a career progression from **Reporting & Analytics → Business Analysis → Technical Product Management → Product Management → Senior Product Management**.
+
+I lead products across the complete lifecycle — from **discovery, customer and market understanding, product vision and roadmap definition** through **requirements, prioritisation, API/integration design, Agile delivery, UAT, launch, adoption, measurement and continuous improvement**.
+
+My strength is combining **product strategy, data-driven decision making and technical product depth**. I have worked on enterprise platforms involving **digital banking, lending, payments, compliance, workflow automation, healthcare journeys, sales intelligence and telecom analytics**, while partnering across Business, Product, Data, Engineering, Design, Operations, Sales and Delivery.
+
+I also work with **AI/GenAI use-case discovery, rapid prototyping, workflow automation and product experimentation**, using tools such as Microsoft Copilot, ChatGPT, Claude and Figma AI to accelerate validation, refine product thinking and identify new product opportunities.
+
+<div align="center">
+
+### **Discover → Define → Prioritise → Design → Deliver → Measure → Improve → Scale**
+
+</div>
+
+---
+
+# 🎯 Product Focus
+
 <table>
 <tr>
-<td width="62%" valign="top">
+<td width="25%" valign="top">
 
-## ✨ About Me
+## 🧭 Product Strategy & Growth
 
-I am a **Senior Product Manager with 10+ years of professional experience** across **Digital Banking, Healthcare, Telecom, Analytics, Enterprise Platforms and Automation**.
-
-My career has evolved from **Reporting & Analytics → Business Analysis → Technical BA → Product Management → Senior Product Management**, giving me a strong combination of **business understanding, data thinking, product strategy, execution discipline and technical collaboration**.
-
-I work across the complete product lifecycle:
-
-**Discover → Define → Prioritize → Design → Deliver → Measure → Improve → Scale**
-
-What I enjoy most is taking a complex business problem, breaking it into clear product decisions, aligning teams around the right priorities, and turning that into a measurable product outcome.
+- Product Strategy
+- Product Vision
+- Product Roadmaps
+- Product Discovery
+- Go-to-Market Strategy
+- Market Research
+- Competitive Analysis
+- Product Prioritisation
 
 </td>
-<td width="38%" valign="top">
+<td width="25%" valign="top">
 
-### 🎯 Product Focus
+## 🚀 Product Delivery & Leadership
+
+- Product Lifecycle Management
+- Agile Product Management
+- Backlog Management
+- Release Management
+- UAT Management
+- Cross-functional Leadership
+- Stakeholder Management
+- Delivery Governance
+
+</td>
+<td width="25%" valign="top">
+
+## 🤖 AI, Data & Product Innovation
+
+- AI Product Management
+- Generative AI
+- AI Use-case Development
+- Rapid Prototyping
+- Workflow Automation
+- Data Strategy
+- Product Analytics
+- KPI Frameworks
+
+</td>
+<td width="25%" valign="top">
+
+## 🔗 Technology & Platforms
+
+- API-first Architecture
+- API Integrations
+- Microservices
+- Cloud-aligned Platforms
+- Platform Scalability
+- Data Modeling
+- Enterprise Integrations
+- Modular Workflows
+
+</td>
+</tr>
+</table>
+
+<div align="center">
 
 ![Strategy](https://img.shields.io/badge/Product_Strategy-0A66C2?style=for-the-badge)
-![Enterprise](https://img.shields.io/badge/Enterprise_Platforms-334155?style=for-the-badge)
-![FinTech](https://img.shields.io/badge/FinTech-0052CC?style=for-the-badge)
-![HealthTech](https://img.shields.io/badge/HealthTech-00A67E?style=for-the-badge)
-![Analytics](https://img.shields.io/badge/Product_Analytics-7C3AED?style=for-the-badge)
+![Roadmaps](https://img.shields.io/badge/Product_Roadmaps-2563EB?style=for-the-badge)
+![Discovery](https://img.shields.io/badge/Product_Discovery-0891B2?style=for-the-badge)
+![GTM](https://img.shields.io/badge/Go--to--Market-7C3AED?style=for-the-badge)
+![AI](https://img.shields.io/badge/AI_%26_GenAI-E11D48?style=for-the-badge)
+![Data](https://img.shields.io/badge/Data_Strategy-059669?style=for-the-badge)
+
+![API](https://img.shields.io/badge/API--first_Platforms-0284C7?style=for-the-badge)
+![Analytics](https://img.shields.io/badge/Product_Analytics-8B5CF6?style=for-the-badge)
+![Agile](https://img.shields.io/badge/Agile_Delivery-F59E0B?style=for-the-badge)
+![UAT](https://img.shields.io/badge/UAT_%26_Release-EC4899?style=for-the-badge)
 ![Leadership](https://img.shields.io/badge/Cross--functional_Leadership-E76F51?style=for-the-badge)
 
-</td>
-</tr>
-</table>
-
----
-
-<div align="center">
-
-## 🌈 What This Portfolio Represents
-
-> **Not just what I worked on — but how I think, prioritize, lead, measure and scale products.**
-
-</div>
-
-Each case study is structured as a product journey:
-
-<div align="center">
-
-### **Problem → Ecosystem → Strategy → PM Scope → Measurement → Capabilities → Tech & Data → Outcomes → Product Leadership**
-
 </div>
 
 ---
 
-## ⚡ Portfolio Impact Snapshot
+# ⚡ Career Impact Snapshot
 
 <table>
 <tr>
-<td align="center" width="25%">
+<td align="center" width="20%">
 
-### 🏦 Digital Banking
-**12 Applications**  
-Configurable platform for banks & NBFCs
-
-</td>
-<td align="center" width="25%">
-
-### 🩺 Doctor Engagement
-**1,150+ Doctors**  
-Installed / logged in during pilot
+### 🏦 **12+**
+Enterprise banking applications managed across a multi-client platform
 
 </td>
-<td align="center" width="25%">
+<td align="center" width="20%">
 
-### 📍 Field Force
-**60% / 166%**  
-Increase in unique doctor-agent visits in pilot examples
+### 🩺 **150+**
+Hospitals supported across healthcare product workflows
 
 </td>
-<td align="center" width="25%">
+<td align="center" width="20%">
 
-### 📡 Telecom Analytics
-**Cost Intelligence**  
-Asset, geography, operations & finance connected
+### 📈 **40% → 75%**
+Active doctor adoption achieved through Ayu DocConnect
+
+</td>
+<td align="center" width="20%">
+
+### ⏱️ **10 → 2 Days**
+Payout turnaround reduced through workflow automation
+
+</td>
+<td align="center" width="20%">
+
+### 💡 **35%**
+Customer acquisition cost reduction through product improvements
 
 </td>
 </tr>
@@ -103,113 +158,112 @@ Asset, geography, operations & finance connected
 
 ---
 
-## 🧭 Explore the Portfolio
+# 🌈 Featured Product Portfolio
 
 <div align="center">
 
-| 🏦 Integrated Channels Suite | 🩺 Ayu DocConnect |
-|---|---|
-| **FinTech / Digital Banking** | **Healthcare / Doctor Engagement** |
-| Multi-application banking platform | Referral & patient journey platform |
-| [**Open Case Study →**](https://mapant.github.io/projects/integrated-channels/) | [**Open Case Study →**](https://mapant.github.io/projects/ayu-docconnect/) |
-
-| 📍 Sales Intelligence & Field Force Optimization | 📡 Telecom Analytics & Cost Optimization |
-|---|---|
-| **Healthcare Sales / Field Operations** | **Telecom / Cost Intelligence** |
-| Prospect intelligence, beat planning & territory execution | Asset-centered analytics & CapEx/OpEx visibility |
-| [**Open Case Study →**](https://mapant.github.io/projects/ayu-sales-intelligence/) | [**Open Case Study →**](https://mapant.github.io/projects/telecom-cost-optimization/) |
+### Four case studies across four product domains
 
 </div>
 
+| | Product | Domain | Core Product Story | Explore |
+|---|---|---|---|---|
+| 🏦 | **Integrated Channels Suite** | FinTech / Digital Banking | Multi-application banking platform spanning lending, payments, compliance, reconciliation and enterprise integrations | [**View Case Study →**](https://mapant.github.io/projects/integrated-channels/) |
+| 🩺 | **Ayu DocConnect** | HealthTech | Doctor engagement, patient referrals, journey visibility, incentives and network growth | [**View Case Study →**](https://mapant.github.io/projects/ayu-docconnect/) |
+| 📍 | **Sales Intelligence & Field Force Optimization** | Healthcare Sales | Prospect intelligence, beat planning, territory execution and sales visibility | [**View Case Study →**](https://mapant.github.io/projects/ayu-sales-intelligence/) |
+| 📡 | **Telecom Analytics & Cost Optimization** | Telecom Analytics | Asset-centered analytics connecting network, geography, operations and financial context | [**View Case Study →**](https://mapant.github.io/projects/telecom-cost-optimization/) |
+
 ---
 
-# 🏦 Case Study 01 — Integrated Channels Suite
+# 🏦 01 — Integrated Channels Suite
 
-> ### **A configurable digital-banking platform for banks and NBFCs**
+> ## **A configurable digital-banking platform for banks and NBFCs**
 
-![FinTech](https://img.shields.io/badge/Domain-FinTech_&_Digital_Banking-0052CC?style=flat-square)
-![Platform](https://img.shields.io/badge/Product-Enterprise_Platform-0A66C2?style=flat-square)
-![Apps](https://img.shields.io/badge/Portfolio-12_Applications-7C3AED?style=flat-square)
+<div align="center">
 
-### 🔹 Product Story
+![FinTech](https://img.shields.io/badge/FinTech-0052CC?style=for-the-badge)
+![Banking](https://img.shields.io/badge/Digital_Banking-0A66C2?style=for-the-badge)
+![Apps](https://img.shields.io/badge/12%2B_Applications-7C3AED?style=for-the-badge)
+![API](https://img.shields.io/badge/API_%26_Integrations-059669?style=for-the-badge)
 
-A multi-application digital banking platform designed to support multiple banking functions through a common product foundation while allowing applications to be configured and deployed independently.
+</div>
 
-### 🔹 12 Banking Applications
+### Product Story
 
-`Audit` `FAM` `GST` `LOS–LMS` `CMS` `Shares` `PM Schemes` `CIBIL` `Reconciliation` `AML–KYC` `Treasury` `DMS & CKYC`
+A multi-application digital banking platform designed to support banks and NBFCs across **lending, payments, cards, compliance, reconciliation, treasury, financial control and regulatory workflows** through a common configurable product foundation.
 
-### 🔹 Product Themes
+### Product Portfolio
 
-<table>
-<tr>
-<td width="25%">💳 <b>Lending & Credit</b><br/>LOS/LMS, credit bureau connectivity</td>
-<td width="25%">💸 <b>Payments & Cards</b><br/>CMS, reconciliation, payment journeys</td>
-<td width="25%">🛡️ <b>Compliance</b><br/>AML/KYC, CKYC, governance</td>
-<td width="25%">🏛️ <b>Financial Control</b><br/>Treasury, GST, audit, FAM</td>
-</tr>
-</table>
+`Audit` • `FAM` • `GST` • `LOS–LMS` • `CMS` • `Shares` • `PM Schemes` • `CIBIL` • `Reconciliation` • `AML–KYC` • `Treasury` • `DMS & CKYC`
 
-### 🔹 My Product Scope
+### What I Owned
 
-- Product vision & roadmap
-- Requirement discovery
-- PRD / BRD / FRD / FSD
-- Workflow & process design
-- API & integration requirements
-- User stories & acceptance criteria
-- UAT governance
-- Release planning
+- Product vision, strategy and roadmap
+- Multi-client product delivery
+- Product discovery and requirements
+- PRD / BRD / FSD
+- User stories and acceptance criteria
+- API specifications and integration requirements
+- Workflow design
+- Backlog prioritisation
+- Agile delivery
+- UAT and release readiness
 - Client demonstrations
-- Regulatory alignment
-- Migration & implementation readiness
-- Cross-functional product leadership
+- Regulatory and enterprise alignment
+- Cross-functional execution
 
-### 🔹 Product Value
+### Product Value
 
-**One common platform foundation. Multiple banking applications. Configurable institutional workflows. Integration-led delivery.**
+<table>
+<tr>
+<td align="center">🧩<br/><b>Configurable</b><br/>Institution-specific workflows</td>
+<td align="center">🔗<br/><b>Integrated</b><br/>Banking and payment ecosystems</td>
+<td align="center">🛡️<br/><b>Controlled</b><br/>Regulatory and enterprise workflows</td>
+<td align="center">📈<br/><b>Scalable</b><br/>Multi-application platform foundation</td>
+</tr>
+</table>
 
-<div align="right">
+<div align="center">
 
-[![Explore](https://img.shields.io/badge/EXPLORE_CASE_STUDY-→-0052CC?style=for-the-badge)](https://mapant.github.io/projects/integrated-channels/)
+[![Explore Integrated Channels Suite](https://img.shields.io/badge/Explore_Integrated_Channels_Suite-0052CC?style=for-the-badge)](https://mapant.github.io/projects/integrated-channels/)
 
 </div>
 
 ---
 
-# 🩺 Case Study 02 — Ayu DocConnect
+# 🩺 02 — Ayu DocConnect
 
-> ### **Turn doctor relationships into a connected digital care journey**
+> ## **Turn doctor relationships into a connected digital care journey**
 
-![HealthTech](https://img.shields.io/badge/Domain-HealthTech-00A67E?style=flat-square)
-![Journey](https://img.shields.io/badge/Product-Doctor_&_Patient_Journey-0EA5E9?style=flat-square)
-![Pilot](https://img.shields.io/badge/Focus-Engagement_&_Referral_Growth-7C3AED?style=flat-square)
+<div align="center">
 
-### 🔹 Product Story
+![HealthTech](https://img.shields.io/badge/HealthTech-00A67E?style=for-the-badge)
+![Doctor](https://img.shields.io/badge/Doctor_Engagement-0EA5E9?style=for-the-badge)
+![Journey](https://img.shields.io/badge/Patient_Journey-7C3AED?style=for-the-badge)
+![Growth](https://img.shields.io/badge/Referral_Growth-E11D48?style=for-the-badge)
 
-Ayu DocConnect connects **referral doctors, patients, hospitals and healthcare services** through one digital product experience focused on referrals, journey visibility, engagement, incentives and network growth.
+</div>
 
-### 🔹 Core Product Capabilities
+### Product Story
 
-| Capability | What It Enables |
+Ayu DocConnect is a doctor-engagement and referral platform designed to connect **referral doctors, patients, hospitals and healthcare services** through a measurable digital experience.
+
+### Core Capabilities
+
+| Capability | Product Intent |
 |---|---|
-| 🧾 **Patient Referrals** | Digital referral creation and management |
-| 🩺 **Patient Tracking** | Visibility across OPD, IPD and discharge |
-| 💰 **Incentives & Earnings** | Referral reward and earnings visibility |
-| 👥 **Doctor Network** | Doctor-to-doctor discovery and collaboration |
-| 🚑 **Ambulance Services** | Integrated access to healthcare support |
-| 📍 **Google Business** | Practice visibility and digital presence |
+| 🧾 **Patient Referrals** | Create and manage digital referrals |
+| 🩺 **Patient Tracking** | Track OPD, IPD, discharge and follow-up progression |
+| 💰 **Incentives & Earnings** | Give doctors visibility into referral rewards |
+| 👥 **Doctor Network** | Enable doctor-to-doctor discovery and engagement |
+| 🚑 **Ambulance Services** | Extend access to healthcare support services |
+| 📍 **Google Business** | Support practice visibility and digital presence |
 
-### 🔹 Doctor & Referral Measurement Framework
+### Doctor & Referral Measurement Framework
 
-![Activation](https://img.shields.io/badge/Doctor_Activation-0A66C2?style=flat-square)
-![Usage](https://img.shields.io/badge/Active_Doctor_Usage-00A67E?style=flat-square)
-![Repeat](https://img.shields.io/badge/Repeat_Referral_Rate-7C3AED?style=flat-square)
-![Conversion](https://img.shields.io/badge/Referral_Conversion-E11D48?style=flat-square)
-![Journey](https://img.shields.io/badge/Journey_Visibility-F59E0B?style=flat-square)
-![Payout](https://img.shields.io/badge/Payout_Turnaround-EC4899?style=flat-square)
+**Doctor Activation • Active Doctor Usage • Repeat Referral Rate • Referral Conversion • Journey Visibility • Payout Turnaround • Lifecycle & Retention • Workflow Adoption**
 
-### 🔹 Pilot Outcomes
+### Pilot Outcomes
 
 <table>
 <tr>
@@ -217,35 +271,40 @@ Ayu DocConnect connects **referral doctors, patients, hospitals and healthcare s
 <td align="center"><b>400+</b><br/>Monthly Active Users</td>
 <td align="center"><b>170+</b><br/>Weekly Active Users</td>
 <td align="center"><b>27+</b><br/>Doctor referrals</td>
-<td align="center"><b>7</b><br/>New doctors onboarded via referral flow</td>
+<td align="center"><b>7</b><br/>Doctors onboarded via referral flow</td>
 </tr>
 </table>
 
-### 🔹 Product Value
+### Product Value
 
-**Stronger doctor engagement + better patient visibility + measurable referral-network growth.**
+**Stronger doctor engagement. Better visibility into patient journeys. A growing, measurable referral ecosystem.**
 
-<div align="right">
+<div align="center">
 
-[![Explore](https://img.shields.io/badge/EXPLORE_CASE_STUDY-→-00A67E?style=for-the-badge)](https://mapant.github.io/projects/ayu-docconnect/)
+[![Explore Ayu DocConnect](https://img.shields.io/badge/Explore_Ayu_DocConnect-00A67E?style=for-the-badge)](https://mapant.github.io/projects/ayu-docconnect/)
 
 </div>
 
 ---
 
-# 📍 Case Study 03 — Sales Intelligence & Field Force Optimization
+# 📍 03 — Sales Intelligence & Field Force Optimization
 
-> ### **Smarter prospects. Better visit planning. More measurable field execution.**
+> ## **Smarter prospects. Better visit planning. More measurable field execution.**
 
-![Sales](https://img.shields.io/badge/Domain-Sales_Intelligence-7C3AED?style=flat-square)
-![Field](https://img.shields.io/badge/Product-Field_Force_Optimization-0EA5E9?style=flat-square)
-![Analytics](https://img.shields.io/badge/Focus-Data--led_Execution-00A67E?style=flat-square)
+<div align="center">
 
-### 🔹 Product Story
+![Sales](https://img.shields.io/badge/Sales_Intelligence-7C3AED?style=for-the-badge)
+![Field](https://img.shields.io/badge/Field_Force-0EA5E9?style=for-the-badge)
+![Location](https://img.shields.io/badge/Location_Intelligence-059669?style=for-the-badge)
+![Analytics](https://img.shields.io/badge/Sales_Analytics-F59E0B?style=for-the-badge)
 
-A field-sales operating and intelligence solution designed to help BDMs identify the right prospects, prioritize visits, improve territory coverage, reduce unnecessary travel and give managers better visibility into field execution.
+</div>
 
-### 🔹 Product Capabilities
+### Product Story
+
+A field-sales operating and intelligence solution built to help BDMs identify the right prospects, prioritise visits, improve territory coverage, reduce unnecessary travel and give managers stronger visibility into field execution.
+
+### Product Capabilities
 
 - 🧠 **Prospect Intelligence & Assignment**
 - 🗓️ **Beat Plan & Visit Prioritisation**
@@ -255,18 +314,11 @@ A field-sales operating and intelligence solution designed to help BDMs identify
 - 📊 **Sales Insights & MIS**
 - ✅ **Agent Lifecycle & Verification**
 
-### 🔹 Measurement Framework
+### Measurement Framework
 
-| Area | Example Signal |
-|---|---|
-| 🎯 Prospect Quality | High-potential / interested prospects |
-| 📍 Field Coverage | Unique doctor & prospect visits |
-| 🚗 Visit Efficiency | Distance travelled per visit |
-| 🔄 Conversion | Prospect created → onboarded |
-| 👥 Field Productivity | Visits and onboarding per BDM |
-| 📱 Product Adoption | Usage of field workflows |
+**Prospect Quality & Acquisition • Field Coverage • Visit Efficiency • Conversion • Field Productivity • Product Adoption & Usage**
 
-### 🔹 Pilot Outcomes
+### Pilot Outcomes
 
 <table>
 <tr>
@@ -277,31 +329,36 @@ A field-sales operating and intelligence solution designed to help BDMs identify
 </tr>
 </table>
 
-### 🔹 Product Value
+### Product Value
 
-**Product design + location intelligence + analytics + structured field workflows = better territory effectiveness and measurable sales productivity.**
+**Prospect intelligence + location-aware planning + structured field workflows + measurable sales execution.**
 
-<div align="right">
+<div align="center">
 
-[![Explore](https://img.shields.io/badge/EXPLORE_CASE_STUDY-→-7C3AED?style=for-the-badge)](https://mapant.github.io/projects/ayu-sales-intelligence/)
+[![Explore Sales Intelligence](https://img.shields.io/badge/Explore_Sales_Intelligence-7C3AED?style=for-the-badge)](https://mapant.github.io/projects/ayu-sales-intelligence/)
 
 </div>
 
 ---
 
-# 📡 Case Study 04 — Telecom Analytics & Cost Optimization
+# 📡 04 — Telecom Analytics & Cost Optimization
 
-> ### **Connecting network assets, geography, operations and finance to create clearer cost intelligence**
+> ## **Turning fragmented network data into trusted cost intelligence**
 
-![Telecom](https://img.shields.io/badge/Domain-Telecom_Analytics-E76F51?style=flat-square)
-![Analytics](https://img.shields.io/badge/Product-Cost_Intelligence-0A66C2?style=flat-square)
-![Data](https://img.shields.io/badge/Focus-Asset--Centered_Data-334155?style=flat-square)
+<div align="center">
 
-### 🔹 Product Story
+![Telecom](https://img.shields.io/badge/Telecom-E76F51?style=for-the-badge)
+![Analytics](https://img.shields.io/badge/Analytics-0A66C2?style=for-the-badge)
+![Spatial](https://img.shields.io/badge/Spatial_Intelligence-059669?style=for-the-badge)
+![Cost](https://img.shields.io/badge/Cost_Optimization-F59E0B?style=for-the-badge)
 
-A telecom analytics initiative focused on transforming fragmented network and operational information into a trusted, asset-centered view for stronger operational and financial decision-making.
+</div>
 
-### 🔹 Product Flow
+### Product Story
+
+A telecom analytics initiative focused on connecting **network assets, geographic context, operational information and financial data** to improve cost visibility and data-driven planning.
+
+### Product Approach
 
 <div align="center">
 
@@ -309,88 +366,78 @@ A telecom analytics initiative focused on transforming fragmented network and op
 
 </div>
 
-### 🔹 What It Brings Together
+### Focus Areas
 
 <table>
 <tr>
-<td>📡 Network Assets</td>
-<td>🗺️ Geographic Context</td>
-<td>⚙️ Operational Data</td>
-<td>💰 Finance</td>
-<td>📈 CapEx / OpEx</td>
-<td>🧩 Data Quality</td>
+<td align="center">📡<br/><b>Network Assets</b></td>
+<td align="center">🗺️<br/><b>Spatial Context</b></td>
+<td align="center">⚙️<br/><b>Operations</b></td>
+<td align="center">💰<br/><b>Finance</b></td>
+<td align="center">📈<br/><b>CapEx / OpEx</b></td>
+<td align="center">🧩<br/><b>Data Quality</b></td>
 </tr>
 </table>
 
-### 🔹 Product Value
+### Product Value
 
-- clearer cost visibility
-- stronger asset intelligence
-- improved data trust
+- stronger network-cost visibility
+- trusted asset-centered analytics
+- improved data and reporting governance
 - better operational transparency
-- stronger finance/network alignment
+- clearer finance/network alignment
 - more informed investment decisions
 
-<div align="right">
+<div align="center">
 
-[![Explore](https://img.shields.io/badge/EXPLORE_CASE_STUDY-→-E76F51?style=for-the-badge)](https://mapant.github.io/projects/telecom-cost-optimization/)
+[![Explore Telecom Analytics](https://img.shields.io/badge/Explore_Telecom_Analytics-E76F51?style=for-the-badge)](https://mapant.github.io/projects/telecom-cost-optimization/)
 
 </div>
 
 ---
 
-# 🧠 Product Management Approach
-
-<div align="center">
-
-## 🔎 Discover → 🧭 Define → 🎯 Prioritize → 🎨 Design → 🚀 Deliver → 📊 Measure → 🔁 Improve → 📈 Scale
-
-</div>
+# 🧠 How I Work as a Product Manager
 
 <table>
 <tr>
 <td width="25%" valign="top">
 
 ### 🔎 Discover
-Understand:
-- users
-- workflows
-- business problems
-- friction
-- opportunities
+- Customer needs
+- User workflows
+- Market context
+- Business problems
+- Opportunity validation
 
 </td>
 <td width="25%" valign="top">
 
 ### 🧭 Define
-Translate ambiguity into:
-- use cases
-- personas
-- requirements
-- journeys
-- success metrics
+- Product vision
+- Use cases
+- Personas
+- PRDs / BRDs
+- Success metrics
 
 </td>
 <td width="25%" valign="top">
 
-### 🎯 Prioritize
-Balance:
-- customer value
-- business impact
-- risk
-- dependencies
-- delivery effort
+### 🎯 Prioritise
+- Customer value
+- Business impact
+- Risk
+- Dependencies
+- Delivery effort
 
 </td>
 <td width="25%" valign="top">
 
 ### 🎨 Design
-Shape:
-- workflows
-- product behavior
+- User journeys
+- Workflows
 - APIs
-- integrations
-- user experience
+- Integrations
+- Product behavior
 
 </td>
 </tr>
@@ -398,43 +445,41 @@ Shape:
 <td width="25%" valign="top">
 
 ### 🚀 Deliver
-Align:
-- Engineering
-- Design
-- QA
-- Analytics
-- Operations
+- Agile execution
+- Backlog
+- Engineering alignment
+- UAT
+- Release readiness
 
 </td>
 <td width="25%" valign="top">
 
 ### 📊 Measure
-Track:
-- adoption
-- engagement
-- conversion
-- efficiency
-- reliability
+- Adoption
+- Engagement
+- Conversion
+- Reliability
+- Business outcomes
 
 </td>
 <td width="25%" valign="top">
 
 ### 🔁 Improve
-Use:
-- data
-- feedback
-- usage
-- stakeholder insight
+- Product analytics
+- Feedback
+- Experiments
+- Enhancements
+- Workflow optimization
 
 </td>
 <td width="25%" valign="top">
 
 ### 📈 Scale
-Build:
-- reusable foundations
-- adoption models
-- operating discipline
-- measurable growth
+- Product foundations
+- GTM
+- Adoption
+- Enterprise rollout
+- Long-term value
 
 </td>
 </tr>
@@ -442,120 +487,42 @@ Build:
 
 ---
 
-# 🎯 Product & Leadership Capabilities
+# 🧰 Product, Data & Technology Exposure
 
 <div align="center">
 
-![Strategy](https://img.shields.io/badge/Product_Strategy-0A66C2?style=for-the-badge)
-![Roadmap](https://img.shields.io/badge/Roadmapping-0284C7?style=for-the-badge)
-![Discovery](https://img.shields.io/badge/Product_Discovery-0891B2?style=for-the-badge)
-![Metrics](https://img.shields.io/badge/Product_Metrics-7C3AED?style=for-the-badge)
-![API](https://img.shields.io/badge/API_Products-2563EB?style=for-the-badge)
-![Data](https://img.shields.io/badge/Data_Products-059669?style=for-the-badge)
-![Agile](https://img.shields.io/badge/Agile_Delivery-F59E0B?style=for-the-badge)
-![Leadership](https://img.shields.io/badge/Cross--functional_Leadership-E11D48?style=for-the-badge)
+![AI](https://img.shields.io/badge/AI_Product_Management-E11D48?style=for-the-badge)
+![GenAI](https://img.shields.io/badge/Generative_AI-7C3AED?style=for-the-badge)
+![APIs](https://img.shields.io/badge/API_Integrations-0284C7?style=for-the-badge)
+![Cloud](https://img.shields.io/badge/Cloud_Platforms-0EA5E9?style=for-the-badge)
+![Microservices](https://img.shields.io/badge/Microservices-334155?style=for-the-badge)
+![Data](https://img.shields.io/badge/Data_Strategy-059669?style=for-the-badge)
+![Analytics](https://img.shields.io/badge/Product_Analytics-8B5CF6?style=for-the-badge)
+![Automation](https://img.shields.io/badge/Workflow_Automation-F59E0B?style=for-the-badge)
 
 </div>
 
-### Product Strategy
-Vision • Roadmaps • Prioritization • Product Lifecycle • Discovery • Positioning
+### Product & Delivery
+`Product Strategy` `Roadmaps` `Discovery` `GTM` `Backlog Management` `Agile` `UAT` `Release Management` `Stakeholder Management`
 
-### Product Definition
-PRD • BRD • FRD • FSD • User Stories • Acceptance Criteria • Process Mapping • API Requirements
+### Requirements & Solution Definition
+`PRD` `BRD` `FRD` `FSD` `User Stories` `Acceptance Criteria` `Process Flows` `DFDs` `ER Models` `API Specifications`
 
-### Product Delivery
-Agile / Scrum • Backlog Management • UAT Governance • Release Management • Stakeholder Alignment
+### AI & Product Innovation
+`AI Product Management` `GenAI` `LLM Use Cases` `Rapid Prototyping` `Microsoft Copilot` `ChatGPT` `Claude` `Figma AI`
 
-### Product Analytics
-Adoption • Engagement • Conversion • Workflow Health • Operational Efficiency • Business Outcomes
+### Analytics & Data
+`SQL` `Power BI` `Tableau` `Product Analytics` `KPI Frameworks` `Data Strategy` `Data Modeling`
 
-### Enterprise Platforms
-APIs • Integrations • Modular Platforms • Regulated Workflows • Data Products • Automation
-
----
-
-# 🌐 Domain Experience
-
-<table>
-<tr>
-<td width="25%" align="center">
-
-## 🏦 FinTech
-Digital Banking  
-LOS / LMS  
-AML / KYC  
-Reconciliation  
-Treasury  
-CMS  
-CKYC  
-
-</td>
-<td width="25%" align="center">
-
-## 🩺 HealthTech
-Doctor Engagement  
-Referrals  
-Patient Journeys  
-Hospital Operations  
-Healthcare Services  
-Incentives  
-
-</td>
-<td width="25%" align="center">
-
-## 📍 Sales Intelligence
-Prospect Intelligence  
-Beat Planning  
-Territory Management  
-Location Intelligence  
-Field Analytics  
-Productivity  
-
-</td>
-<td width="25%" align="center">
-
-## 📡 Telecom Analytics
-Network Analytics  
-Asset Intelligence  
-Spatial Analytics  
-Cost Optimization  
-CapEx / OpEx  
-Data Modeling  
-
-</td>
-</tr>
-</table>
+### Platforms & Architecture
+`API-first Platforms` `Microservices` `Cloud-aligned Architecture` `Enterprise Integrations` `Modular Workflows` `Workflow Automation`
 
 ---
 
-# 🧰 Tools & Technology Exposure
-
-<div align="center">
-
-![JIRA](https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white)
-![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![Python](https://img.shields.io/badge/Python-Basics-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
-![Tableau](https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white)
-
-![Google Analytics](https://img.shields.io/badge/Google_Analytics-E37400?style=for-the-badge&logo=googleanalytics&logoColor=white)
-![Mixpanel](https://img.shields.io/badge/Mixpanel-7856FF?style=for-the-badge)
-![REST APIs](https://img.shields.io/badge/REST_APIs-0A66C2?style=for-the-badge)
-![Frappe](https://img.shields.io/badge/Frappe-0089FF?style=for-the-badge)
-![BigQuery](https://img.shields.io/badge/BigQuery-669DF6?style=for-the-badge&logo=googlebigquery&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-
-</div>
-
-> **Note:** These tools represent product-management, solution-design and analytics exposure across my work — not necessarily the technologies used to build this portfolio website.
-
----
-
-# 🧩 How Every Case Study Is Structured
+# 🧩 Case Study Framework
 
 <details open>
-<summary><b>Click to view the product-story framework</b></summary>
+<summary><b>How each product story is structured</b></summary>
 
 <br/>
 
@@ -569,8 +536,8 @@ Data Modeling
 | **Product Metrics** | How was the product measured? |
 | **Portfolio / Capabilities** | What was actually built? |
 | **Tech & Data** | How does the product/system connect? |
-| **Outcomes** | What impact did the product create? |
-| **Product Leadership** | What does this demonstrate about my product leadership? |
+| **Outcomes** | What impact did it create? |
+| **Product Leadership** | What does it demonstrate about my product leadership? |
 
 </details>
 
@@ -580,18 +547,18 @@ Data Modeling
 
 <div align="center">
 
-## Four products. Four domains. One product-management philosophy.
+## **Four products. Four domains. One product-management philosophy.**
 
 ### **Build what matters. Measure what changes. Scale what works.**
 
-[![Open Portfolio](https://img.shields.io/badge/🌐_OPEN_THE_LIVE_PORTFOLIO-→-00AEEF?style=for-the-badge)](https://mapant.github.io/)
+[![Open Live Portfolio](https://img.shields.io/badge/Open_Live_Portfolio-00AEEF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mapant.github.io/)
 
 <br/>
 
-[![Integrated Channels](https://img.shields.io/badge/Integrated_Channels_Suite-0052CC?style=flat-square)](https://mapant.github.io/projects/integrated-channels/)
-[![DocConnect](https://img.shields.io/badge/Ayu_DocConnect-00A67E?style=flat-square)](https://mapant.github.io/projects/ayu-docconnect/)
-[![Sales Intelligence](https://img.shields.io/badge/Sales_Intelligence-7C3AED?style=flat-square)](https://mapant.github.io/projects/ayu-sales-intelligence/)
-[![Telecom](https://img.shields.io/badge/Telecom_Analytics-E76F51?style=flat-square)](https://mapant.github.io/projects/telecom-cost-optimization/)
+[**Integrated Channels Suite**](https://mapant.github.io/projects/integrated-channels/) •
+[**Ayu DocConnect**](https://mapant.github.io/projects/ayu-docconnect/) •
+[**Sales Intelligence**](https://mapant.github.io/projects/ayu-sales-intelligence/) •
+[**Telecom Analytics**](https://mapant.github.io/projects/telecom-cost-optimization/)
 
 </div>
 
@@ -601,12 +568,12 @@ Data Modeling
 
 <div align="center">
 
-### Have a product opportunity, collaboration or challenging problem worth discussing?
+### Have a product opportunity, collaboration or role worth discussing?
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-mapant.github.io-00AEEF?style=for-the-badge)](https://mapant.github.io/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/manoj-pant-35129495/)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mapant)
-[![Email](https://img.shields.io/badge/Email-Get_in_Touch-7C3AED?style=for-the-badge&logo=microsoftoutlook&logoColor=white)](mailto:manoj.pant.pm@outlook.com)
+[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-00AEEF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mapant.github.io/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/manoj-pant-35129495/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mapant)
+[![Email](https://img.shields.io/badge/Email-7C3AED?style=for-the-badge&logo=microsoftoutlook&logoColor=white)](mailto:manoj.pant.pm@outlook.com)
 
 <br/>
 
