@@ -1,582 +1,159 @@
-<div align="center">
+# Manoj Pant — Product Portfolio
 
-# 👋 Manoj Pant
+**Senior Product Manager | Fintech · Healthcare · Field Sales · Enterprise Analytics**
 
-## Senior Product Manager
+An interactive portfolio presenting my product-management work across digital banking, doctor engagement, field-sales execution and telecom cost intelligence. The case studies connect business problems and user needs with product strategy, requirements, workflows, architecture, delivery, measurement and outcomes.
 
-### Product Strategy • Enterprise Platforms • AI/GenAI • FinTech • HealthTech • Telecom • Data & Analytics
+**[View the live portfolio](https://mapant.github.io/)** · **[Explore the case studies](https://mapant.github.io/#portfolio)** · **[Connect](https://mapant.github.io/#connect)**
 
-[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-00AEEF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mapant.github.io/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/manoj-pant-35129495/)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mapant)
-[![Email](https://img.shields.io/badge/Email-7C3AED?style=for-the-badge&logo=microsoftoutlook&logoColor=white)](mailto:manoj.pant.pm@outlook.com)
+## Portfolio overview
 
-<br/>
+The main portfolio introduces my approach to product ownership through ten sections:
 
-> ### **Turning complex business problems into scalable products, measurable outcomes and long-term product value.**
+**Overview → Ecosystem → Challenge → Strategy → PM Scope → Product Metrics → Portfolio → Tech & Data → Outcomes → Connect**
 
-</div>
+Four dedicated case studies provide project-specific narratives, diagrams, product-interface illustrations and measurement frameworks. Each case study contains ten sections in a single page, with its own internal visual design and section navigation.
 
----
+| Project | Focus | Live case study |
+|---|---|---|
+| **Integrated Channels Suite — M2P Fintech** | A connected twelve-application banking suite, configurable workflows, integrations, institutional deployment and product ownership | [Explore Integrated Channels](https://mapant.github.io/projects/integrated-channels/) |
+| **Ayu DocConnect — Ayu Health** | Doctor engagement, digital referrals, patient-journey visibility, healthcare services and product measurement | [Explore Ayu DocConnect](https://mapant.github.io/projects/ayu-docconnect/) |
+| **Ayu Sales Intelligence & Field Force Optimization — Ayu Health** | Prospect intelligence, beat planning, field visits, territory allocation, operational visibility and scoped pilot outcomes | [Explore Sales Intelligence](https://mapant.github.io/projects/ayu-sales-intelligence/) |
+| **Telecom Analytics & Cost Optimization — Nokia Networks** | Asset identity, spatial visibility, operational and financial data, analytics trust and capital efficiency | [Explore Telecom Analytics](https://mapant.github.io/projects/telecom-cost-optimization/) |
 
-# ✨ About Me
+The portfolio demonstrates product discovery, prioritisation, requirement definition, workflow design, cross-functional execution, adoption and data-informed improvement. Detailed outcomes retain the scope stated within each case study.
 
-I am a **Senior Product Manager with 10+ years of experience across FinTech, HealthTech, Telecom and Enterprise IT**, with a career progression from **Reporting & Analytics → Business Analysis → Technical Product Management → Product Management → Senior Product Management**.
+## Website implementation
 
-I lead products across the complete lifecycle — from **discovery, customer and market understanding, product vision and roadmap definition** through **requirements, prioritisation, API/integration design, Agile delivery, UAT, launch, adoption, measurement and continuous improvement**.
+The portfolio is a statically generated Astro website. Its project interfaces, maps, charts and architecture diagrams are native portfolio demonstrations. They illustrate the represented products; they do not connect to banking, healthcare, sales or telecom production systems.
 
-My strength is combining **product strategy, data-driven decision making and technical product depth**. I have worked on enterprise platforms involving **digital banking, lending, payments, compliance, workflow automation, healthcare journeys, sales intelligence and telecom analytics**, while partnering across Business, Product, Data, Engineering, Design, Operations, Sales and Delivery.
-
-I also work with **AI/GenAI use-case discovery, rapid prototyping, workflow automation and product experimentation**, using tools such as Microsoft Copilot, ChatGPT, Claude and Figma AI to accelerate validation, refine product thinking and identify new product opportunities.
-
-<div align="center">
-
-### **Discover → Define → Prioritise → Design → Deliver → Measure → Improve → Scale**
-
-</div>
-
----
-
-# 🎯 Product Focus
-
-<table>
-<tr>
-<td width="25%" valign="top">
-
-## 🧭 Product Strategy & Growth
-
-- Product Strategy
-- Product Vision
-- Product Roadmaps
-- Product Discovery
-- Go-to-Market Strategy
-- Market Research
-- Competitive Analysis
-- Product Prioritisation
-
-</td>
-<td width="25%" valign="top">
-
-## 🚀 Product Delivery & Leadership
-
-- Product Lifecycle Management
-- Agile Product Management
-- Backlog Management
-- Release Management
-- UAT Management
-- Cross-functional Leadership
-- Stakeholder Management
-- Delivery Governance
-
-</td>
-<td width="25%" valign="top">
-
-## 🤖 AI, Data & Product Innovation
-
-- AI Product Management
-- Generative AI
-- AI Use-case Development
-- Rapid Prototyping
-- Workflow Automation
-- Data Strategy
-- Product Analytics
-- KPI Frameworks
-
-</td>
-<td width="25%" valign="top">
-
-## 🔗 Technology & Platforms
-
-- API-first Architecture
-- API Integrations
-- Microservices
-- Cloud-aligned Platforms
-- Platform Scalability
-- Data Modeling
-- Enterprise Integrations
-- Modular Workflows
-
-</td>
-</tr>
-</table>
-
-<div align="center">
-
-![Strategy](https://img.shields.io/badge/Product_Strategy-0A66C2?style=for-the-badge)
-![Roadmaps](https://img.shields.io/badge/Product_Roadmaps-2563EB?style=for-the-badge)
-![Discovery](https://img.shields.io/badge/Product_Discovery-0891B2?style=for-the-badge)
-![GTM](https://img.shields.io/badge/Go--to--Market-7C3AED?style=for-the-badge)
-![AI](https://img.shields.io/badge/AI_%26_GenAI-E11D48?style=for-the-badge)
-![Data](https://img.shields.io/badge/Data_Strategy-059669?style=for-the-badge)
-
-![API](https://img.shields.io/badge/API--first_Platforms-0284C7?style=for-the-badge)
-![Analytics](https://img.shields.io/badge/Product_Analytics-8B5CF6?style=for-the-badge)
-![Agile](https://img.shields.io/badge/Agile_Delivery-F59E0B?style=for-the-badge)
-![UAT](https://img.shields.io/badge/UAT_%26_Release-EC4899?style=for-the-badge)
-![Leadership](https://img.shields.io/badge/Cross--functional_Leadership-E76F51?style=for-the-badge)
-
-</div>
-
----
-
-# ⚡ Career Impact Snapshot
-
-<table>
-<tr>
-<td align="center" width="20%">
-
-### 🏦 **12+**
-Enterprise banking applications managed across a multi-client platform
-
-</td>
-<td align="center" width="20%">
-
-### 🩺 **150+**
-Hospitals supported across healthcare product workflows
-
-</td>
-<td align="center" width="20%">
-
-### 📈 **40% → 75%**
-Active doctor adoption achieved through Ayu DocConnect
-
-</td>
-<td align="center" width="20%">
-
-### ⏱️ **10 → 2 Days**
-Payout turnaround reduced through workflow automation
-
-</td>
-<td align="center" width="20%">
-
-### 💡 **35%**
-Customer acquisition cost reduction through product improvements
-
-</td>
-</tr>
-</table>
-
----
-
-# 🌈 Featured Product Portfolio
-
-<div align="center">
-
-### Four case studies across four product domains
-
-</div>
-
-| | Product | Domain | Core Product Story | Explore |
-|---|---|---|---|---|
-| 🏦 | **Integrated Channels Suite** | FinTech / Digital Banking | Multi-application banking platform spanning lending, payments, compliance, reconciliation and enterprise integrations | [**View Case Study →**](https://mapant.github.io/projects/integrated-channels/) |
-| 🩺 | **Ayu DocConnect** | HealthTech | Doctor engagement, patient referrals, journey visibility, incentives and network growth | [**View Case Study →**](https://mapant.github.io/projects/ayu-docconnect/) |
-| 📍 | **Sales Intelligence & Field Force Optimization** | Healthcare Sales | Prospect intelligence, beat planning, territory execution and sales visibility | [**View Case Study →**](https://mapant.github.io/projects/ayu-sales-intelligence/) |
-| 📡 | **Telecom Analytics & Cost Optimization** | Telecom Analytics | Asset-centered analytics connecting network, geography, operations and financial context | [**View Case Study →**](https://mapant.github.io/projects/telecom-cost-optimization/) |
-
----
-
-# 🏦 01 — Integrated Channels Suite
-
-> ## **A configurable digital-banking platform for banks and NBFCs**
-
-<div align="center">
-
-![FinTech](https://img.shields.io/badge/FinTech-0052CC?style=for-the-badge)
-![Banking](https://img.shields.io/badge/Digital_Banking-0A66C2?style=for-the-badge)
-![Apps](https://img.shields.io/badge/12%2B_Applications-7C3AED?style=for-the-badge)
-![API](https://img.shields.io/badge/API_%26_Integrations-059669?style=for-the-badge)
-
-</div>
-
-### Product Story
-
-A multi-application digital banking platform designed to support banks and NBFCs across **lending, payments, cards, compliance, reconciliation, treasury, financial control and regulatory workflows** through a common configurable product foundation.
-
-### Product Portfolio
-
-`Audit` • `FAM` • `GST` • `LOS–LMS` • `CMS` • `Shares` • `PM Schemes` • `CIBIL` • `Reconciliation` • `AML–KYC` • `Treasury` • `DMS & CKYC`
-
-### What I Owned
-
-- Product vision, strategy and roadmap
-- Multi-client product delivery
-- Product discovery and requirements
-- PRD / BRD / FSD
-- User stories and acceptance criteria
-- API specifications and integration requirements
-- Workflow design
-- Backlog prioritisation
-- Agile delivery
-- UAT and release readiness
-- Client demonstrations
-- Regulatory and enterprise alignment
-- Cross-functional execution
-
-### Product Value
-
-<table>
-<tr>
-<td align="center">🧩<br/><b>Configurable</b><br/>Institution-specific workflows</td>
-<td align="center">🔗<br/><b>Integrated</b><br/>Banking and payment ecosystems</td>
-<td align="center">🛡️<br/><b>Controlled</b><br/>Regulatory and enterprise workflows</td>
-<td align="center">📈<br/><b>Scalable</b><br/>Multi-application platform foundation</td>
-</tr>
-</table>
-
-<div align="center">
-
-[![Explore Integrated Channels Suite](https://img.shields.io/badge/Explore_Integrated_Channels_Suite-0052CC?style=for-the-badge)](https://mapant.github.io/projects/integrated-channels/)
-
-</div>
-
----
-
-# 🩺 02 — Ayu DocConnect
-
-> ## **Turn doctor relationships into a connected digital care journey**
-
-<div align="center">
-
-![HealthTech](https://img.shields.io/badge/HealthTech-00A67E?style=for-the-badge)
-![Doctor](https://img.shields.io/badge/Doctor_Engagement-0EA5E9?style=for-the-badge)
-![Journey](https://img.shields.io/badge/Patient_Journey-7C3AED?style=for-the-badge)
-![Growth](https://img.shields.io/badge/Referral_Growth-E11D48?style=for-the-badge)
-
-</div>
-
-### Product Story
-
-Ayu DocConnect is a doctor-engagement and referral platform designed to connect **referral doctors, patients, hospitals and healthcare services** through a measurable digital experience.
-
-### Core Capabilities
-
-| Capability | Product Intent |
+| Responsibility | Technology |
 |---|---|
-| 🧾 **Patient Referrals** | Create and manage digital referrals |
-| 🩺 **Patient Tracking** | Track OPD, IPD, discharge and follow-up progression |
-| 💰 **Incentives & Earnings** | Give doctors visibility into referral rewards |
-| 👥 **Doctor Network** | Enable doctor-to-doctor discovery and engagement |
-| 🚑 **Ambulance Services** | Extend access to healthcare support services |
-| 📍 **Google Business** | Support practice visibility and digital presence |
+| Pages and static generation | Astro |
+| Project route adapters | MDX with `@astrojs/mdx` |
+| Content and components | Astro components, semantic HTML and local JavaScript arrays |
+| Layout, typography, cards and colors | SCSS/CSS, Grid, Flexbox, custom properties and system fonts |
+| Diagrams, maps, icons and phone previews | Inline SVG, HTML and CSS |
+| Navigation and workspace interactions | Plain browser JavaScript; custom workspaces in Integrated Channels and native dialogs in Sales Intelligence |
+| Photographs, profile and logo assets | Local files in `public/`, plus native or embedded SVG markup |
+| Build runtime | Node.js and npm |
+| Hosting and deployment | GitHub Actions and GitHub Pages |
 
-### Doctor & Referral Measurement Framework
+The active font stack is primarily **Segoe UI, Arial, sans-serif**. Technology names such as SQL, PostgreSQL, Python, Power BI, Tableau, GA/Mixpanel and Maps inside case-study diagrams describe product or delivery context. Installed website dependencies are defined in [`package.json`](package.json) and resolved by [`package-lock.json`](package-lock.json).
 
-**Doctor Activation • Active Doctor Usage • Repeat Referral Rate • Referral Conversion • Journey Visibility • Payout Turnaround • Lifecycle & Retention • Workflow Adoption**
+## Run locally
 
-### Pilot Outcomes
+Use a Node.js version supported by the package engines: **`^22.12.0` or `^24.0.0`**. The deployment workflow currently uses **22.12.0**.
 
-<table>
-<tr>
-<td align="center"><b>1,150+</b><br/>Doctors installed / logged in</td>
-<td align="center"><b>400+</b><br/>Monthly Active Users</td>
-<td align="center"><b>170+</b><br/>Weekly Active Users</td>
-<td align="center"><b>27+</b><br/>Doctor referrals</td>
-<td align="center"><b>7</b><br/>Doctors onboarded via referral flow</td>
-</tr>
-</table>
+Clone and start the project in Windows PowerShell:
 
-### Product Value
+```powershell
+git clone https://github.com/mapant/mapant.github.io.git manoj-product-portfolio
+cd manoj-product-portfolio
+npm.cmd ci
+npm.cmd run dev
+```
 
-**Stronger doctor engagement. Better visibility into patient journeys. A growing, measurable referral ecosystem.**
+Open the development URL printed in the terminal, normally `http://localhost:4321/`. On other shells, use `npm` in place of `npm.cmd`.
 
-<div align="center">
-
-[![Explore Ayu DocConnect](https://img.shields.io/badge/Explore_Ayu_DocConnect-00A67E?style=for-the-badge)](https://mapant.github.io/projects/ayu-docconnect/)
-
-</div>
-
----
-
-# 📍 03 — Sales Intelligence & Field Force Optimization
-
-> ## **Smarter prospects. Better visit planning. More measurable field execution.**
-
-<div align="center">
-
-![Sales](https://img.shields.io/badge/Sales_Intelligence-7C3AED?style=for-the-badge)
-![Field](https://img.shields.io/badge/Field_Force-0EA5E9?style=for-the-badge)
-![Location](https://img.shields.io/badge/Location_Intelligence-059669?style=for-the-badge)
-![Analytics](https://img.shields.io/badge/Sales_Analytics-F59E0B?style=for-the-badge)
-
-</div>
-
-### Product Story
-
-A field-sales operating and intelligence solution built to help BDMs identify the right prospects, prioritise visits, improve territory coverage, reduce unnecessary travel and give managers stronger visibility into field execution.
-
-### Product Capabilities
-
-- 🧠 **Prospect Intelligence & Assignment**
-- 🗓️ **Beat Plan & Visit Prioritisation**
-- 📍 **Agent & Prospect Visit Management**
-- 🗺️ **Location & Travel Intelligence**
-- 🔄 **Referral-Agent Movement**
-- 📊 **Sales Insights & MIS**
-- ✅ **Agent Lifecycle & Verification**
-
-### Measurement Framework
-
-**Prospect Quality & Acquisition • Field Coverage • Visit Efficiency • Conversion • Field Productivity • Product Adoption & Usage**
-
-### Pilot Outcomes
-
-<table>
-<tr>
-<td align="center"><b>+60%</b><br/>Unique doctor-agent visits — BDM 1</td>
-<td align="center"><b>+166%</b><br/>Unique doctor-agent visits — BDM 2</td>
-<td align="center"><b>-18%</b><br/>Distance travelled per visit — BDM 1</td>
-<td align="center"><b>-15%</b><br/>Distance travelled per visit — BDM 2</td>
-</tr>
-</table>
-
-### Product Value
-
-**Prospect intelligence + location-aware planning + structured field workflows + measurable sales execution.**
-
-<div align="center">
-
-[![Explore Sales Intelligence](https://img.shields.io/badge/Explore_Sales_Intelligence-7C3AED?style=for-the-badge)](https://mapant.github.io/projects/ayu-sales-intelligence/)
-
-</div>
-
----
-
-# 📡 04 — Telecom Analytics & Cost Optimization
-
-> ## **Turning fragmented network data into trusted cost intelligence**
-
-<div align="center">
-
-![Telecom](https://img.shields.io/badge/Telecom-E76F51?style=for-the-badge)
-![Analytics](https://img.shields.io/badge/Analytics-0A66C2?style=for-the-badge)
-![Spatial](https://img.shields.io/badge/Spatial_Intelligence-059669?style=for-the-badge)
-![Cost](https://img.shields.io/badge/Cost_Optimization-F59E0B?style=for-the-badge)
-
-</div>
-
-### Product Story
-
-A telecom analytics initiative focused on connecting **network assets, geographic context, operational information and financial data** to improve cost visibility and data-driven planning.
-
-### Product Approach
-
-<div align="center">
-
-### **Source Systems → Asset Identity → Trusted Joins → Spatial Context → Semantic Model → Cost Intelligence → Decision Support**
-
-</div>
-
-### Focus Areas
-
-<table>
-<tr>
-<td align="center">📡<br/><b>Network Assets</b></td>
-<td align="center">🗺️<br/><b>Spatial Context</b></td>
-<td align="center">⚙️<br/><b>Operations</b></td>
-<td align="center">💰<br/><b>Finance</b></td>
-<td align="center">📈<br/><b>CapEx / OpEx</b></td>
-<td align="center">🧩<br/><b>Data Quality</b></td>
-</tr>
-</table>
-
-### Product Value
-
-- stronger network-cost visibility
-- trusted asset-centered analytics
-- improved data and reporting governance
-- better operational transparency
-- clearer finance/network alignment
-- more informed investment decisions
-
-<div align="center">
-
-[![Explore Telecom Analytics](https://img.shields.io/badge/Explore_Telecom_Analytics-E76F51?style=for-the-badge)](https://mapant.github.io/projects/telecom-cost-optimization/)
-
-</div>
-
----
-
-# 🧠 How I Work as a Product Manager
-
-<table>
-<tr>
-<td width="25%" valign="top">
-
-### 🔎 Discover
-- Customer needs
-- User workflows
-- Market context
-- Business problems
-- Opportunity validation
-
-</td>
-<td width="25%" valign="top">
-
-### 🧭 Define
-- Product vision
-- Use cases
-- Personas
-- PRDs / BRDs
-- Success metrics
-
-</td>
-<td width="25%" valign="top">
-
-### 🎯 Prioritise
-- Customer value
-- Business impact
-- Risk
-- Dependencies
-- Delivery effort
-
-</td>
-<td width="25%" valign="top">
-
-### 🎨 Design
-- User journeys
-- Workflows
-- APIs
-- Integrations
-- Product behavior
-
-</td>
-</tr>
-<tr>
-<td width="25%" valign="top">
-
-### 🚀 Deliver
-- Agile execution
-- Backlog
-- Engineering alignment
-- UAT
-- Release readiness
-
-</td>
-<td width="25%" valign="top">
-
-### 📊 Measure
-- Adoption
-- Engagement
-- Conversion
-- Reliability
-- Business outcomes
-
-</td>
-<td width="25%" valign="top">
-
-### 🔁 Improve
-- Product analytics
-- Feedback
-- Experiments
-- Enhancements
-- Workflow optimization
-
-</td>
-<td width="25%" valign="top">
-
-### 📈 Scale
-- Product foundations
-- GTM
-- Adoption
-- Enterprise rollout
-- Long-term value
-
-</td>
-</tr>
-</table>
-
----
-
-# 🧰 Product, Data & Technology Exposure
-
-<div align="center">
-
-![AI](https://img.shields.io/badge/AI_Product_Management-E11D48?style=for-the-badge)
-![GenAI](https://img.shields.io/badge/Generative_AI-7C3AED?style=for-the-badge)
-![APIs](https://img.shields.io/badge/API_Integrations-0284C7?style=for-the-badge)
-![Cloud](https://img.shields.io/badge/Cloud_Platforms-0EA5E9?style=for-the-badge)
-![Microservices](https://img.shields.io/badge/Microservices-334155?style=for-the-badge)
-![Data](https://img.shields.io/badge/Data_Strategy-059669?style=for-the-badge)
-![Analytics](https://img.shields.io/badge/Product_Analytics-8B5CF6?style=for-the-badge)
-![Automation](https://img.shields.io/badge/Workflow_Automation-F59E0B?style=for-the-badge)
-
-</div>
-
-### Product & Delivery
-`Product Strategy` `Roadmaps` `Discovery` `GTM` `Backlog Management` `Agile` `UAT` `Release Management` `Stakeholder Management`
-
-### Requirements & Solution Definition
-`PRD` `BRD` `FRD` `FSD` `User Stories` `Acceptance Criteria` `Process Flows` `DFDs` `ER Models` `API Specifications`
-
-### AI & Product Innovation
-`AI Product Management` `GenAI` `LLM Use Cases` `Rapid Prototyping` `Microsoft Copilot` `ChatGPT` `Claude` `Figma AI`
-
-### Analytics & Data
-`SQL` `Power BI` `Tableau` `Product Analytics` `KPI Frameworks` `Data Strategy` `Data Modeling`
-
-### Platforms & Architecture
-`API-first Platforms` `Microservices` `Cloud-aligned Architecture` `Enterprise Integrations` `Modular Workflows` `Workflow Automation`
-
----
-
-# 🧩 Case Study Framework
-
-<details open>
-<summary><b>How each product story is structured</b></summary>
-
-<br/>
-
-| Section | Product Question |
+| Command | Purpose |
 |---|---|
-| **Overview** | What is the product and why does it matter? |
-| **Ecosystem** | Who participates and how do they connect? |
-| **Challenge** | What problem needed to be solved? |
-| **Strategy** | What product approach was taken? |
-| **PM Scope** | What did I own and drive? |
-| **Product Metrics** | How was the product measured? |
-| **Portfolio / Capabilities** | What was actually built? |
-| **Tech & Data** | How does the product/system connect? |
-| **Outcomes** | What impact did it create? |
-| **Product Leadership** | What does it demonstrate about my product leadership? |
+| `npm.cmd ci` | Install the dependencies resolved by the lockfile |
+| `npm.cmd run dev` | Start the local development server |
+| `npm.cmd run build` | Generate the production site in `dist/` |
+| `npm.cmd run preview` | Serve the generated production output locally |
+| `git diff --check` | Check tracked changes for whitespace errors |
 
-</details>
+Run a build before previewing production output. Local preview does not publish the site.
 
----
+## Repository structure
 
-# 🚀 Explore the Full Portfolio
+```text
+.
+├── .github/workflows/deploy.yml       # GitHub Pages build and deployment
+├── docs/
+│   ├── references/                   # Five maintenance guides and archived references
+│   ├── ayu-docconnect-validation.md
+│   ├── ayu-sales-intelligence-validation.md
+│   ├── github-pages-root-migration.md
+│   └── PROJECT_CONTEXT.md            # Historical project context
+├── public/                           # Local photos, profile and asset files
+├── src/
+│   ├── components/
+│   │   ├── sections/                 # Ten main-portfolio sections
+│   │   └── ...                       # Shared shell and project-specific components
+│   ├── data/portfolio.js             # Main content collections and project-card mapping
+│   ├── layouts/                      # HTML document and homepage layout
+│   ├── pages/
+│   │   ├── index.astro               # Main portfolio route
+│   │   └── projects/                 # Four MDX case-study route adapters
+│   ├── scripts/                      # Navigation and stored scripts
+│   └── styles/                       # Shared and project-specific SCSS
+├── astro.config.mjs
+├── package.json
+├── package-lock.json
+└── README.md
+```
 
-<div align="center">
+The detailed guides distinguish active source files from retained legacy files. Do not edit generated `dist/` output or assume that a similarly named older component/script is used by the current page.
 
-## **Four products. Four domains. One product-management philosophy.**
+## Implementation and maintenance documentation
 
-### **Build what matters. Measure what changes. Scale what works.**
+Start with the main guide, then read the guide for the project being changed.
 
-[![Open Live Portfolio](https://img.shields.io/badge/Open_Live_Portfolio-00AEEF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mapant.github.io/)
+| Guide | Coverage |
+|---|---|
+| [Main Portfolio](docs/references/main-portfolio-reference.md) | Shared architecture, homepage sections, file/data mapping, assets, layout, setup, deployment and the procedure for adding a project |
+| [Integrated Channels Suite](docs/references/integrated-channels-reference.md) | Twelve application records, display mappings, workspace/deep-link behavior, icons, diagrams and project styles |
+| [Ayu DocConnect](docs/references/ayu-docconnect-reference.md) | Ten sections, new measurement framework, branding, phase typography, phone/orbit diagrams, vendor logos and style ownership |
+| [Ayu Sales Intelligence](docs/references/ayu-sales-intelligence-reference.md) | Component composition, seven workspace IDs, phone/map illustrations, photographic assets, measurement and pilot scope |
+| [Telecom Analytics](docs/references/telecom-reference.md) | Asset/spatial/cost model, native diagrams, display-only dashboard preview, outcome scope and responsive rules |
 
-<br/>
+Additional dated reports:
 
-[**Integrated Channels Suite**](https://mapant.github.io/projects/integrated-channels/) •
-[**Ayu DocConnect**](https://mapant.github.io/projects/ayu-docconnect/) •
-[**Sales Intelligence**](https://mapant.github.io/projects/ayu-sales-intelligence/) •
-[**Telecom Analytics**](https://mapant.github.io/projects/telecom-cost-optimization/)
+- [Ayu DocConnect validation](docs/ayu-docconnect-validation.md)
+- [Ayu Sales Intelligence validation](docs/ayu-sales-intelligence-validation.md)
+- [GitHub Pages root migration](docs/github-pages-root-migration.md)
 
-</div>
+[`docs/PROJECT_CONTEXT.md`](docs/PROJECT_CONTEXT.md) contains historical context. For the current file graph, route count and layout behavior, use the reference guides and verify against the source. Dated reports retain their original results and may describe an earlier worktree state.
 
----
+## Making changes or adding projects
 
-# 🤝 Let's Connect
+- **Main portfolio content:** start with `src/data/portfolio.js` and the corresponding component in `src/components/sections/`.
+- **One case study:** use its dedicated guide to locate the owning component, data collection, SVG or stylesheet.
+- **Shared header or page layout:** inspect `ProjectShell.astro`, the shared styles and route-specific overrides; validate every affected page.
+- **New project:** add an MDX route, dedicated component and scoped styles; map its homepage card, assets, section anchors and previous/next links. Follow the complete checklist in the main guide, including card-grid density and artwork mappings.
+- **Visual correction:** preserve approved wording, numerical scope, section order and project architecture. Compare the designated current reference before changing geometry.
 
-<div align="center">
+Keep reference screenshots as specification/QA artifacts. Build portfolio UI natively rather than using screenshot slices or overlays. Preserve asset attribution, including the [vendor-logo license](public/ayu-docconnect/logos/DEVICON-LICENSE.txt).
 
-### Have a product opportunity, collaboration or role worth discussing?
+The main portfolio contact form opens an email draft through the user's mail client. It does not submit to a server or confirm email delivery.
 
-[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-00AEEF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mapant.github.io/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/manoj-pant-35129495/)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mapant)
-[![Email](https://img.shields.io/badge/Email-7C3AED?style=for-the-badge&logo=microsoftoutlook&logoColor=white)](mailto:manoj.pant.pm@outlook.com)
+## Validation
 
-<br/>
+After changing source:
 
-### **Turning complex business problems into measurable product outcomes.**
+```powershell
+npm.cmd run build
+git diff --check
+git status --short
+git diff --name-status
+```
 
-</div>
+Inspect the affected sections at the established **1280 × 665 CSS viewport** and relevant smaller widths. Check text wrapping, lower rows, diagrams, loaded images, section anchors, active navigation and project links. Exercise workspace controls where applicable. Shared changes require checks across the main portfolio and all four case studies.
+
+Build, page-fit and visual-reference fidelity are separate checks. The existing DocConnect and Sales reports record remaining visual differences; they do not certify every reference pixel as identical. **Native Chrome zoom: NOT VERIFIED.** Consult the dated reports for the exact validation scope and limitations.
+
+## Deployment
+
+The website is hosted at **[https://mapant.github.io/](https://mapant.github.io/)** from the repository **`mapant/mapant.github.io`**.
+
+[`astro.config.mjs`](astro.config.mjs) uses `site: 'https://mapant.github.io'`, static output and directory-style routes. There is no subpath `base`, so root-relative project and asset links resolve under the primary domain.
+
+[`deploy.yml`](.github/workflows/deploy.yml) runs on pushes to `main`. It checks out the repository, builds/uploads with `withastro/action@v2` using Node 22.12.0, and publishes with `actions/deploy-pages@v4`. The retained `build.yml.bak` is a backup, not an active workflow.
+
+Review and validate changes before an authorised commit/push. After deployment, confirm the successful Actions run, published commit, project routes and assets. See the root-migration report for the old-repository backup and routing history.
+
+## Contact
+
+For product roles, advisory conversations or collaboration, use the **[Connect section](https://mapant.github.io/#connect)** of the live portfolio.
